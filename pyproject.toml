@@ -14,7 +14,7 @@ authors = [
 ]
 keywords = ["serialization", "binary", "interchange", "json", "yaml", "xml", "toml", "cbor"]
 classifiers = [
-    "Development Status :: 1 - Planning",
+    "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
@@ -25,6 +25,14 @@ classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules",
     "Topic :: File Formats",
 ]
+dependencies = [
+    "cbor2>=5.4",
+    "ruamel.yaml>=0.17",
+    "tomlkit>=0.11",
+]
+
+[project.scripts]
+cdxf = "cdxf.cli:entry_point"
 
 [project.urls]
 Homepage = "https://github.com/jemsbhai/cdxf"
