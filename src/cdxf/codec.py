@@ -49,6 +49,32 @@ def decode(data: bytes) -> Stream:
 
 
 # ===================================================================
+# Helpers
+# ===================================================================
+
+def _collect_ns_uris(node) -> set[str]:
+    """Walk a tree and collect all namespace URIs."""
+    uris: set[str] = set()
+    if isinstance(node, Element):
+        if node.namespace_uri:
+            uris.add(node.namespace_uri)
+        for attr in node.attributes:
+            if attr.namespace_uri:
+                uris.add(attr.namespace_uri)
+        for child in node.children:
+            uris.update(_collect_ns_uris(child))
+    elif isinstance(node, Map):
+        for entry in node.entries:
+            if not isinstance(entry, Comment):
+                uris.update(_collect_ns_uris(entry[0]))
+                uris.update(_collect_ns_uris(entry[1]))
+    elif isinstance(node, Sequence):
+        for item in node.items:
+            uris.update(_collect_ns_uris(item))
+    return uris
+
+
+# ===================================================================
 # Encoder
 # ===================================================================
 
@@ -58,18 +84,16 @@ class Encoder:
     Parameters
     ----------
     canonical : bool
-        If True, produce canonical (deterministic) encoding: sorted map
-        keys, stripped comments, stripped advisory annotations, stripped
-        source format hints.
+        If True, produce canonical (deterministic) encoding.
     shorthand : bool
-        If True and the stream is a single JSON-model document with no
-        CDXF-specific constructs, emit plain CBOR without Stream/Document
-        wrappers. Produces byte-identical output to standard CBOR.
+        If True and the stream is JSON-model only, emit plain CBOR.
     """
 
     def __init__(self, *, canonical: bool = False, shorthand: bool = False):
         self.canonical = canonical
         self.shorthand = shorthand
+        self._ns_table: list[str] | None = None
+        self._ns_index: dict[str, int] | None = None
 
     def encode(self, stream: Stream) -> bytes:
         if self.shorthand and self._is_shorthand_eligible(stream):
@@ -147,6 +171,15 @@ class Encoder:
         return cbor2.CBORTag(tags.CDXF_STREAM, docs)
 
     def _encode_document(self, doc: Document) -> cbor2.CBORTag:
+        # Build namespace URI table if beneficial
+        ns_uris = _collect_ns_uris(doc.root)
+        if ns_uris:
+            self._ns_table = sorted(ns_uris)
+            self._ns_index = {uri: i for i, uri in enumerate(self._ns_table)}
+        else:
+            self._ns_table = None
+            self._ns_index = None
+
         root_encoded = self._encode_node(doc.root)
 
         options = {}
@@ -165,6 +198,12 @@ class Encoder:
                 options[tags.DOC_OPT_POSTAMBLE] = [
                     self._encode_node(n) for n in doc.postamble
                 ]
+        if self._ns_table:
+            options[tags.DOC_OPT_NS_TABLE] = self._ns_table
+
+        # Clean up
+        self._ns_table = None
+        self._ns_index = None
 
         if options:
             return cbor2.CBORTag(tags.CDXF_DOCUMENT, [root_encoded, options])
@@ -202,12 +241,6 @@ class Encoder:
         raise ValueError(f"Unknown node type: {type(node).__name__}")
 
     def _encode_scalar(self, scalar: Scalar) -> object:
-        """Encode a Scalar to its CBOR representation.
-
-        Temporal types are stored as ISO 8601 strings within their
-        respective CBOR/CDXF tags, avoiding cbor2 limitations with
-        naive datetimes and non-datetime temporal objects.
-        """
         if scalar.scalar_type == ScalarType.NULL:
             return None
         if scalar.scalar_type == ScalarType.BOOLEAN:
@@ -220,8 +253,6 @@ class Encoder:
             return scalar.value
         if scalar.scalar_type == ScalarType.BYTE_STRING:
             return scalar.value
-
-        # -- Temporal types: always encode as ISO 8601 strings --
 
         if scalar.scalar_type == ScalarType.TIMESTAMP_OFFSET:
             iso = (scalar.value.isoformat()
@@ -300,46 +331,76 @@ class Encoder:
             items.append(self._encode_node(item))
         return items
 
+    def _ns_ref(self, uri: str | None) -> int | str | None:
+        """Return integer index if NS table is active, else the URI."""
+        if uri is None:
+            return None
+        if self._ns_index is not None and uri in self._ns_index:
+            return self._ns_index[uri]
+        return uri
+
     def _encode_element(self, elem: Element) -> cbor2.CBORTag:
-        """Encode an Element to CDXF_ELEMENT.
+        """Encode an Element using compact forms when possible.
 
-        Format: [name, namespace_uri, prefix, attrs, children,
-                 optional(ns_declarations)]
+        Compact forms (no namespace, saves 2-3 bytes per element):
+          [name, children]                     — no NS, no attrs
+          [name, attrs, children]              — attrs, no NS
 
-        prefix is stored for round-trip fidelity (advisory).
+        Full form (with namespace):
+          [name, ns_ref, prefix, attrs, children, opt(ns_decls)]
+
+        ns_ref is an integer index into the document's NS table when
+        the table is active, otherwise the full URI string.
         """
+        # Encode attributes
         has_ns_attrs = any(a.namespace_uri for a in elem.attributes)
         if has_ns_attrs:
             attrs = [self._encode_attribute(a) for a in elem.attributes]
         elif elem.attributes:
             attrs = {a.name: a.value for a in elem.attributes}
         else:
-            attrs = {}
+            attrs = None  # distinguish "no attrs" from "empty dict"
 
+        # Encode children
         children = []
         for child in elem.children:
             if isinstance(child, Comment) and self.canonical:
                 continue
             children.append(self._encode_node(child))
 
-        content = [
-            elem.name,
-            elem.namespace_uri,
-            elem.prefix,       # advisory prefix for round-trip
-            attrs,
-            children,
-        ]
+        has_ns = bool(elem.namespace_uri or elem.namespace_declarations
+                      or elem.prefix)
 
-        if elem.namespace_declarations:
-            content.append(
-                cbor2.CBORTag(tags.CDXF_NAMESPACE, elem.namespace_declarations)
-            )
+        if not has_ns:
+            # Compact forms
+            if attrs is None or attrs == {}:
+                # [name, children]
+                content = [elem.name, children]
+            else:
+                # [name, attrs, children]
+                content = [elem.name, attrs, children]
+        else:
+            # Full form with NS interning
+            ns_ref = self._ns_ref(elem.namespace_uri)
+            actual_attrs = attrs if attrs is not None else {}
+            content = [
+                elem.name,
+                ns_ref,
+                elem.prefix,
+                actual_attrs,
+                children,
+            ]
+            if elem.namespace_declarations:
+                content.append(
+                    cbor2.CBORTag(tags.CDXF_NAMESPACE, elem.namespace_declarations)
+                )
 
         return cbor2.CBORTag(tags.CDXF_ELEMENT, content)
 
     def _encode_attribute(self, attr: Attribute) -> cbor2.CBORTag | list:
         if attr.namespace_uri:
-            content = [attr.name, attr.namespace_uri, attr.value]
+            ns_ref = self._ns_ref(attr.namespace_uri)
+            content = [attr.name, ns_ref, attr.value]
             if attr.prefix:
                 content.append(attr.prefix)
             return cbor2.CBORTag(tags.CDXF_ATTRIBUTE, content)
@@ -364,6 +425,9 @@ class Encoder:
 class Decoder:
     """Decode CBOR bytes to CDXF model objects."""
 
+    def __init__(self):
+        self._ns_table: list[str] | None = None
+
     def decode(self, data: bytes) -> Stream:
         raw = cbor2.loads(data)
         if isinstance(raw, cbor2.CBORTag) and raw.tag == tags.CDXF_STREAM:
@@ -382,15 +446,21 @@ class Decoder:
         content = raw.value
 
         if not isinstance(content, list):
+            self._ns_table = None
             root = self._decode_value(content)
             return Document(root=root)
 
         if (len(content) == 2
                 and isinstance(content[1], dict)
                 and all(isinstance(k, int) for k in content[1])):
-            root = self._decode_value(content[0])
             options = content[1]
-            return Document(
+
+            # Read NS table before decoding root
+            self._ns_table = options.get(tags.DOC_OPT_NS_TABLE)
+
+            root = self._decode_value(content[0])
+
+            doc = Document(
                 root=root,
                 source_format_hint=SourceFormat(
                     options.get(tags.DOC_OPT_SOURCE_FORMAT, 0)
@@ -405,12 +475,22 @@ class Decoder:
                     for n in options.get(tags.DOC_OPT_POSTAMBLE, [])
                 ],
             )
+            self._ns_table = None
+            return doc
 
+        self._ns_table = None
         root = self._decode_value(content)
         return Document(root=root)
 
+    def _resolve_ns(self, ref) -> str | None:
+        """Resolve a namespace reference: integer → table lookup, else pass through."""
+        if ref is None:
+            return None
+        if isinstance(ref, int) and self._ns_table is not None:
+            return self._ns_table[ref]
+        return ref
+
     def _decode_value(self, raw) -> object:
-        """Decode any CBOR value to the appropriate CDXF model node."""
         if isinstance(raw, cbor2.CBORTag):
             return self._decode_tagged(raw)
         if isinstance(raw, dict):
@@ -429,7 +509,6 @@ class Decoder:
             return Scalar(ScalarType.STRING, raw)
         if isinstance(raw, bytes):
             return Scalar(ScalarType.BYTE_STRING, raw)
-        # cbor2 may auto-convert tag 0 to datetime — preserve as object
         if isinstance(raw, datetime.datetime):
             if raw.tzinfo is not None:
                 return Scalar(ScalarType.TIMESTAMP_OFFSET, raw)
@@ -441,11 +520,8 @@ class Decoder:
         raise ValueError(f"Unexpected CBOR value type: {type(raw)}")
 
     def _decode_tagged(self, tag: cbor2.CBORTag) -> object:
-        """Decode a CBOR-tagged value."""
         t = tag.tag
         v = tag.value
-
-        # -- Temporal tags: decode ISO strings back to Python objects --
 
         if t == tags.CBOR_DATETIME_RFC3339:
             if isinstance(v, datetime.datetime):
@@ -478,8 +554,6 @@ class Decoder:
             if isinstance(v, datetime.time):
                 return Scalar(ScalarType.TIME, v)
             return Scalar(ScalarType.TIME, v)
-
-        # -- CDXF structural tags --
 
         if t == tags.CDXF_COMMENT:
             return Comment(v)
@@ -524,7 +598,6 @@ class Decoder:
         if t == tags.CDXF_DOCUMENT:
             return self._decode_document(tag)
 
-        # Unknown tag: decode inner value
         inner = self._decode_value(v)
         return inner
 
@@ -558,51 +631,51 @@ class Decoder:
     def _decode_element(self, content: list) -> Element:
         """Decode a CDXF_ELEMENT content array.
 
-        Supports two formats:
-        - New: [name, ns_uri, prefix, attrs, children, opt(ns_decls)]
-        - Old: [name, ns_uri, attrs, children, opt(ns_decls)]
-
-        Detection: if content[2] is a str or None, it's the new format
-        (prefix). If it's a dict or list, it's the old format (attrs).
+        Supports four forms:
+          Compact:  [name, children]                       (len 2)
+          Compact:  [name, attrs, children]                (len 3)
+          Full old: [name, ns_uri, attrs, children, ...]   (len 4+, content[2] is dict/list)
+          Full new: [name, ns_ref, prefix, attrs, children, ...]  (len 5+, content[2] is str/None/int)
         """
-        name = content[0]
-        namespace_uri = content[1]
+        n = len(content)
 
-        # Detect format by type of content[2]
-        if len(content) >= 3 and not isinstance(content[2], (dict, list)):
-            # New format: content[2] is prefix (str or None)
+        if n == 2:
+            # Compact: [name, children]
+            name = content[0]
+            children = [self._decode_value(c) for c in content[1]]
+            return Element(name=name, children=children)
+
+        if n == 3:
+            # Compact: [name, attrs, children]
+            name = content[0]
+            raw_attrs = content[1]
+            children = [self._decode_value(c) for c in content[2]]
+            attributes = self._decode_attrs(raw_attrs)
+            return Element(name=name, attributes=attributes, children=children)
+
+        # Full form — detect old vs new by type of content[2]
+        name = content[0]
+        ns_ref = content[1]
+
+        if n >= 3 and not isinstance(content[2], (dict, list)):
+            # New format: content[2] is prefix (str, None, or int)
             prefix = content[2]
-            raw_attrs = content[3] if len(content) > 3 else {}
-            raw_children = content[4] if len(content) > 4 else []
+            raw_attrs = content[3] if n > 3 else {}
+            raw_children = content[4] if n > 4 else []
             ns_start = 5
         else:
             # Old format: content[2] is attrs (dict or list)
             prefix = None
-            raw_attrs = content[2] if len(content) > 2 else {}
-            raw_children = content[3] if len(content) > 3 else []
+            raw_attrs = content[2] if n > 2 else {}
+            raw_children = content[3] if n > 3 else []
             ns_start = 4
 
-        attributes = []
-        if isinstance(raw_attrs, dict):
-            for k, v in raw_attrs.items():
-                attributes.append(Attribute(name=k, value=v))
-        elif isinstance(raw_attrs, list):
-            for item in raw_attrs:
-                if isinstance(item, cbor2.CBORTag) and item.tag == tags.CDXF_ATTRIBUTE:
-                    a = item.value
-                    attributes.append(Attribute(
-                        name=a[0],
-                        namespace_uri=a[1],
-                        value=a[2],
-                        prefix=a[3] if len(a) > 3 else None,
-                    ))
-                elif isinstance(item, list):
-                    attributes.append(Attribute(name=item[0], value=item[1]))
-
+        namespace_uri = self._resolve_ns(ns_ref)
+        attributes = self._decode_attrs(raw_attrs)
         children = [self._decode_value(c) for c in raw_children]
 
         namespace_declarations = {}
-        if len(content) > ns_start:
+        if n > ns_start:
             ns_raw = content[ns_start]
             if isinstance(ns_raw, cbor2.CBORTag) and ns_raw.tag == tags.CDXF_NAMESPACE:
                 namespace_declarations = ns_raw.value
@@ -617,3 +690,24 @@ class Decoder:
             children=children,
             namespace_declarations=namespace_declarations,
         )
+
+    def _decode_attrs(self, raw_attrs) -> list[Attribute]:
+        """Decode attributes from dict or list form."""
+        attributes = []
+        if isinstance(raw_attrs, dict):
+            for k, v in raw_attrs.items():
+                attributes.append(Attribute(name=k, value=v))
+        elif isinstance(raw_attrs, list):
+            for item in raw_attrs:
+                if isinstance(item, cbor2.CBORTag) and item.tag == tags.CDXF_ATTRIBUTE:
+                    a = item.value
+                    ns_uri = self._resolve_ns(a[1])
+                    attributes.append(Attribute(
+                        name=a[0],
+                        namespace_uri=ns_uri,
+                        value=a[2],
+                        prefix=a[3] if len(a) > 3 else None,
+                    ))
+                elif isinstance(item, list):
+                    attributes.append(Attribute(name=item[0], value=item[1]))
+        return attributes
