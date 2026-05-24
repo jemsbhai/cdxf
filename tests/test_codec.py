@@ -1,6 +1,7 @@
 """Tests for CDXF CBOR encoding and decoding — every node kind."""
 
 import math
+from datetime import date, datetime, time, timezone, timedelta
 
 import cbor2
 import pytest
@@ -118,22 +119,33 @@ class TestScalarEncoding:
         assert_scalar_roundtrip(ScalarType.BYTE_STRING, b"")
 
     def test_timestamp_offset(self):
-        assert_scalar_roundtrip(ScalarType.TIMESTAMP_OFFSET, "2024-05-27T07:32:00-04:00")
+        assert_scalar_roundtrip(
+            ScalarType.TIMESTAMP_OFFSET,
+            datetime(2024, 5, 27, 7, 32, tzinfo=timezone(timedelta(hours=-4))),
+        )
 
     def test_timestamp_offset_utc(self):
-        assert_scalar_roundtrip(ScalarType.TIMESTAMP_OFFSET, "2024-05-27T07:32:00Z")
+        assert_scalar_roundtrip(
+            ScalarType.TIMESTAMP_OFFSET,
+            datetime(2024, 5, 27, 7, 32, tzinfo=timezone.utc),
+        )
 
     def test_timestamp_local(self):
-        assert_scalar_roundtrip(ScalarType.TIMESTAMP_LOCAL, "2024-05-27T07:32:00")
+        assert_scalar_roundtrip(
+            ScalarType.TIMESTAMP_LOCAL,
+            datetime(2024, 5, 27, 7, 32),
+        )
 
     def test_date(self):
-        assert_scalar_roundtrip(ScalarType.DATE, "2024-05-27")
+        assert_scalar_roundtrip(ScalarType.DATE, date(2024, 5, 27))
 
     def test_time(self):
-        assert_scalar_roundtrip(ScalarType.TIME, "07:32:00.999")
+        assert_scalar_roundtrip(
+            ScalarType.TIME, time(7, 32, 0, 999000),
+        )
 
     def test_time_no_fraction(self):
-        assert_scalar_roundtrip(ScalarType.TIME, "07:32:00")
+        assert_scalar_roundtrip(ScalarType.TIME, time(7, 32, 0))
 
 
 # ===================================================================

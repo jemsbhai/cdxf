@@ -344,13 +344,39 @@ class _ModelToYaml:
 
     def _convert_map(self, map_node: Map) -> CommentedMap:
         result = CommentedMap()
+        merge_pairs = []
         for entry in map_node.entries:
             if isinstance(entry, Comment):
                 continue
             key, value = entry
             key_native = key.value if isinstance(key, Scalar) else key
+
+            # Detect YAML merge key: key is "<<" with merge tag
+            is_merge = (
+                key_native == "<<"
+                and isinstance(key, Scalar)
+                and key.tag is not None
+                and key.tag.uri == "tag:yaml.org,2002:merge"
+            )
+
             value_native = self.convert(value)
-            result[key_native] = value_native
+
+            if is_merge:
+                # Collect merge pairs for add_yaml_merge
+                if isinstance(value_native, list):
+                    # Sequence of maps
+                    for idx, m in enumerate(value_native):
+                        merge_pairs.append((idx, m))
+                else:
+                    merge_pairs.append((0, value_native))
+            else:
+                result[key_native] = value_native
+
+        # Apply merge keys via ruamel.yaml's merge API so that
+        # the dumper emits proper <<: *alias syntax
+        if merge_pairs:
+            result.add_yaml_merge(merge_pairs)
+
         return result
 
     def _convert_sequence(self, seq: Sequence) -> CommentedSeq:

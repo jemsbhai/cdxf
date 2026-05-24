@@ -200,7 +200,10 @@ class _ExpatHandler:
         self.postamble: list = []
         self._root_closed: bool = False
         self._ns_pending: dict[str, str] = {}   # prefix → uri for next element
-        self._ns_scopes: list[dict[str, str]] = [{}]  # stack of cumulative scopes
+        # Pre-seed the xml namespace (always implicitly bound per XML spec)
+        self._ns_scopes: list[dict[str, str]] = [{
+            "xml": "http://www.w3.org/XML/1998/namespace",
+        }]
 
     # ---------------------------------------------------------------
     # Location helper

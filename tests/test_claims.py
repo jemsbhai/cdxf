@@ -597,15 +597,22 @@ class TestClaimTomlDatetimeTypes:
     their specific type preserved, not collapsed into a generic string."""
 
     def test_all_toml_datetime_types(self):
+        from datetime import date, datetime, time, timezone, timedelta
+
+        offset_val = datetime(2024, 5, 27, 7, 32, tzinfo=timezone(timedelta(hours=-4)))
+        local_val = datetime(2024, 5, 27, 7, 32)
+        date_val = date(2024, 5, 27)
+        time_val = time(7, 32, 0, 999000)
+
         root = Map(entries=[
             (Scalar(ScalarType.STRING, "offset_dt"),
-             Scalar(ScalarType.TIMESTAMP_OFFSET, "2024-05-27T07:32:00-04:00")),
+             Scalar(ScalarType.TIMESTAMP_OFFSET, offset_val)),
             (Scalar(ScalarType.STRING, "local_dt"),
-             Scalar(ScalarType.TIMESTAMP_LOCAL, "2024-05-27T07:32:00")),
+             Scalar(ScalarType.TIMESTAMP_LOCAL, local_val)),
             (Scalar(ScalarType.STRING, "date"),
-             Scalar(ScalarType.DATE, "2024-05-27")),
+             Scalar(ScalarType.DATE, date_val)),
             (Scalar(ScalarType.STRING, "time"),
-             Scalar(ScalarType.TIME, "07:32:00.999")),
+             Scalar(ScalarType.TIME, time_val)),
         ])
         original = Stream(documents=[Document(root=root, source_format_hint=SourceFormat.TOML)])
         restored = decode(encode(original))
@@ -615,7 +622,7 @@ class TestClaimTomlDatetimeTypes:
         assert entries["local_dt"].scalar_type == ScalarType.TIMESTAMP_LOCAL
         assert entries["date"].scalar_type == ScalarType.DATE
         assert entries["time"].scalar_type == ScalarType.TIME
-        assert entries["offset_dt"].value == "2024-05-27T07:32:00-04:00"
-        assert entries["local_dt"].value == "2024-05-27T07:32:00"
-        assert entries["date"].value == "2024-05-27"
-        assert entries["time"].value == "07:32:00.999"
+        assert entries["offset_dt"].value == offset_val
+        assert entries["local_dt"].value == local_val
+        assert entries["date"].value == date_val
+        assert entries["time"].value == time_val
