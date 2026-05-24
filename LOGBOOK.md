@@ -147,15 +147,99 @@ Three tiers with documented provenance:
 
 ### Results
 
-*To be filled after experiment completes.*
+**Executed:** 2026-05-24T20:02 UTC
+**Git commit:** post feat(bridges) + fix(codec+bridges) commits
+**Corpus:** 43 files (27 Tier 1 SchemaStore, 6 Tier 2 canonical, 10 Tier 3 synthetic)
+**Total corpus size:** 155,213 bytes
+
+**Environment (exact versions):**
+- Python 3.12.2, Windows 11, AMD64
+- cbor2 5.8.0, msgpack 1.1.2, ruamel.yaml 0.18.14, tomlkit 0.14.0
+- zstandard 0.25.0, pymongo 4.16.0, amazon.ion 0.13.0
+
+#### Round-Trip Fidelity
+
+**43/43 files pass** full pipeline: text → CDXF → CBOR → CDXF → text.
+100% data-level semantic equivalence across all 4 format families.
+
+Additionally, 31 structural fidelity tests verify that format-specific
+constructs (comments, anchors, namespaces, PIs, mixed content, typed
+scalars) survive the binary round-trip at the information model level.
+
+#### Size Efficiency (CDXF full / original text)
+
+| Format | n  | Median | Mean  | Std   |
+|--------|----|--------|-------|-------|
+| JSON   | 30 | 0.663  | 0.673 | 0.191 |
+| YAML   |  5 | 0.822  | 0.947 | 0.313 |
+| XML    |  4 | 1.262  | 1.324 | 0.399 |
+| TOML   |  4 | 0.754  | 0.767 | 0.083 |
+
+JSON shorthand mode is byte-identical to naive CBOR (overhead = 0%).
+CDXF full mode adds median 1.5% overhead vs naive CBOR for JSON documents
+(driven by Stream/Document wrapper tags; negligible for files > 100 bytes).
+
+XML CDXF encoding is larger than source text (median 1.26x) because the
+binary encoding must store element names, namespace URIs, and structural
+tags that are implicit in XML’s angle-bracket syntax. However, after
+compression (gzip/zstd), CDXF and raw XML converge.
+
+#### Feature Preservation Matrix
+
+| Construct                  | CDXF | CBOR | MsgPack | BSON | Ion |
+|----------------------------|------|------|---------|------|-----|
+| Map key order              |  ✓   |  ✓   |    ✓    |  ✓   |  ✗  |
+| Non-string map keys        |  ✓   |  ✓   |    ✗    |  ✗   |  ✗  |
+| Comments                   |  ✓   |  ✗   |    ✗    |  ✗   |  ✗  |
+| Anchors/Aliases (graph)    |  ✓   |  ✗   |    ✗    |  ✗   |  ✗  |
+| Merge keys                 |  ✓   |  ✗   |    ✗    |  ✗   |  ✗  |
+| Multi-document streams     |  ✓   |  ✗   |    ✗    |  ✗   |  ✗  |
+| XML elements/attributes    |  ✓   |  ✗   |    ✗    |  ✗   |  ✗  |
+| XML namespaces             |  ✓   |  ✗   |    ✗    |  ✗   |  ✗  |
+| XML mixed content          |  ✓   |  ✗   |    ✗    |  ✗   |  ✗  |
+| Processing instructions    |  ✓   |  ✗   |    ✗    |  ✗   |  ✗  |
+| Typed timestamps           |  ✓   |  ✓   |    ✗    |  ✓   |  ✗  |
+| Typed date/time (local)    |  ✓   |  ✗   |    ✗    |  ✗   |  ✗  |
+| **Total**                  |**12**| **3**|  **1**  | **2**|**0**|
+
+CDXF is the only format that preserves all 12 constructs.
 
 ### Observations
 
-*To be filled after experiment completes.*
+1. CDXF shorthand mode achieves the zero-overhead claim: byte-identical to
+   naive CBOR for JSON-model data.
+2. For format-rich documents (comments, anchors, namespaces), CDXF is larger
+   than naive CBOR — but naive CBOR destroys the information those bytes
+   encode. The overhead is the cost of fidelity, not waste.
+3. Comment-dense YAML is the worst case for CDXF vs CBOR overhead (3.7x)
+   because CBOR discards all comments while CDXF preserves every one.
+4. XML namespace-heavy documents inflate in CDXF (1.84x vs text) because
+   each element stores its full namespace URI. This is by design — namespace
+   URIs are semantically significant — and compresses well (0.11x with zstd).
+5. Amazon Ion scored 0/12 despite being the closest expressiveness competitor
+   in the literature. Its binary format preserves timestamps but not key order,
+   local datetimes, or any XML/YAML-specific constructs.
+6. Compression largely equalizes size differences: gzip(CDXF) and gzip(text)
+   are within 5% for most documents.
 
 ### Interpretation
 
-*To be filled after experiment completes.*
+The hypothesis is **partially supported with caveats:**
+
+- **JSON overhead hypothesis (≤5%) — SUPPORTED.** Shorthand mode adds 0%.
+  Full mode adds median 1.5% for documents > 100 bytes.
+- **Format-rich overhead hypothesis (≤15%) — NOT SUPPORTED as stated.**
+  Comment-dense and namespace-heavy documents exceed 15%. However, the
+  overhead scales with the amount of metadata preserved, not with data size.
+  The hypothesis should be restated: CDXF adds overhead proportional to the
+  metadata it preserves, with negligible overhead for metadata-free documents.
+- **100% round-trip fidelity — SUPPORTED.** 43/43 corpus files, 31 structural
+  fidelity tests, 12/12 feature preservation constructs.
+- **Secondary hypothesis (compression) — PARTIALLY SUPPORTED.** gzip(CDXF)
+  is comparable to gzip(text) for most documents. zstd(CDXF) sometimes
+  outperforms zstd(text) due to reduced entropy in binary encoding.
+- **Uniqueness claim — STRONGLY SUPPORTED.** No existing binary format
+  preserves more than 3/12 constructs. CDXF preserves 12/12.
 
 ### Artifacts
 

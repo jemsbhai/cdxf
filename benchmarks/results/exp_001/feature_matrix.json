@@ -1,0 +1,86 @@
+{
+  "map_key_order": {
+    "cdxf": true,
+    "cbor": true,
+    "msgpack": true,
+    "bson": true,
+    "ion": false
+  },
+  "non_string_map_keys": {
+    "cdxf": true,
+    "cbor": true,
+    "msgpack": false,
+    "bson": false,
+    "ion": false
+  },
+  "comments": {
+    "cdxf": true,
+    "cbor": false,
+    "msgpack": false,
+    "bson": false,
+    "ion": false
+  },
+  "anchors_aliases": {
+    "cdxf": true,
+    "cbor": false,
+    "msgpack": false,
+    "bson": false,
+    "ion": false
+  },
+  "merge_keys": {
+    "cdxf": true,
+    "cbor": false,
+    "msgpack": false,
+    "bson": false,
+    "ion": false
+  },
+  "multi_document_streams": {
+    "cdxf": true,
+    "cbor": false,
+    "msgpack": false,
+    "bson": false,
+    "ion": false
+  },
+  "xml_elements_attributes": {
+    "cdxf": true,
+    "cbor": false,
+    "msgpack": false,
+    "bson": false,
+    "ion": false
+  },
+  "xml_namespaces": {
+    "cdxf": true,
+    "cbor": false,
+    "msgpack": false,
+    "bson": false,
+    "ion": false
+  },
+  "xml_mixed_content": {
+    "cdxf": true,
+    "cbor": false,
+    "msgpack": false,
+    "bson": false,
+    "ion": false
+  },
+  "processing_instructions": {
+    "cdxf": true,
+    "cbor": false,
+    "msgpack": false,
+    "bson": false,
+    "ion": false
+  },
+  "typed_timestamps": {
+    "cdxf": true,
+    "cbor": true,
+    "msgpack": false,
+    "bson": true,
+    "ion": false
+  },
+  "typed_date_time_local": {
+    "cdxf": true,
+    "cbor": false,
+    "msgpack": false,
+    "bson": false,
+    "ion": false
+  }
+}
