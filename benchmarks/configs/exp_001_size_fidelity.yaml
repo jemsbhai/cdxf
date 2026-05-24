@@ -1,0 +1,111 @@
+# EXP-001: Size Efficiency & Round-Trip Fidelity
+# Frozen config — do not edit after experiment starts.
+# Copy of this file is saved to benchmarks/results/exp_001/ at runtime.
+
+experiment:
+  id: "EXP-001"
+  name: "Size Efficiency & Round-Trip Fidelity"
+  type: computational
+  date_planned: "2026-05-24"
+
+corpus:
+  root: "data/raw"
+  tiers:
+    - name: "tier1_schemastore"
+      description: "Viotti SOTA benchmark corpus (SchemaStore)"
+      format: json
+      path: "json/tier1_schemastore"
+    - name: "tier2_json"
+      description: "Canonical real-world JSON (GeoJSON, etc.)"
+      format: json
+      path: "json/tier2_canonical"
+    - name: "tier2_yaml"
+      description: "Kubernetes manifests, GitHub Actions workflows"
+      format: yaml
+      path: "yaml/tier2_kubernetes"
+    - name: "tier2_xml"
+      description: "Maven POM, Atom, SVG, XHTML"
+      format: xml
+      path: "xml/tier2_canonical"
+    - name: "tier2_toml"
+      description: "Cargo.toml, pyproject.toml"
+      format: toml
+      path: "toml/tier2_canonical"
+    - name: "tier3_synthetic"
+      description: "Stress-test synthetic documents"
+      format: mixed
+      path: "synthetic"
+
+baselines:
+  - name: "raw_text"
+    description: "Original text file (identity baseline)"
+  - name: "cbor_naive"
+    library: "cbor2"
+    description: "CBOR encoding of Python-native data (no CDXF model)"
+  - name: "msgpack"
+    library: "msgpack"
+    description: "MessagePack binary JSON"
+  - name: "bson"
+    library: "bson"
+    description: "MongoDB BSON"
+  - name: "ion_binary"
+    library: "amazon.ion"
+    description: "Amazon Ion binary encoding"
+  - name: "cdxf_full"
+    library: "cdxf"
+    description: "CDXF with all semantic tags"
+  - name: "cdxf_shorthand"
+    library: "cdxf"
+    description: "CDXF shorthand mode (JSON-model data)"
+  - name: "gzip_text"
+    library: "gzip"
+    level: 9
+    description: "gzip-compressed original text"
+  - name: "zstd_text"
+    library: "zstandard"
+    level: 3
+    description: "Zstandard-compressed original text"
+  - name: "gzip_cdxf"
+    library: "gzip+cdxf"
+    level: 9
+    description: "gzip-compressed CDXF binary"
+  - name: "zstd_cdxf"
+    library: "zstandard+cdxf"
+    level: 3
+    description: "Zstandard-compressed CDXF binary"
+
+measurements:
+  size:
+    - raw_bytes
+    - ratio_vs_text        # encoded / text
+    - ratio_vs_cbor_naive  # encoded / naive CBOR (JSON-model only)
+  fidelity:
+    - roundtrip_pass       # text -> CDXF -> CBOR -> CDXF -> text semantic eq
+  feature_preservation:
+    constructs:
+      - map_key_order
+      - non_string_map_keys
+      - comments
+      - anchors_aliases
+      - merge_keys
+      - multi_document_streams
+      - xml_elements_attributes
+      - xml_namespaces
+      - xml_mixed_content
+      - processing_instructions
+      - typed_timestamps
+      - typed_date_time_local
+
+statistics:
+  # Per-file results always reported.
+  # Aggregates computed per format and overall.
+  aggregates:
+    - median
+    - mean
+    - std
+    - ci_95_lower
+    - ci_95_upper
+  visualization:
+    - box_plot_by_format
+    - feature_matrix_heatmap
+    - size_scatter_per_file
