@@ -248,3 +248,105 @@ The hypothesis is **partially supported with caveats:**
 - Figures: benchmarks/results/exp_001/figures/
 - Corpus: data/raw/
 - Checksums: data/checksums.sha256
+
+---
+
+## EXP-001 Addendum: Compact Element Encoding + Namespace Interning
+
+**Date:** 2026-05-24
+**Status:** completed
+
+Optimization applied to codec between EXP-001 and EXP-002. Two changes:
+
+1. **Compact element encoding** — elements without namespaces use shorter
+   arrays: `[name, children]` or `[name, attrs, children]` instead of the
+   full 5-6 element form. Saves ~3 bytes per element.
+2. **Namespace URI interning** — unique URIs stored once in a document-level
+   table (`DOC_OPT_NS_TABLE`). Elements reference by integer index.
+
+Both are backward-compatible. Decoder handles old and new forms.
+
+**Impact on XML size ratios:**
+
+| File                    | Before | After  |
+|-------------------------|--------|--------|
+| xml_namespace_heavy.xml | 1.877x | 1.034x |
+| atom-namespace.xml      | 1.420x | 0.998x |
+| xml_mixed_content.xml   | 1.118x | 1.002x |
+| xml_comment_heavy.xml   | 0.958x | 0.928x |
+| **XML median**          | **1.262x** | **0.994x** |
+
+All four format families now have median CDXF/text ratio ≤ 1.0.
+43/43 round-trip fidelity maintained. 408 tests pass.
+
+---
+
+## EXP-002: Encode/Decode Throughput
+
+**Date:** 2026-05-24
+**Researcher:** Muntaser Syed
+**Type:** computational (performance)
+**Status:** planned
+
+### Hypothesis
+
+CDXF encode/decode throughput is within the same order of magnitude as
+native CBOR, MessagePack, and JSON serialization. The overhead of the
+richer information model does not impose a prohibitive performance penalty
+for practical use.
+
+### Independent Variables
+
+- **Operation:** encode (text/model → binary) vs decode (binary → model)
+- **Source format:** JSON, YAML, XML, TOML
+- **Document size:** small (~100B), medium (~1KB), large (~10KB+)
+- **Baseline format:** CBOR, MessagePack, BSON, Ion, stdlib JSON
+
+### Dependent Variables
+
+1. `time_seconds` — wall-clock time per operation
+2. `throughput_bytes_per_sec` — input bytes / time
+3. `ops_per_sec` — operations per second
+
+### Statistical Protocol
+
+- **Warm-up:** 5 iterations discarded before measurement
+- **Measurement:** 100 iterations per (file, operation, baseline) triple
+- **Reporting:** median, mean, std, 95% CI
+- **GC control:** `gc.disable()` during measurement, `gc.collect()` between files
+- **Timer:** `time.perf_counter_ns()` for nanosecond precision
+- **Outlier handling:** report all data, do NOT remove outliers
+
+### Baselines
+
+| Baseline      | Encode                        | Decode                         |
+|---------------|-------------------------------|--------------------------------|
+| stdlib JSON   | json.dumps(native)            | json.loads(text)               |
+| CBOR          | cbor2.dumps(native)           | cbor2.loads(binary)            |
+| MessagePack   | msgpack.packb(native)         | msgpack.unpackb(binary)        |
+| BSON          | bson.encode(native)           | bson.decode(binary)            |
+| Ion           | ion.dumps(native, binary=True)| ion.loads(binary)              |
+| CDXF full     | bridge + encode               | decode + bridge                |
+| CDXF codec    | encode(stream) only           | decode(binary) only            |
+
+CDXF is measured two ways: full pipeline (including text parsing/emitting)
+and codec-only (CDXF model ↔ CBOR binary). This separates the cost of the
+information model from the cost of text parsing.
+
+### Corpus
+
+Same 43-file corpus from EXP-001.
+
+### Environment
+
+Same as EXP-001. Python 3.12.2, Windows 11, 64GB RAM.
+
+### Results
+
+*To be filled after experiment completes.*
+
+### Artifacts
+
+- Script: benchmarks/src/run_exp002.py
+- Config: benchmarks/configs/exp_002_throughput.yaml
+- Results: benchmarks/results/exp_002/
