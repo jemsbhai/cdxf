@@ -1,0 +1,45 @@
+"""CBOR tag numbers for CDXF-specific constructs.
+
+These are provisional assignments pending IANA registration.
+CBOR-native tags (0, 2, 3, 4) are used directly for timestamps,
+bignums, and decimal fractions.
+"""
+
+# -- CDXF structural tags (provisional range 25700-25715) --
+
+CDXF_STREAM = 25700
+CDXF_DOCUMENT = 25701
+CDXF_ELEMENT = 25702
+CDXF_ATTRIBUTE = 25703
+CDXF_ANCHOR = 25704
+CDXF_ALIAS = 25705
+CDXF_COMMENT = 25706
+CDXF_PI = 25707
+CDXF_DIRECTIVE = 25708
+CDXF_TAG = 25709
+CDXF_NAMESPACE = 25710
+CDXF_TIMESTAMP_LOCAL = 25711
+CDXF_DATE = 25712
+CDXF_TIME = 25713
+CDXF_COMMENTED_MAP = 25714
+CDXF_ADVISORY = 25715
+
+# -- CBOR-native tags (RFC 8949) --
+
+CBOR_DATETIME_RFC3339 = 0
+CBOR_BIGNUM_POSITIVE = 2
+CBOR_BIGNUM_NEGATIVE = 3
+CBOR_DECIMAL_FRACTION = 4
+
+# -- Document options map keys --
+
+DOC_OPT_SOURCE_FORMAT = 1
+DOC_OPT_ALLOWS_CYCLES = 2
+DOC_OPT_PREAMBLE = 3
+DOC_OPT_POSTAMBLE = 4
+DOC_OPT_DIRECTIVES = 5
+
+# -- Advisory flags bitmask --
+
+ADVISORY_IS_CDATA = 0x01
+ADVISORY_IS_INLINE = 0x02
