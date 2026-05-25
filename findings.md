@@ -382,3 +382,30 @@ TOML = 64.3% whitespace + 13.2% delimiters.
 
 Cross-format: Same nested ML config — JSON 170 tokens (58.4% tax), YAML 132
 tokens (50.6%), TOML 122 tokens (42.3%). TOML saves 28% vs JSON.
+
+### F21: CDXF tool schema consolidation saves 51–52% of tool-definition tokens across all major LLM providers
+
+**Source:** EXP-012 (Agentic Tool Schema Consolidation Overhead)
+
+An agent handling 4 text formats (JSON, YAML, XML, TOML) requires 8
+format-specific tool definitions (parse + emit per format). CDXF consolidates
+this to 3 universal tools (encode, decode, convert). Measured using canonical
+tool-calling schemas from 5 real LLM providers:
+
+| Provider | Specific | CDXF | Saved | Reduction |
+|----------|----------|------|-------|-----------|
+| OpenAI Chat Completions | 1526 | 735 | 791 | 51.8% |
+| OpenAI Responses API | 1470 | 714 | 756 | 51.4% |
+| Anthropic Claude | 1422 | 696 | 726 | 51.1% |
+| Google Gemini | 1414 | 693 | 721 | 51.0% |
+| Mistral | 1526 | 735 | 791 | 51.8% |
+
+Nested schema formats (OpenAI Chat Completions, Mistral) incur ~8% more
+tokens than flat formats (Gemini, Anthropic) for the same tool definitions.
+
+Scaling: At N=6 formats, savings reach 65–66% across all providers. CDXF
+token count remains constant (O(1)) while format-specific grows linearly (O(N)).
+
+Honest caveat: Schema definitions are loaded once per session, so absolute
+savings are modest (791 tokens = 0.6% of 128K context). The value is in
+scaling — systems handling many formats benefit disproportionately.

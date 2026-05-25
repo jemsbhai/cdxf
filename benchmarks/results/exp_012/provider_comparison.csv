@@ -1,0 +1,11 @@
+provider,tokenizer,format_specific_tokens,cdxf_tokens,tokens_saved,reduction_pct,savings_fraction_of_128k
+openai_chatcomp,cl100k_base,1526,735,791,51.83,0.00618
+openai_chatcomp,o200k_base,1535,735,800,52.12,0.00625
+openai_responses,cl100k_base,1470,714,756,51.43,0.005906
+openai_responses,o200k_base,1479,714,765,51.72,0.005977
+anthropic,cl100k_base,1422,696,726,51.05,0.005672
+anthropic,o200k_base,1431,696,735,51.36,0.005742
+gemini,cl100k_base,1414,693,721,50.99,0.005633
+gemini,o200k_base,1423,693,730,51.3,0.005703
+mistral,cl100k_base,1526,735,791,51.83,0.00618
+mistral,o200k_base,1535,735,800,52.12,0.00625

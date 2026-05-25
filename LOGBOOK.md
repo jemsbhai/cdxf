@@ -1648,3 +1648,81 @@ presented honestly in the paper as a finding that challenges assumptions.
   - exp_011_results.json
   - syntax_tax_results.csv
   - context_projections.csv
+
+---
+
+## EXP-012: Agentic Tool Schema Consolidation Overhead
+
+**Date:** 2026-05-25
+**Status:** COMPLETED
+**Commit:** TBD
+
+### Protocol
+
+Measure token savings from consolidating N format-specific tool definitions
+(parse_json, emit_json, parse_yaml, etc.) into 3 CDXF universal tools
+(cdxf_encode, cdxf_decode, cdxf_convert). Uses canonical tool-calling schemas
+from 5 real LLM providers: OpenAI Chat Completions, OpenAI Responses API,
+Anthropic Claude, Google Gemini, and Mistral.
+
+Tokenization via tiktoken (cl100k_base, o200k_base). Scaling analysis for
+N = {2, 3, 4, 5, 6} formats. Session overhead projections for 5/20/100 calls.
+Corpus: 58 files from EXP-001 + EXP-010 for call-result token measurement.
+
+### Results
+
+**Schema comparison (4 formats, cl100k_base):**
+
+| Provider | Specific | CDXF | Saved | Reduction |
+|----------|----------|------|-------|-----------|
+| OpenAI Chat Completions | 1526 | 735 | 791 | 51.8% |
+| OpenAI Responses API | 1470 | 714 | 756 | 51.4% |
+| Anthropic Claude | 1422 | 696 | 726 | 51.1% |
+| Google Gemini | 1414 | 693 | 721 | 51.0% |
+| Mistral | 1526 | 735 | 791 | 51.8% |
+
+**Scaling (OpenAI Chat Completions, cl100k_base):**
+- N=2: 4.9% savings (38 tokens)
+- N=3: 37.8% savings (447 tokens)
+- N=4: 51.8% savings (791 tokens)
+- N=5: 60.1% savings (1106 tokens)
+- N=6: 66.2% savings (1439 tokens)
+
+CDXF token count stays constant (735); format-specific grows linearly.
+
+**Call result tokens (58 files):**
+- cl100k_base: mean 1480, median 239 tokens per file
+
+**Session overhead (OpenAI Chat Completions, cl100k_base):**
+- 5 calls: 8924 specific vs 8134 CDXF (saved 791)
+- 20 calls: 31120 vs 30329 (saved 791)
+- 100 calls: 149496 vs 148705 (saved 791)
+
+Schema savings are fixed (loaded once); call-result tokens dominate sessions.
+
+### Key Finding
+
+**F21:** CDXF consolidation saves 51-52% of tool-definition tokens consistently
+across all 5 major LLM providers. Nested schema formats (OpenAI/Mistral)
+incur ~8% more tokens than flat formats (Gemini/Anthropic). Savings scale
+linearly with N formats, reaching 66% at N=6.
+
+### Honest Caveats
+
+- Schema definitions are loaded once per session, so absolute context savings
+  are modest (791 tokens = 0.6% of 128K).
+- Call-result tokens dominate session overhead; schema consolidation helps
+  most for short sessions (few tool calls).
+- OpenAI/Mistral structural identity confirms schema format is a de facto
+  standard split between nested (Chat Completions lineage) and flat.
+
+### Artifacts
+
+- Script: benchmarks/src/run_exp012.py
+- Tests: tests/test_exp012.py (122 tests)
+- Results: benchmarks/results/exp_012/
+  - exp_012_results.json
+  - scaling_analysis.csv
+  - call_result_tokens.csv
+  - provider_comparison.csv
+  - tool_schemas/ (10 schema files, 5 providers × 2 tool sets)

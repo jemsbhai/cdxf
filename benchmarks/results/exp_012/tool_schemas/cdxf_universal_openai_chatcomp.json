@@ -1,0 +1,106 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "cdxf_encode",
+      "description": "Encode a text-format configuration document (JSON, YAML, XML, TOML, or any supported format) into CDXF binary representation. CDXF preserves all format-specific metadata including comments, anchors, typed temporal values, processing instructions, and document structure. The encoded CDXF binary is a compact, cross-language-safe representation based on CBOR. Supports all source formats through a single universal interface.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "string",
+            "description": "The text document content to encode."
+          },
+          "source_format": {
+            "type": "string",
+            "enum": [
+              "json",
+              "yaml",
+              "xml",
+              "toml",
+              "ini",
+              "csv"
+            ],
+            "description": "The source text format of the content. Used to select the appropriate parser for lossless encoding."
+          }
+        },
+        "required": [
+          "content",
+          "source_format"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "cdxf_decode",
+      "description": "Decode a CDXF binary representation back into a text-format document. Reconstructs the original format with all metadata preserved, including comments, anchors, typed values, and structural annotations. The target format can differ from the original source format, enabling lossless cross-format conversion.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "cdxf_data": {
+            "type": "string",
+            "description": "The CDXF binary data (base64-encoded) to decode."
+          },
+          "target_format": {
+            "type": "string",
+            "enum": [
+              "json",
+              "yaml",
+              "xml",
+              "toml"
+            ],
+            "description": "The target text format to emit. If omitted, uses the original source format stored in the CDXF metadata."
+          }
+        },
+        "required": [
+          "cdxf_data"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "cdxf_convert",
+      "description": "Convert a document from one text format to another via CDXF intermediate representation. This is a convenience tool that combines encode and decode in a single operation. Preserves all transferable metadata (comments, typed values) across the format boundary. Handles JSON, YAML, XML, TOML, and other supported formats.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "string",
+            "description": "The source document content to convert."
+          },
+          "source_format": {
+            "type": "string",
+            "enum": [
+              "json",
+              "yaml",
+              "xml",
+              "toml",
+              "ini",
+              "csv"
+            ],
+            "description": "The source text format."
+          },
+          "target_format": {
+            "type": "string",
+            "enum": [
+              "json",
+              "yaml",
+              "xml",
+              "toml"
+            ],
+            "description": "The desired target text format."
+          }
+        },
+        "required": [
+          "content",
+          "source_format",
+          "target_format"
+        ]
+      }
+    }
+  }
+]

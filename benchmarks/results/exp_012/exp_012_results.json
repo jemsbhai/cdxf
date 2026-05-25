@@ -1,0 +1,2058 @@
+{
+  "experiment": "EXP-012",
+  "timestamp": "2026-05-25T21:32:14.074878+00:00",
+  "providers": [
+    "openai_chatcomp",
+    "openai_responses",
+    "anthropic",
+    "gemini",
+    "mistral"
+  ],
+  "corpus_size": 58,
+  "schema_comparison": {
+    "openai_chatcomp": {
+      "cl100k_base": {
+        "format_specific_tokens": 1526,
+        "cdxf_tokens": 735,
+        "tokens_saved": 791,
+        "savings_fraction": 0.0061796875,
+        "reduction_pct": 51.8348623853211
+      },
+      "o200k_base": {
+        "format_specific_tokens": 1535,
+        "cdxf_tokens": 735,
+        "tokens_saved": 800,
+        "savings_fraction": 0.00625,
+        "reduction_pct": 52.11726384364821
+      }
+    },
+    "openai_responses": {
+      "cl100k_base": {
+        "format_specific_tokens": 1470,
+        "cdxf_tokens": 714,
+        "tokens_saved": 756,
+        "savings_fraction": 0.00590625,
+        "reduction_pct": 51.42857142857142
+      },
+      "o200k_base": {
+        "format_specific_tokens": 1479,
+        "cdxf_tokens": 714,
+        "tokens_saved": 765,
+        "savings_fraction": 0.0059765625,
+        "reduction_pct": 51.724137931034484
+      }
+    },
+    "anthropic": {
+      "cl100k_base": {
+        "format_specific_tokens": 1422,
+        "cdxf_tokens": 696,
+        "tokens_saved": 726,
+        "savings_fraction": 0.005671875,
+        "reduction_pct": 51.0548523206751
+      },
+      "o200k_base": {
+        "format_specific_tokens": 1431,
+        "cdxf_tokens": 696,
+        "tokens_saved": 735,
+        "savings_fraction": 0.0057421875,
+        "reduction_pct": 51.36268343815513
+      }
+    },
+    "gemini": {
+      "cl100k_base": {
+        "format_specific_tokens": 1414,
+        "cdxf_tokens": 693,
+        "tokens_saved": 721,
+        "savings_fraction": 0.0056328125,
+        "reduction_pct": 50.99009900990099
+      },
+      "o200k_base": {
+        "format_specific_tokens": 1423,
+        "cdxf_tokens": 693,
+        "tokens_saved": 730,
+        "savings_fraction": 0.005703125,
+        "reduction_pct": 51.300070274068865
+      }
+    },
+    "mistral": {
+      "cl100k_base": {
+        "format_specific_tokens": 1526,
+        "cdxf_tokens": 735,
+        "tokens_saved": 791,
+        "savings_fraction": 0.0061796875,
+        "reduction_pct": 51.8348623853211
+      },
+      "o200k_base": {
+        "format_specific_tokens": 1535,
+        "cdxf_tokens": 735,
+        "tokens_saved": 800,
+        "savings_fraction": 0.00625,
+        "reduction_pct": 52.11726384364821
+      }
+    }
+  },
+  "scaling_analysis": {
+    "openai_chatcomp__cl100k_base": {
+      "2": {
+        "n_formats": 2,
+        "n_specific_tools": 4,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 773,
+        "cdxf_tokens": 735,
+        "tokens_saved": 38,
+        "reduction_pct": 4.92
+      },
+      "3": {
+        "n_formats": 3,
+        "n_specific_tools": 6,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 1182,
+        "cdxf_tokens": 735,
+        "tokens_saved": 447,
+        "reduction_pct": 37.82
+      },
+      "4": {
+        "n_formats": 4,
+        "n_specific_tools": 8,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 1526,
+        "cdxf_tokens": 735,
+        "tokens_saved": 791,
+        "reduction_pct": 51.83
+      },
+      "5": {
+        "n_formats": 5,
+        "n_specific_tools": 10,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 1841,
+        "cdxf_tokens": 735,
+        "tokens_saved": 1106,
+        "reduction_pct": 60.08
+      },
+      "6": {
+        "n_formats": 6,
+        "n_specific_tools": 12,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 2174,
+        "cdxf_tokens": 735,
+        "tokens_saved": 1439,
+        "reduction_pct": 66.19
+      }
+    },
+    "openai_chatcomp__o200k_base": {
+      "2": {
+        "n_formats": 2,
+        "n_specific_tools": 4,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 776,
+        "cdxf_tokens": 735,
+        "tokens_saved": 41,
+        "reduction_pct": 5.28
+      },
+      "3": {
+        "n_formats": 3,
+        "n_specific_tools": 6,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 1190,
+        "cdxf_tokens": 735,
+        "tokens_saved": 455,
+        "reduction_pct": 38.24
+      },
+      "4": {
+        "n_formats": 4,
+        "n_specific_tools": 8,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 1535,
+        "cdxf_tokens": 735,
+        "tokens_saved": 800,
+        "reduction_pct": 52.12
+      },
+      "5": {
+        "n_formats": 5,
+        "n_specific_tools": 10,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 1851,
+        "cdxf_tokens": 735,
+        "tokens_saved": 1116,
+        "reduction_pct": 60.29
+      },
+      "6": {
+        "n_formats": 6,
+        "n_specific_tools": 12,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 2186,
+        "cdxf_tokens": 735,
+        "tokens_saved": 1451,
+        "reduction_pct": 66.38
+      }
+    },
+    "openai_responses__cl100k_base": {
+      "2": {
+        "n_formats": 2,
+        "n_specific_tools": 4,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 745,
+        "cdxf_tokens": 714,
+        "tokens_saved": 31,
+        "reduction_pct": 4.16
+      },
+      "3": {
+        "n_formats": 3,
+        "n_specific_tools": 6,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 1140,
+        "cdxf_tokens": 714,
+        "tokens_saved": 426,
+        "reduction_pct": 37.37
+      },
+      "4": {
+        "n_formats": 4,
+        "n_specific_tools": 8,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 1470,
+        "cdxf_tokens": 714,
+        "tokens_saved": 756,
+        "reduction_pct": 51.43
+      },
+      "5": {
+        "n_formats": 5,
+        "n_specific_tools": 10,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 1771,
+        "cdxf_tokens": 714,
+        "tokens_saved": 1057,
+        "reduction_pct": 59.68
+      },
+      "6": {
+        "n_formats": 6,
+        "n_specific_tools": 12,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 2090,
+        "cdxf_tokens": 714,
+        "tokens_saved": 1376,
+        "reduction_pct": 65.84
+      }
+    },
+    "openai_responses__o200k_base": {
+      "2": {
+        "n_formats": 2,
+        "n_specific_tools": 4,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 748,
+        "cdxf_tokens": 714,
+        "tokens_saved": 34,
+        "reduction_pct": 4.55
+      },
+      "3": {
+        "n_formats": 3,
+        "n_specific_tools": 6,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 1148,
+        "cdxf_tokens": 714,
+        "tokens_saved": 434,
+        "reduction_pct": 37.8
+      },
+      "4": {
+        "n_formats": 4,
+        "n_specific_tools": 8,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 1479,
+        "cdxf_tokens": 714,
+        "tokens_saved": 765,
+        "reduction_pct": 51.72
+      },
+      "5": {
+        "n_formats": 5,
+        "n_specific_tools": 10,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 1781,
+        "cdxf_tokens": 714,
+        "tokens_saved": 1067,
+        "reduction_pct": 59.91
+      },
+      "6": {
+        "n_formats": 6,
+        "n_specific_tools": 12,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 2102,
+        "cdxf_tokens": 714,
+        "tokens_saved": 1388,
+        "reduction_pct": 66.03
+      }
+    },
+    "anthropic__cl100k_base": {
+      "2": {
+        "n_formats": 2,
+        "n_specific_tools": 4,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 721,
+        "cdxf_tokens": 696,
+        "tokens_saved": 25,
+        "reduction_pct": 3.47
+      },
+      "3": {
+        "n_formats": 3,
+        "n_specific_tools": 6,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 1104,
+        "cdxf_tokens": 696,
+        "tokens_saved": 408,
+        "reduction_pct": 36.96
+      },
+      "4": {
+        "n_formats": 4,
+        "n_specific_tools": 8,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 1422,
+        "cdxf_tokens": 696,
+        "tokens_saved": 726,
+        "reduction_pct": 51.05
+      },
+      "5": {
+        "n_formats": 5,
+        "n_specific_tools": 10,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 1711,
+        "cdxf_tokens": 696,
+        "tokens_saved": 1015,
+        "reduction_pct": 59.32
+      },
+      "6": {
+        "n_formats": 6,
+        "n_specific_tools": 12,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 2018,
+        "cdxf_tokens": 696,
+        "tokens_saved": 1322,
+        "reduction_pct": 65.51
+      }
+    },
+    "anthropic__o200k_base": {
+      "2": {
+        "n_formats": 2,
+        "n_specific_tools": 4,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 724,
+        "cdxf_tokens": 696,
+        "tokens_saved": 28,
+        "reduction_pct": 3.87
+      },
+      "3": {
+        "n_formats": 3,
+        "n_specific_tools": 6,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 1112,
+        "cdxf_tokens": 696,
+        "tokens_saved": 416,
+        "reduction_pct": 37.41
+      },
+      "4": {
+        "n_formats": 4,
+        "n_specific_tools": 8,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 1431,
+        "cdxf_tokens": 696,
+        "tokens_saved": 735,
+        "reduction_pct": 51.36
+      },
+      "5": {
+        "n_formats": 5,
+        "n_specific_tools": 10,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 1721,
+        "cdxf_tokens": 696,
+        "tokens_saved": 1025,
+        "reduction_pct": 59.56
+      },
+      "6": {
+        "n_formats": 6,
+        "n_specific_tools": 12,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 2030,
+        "cdxf_tokens": 696,
+        "tokens_saved": 1334,
+        "reduction_pct": 65.71
+      }
+    },
+    "gemini__cl100k_base": {
+      "2": {
+        "n_formats": 2,
+        "n_specific_tools": 4,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 717,
+        "cdxf_tokens": 693,
+        "tokens_saved": 24,
+        "reduction_pct": 3.35
+      },
+      "3": {
+        "n_formats": 3,
+        "n_specific_tools": 6,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 1098,
+        "cdxf_tokens": 693,
+        "tokens_saved": 405,
+        "reduction_pct": 36.89
+      },
+      "4": {
+        "n_formats": 4,
+        "n_specific_tools": 8,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 1414,
+        "cdxf_tokens": 693,
+        "tokens_saved": 721,
+        "reduction_pct": 50.99
+      },
+      "5": {
+        "n_formats": 5,
+        "n_specific_tools": 10,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 1701,
+        "cdxf_tokens": 693,
+        "tokens_saved": 1008,
+        "reduction_pct": 59.26
+      },
+      "6": {
+        "n_formats": 6,
+        "n_specific_tools": 12,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 2006,
+        "cdxf_tokens": 693,
+        "tokens_saved": 1313,
+        "reduction_pct": 65.45
+      }
+    },
+    "gemini__o200k_base": {
+      "2": {
+        "n_formats": 2,
+        "n_specific_tools": 4,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 720,
+        "cdxf_tokens": 693,
+        "tokens_saved": 27,
+        "reduction_pct": 3.75
+      },
+      "3": {
+        "n_formats": 3,
+        "n_specific_tools": 6,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 1106,
+        "cdxf_tokens": 693,
+        "tokens_saved": 413,
+        "reduction_pct": 37.34
+      },
+      "4": {
+        "n_formats": 4,
+        "n_specific_tools": 8,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 1423,
+        "cdxf_tokens": 693,
+        "tokens_saved": 730,
+        "reduction_pct": 51.3
+      },
+      "5": {
+        "n_formats": 5,
+        "n_specific_tools": 10,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 1711,
+        "cdxf_tokens": 693,
+        "tokens_saved": 1018,
+        "reduction_pct": 59.5
+      },
+      "6": {
+        "n_formats": 6,
+        "n_specific_tools": 12,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 2018,
+        "cdxf_tokens": 693,
+        "tokens_saved": 1325,
+        "reduction_pct": 65.66
+      }
+    },
+    "mistral__cl100k_base": {
+      "2": {
+        "n_formats": 2,
+        "n_specific_tools": 4,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 773,
+        "cdxf_tokens": 735,
+        "tokens_saved": 38,
+        "reduction_pct": 4.92
+      },
+      "3": {
+        "n_formats": 3,
+        "n_specific_tools": 6,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 1182,
+        "cdxf_tokens": 735,
+        "tokens_saved": 447,
+        "reduction_pct": 37.82
+      },
+      "4": {
+        "n_formats": 4,
+        "n_specific_tools": 8,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 1526,
+        "cdxf_tokens": 735,
+        "tokens_saved": 791,
+        "reduction_pct": 51.83
+      },
+      "5": {
+        "n_formats": 5,
+        "n_specific_tools": 10,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 1841,
+        "cdxf_tokens": 735,
+        "tokens_saved": 1106,
+        "reduction_pct": 60.08
+      },
+      "6": {
+        "n_formats": 6,
+        "n_specific_tools": 12,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 2174,
+        "cdxf_tokens": 735,
+        "tokens_saved": 1439,
+        "reduction_pct": 66.19
+      }
+    },
+    "mistral__o200k_base": {
+      "2": {
+        "n_formats": 2,
+        "n_specific_tools": 4,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 776,
+        "cdxf_tokens": 735,
+        "tokens_saved": 41,
+        "reduction_pct": 5.28
+      },
+      "3": {
+        "n_formats": 3,
+        "n_specific_tools": 6,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 1190,
+        "cdxf_tokens": 735,
+        "tokens_saved": 455,
+        "reduction_pct": 38.24
+      },
+      "4": {
+        "n_formats": 4,
+        "n_specific_tools": 8,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 1535,
+        "cdxf_tokens": 735,
+        "tokens_saved": 800,
+        "reduction_pct": 52.12
+      },
+      "5": {
+        "n_formats": 5,
+        "n_specific_tools": 10,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 1851,
+        "cdxf_tokens": 735,
+        "tokens_saved": 1116,
+        "reduction_pct": 60.29
+      },
+      "6": {
+        "n_formats": 6,
+        "n_specific_tools": 12,
+        "n_cdxf_tools": 3,
+        "format_specific_tokens": 2186,
+        "cdxf_tokens": 735,
+        "tokens_saved": 1451,
+        "reduction_pct": 66.38
+      }
+    }
+  },
+  "call_result_analysis": {
+    "per_file": [
+      {
+        "format": "json",
+        "size_bytes": 21,
+        "total_tokens": 11,
+        "tokens_per_byte": 0.5238095238095238,
+        "name": "json/tier1_schemastore/circleciblank.json",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 21,
+        "total_tokens": 11,
+        "tokens_per_byte": 0.5238095238095238,
+        "name": "json/tier1_schemastore/circleciblank.json",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 252,
+        "total_tokens": 72,
+        "tokens_per_byte": 0.2857142857142857,
+        "name": "json/tier1_schemastore/circlecimatrix.json",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 252,
+        "total_tokens": 72,
+        "tokens_per_byte": 0.2857142857142857,
+        "name": "json/tier1_schemastore/circlecimatrix.json",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 120,
+        "total_tokens": 39,
+        "tokens_per_byte": 0.325,
+        "name": "json/tier1_schemastore/commitlint.json",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 120,
+        "total_tokens": 40,
+        "tokens_per_byte": 0.3333333333333333,
+        "name": "json/tier1_schemastore/commitlint.json",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 30,
+        "total_tokens": 12,
+        "tokens_per_byte": 0.4,
+        "name": "json/tier1_schemastore/commitlintbasic.json",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 30,
+        "total_tokens": 11,
+        "tokens_per_byte": 0.36666666666666664,
+        "name": "json/tier1_schemastore/commitlintbasic.json",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 601,
+        "total_tokens": 196,
+        "tokens_per_byte": 0.3261231281198003,
+        "name": "json/tier1_schemastore/epr.json",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 601,
+        "total_tokens": 196,
+        "tokens_per_byte": 0.3261231281198003,
+        "name": "json/tier1_schemastore/epr.json",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 1359,
+        "total_tokens": 563,
+        "tokens_per_byte": 0.4142752023546726,
+        "name": "json/tier1_schemastore/eslintrc.json",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 1359,
+        "total_tokens": 566,
+        "tokens_per_byte": 0.41648270787343633,
+        "name": "json/tier1_schemastore/eslintrc.json",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 140,
+        "total_tokens": 51,
+        "tokens_per_byte": 0.36428571428571427,
+        "name": "json/tier1_schemastore/esmrc.json",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 140,
+        "total_tokens": 51,
+        "tokens_per_byte": 0.36428571428571427,
+        "name": "json/tier1_schemastore/esmrc.json",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 454,
+        "total_tokens": 202,
+        "tokens_per_byte": 0.44493392070484583,
+        "name": "json/tier1_schemastore/geojson.json",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 454,
+        "total_tokens": 202,
+        "tokens_per_byte": 0.44493392070484583,
+        "name": "json/tier1_schemastore/geojson.json",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 224,
+        "total_tokens": 78,
+        "tokens_per_byte": 0.3482142857142857,
+        "name": "json/tier1_schemastore/githubfundingblank.json",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 224,
+        "total_tokens": 76,
+        "tokens_per_byte": 0.3392857142857143,
+        "name": "json/tier1_schemastore/githubfundingblank.json",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 632,
+        "total_tokens": 168,
+        "tokens_per_byte": 0.26582278481012656,
+        "name": "json/tier1_schemastore/githubworkflow.json",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 632,
+        "total_tokens": 169,
+        "tokens_per_byte": 0.2674050632911392,
+        "name": "json/tier1_schemastore/githubworkflow.json",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 128,
+        "total_tokens": 57,
+        "tokens_per_byte": 0.4453125,
+        "name": "json/tier1_schemastore/gruntcontribclean.json",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 128,
+        "total_tokens": 57,
+        "tokens_per_byte": 0.4453125,
+        "name": "json/tier1_schemastore/gruntcontribclean.json",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 128,
+        "total_tokens": 41,
+        "tokens_per_byte": 0.3203125,
+        "name": "json/tier1_schemastore/imageoptimizerwebjob.json",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 128,
+        "total_tokens": 41,
+        "tokens_per_byte": 0.3203125,
+        "name": "json/tier1_schemastore/imageoptimizerwebjob.json",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 137,
+        "total_tokens": 58,
+        "tokens_per_byte": 0.4233576642335766,
+        "name": "json/tier1_schemastore/jsonereversesort.json",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 137,
+        "total_tokens": 58,
+        "tokens_per_byte": 0.4233576642335766,
+        "name": "json/tier1_schemastore/jsonereversesort.json",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 43,
+        "total_tokens": 25,
+        "tokens_per_byte": 0.5813953488372093,
+        "name": "json/tier1_schemastore/jsonesort.json",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 43,
+        "total_tokens": 25,
+        "tokens_per_byte": 0.5813953488372093,
+        "name": "json/tier1_schemastore/jsonesort.json",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 668,
+        "total_tokens": 202,
+        "tokens_per_byte": 0.3023952095808383,
+        "name": "json/tier1_schemastore/jsonfeed.json",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 668,
+        "total_tokens": 202,
+        "tokens_per_byte": 0.3023952095808383,
+        "name": "json/tier1_schemastore/jsonfeed.json",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 3916,
+        "total_tokens": 1012,
+        "tokens_per_byte": 0.25842696629213485,
+        "name": "json/tier1_schemastore/jsonresume.json",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 3916,
+        "total_tokens": 1013,
+        "tokens_per_byte": 0.258682328907048,
+        "name": "json/tier1_schemastore/jsonresume.json",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 1241,
+        "total_tokens": 452,
+        "tokens_per_byte": 0.36422240128928285,
+        "name": "json/tier1_schemastore/netcoreproject.json",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 1241,
+        "total_tokens": 457,
+        "tokens_per_byte": 0.3682514101531023,
+        "name": "json/tier1_schemastore/netcoreproject.json",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 1834,
+        "total_tokens": 516,
+        "tokens_per_byte": 0.2813522355507088,
+        "name": "json/tier1_schemastore/nightwatch.json",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 1834,
+        "total_tokens": 520,
+        "tokens_per_byte": 0.2835332606324973,
+        "name": "json/tier1_schemastore/nightwatch.json",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 709,
+        "total_tokens": 286,
+        "tokens_per_byte": 0.4033850493653032,
+        "name": "json/tier1_schemastore/openweathermap.json",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 709,
+        "total_tokens": 286,
+        "tokens_per_byte": 0.4033850493653032,
+        "name": "json/tier1_schemastore/openweathermap.json",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 611,
+        "total_tokens": 219,
+        "tokens_per_byte": 0.35842880523731585,
+        "name": "json/tier1_schemastore/openweatherroadrisk.json",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 611,
+        "total_tokens": 218,
+        "tokens_per_byte": 0.3567921440261866,
+        "name": "json/tier1_schemastore/openweatherroadrisk.json",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 2946,
+        "total_tokens": 941,
+        "tokens_per_byte": 0.3194161575016972,
+        "name": "json/tier1_schemastore/packagejson.json",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 2946,
+        "total_tokens": 947,
+        "tokens_per_byte": 0.3214528173794976,
+        "name": "json/tier1_schemastore/packagejson.json",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 1461,
+        "total_tokens": 404,
+        "tokens_per_byte": 0.27652292950034224,
+        "name": "json/tier1_schemastore/packagejsonlintrc.json",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 1461,
+        "total_tokens": 400,
+        "tokens_per_byte": 0.2737850787132101,
+        "name": "json/tier1_schemastore/packagejsonlintrc.json",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 57,
+        "total_tokens": 21,
+        "tokens_per_byte": 0.3684210526315789,
+        "name": "json/tier1_schemastore/sapcloudsdkpipeline.json",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 57,
+        "total_tokens": 21,
+        "tokens_per_byte": 0.3684210526315789,
+        "name": "json/tier1_schemastore/sapcloudsdkpipeline.json",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 814,
+        "total_tokens": 335,
+        "tokens_per_byte": 0.41154791154791154,
+        "name": "json/tier1_schemastore/travisnotifications.json",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 814,
+        "total_tokens": 329,
+        "tokens_per_byte": 0.40417690417690416,
+        "name": "json/tier1_schemastore/travisnotifications.json",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 111,
+        "total_tokens": 34,
+        "tokens_per_byte": 0.3063063063063063,
+        "name": "json/tier1_schemastore/tslintbasic.json",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 111,
+        "total_tokens": 34,
+        "tokens_per_byte": 0.3063063063063063,
+        "name": "json/tier1_schemastore/tslintbasic.json",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 69,
+        "total_tokens": 19,
+        "tokens_per_byte": 0.2753623188405797,
+        "name": "json/tier1_schemastore/tslintextend.json",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 69,
+        "total_tokens": 19,
+        "tokens_per_byte": 0.2753623188405797,
+        "name": "json/tier1_schemastore/tslintextend.json",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 154,
+        "total_tokens": 50,
+        "tokens_per_byte": 0.3246753246753247,
+        "name": "json/tier1_schemastore/tslintmulti.json",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 154,
+        "total_tokens": 50,
+        "tokens_per_byte": 0.3246753246753247,
+        "name": "json/tier1_schemastore/tslintmulti.json",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 58890,
+        "total_tokens": 39000,
+        "tokens_per_byte": 0.6622516556291391,
+        "name": "synthetic/json_flat_10k_array.json",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 58890,
+        "total_tokens": 39000,
+        "tokens_per_byte": 0.6622516556291391,
+        "name": "synthetic/json_flat_10k_array.json",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 3106,
+        "total_tokens": 1220,
+        "tokens_per_byte": 0.39278815196394073,
+        "name": "synthetic/json_nested_128.json",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 3106,
+        "total_tokens": 1221,
+        "tokens_per_byte": 0.39311010946555053,
+        "name": "synthetic/json_nested_128.json",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 24890,
+        "total_tokens": 11000,
+        "tokens_per_byte": 0.44194455604660504,
+        "name": "synthetic/json_wide_object_1k.json",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 24890,
+        "total_tokens": 11000,
+        "tokens_per_byte": 0.44194455604660504,
+        "name": "synthetic/json_wide_object_1k.json",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "toml",
+        "size_bytes": 7469,
+        "total_tokens": 3522,
+        "tokens_per_byte": 0.4715490694872138,
+        "name": "synthetic/toml_temporal_types.toml",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "toml",
+        "size_bytes": 7469,
+        "total_tokens": 3573,
+        "tokens_per_byte": 0.4783772928102825,
+        "name": "synthetic/toml_temporal_types.toml",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "xml",
+        "size_bytes": 6916,
+        "total_tokens": 2111,
+        "tokens_per_byte": 0.30523423944476574,
+        "name": "synthetic/xml_comment_heavy.xml",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "xml",
+        "size_bytes": 6916,
+        "total_tokens": 2111,
+        "tokens_per_byte": 0.30523423944476574,
+        "name": "synthetic/xml_comment_heavy.xml",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "xml",
+        "size_bytes": 3900,
+        "total_tokens": 1455,
+        "tokens_per_byte": 0.3730769230769231,
+        "name": "synthetic/xml_mixed_content.xml",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "xml",
+        "size_bytes": 3900,
+        "total_tokens": 1506,
+        "tokens_per_byte": 0.3861538461538462,
+        "name": "synthetic/xml_mixed_content.xml",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "xml",
+        "size_bytes": 4944,
+        "total_tokens": 2025,
+        "tokens_per_byte": 0.4095873786407767,
+        "name": "synthetic/xml_namespace_heavy.xml",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "xml",
+        "size_bytes": 4944,
+        "total_tokens": 2025,
+        "tokens_per_byte": 0.4095873786407767,
+        "name": "synthetic/xml_namespace_heavy.xml",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "yaml",
+        "size_bytes": 2388,
+        "total_tokens": 867,
+        "tokens_per_byte": 0.3630653266331658,
+        "name": "synthetic/yaml_anchor_heavy.yaml",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "yaml",
+        "size_bytes": 2388,
+        "total_tokens": 867,
+        "tokens_per_byte": 0.3630653266331658,
+        "name": "synthetic/yaml_anchor_heavy.yaml",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "yaml",
+        "size_bytes": 12780,
+        "total_tokens": 3800,
+        "tokens_per_byte": 0.297339593114241,
+        "name": "synthetic/yaml_comment_dense.yaml",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "yaml",
+        "size_bytes": 12780,
+        "total_tokens": 3800,
+        "tokens_per_byte": 0.297339593114241,
+        "name": "synthetic/yaml_comment_dense.yaml",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "yaml",
+        "size_bytes": 978,
+        "total_tokens": 480,
+        "tokens_per_byte": 0.49079754601226994,
+        "name": "synthetic/yaml_multi_document.yaml",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "yaml",
+        "size_bytes": 978,
+        "total_tokens": 480,
+        "tokens_per_byte": 0.49079754601226994,
+        "name": "synthetic/yaml_multi_document.yaml",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "toml",
+        "size_bytes": 4267,
+        "total_tokens": 1191,
+        "tokens_per_byte": 0.27911881884227796,
+        "name": "toml/tier2_canonical/ruff-pyproject.toml",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "toml",
+        "size_bytes": 4267,
+        "total_tokens": 1193,
+        "tokens_per_byte": 0.279587532224045,
+        "name": "toml/tier2_canonical/ruff-pyproject.toml",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "toml",
+        "size_bytes": 465,
+        "total_tokens": 140,
+        "tokens_per_byte": 0.3010752688172043,
+        "name": "toml/tier2_canonical/serde-cargo.toml",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "toml",
+        "size_bytes": 465,
+        "total_tokens": 141,
+        "tokens_per_byte": 0.3032258064516129,
+        "name": "toml/tier2_canonical/serde-cargo.toml",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "toml",
+        "size_bytes": 835,
+        "total_tokens": 268,
+        "tokens_per_byte": 0.3209580838323353,
+        "name": "toml/tier2_canonical/tokio-cargo.toml",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "toml",
+        "size_bytes": 835,
+        "total_tokens": 272,
+        "tokens_per_byte": 0.325748502994012,
+        "name": "toml/tier2_canonical/tokio-cargo.toml",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "xml",
+        "size_bytes": 2326,
+        "total_tokens": 728,
+        "tokens_per_byte": 0.3129836629406707,
+        "name": "xml/tier2_canonical/atom-namespace.xml",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "xml",
+        "size_bytes": 2326,
+        "total_tokens": 733,
+        "tokens_per_byte": 0.31513327601031815,
+        "name": "xml/tier2_canonical/atom-namespace.xml",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "yaml",
+        "size_bytes": 472,
+        "total_tokens": 124,
+        "tokens_per_byte": 0.2627118644067797,
+        "name": "yaml/tier2_kubernetes/load-balancer-service.yaml",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "yaml",
+        "size_bytes": 472,
+        "total_tokens": 124,
+        "tokens_per_byte": 0.2627118644067797,
+        "name": "yaml/tier2_kubernetes/load-balancer-service.yaml",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "yaml",
+        "size_bytes": 341,
+        "total_tokens": 96,
+        "tokens_per_byte": 0.28152492668621704,
+        "name": "yaml/tier2_kubernetes/nginx-deployment.yaml",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "yaml",
+        "size_bytes": 341,
+        "total_tokens": 96,
+        "tokens_per_byte": 0.28152492668621704,
+        "name": "yaml/tier2_kubernetes/nginx-deployment.yaml",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "yaml",
+        "size_bytes": 1165,
+        "total_tokens": 396,
+        "tokens_per_byte": 0.33991416309012873,
+        "name": "ml/hydra_train_bert",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "yaml",
+        "size_bytes": 1165,
+        "total_tokens": 397,
+        "tokens_per_byte": 0.3407725321888412,
+        "name": "ml/hydra_train_bert",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "yaml",
+        "size_bytes": 554,
+        "total_tokens": 168,
+        "tokens_per_byte": 0.30324909747292417,
+        "name": "ml/lightning_anchored_config",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "yaml",
+        "size_bytes": 554,
+        "total_tokens": 167,
+        "tokens_per_byte": 0.30144404332129965,
+        "name": "ml/lightning_anchored_config",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "yaml",
+        "size_bytes": 544,
+        "total_tokens": 209,
+        "tokens_per_byte": 0.38419117647058826,
+        "name": "ml/wandb_sweep_config",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "yaml",
+        "size_bytes": 544,
+        "total_tokens": 209,
+        "tokens_per_byte": 0.38419117647058826,
+        "name": "ml/wandb_sweep_config",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "yaml",
+        "size_bytes": 1027,
+        "total_tokens": 275,
+        "tokens_per_byte": 0.26777020447906524,
+        "name": "ml/k8s_ml_serving",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "yaml",
+        "size_bytes": 1027,
+        "total_tokens": 276,
+        "tokens_per_byte": 0.26874391431353456,
+        "name": "ml/k8s_ml_serving",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "yaml",
+        "size_bytes": 389,
+        "total_tokens": 107,
+        "tokens_per_byte": 0.2750642673521851,
+        "name": "ml/dataset_card_yaml",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "yaml",
+        "size_bytes": 389,
+        "total_tokens": 106,
+        "tokens_per_byte": 0.27249357326478146,
+        "name": "ml/dataset_card_yaml",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 737,
+        "total_tokens": 259,
+        "tokens_per_byte": 0.3514246947082768,
+        "name": "ml/hf_model_config",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 737,
+        "total_tokens": 260,
+        "tokens_per_byte": 0.35278154681139756,
+        "name": "ml/hf_model_config",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 404,
+        "total_tokens": 153,
+        "tokens_per_byte": 0.3787128712871287,
+        "name": "ml/adapter_config",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 404,
+        "total_tokens": 153,
+        "tokens_per_byte": 0.3787128712871287,
+        "name": "ml/adapter_config",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 735,
+        "total_tokens": 294,
+        "tokens_per_byte": 0.4,
+        "name": "ml/eval_results",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 735,
+        "total_tokens": 297,
+        "tokens_per_byte": 0.40408163265306124,
+        "name": "ml/eval_results",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 560,
+        "total_tokens": 201,
+        "tokens_per_byte": 0.35892857142857143,
+        "name": "ml/training_args",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 560,
+        "total_tokens": 202,
+        "tokens_per_byte": 0.3607142857142857,
+        "name": "ml/training_args",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 171,
+        "total_tokens": 52,
+        "tokens_per_byte": 0.30409356725146197,
+        "name": "ml/tokenizer_config_small",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 171,
+        "total_tokens": 53,
+        "tokens_per_byte": 0.30994152046783624,
+        "name": "ml/tokenizer_config_small",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "toml",
+        "size_bytes": 834,
+        "total_tokens": 266,
+        "tokens_per_byte": 0.31894484412470026,
+        "name": "ml/pyproject_ml_package",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "toml",
+        "size_bytes": 834,
+        "total_tokens": 266,
+        "tokens_per_byte": 0.31894484412470026,
+        "name": "ml/pyproject_ml_package",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "toml",
+        "size_bytes": 459,
+        "total_tokens": 159,
+        "tokens_per_byte": 0.3464052287581699,
+        "name": "ml/serving_config_toml",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "toml",
+        "size_bytes": 459,
+        "total_tokens": 161,
+        "tokens_per_byte": 0.35076252723311546,
+        "name": "ml/serving_config_toml",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "xml",
+        "size_bytes": 1279,
+        "total_tokens": 333,
+        "tokens_per_byte": 0.26035965598123534,
+        "name": "ml/pmml_model_metadata",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "xml",
+        "size_bytes": 1279,
+        "total_tokens": 342,
+        "tokens_per_byte": 0.26739640344018767,
+        "name": "ml/pmml_model_metadata",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 14148,
+        "total_tokens": 5186,
+        "tokens_per_byte": 0.3665535764772406,
+        "name": "ml/large_eval_results",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "json",
+        "size_bytes": 14148,
+        "total_tokens": 5230,
+        "tokens_per_byte": 0.36966355668645745,
+        "name": "ml/large_eval_results",
+        "tokenizer": "o200k_base"
+      },
+      {
+        "format": "yaml",
+        "size_bytes": 6528,
+        "total_tokens": 3673,
+        "tokens_per_byte": 0.5626531862745098,
+        "name": "ml/large_pipeline_yaml",
+        "tokenizer": "cl100k_base"
+      },
+      {
+        "format": "yaml",
+        "size_bytes": 6528,
+        "total_tokens": 3673,
+        "tokens_per_byte": 0.5626531862745098,
+        "name": "ml/large_pipeline_yaml",
+        "tokenizer": "o200k_base"
+      }
+    ],
+    "aggregate": {
+      "cl100k_base": {
+        "mean_tokens": 1479.7,
+        "median_tokens": 239.0,
+        "n_files": 58
+      },
+      "o200k_base": {
+        "mean_tokens": 1482.8,
+        "median_tokens": 239.0,
+        "n_files": 58
+      }
+    }
+  },
+  "session_overhead": {
+    "5": {
+      "openai_chatcomp": {
+        "cl100k_base": {
+          "format_specific": {
+            "schema_tokens": 1526,
+            "avg_call_result_tokens": 1479.7,
+            "n_calls": 5,
+            "total_tokens": 8924.5,
+            "fraction_of_context": 0.06972265625
+          },
+          "cdxf": {
+            "schema_tokens": 735,
+            "avg_call_result_tokens": 1479.7,
+            "n_calls": 5,
+            "total_tokens": 8133.5,
+            "fraction_of_context": 0.06354296875
+          },
+          "total_saved": 791.0
+        },
+        "o200k_base": {
+          "format_specific": {
+            "schema_tokens": 1535,
+            "avg_call_result_tokens": 1482.8,
+            "n_calls": 5,
+            "total_tokens": 8949.0,
+            "fraction_of_context": 0.0699140625
+          },
+          "cdxf": {
+            "schema_tokens": 735,
+            "avg_call_result_tokens": 1482.8,
+            "n_calls": 5,
+            "total_tokens": 8149.0,
+            "fraction_of_context": 0.0636640625
+          },
+          "total_saved": 800.0
+        }
+      },
+      "openai_responses": {
+        "cl100k_base": {
+          "format_specific": {
+            "schema_tokens": 1470,
+            "avg_call_result_tokens": 1479.7,
+            "n_calls": 5,
+            "total_tokens": 8868.5,
+            "fraction_of_context": 0.06928515625
+          },
+          "cdxf": {
+            "schema_tokens": 714,
+            "avg_call_result_tokens": 1479.7,
+            "n_calls": 5,
+            "total_tokens": 8112.5,
+            "fraction_of_context": 0.06337890625
+          },
+          "total_saved": 756.0
+        },
+        "o200k_base": {
+          "format_specific": {
+            "schema_tokens": 1479,
+            "avg_call_result_tokens": 1482.8,
+            "n_calls": 5,
+            "total_tokens": 8893.0,
+            "fraction_of_context": 0.0694765625
+          },
+          "cdxf": {
+            "schema_tokens": 714,
+            "avg_call_result_tokens": 1482.8,
+            "n_calls": 5,
+            "total_tokens": 8128.0,
+            "fraction_of_context": 0.0635
+          },
+          "total_saved": 765.0
+        }
+      },
+      "anthropic": {
+        "cl100k_base": {
+          "format_specific": {
+            "schema_tokens": 1422,
+            "avg_call_result_tokens": 1479.7,
+            "n_calls": 5,
+            "total_tokens": 8820.5,
+            "fraction_of_context": 0.06891015625
+          },
+          "cdxf": {
+            "schema_tokens": 696,
+            "avg_call_result_tokens": 1479.7,
+            "n_calls": 5,
+            "total_tokens": 8094.5,
+            "fraction_of_context": 0.06323828125
+          },
+          "total_saved": 726.0
+        },
+        "o200k_base": {
+          "format_specific": {
+            "schema_tokens": 1431,
+            "avg_call_result_tokens": 1482.8,
+            "n_calls": 5,
+            "total_tokens": 8845.0,
+            "fraction_of_context": 0.0691015625
+          },
+          "cdxf": {
+            "schema_tokens": 696,
+            "avg_call_result_tokens": 1482.8,
+            "n_calls": 5,
+            "total_tokens": 8110.0,
+            "fraction_of_context": 0.063359375
+          },
+          "total_saved": 735.0
+        }
+      },
+      "gemini": {
+        "cl100k_base": {
+          "format_specific": {
+            "schema_tokens": 1414,
+            "avg_call_result_tokens": 1479.7,
+            "n_calls": 5,
+            "total_tokens": 8812.5,
+            "fraction_of_context": 0.06884765625
+          },
+          "cdxf": {
+            "schema_tokens": 693,
+            "avg_call_result_tokens": 1479.7,
+            "n_calls": 5,
+            "total_tokens": 8091.5,
+            "fraction_of_context": 0.06321484375
+          },
+          "total_saved": 721.0
+        },
+        "o200k_base": {
+          "format_specific": {
+            "schema_tokens": 1423,
+            "avg_call_result_tokens": 1482.8,
+            "n_calls": 5,
+            "total_tokens": 8837.0,
+            "fraction_of_context": 0.0690390625
+          },
+          "cdxf": {
+            "schema_tokens": 693,
+            "avg_call_result_tokens": 1482.8,
+            "n_calls": 5,
+            "total_tokens": 8107.0,
+            "fraction_of_context": 0.0633359375
+          },
+          "total_saved": 730.0
+        }
+      },
+      "mistral": {
+        "cl100k_base": {
+          "format_specific": {
+            "schema_tokens": 1526,
+            "avg_call_result_tokens": 1479.7,
+            "n_calls": 5,
+            "total_tokens": 8924.5,
+            "fraction_of_context": 0.06972265625
+          },
+          "cdxf": {
+            "schema_tokens": 735,
+            "avg_call_result_tokens": 1479.7,
+            "n_calls": 5,
+            "total_tokens": 8133.5,
+            "fraction_of_context": 0.06354296875
+          },
+          "total_saved": 791.0
+        },
+        "o200k_base": {
+          "format_specific": {
+            "schema_tokens": 1535,
+            "avg_call_result_tokens": 1482.8,
+            "n_calls": 5,
+            "total_tokens": 8949.0,
+            "fraction_of_context": 0.0699140625
+          },
+          "cdxf": {
+            "schema_tokens": 735,
+            "avg_call_result_tokens": 1482.8,
+            "n_calls": 5,
+            "total_tokens": 8149.0,
+            "fraction_of_context": 0.0636640625
+          },
+          "total_saved": 800.0
+        }
+      }
+    },
+    "20": {
+      "openai_chatcomp": {
+        "cl100k_base": {
+          "format_specific": {
+            "schema_tokens": 1526,
+            "avg_call_result_tokens": 1479.7,
+            "n_calls": 20,
+            "total_tokens": 31120.0,
+            "fraction_of_context": 0.243125
+          },
+          "cdxf": {
+            "schema_tokens": 735,
+            "avg_call_result_tokens": 1479.7,
+            "n_calls": 20,
+            "total_tokens": 30329.0,
+            "fraction_of_context": 0.2369453125
+          },
+          "total_saved": 791.0
+        },
+        "o200k_base": {
+          "format_specific": {
+            "schema_tokens": 1535,
+            "avg_call_result_tokens": 1482.8,
+            "n_calls": 20,
+            "total_tokens": 31191.0,
+            "fraction_of_context": 0.2436796875
+          },
+          "cdxf": {
+            "schema_tokens": 735,
+            "avg_call_result_tokens": 1482.8,
+            "n_calls": 20,
+            "total_tokens": 30391.0,
+            "fraction_of_context": 0.2374296875
+          },
+          "total_saved": 800.0
+        }
+      },
+      "openai_responses": {
+        "cl100k_base": {
+          "format_specific": {
+            "schema_tokens": 1470,
+            "avg_call_result_tokens": 1479.7,
+            "n_calls": 20,
+            "total_tokens": 31064.0,
+            "fraction_of_context": 0.2426875
+          },
+          "cdxf": {
+            "schema_tokens": 714,
+            "avg_call_result_tokens": 1479.7,
+            "n_calls": 20,
+            "total_tokens": 30308.0,
+            "fraction_of_context": 0.23678125
+          },
+          "total_saved": 756.0
+        },
+        "o200k_base": {
+          "format_specific": {
+            "schema_tokens": 1479,
+            "avg_call_result_tokens": 1482.8,
+            "n_calls": 20,
+            "total_tokens": 31135.0,
+            "fraction_of_context": 0.2432421875
+          },
+          "cdxf": {
+            "schema_tokens": 714,
+            "avg_call_result_tokens": 1482.8,
+            "n_calls": 20,
+            "total_tokens": 30370.0,
+            "fraction_of_context": 0.237265625
+          },
+          "total_saved": 765.0
+        }
+      },
+      "anthropic": {
+        "cl100k_base": {
+          "format_specific": {
+            "schema_tokens": 1422,
+            "avg_call_result_tokens": 1479.7,
+            "n_calls": 20,
+            "total_tokens": 31016.0,
+            "fraction_of_context": 0.2423125
+          },
+          "cdxf": {
+            "schema_tokens": 696,
+            "avg_call_result_tokens": 1479.7,
+            "n_calls": 20,
+            "total_tokens": 30290.0,
+            "fraction_of_context": 0.236640625
+          },
+          "total_saved": 726.0
+        },
+        "o200k_base": {
+          "format_specific": {
+            "schema_tokens": 1431,
+            "avg_call_result_tokens": 1482.8,
+            "n_calls": 20,
+            "total_tokens": 31087.0,
+            "fraction_of_context": 0.2428671875
+          },
+          "cdxf": {
+            "schema_tokens": 696,
+            "avg_call_result_tokens": 1482.8,
+            "n_calls": 20,
+            "total_tokens": 30352.0,
+            "fraction_of_context": 0.237125
+          },
+          "total_saved": 735.0
+        }
+      },
+      "gemini": {
+        "cl100k_base": {
+          "format_specific": {
+            "schema_tokens": 1414,
+            "avg_call_result_tokens": 1479.7,
+            "n_calls": 20,
+            "total_tokens": 31008.0,
+            "fraction_of_context": 0.24225
+          },
+          "cdxf": {
+            "schema_tokens": 693,
+            "avg_call_result_tokens": 1479.7,
+            "n_calls": 20,
+            "total_tokens": 30287.0,
+            "fraction_of_context": 0.2366171875
+          },
+          "total_saved": 721.0
+        },
+        "o200k_base": {
+          "format_specific": {
+            "schema_tokens": 1423,
+            "avg_call_result_tokens": 1482.8,
+            "n_calls": 20,
+            "total_tokens": 31079.0,
+            "fraction_of_context": 0.2428046875
+          },
+          "cdxf": {
+            "schema_tokens": 693,
+            "avg_call_result_tokens": 1482.8,
+            "n_calls": 20,
+            "total_tokens": 30349.0,
+            "fraction_of_context": 0.2371015625
+          },
+          "total_saved": 730.0
+        }
+      },
+      "mistral": {
+        "cl100k_base": {
+          "format_specific": {
+            "schema_tokens": 1526,
+            "avg_call_result_tokens": 1479.7,
+            "n_calls": 20,
+            "total_tokens": 31120.0,
+            "fraction_of_context": 0.243125
+          },
+          "cdxf": {
+            "schema_tokens": 735,
+            "avg_call_result_tokens": 1479.7,
+            "n_calls": 20,
+            "total_tokens": 30329.0,
+            "fraction_of_context": 0.2369453125
+          },
+          "total_saved": 791.0
+        },
+        "o200k_base": {
+          "format_specific": {
+            "schema_tokens": 1535,
+            "avg_call_result_tokens": 1482.8,
+            "n_calls": 20,
+            "total_tokens": 31191.0,
+            "fraction_of_context": 0.2436796875
+          },
+          "cdxf": {
+            "schema_tokens": 735,
+            "avg_call_result_tokens": 1482.8,
+            "n_calls": 20,
+            "total_tokens": 30391.0,
+            "fraction_of_context": 0.2374296875
+          },
+          "total_saved": 800.0
+        }
+      }
+    },
+    "100": {
+      "openai_chatcomp": {
+        "cl100k_base": {
+          "format_specific": {
+            "schema_tokens": 1526,
+            "avg_call_result_tokens": 1479.7,
+            "n_calls": 100,
+            "total_tokens": 149496.0,
+            "fraction_of_context": 1.1679375
+          },
+          "cdxf": {
+            "schema_tokens": 735,
+            "avg_call_result_tokens": 1479.7,
+            "n_calls": 100,
+            "total_tokens": 148705.0,
+            "fraction_of_context": 1.1617578125
+          },
+          "total_saved": 791.0
+        },
+        "o200k_base": {
+          "format_specific": {
+            "schema_tokens": 1535,
+            "avg_call_result_tokens": 1482.8,
+            "n_calls": 100,
+            "total_tokens": 149815.0,
+            "fraction_of_context": 1.1704296875
+          },
+          "cdxf": {
+            "schema_tokens": 735,
+            "avg_call_result_tokens": 1482.8,
+            "n_calls": 100,
+            "total_tokens": 149015.0,
+            "fraction_of_context": 1.1641796875
+          },
+          "total_saved": 800.0
+        }
+      },
+      "openai_responses": {
+        "cl100k_base": {
+          "format_specific": {
+            "schema_tokens": 1470,
+            "avg_call_result_tokens": 1479.7,
+            "n_calls": 100,
+            "total_tokens": 149440.0,
+            "fraction_of_context": 1.1675
+          },
+          "cdxf": {
+            "schema_tokens": 714,
+            "avg_call_result_tokens": 1479.7,
+            "n_calls": 100,
+            "total_tokens": 148684.0,
+            "fraction_of_context": 1.16159375
+          },
+          "total_saved": 756.0
+        },
+        "o200k_base": {
+          "format_specific": {
+            "schema_tokens": 1479,
+            "avg_call_result_tokens": 1482.8,
+            "n_calls": 100,
+            "total_tokens": 149759.0,
+            "fraction_of_context": 1.1699921875
+          },
+          "cdxf": {
+            "schema_tokens": 714,
+            "avg_call_result_tokens": 1482.8,
+            "n_calls": 100,
+            "total_tokens": 148994.0,
+            "fraction_of_context": 1.164015625
+          },
+          "total_saved": 765.0
+        }
+      },
+      "anthropic": {
+        "cl100k_base": {
+          "format_specific": {
+            "schema_tokens": 1422,
+            "avg_call_result_tokens": 1479.7,
+            "n_calls": 100,
+            "total_tokens": 149392.0,
+            "fraction_of_context": 1.167125
+          },
+          "cdxf": {
+            "schema_tokens": 696,
+            "avg_call_result_tokens": 1479.7,
+            "n_calls": 100,
+            "total_tokens": 148666.0,
+            "fraction_of_context": 1.161453125
+          },
+          "total_saved": 726.0
+        },
+        "o200k_base": {
+          "format_specific": {
+            "schema_tokens": 1431,
+            "avg_call_result_tokens": 1482.8,
+            "n_calls": 100,
+            "total_tokens": 149711.0,
+            "fraction_of_context": 1.1696171875
+          },
+          "cdxf": {
+            "schema_tokens": 696,
+            "avg_call_result_tokens": 1482.8,
+            "n_calls": 100,
+            "total_tokens": 148976.0,
+            "fraction_of_context": 1.163875
+          },
+          "total_saved": 735.0
+        }
+      },
+      "gemini": {
+        "cl100k_base": {
+          "format_specific": {
+            "schema_tokens": 1414,
+            "avg_call_result_tokens": 1479.7,
+            "n_calls": 100,
+            "total_tokens": 149384.0,
+            "fraction_of_context": 1.1670625
+          },
+          "cdxf": {
+            "schema_tokens": 693,
+            "avg_call_result_tokens": 1479.7,
+            "n_calls": 100,
+            "total_tokens": 148663.0,
+            "fraction_of_context": 1.1614296875
+          },
+          "total_saved": 721.0
+        },
+        "o200k_base": {
+          "format_specific": {
+            "schema_tokens": 1423,
+            "avg_call_result_tokens": 1482.8,
+            "n_calls": 100,
+            "total_tokens": 149703.0,
+            "fraction_of_context": 1.1695546875
+          },
+          "cdxf": {
+            "schema_tokens": 693,
+            "avg_call_result_tokens": 1482.8,
+            "n_calls": 100,
+            "total_tokens": 148973.0,
+            "fraction_of_context": 1.1638515625
+          },
+          "total_saved": 730.0
+        }
+      },
+      "mistral": {
+        "cl100k_base": {
+          "format_specific": {
+            "schema_tokens": 1526,
+            "avg_call_result_tokens": 1479.7,
+            "n_calls": 100,
+            "total_tokens": 149496.0,
+            "fraction_of_context": 1.1679375
+          },
+          "cdxf": {
+            "schema_tokens": 735,
+            "avg_call_result_tokens": 1479.7,
+            "n_calls": 100,
+            "total_tokens": 148705.0,
+            "fraction_of_context": 1.1617578125
+          },
+          "total_saved": 791.0
+        },
+        "o200k_base": {
+          "format_specific": {
+            "schema_tokens": 1535,
+            "avg_call_result_tokens": 1482.8,
+            "n_calls": 100,
+            "total_tokens": 149815.0,
+            "fraction_of_context": 1.1704296875
+          },
+          "cdxf": {
+            "schema_tokens": 735,
+            "avg_call_result_tokens": 1482.8,
+            "n_calls": 100,
+            "total_tokens": 149015.0,
+            "fraction_of_context": 1.1641796875
+          },
+          "total_saved": 800.0
+        }
+      }
+    }
+  }
+}

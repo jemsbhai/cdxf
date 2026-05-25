@@ -1,0 +1,194 @@
+[
+  {
+    "type": "function",
+    "name": "parse_json",
+    "description": "Parse a JSON document string into a structured data object. Handles nested objects, arrays, strings, numbers, booleans, and null values. Returns the parsed data structure for inspection, modification, or cross-format conversion. Validates JSON syntax and reports parse errors with line and column information.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "string",
+          "description": "The JSON document string to parse."
+        },
+        "strict": {
+          "type": "boolean",
+          "description": "If true, reject trailing commas and comments. Default: true."
+        }
+      },
+      "required": [
+        "content"
+      ]
+    }
+  },
+  {
+    "type": "function",
+    "name": "emit_json",
+    "description": "Serialize a data structure into a JSON document string. Produces well-formatted JSON with configurable indentation. Handles nested objects, arrays, and all JSON-compatible scalar types. Non-serializable values raise an error.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "description": "The data structure to serialize as JSON."
+        },
+        "indent": {
+          "type": "integer",
+          "description": "Number of spaces for indentation. 0 for compact. Default: 2."
+        },
+        "sort_keys": {
+          "type": "boolean",
+          "description": "Sort object keys alphabetically. Default: false."
+        }
+      },
+      "required": [
+        "data"
+      ]
+    }
+  },
+  {
+    "type": "function",
+    "name": "parse_yaml",
+    "description": "Parse a YAML document string into a structured data object. Supports anchors, aliases, merge keys, multi-document streams, typed timestamps, and flow/block styles. Preserves comments when possible. Returns the parsed data structure for inspection or modification.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "string",
+          "description": "The YAML document string to parse."
+        },
+        "preserve_comments": {
+          "type": "boolean",
+          "description": "Preserve YAML comments in the parsed result. Default: true."
+        },
+        "multi_document": {
+          "type": "boolean",
+          "description": "Parse as a multi-document YAML stream. Default: false."
+        }
+      },
+      "required": [
+        "content"
+      ]
+    }
+  },
+  {
+    "type": "function",
+    "name": "emit_yaml",
+    "description": "Serialize a data structure into a YAML document string. Produces human-readable YAML with configurable style preferences. Supports block and flow mappings, sequence styles, and typed scalar emission including timestamps.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "description": "The data structure to serialize as YAML."
+        },
+        "default_flow_style": {
+          "type": "boolean",
+          "description": "Use flow style (inline) for mappings and sequences. Default: false (block style)."
+        },
+        "width": {
+          "type": "integer",
+          "description": "Maximum line width before wrapping. Default: 80."
+        }
+      },
+      "required": [
+        "data"
+      ]
+    }
+  },
+  {
+    "type": "function",
+    "name": "parse_xml",
+    "description": "Parse an XML document string into a structured data object. Handles elements, attributes, text content, CDATA sections, namespaces, processing instructions, and comments. Returns a tree representation preserving document structure and mixed content. Validates well-formedness.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "string",
+          "description": "The XML document string to parse."
+        },
+        "namespaces": {
+          "type": "boolean",
+          "description": "Process namespace declarations. Default: true."
+        },
+        "preserve_whitespace": {
+          "type": "boolean",
+          "description": "Preserve significant whitespace in text nodes. Default: true."
+        }
+      },
+      "required": [
+        "content"
+      ]
+    }
+  },
+  {
+    "type": "function",
+    "name": "emit_xml",
+    "description": "Serialize a data structure into an XML document string. Produces well-formatted XML with configurable indentation and encoding declaration. Handles element nesting, attributes, text content, and namespace prefixes.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "description": "The data structure to serialize as XML."
+        },
+        "indent": {
+          "type": "integer",
+          "description": "Spaces for indentation. Default: 2."
+        },
+        "xml_declaration": {
+          "type": "boolean",
+          "description": "Include XML declaration header. Default: true."
+        },
+        "encoding": {
+          "type": "string",
+          "description": "Character encoding. Default: 'utf-8'."
+        }
+      },
+      "required": [
+        "data"
+      ]
+    }
+  },
+  {
+    "type": "function",
+    "name": "parse_toml",
+    "description": "Parse a TOML document string into a structured data object. Supports tables, arrays of tables, inline tables, typed datetime values (offset, local, date, time), multi-line strings, and integer formats (hex, oct, bin). Preserves comments when possible.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "string",
+          "description": "The TOML document string to parse."
+        },
+        "preserve_comments": {
+          "type": "boolean",
+          "description": "Preserve TOML comments in the parsed result. Default: true."
+        }
+      },
+      "required": [
+        "content"
+      ]
+    }
+  },
+  {
+    "type": "function",
+    "name": "emit_toml",
+    "description": "Serialize a data structure into a TOML document string. Produces human-readable TOML with proper table headers and array-of-tables notation. Handles typed datetime values, multi-line strings, and inline tables.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "description": "The data structure to serialize as TOML."
+        },
+        "sort_keys": {
+          "type": "boolean",
+          "description": "Sort table keys alphabetically. Default: false."
+        }
+      },
+      "required": [
+        "data"
+      ]
+    }
+  }
+]
