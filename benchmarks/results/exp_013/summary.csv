@@ -1,0 +1,13 @@
+state_format,complexity,initial_comments,final_comments,surviving_fraction,max_k
+cdxf,medium,22,9961,452.7727,20
+json_mega,medium,22,0,0.0,20
+pickle,medium,22,0,0.0,20
+tar_gz,medium,22,22,1.0,20
+cdxf,small,13,120,9.2308,10
+json_mega,small,13,0,0.0,10
+pickle,small,13,0,0.0,10
+tar_gz,small,13,13,1.0,10
+cdxf,large,46,231,5.0217,10
+json_mega,large,46,0,0.0,10
+pickle,large,46,0,0.0,10
+tar_gz,large,46,46,1.0,10

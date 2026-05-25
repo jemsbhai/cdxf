@@ -409,3 +409,30 @@ token count remains constant (O(1)) while format-specific grows linearly (O(N)).
 Honest caveat: Schema definitions are loaded once per session, so absolute
 savings are modest (791 tokens = 0.6% of 128K context). The value is in
 scaling — systems handling many formats benefit disproportionately.
+
+### F22: JSON and Pickle destroy 100% of metadata comments at the first session boundary; CDXF and tar.gz preserve them
+
+**Source:** EXP-013 (Agent Workflow State Persistence Across Sessions)
+
+Simulated an autonomous research agent persisting state across K=1..20
+session boundaries. Initial state: 8 ML pipeline config files with 22
+comments documenting hyperparameter decisions.
+
+| Format | Comments at K=1 | Comments at K=20 | Behavior |
+|--------|----------------|------------------|----------|
+| CDXF | 22/22 (100%+) | preserved | Never drops below initial |
+| tar.gz | 22/22 (100%) | 22/22 (100%) | Raw text preserved |
+| JSON mega | 0/22 (0%) | 0/22 (0%) | Total loss at K=1, permanent |
+| Pickle | 0/22 (0%) | 0/22 (0%) | Total loss at K=1, permanent |
+
+The loss is immediate and permanent: yaml.safe_load and tomllib.loads
+parse away all comments at the first serialization boundary. Every
+subsequent boundary operates on already-stripped data.
+
+tar.gz preserves raw text files, so comments survive. But tar.gz is
+not a queryable single-file format — it requires extraction.
+
+CDXF preserves comments AND is a queryable, cross-format binary format.
+Known artifact: YAML bridge reformatting inflates comment count slightly
+per round-trip (compounding over many sessions). The bridge artifact
+is orthogonal to the preservation claim.

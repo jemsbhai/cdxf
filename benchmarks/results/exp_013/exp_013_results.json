@@ -1,0 +1,1504 @@
+{
+  "experiment": "EXP-013",
+  "timestamp": "2026-05-25T22:25:41.015622+00:00",
+  "degradation": {
+    "medium_cdxf": [
+      {
+        "k": 0,
+        "total_comments": 22,
+        "original_comments_surviving": 22,
+        "state_size_bytes": 3582,
+        "n_files": 8,
+        "grand_total_metadata": 22
+      },
+      {
+        "k": 1,
+        "total_comments": 28,
+        "original_comments_surviving": 24,
+        "state_size_bytes": 4224,
+        "n_files": 9,
+        "grand_total_metadata": 28
+      },
+      {
+        "k": 2,
+        "total_comments": 39,
+        "original_comments_surviving": 30,
+        "state_size_bytes": 4934,
+        "n_files": 10,
+        "grand_total_metadata": 39
+      },
+      {
+        "k": 3,
+        "total_comments": 52,
+        "original_comments_surviving": 37,
+        "state_size_bytes": 5831,
+        "n_files": 11,
+        "grand_total_metadata": 52
+      },
+      {
+        "k": 4,
+        "total_comments": 69,
+        "original_comments_surviving": 46,
+        "state_size_bytes": 6907,
+        "n_files": 12,
+        "grand_total_metadata": 69
+      },
+      {
+        "k": 5,
+        "total_comments": 90,
+        "original_comments_surviving": 57,
+        "state_size_bytes": 8142,
+        "n_files": 13,
+        "grand_total_metadata": 90
+      },
+      {
+        "k": 6,
+        "total_comments": 114,
+        "original_comments_surviving": 69,
+        "state_size_bytes": 9611,
+        "n_files": 14,
+        "grand_total_metadata": 114
+      },
+      {
+        "k": 7,
+        "total_comments": 143,
+        "original_comments_surviving": 84,
+        "state_size_bytes": 11401,
+        "n_files": 15,
+        "grand_total_metadata": 143
+      },
+      {
+        "k": 8,
+        "total_comments": 179,
+        "original_comments_surviving": 104,
+        "state_size_bytes": 13605,
+        "n_files": 16,
+        "grand_total_metadata": 179
+      },
+      {
+        "k": 9,
+        "total_comments": 224,
+        "original_comments_surviving": 131,
+        "state_size_bytes": 16415,
+        "n_files": 17,
+        "grand_total_metadata": 224
+      },
+      {
+        "k": 10,
+        "total_comments": 282,
+        "original_comments_surviving": 169,
+        "state_size_bytes": 20146,
+        "n_files": 18,
+        "grand_total_metadata": 282
+      },
+      {
+        "k": 11,
+        "total_comments": 360,
+        "original_comments_surviving": 225,
+        "state_size_bytes": 25299,
+        "n_files": 19,
+        "grand_total_metadata": 360
+      },
+      {
+        "k": 12,
+        "total_comments": 469,
+        "original_comments_surviving": 310,
+        "state_size_bytes": 32699,
+        "n_files": 20,
+        "grand_total_metadata": 469
+      },
+      {
+        "k": 13,
+        "total_comments": 627,
+        "original_comments_surviving": 442,
+        "state_size_bytes": 43755,
+        "n_files": 21,
+        "grand_total_metadata": 627
+      },
+      {
+        "k": 14,
+        "total_comments": 865,
+        "original_comments_surviving": 652,
+        "state_size_bytes": 60815,
+        "n_files": 22,
+        "grand_total_metadata": 865
+      },
+      {
+        "k": 15,
+        "total_comments": 1234,
+        "original_comments_surviving": 991,
+        "state_size_bytes": 87670,
+        "n_files": 23,
+        "grand_total_metadata": 1234
+      },
+      {
+        "k": 16,
+        "total_comments": 1817,
+        "original_comments_surviving": 1542,
+        "state_size_bytes": 130411,
+        "n_files": 24,
+        "grand_total_metadata": 1817
+      },
+      {
+        "k": 17,
+        "total_comments": 2747,
+        "original_comments_surviving": 2438,
+        "state_size_bytes": 198754,
+        "n_files": 25,
+        "grand_total_metadata": 2747
+      },
+      {
+        "k": 18,
+        "total_comments": 4235,
+        "original_comments_surviving": 3890,
+        "state_size_bytes": 307974,
+        "n_files": 26,
+        "grand_total_metadata": 4235
+      },
+      {
+        "k": 19,
+        "total_comments": 6610,
+        "original_comments_surviving": 6227,
+        "state_size_bytes": 482107,
+        "n_files": 27,
+        "grand_total_metadata": 6610
+      },
+      {
+        "k": 20,
+        "total_comments": 10384,
+        "original_comments_surviving": 9961,
+        "state_size_bytes": 758772,
+        "n_files": 28,
+        "grand_total_metadata": 10384
+      }
+    ],
+    "medium_json_mega": [
+      {
+        "k": 0,
+        "total_comments": 22,
+        "original_comments_surviving": 22,
+        "state_size_bytes": 4223,
+        "n_files": 8,
+        "grand_total_metadata": 22
+      },
+      {
+        "k": 1,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 4454,
+        "n_files": 9,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 2,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 4655,
+        "n_files": 10,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 3,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 4857,
+        "n_files": 11,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 4,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 5058,
+        "n_files": 12,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 5,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 5289,
+        "n_files": 13,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 6,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 5519,
+        "n_files": 14,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 7,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 5750,
+        "n_files": 15,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 8,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 5980,
+        "n_files": 16,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 9,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 6211,
+        "n_files": 17,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 10,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 6442,
+        "n_files": 18,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 11,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 6676,
+        "n_files": 19,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 12,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 6909,
+        "n_files": 20,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 13,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 7142,
+        "n_files": 21,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 14,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 7374,
+        "n_files": 22,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 15,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 7607,
+        "n_files": 23,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 16,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 7839,
+        "n_files": 24,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 17,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 8072,
+        "n_files": 25,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 18,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 8304,
+        "n_files": 26,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 19,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 8537,
+        "n_files": 27,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 20,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 8768,
+        "n_files": 28,
+        "grand_total_metadata": 4
+      }
+    ],
+    "medium_pickle": [
+      {
+        "k": 0,
+        "total_comments": 22,
+        "original_comments_surviving": 22,
+        "state_size_bytes": 2493,
+        "n_files": 8,
+        "grand_total_metadata": 22
+      },
+      {
+        "k": 1,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 2645,
+        "n_files": 9,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 2,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 2775,
+        "n_files": 10,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 3,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 2905,
+        "n_files": 11,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 4,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 3035,
+        "n_files": 12,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 5,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 3186,
+        "n_files": 13,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 6,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 3337,
+        "n_files": 14,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 7,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 3488,
+        "n_files": 15,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 8,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 3639,
+        "n_files": 16,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 9,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 3790,
+        "n_files": 17,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 10,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 3942,
+        "n_files": 18,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 11,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 4094,
+        "n_files": 19,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 12,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 4246,
+        "n_files": 20,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 13,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 4398,
+        "n_files": 21,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 14,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 4550,
+        "n_files": 22,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 15,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 4702,
+        "n_files": 23,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 16,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 4854,
+        "n_files": 24,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 17,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 5006,
+        "n_files": 25,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 18,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 5158,
+        "n_files": 26,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 19,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 5310,
+        "n_files": 27,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 20,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 5462,
+        "n_files": 28,
+        "grand_total_metadata": 4
+      }
+    ],
+    "medium_tar_gz": [
+      {
+        "k": 0,
+        "total_comments": 22,
+        "original_comments_surviving": 22,
+        "state_size_bytes": 2005,
+        "n_files": 8,
+        "grand_total_metadata": 22
+      },
+      {
+        "k": 1,
+        "total_comments": 26,
+        "original_comments_surviving": 22,
+        "state_size_bytes": 2151,
+        "n_files": 9,
+        "grand_total_metadata": 26
+      },
+      {
+        "k": 2,
+        "total_comments": 30,
+        "original_comments_surviving": 22,
+        "state_size_bytes": 2185,
+        "n_files": 10,
+        "grand_total_metadata": 30
+      },
+      {
+        "k": 3,
+        "total_comments": 34,
+        "original_comments_surviving": 22,
+        "state_size_bytes": 2216,
+        "n_files": 11,
+        "grand_total_metadata": 34
+      },
+      {
+        "k": 4,
+        "total_comments": 38,
+        "original_comments_surviving": 22,
+        "state_size_bytes": 2246,
+        "n_files": 12,
+        "grand_total_metadata": 38
+      },
+      {
+        "k": 5,
+        "total_comments": 42,
+        "original_comments_surviving": 22,
+        "state_size_bytes": 2283,
+        "n_files": 13,
+        "grand_total_metadata": 42
+      },
+      {
+        "k": 6,
+        "total_comments": 46,
+        "original_comments_surviving": 22,
+        "state_size_bytes": 2313,
+        "n_files": 14,
+        "grand_total_metadata": 46
+      },
+      {
+        "k": 7,
+        "total_comments": 50,
+        "original_comments_surviving": 22,
+        "state_size_bytes": 2347,
+        "n_files": 15,
+        "grand_total_metadata": 50
+      },
+      {
+        "k": 8,
+        "total_comments": 54,
+        "original_comments_surviving": 22,
+        "state_size_bytes": 2381,
+        "n_files": 16,
+        "grand_total_metadata": 54
+      },
+      {
+        "k": 9,
+        "total_comments": 58,
+        "original_comments_surviving": 22,
+        "state_size_bytes": 2412,
+        "n_files": 17,
+        "grand_total_metadata": 58
+      },
+      {
+        "k": 10,
+        "total_comments": 62,
+        "original_comments_surviving": 22,
+        "state_size_bytes": 2506,
+        "n_files": 18,
+        "grand_total_metadata": 62
+      },
+      {
+        "k": 11,
+        "total_comments": 66,
+        "original_comments_surviving": 22,
+        "state_size_bytes": 2538,
+        "n_files": 19,
+        "grand_total_metadata": 66
+      },
+      {
+        "k": 12,
+        "total_comments": 70,
+        "original_comments_surviving": 22,
+        "state_size_bytes": 2571,
+        "n_files": 20,
+        "grand_total_metadata": 70
+      },
+      {
+        "k": 13,
+        "total_comments": 74,
+        "original_comments_surviving": 22,
+        "state_size_bytes": 2603,
+        "n_files": 21,
+        "grand_total_metadata": 74
+      },
+      {
+        "k": 14,
+        "total_comments": 78,
+        "original_comments_surviving": 22,
+        "state_size_bytes": 2640,
+        "n_files": 22,
+        "grand_total_metadata": 78
+      },
+      {
+        "k": 15,
+        "total_comments": 82,
+        "original_comments_surviving": 22,
+        "state_size_bytes": 2671,
+        "n_files": 23,
+        "grand_total_metadata": 82
+      },
+      {
+        "k": 16,
+        "total_comments": 86,
+        "original_comments_surviving": 22,
+        "state_size_bytes": 2698,
+        "n_files": 24,
+        "grand_total_metadata": 86
+      },
+      {
+        "k": 17,
+        "total_comments": 90,
+        "original_comments_surviving": 22,
+        "state_size_bytes": 2733,
+        "n_files": 25,
+        "grand_total_metadata": 90
+      },
+      {
+        "k": 18,
+        "total_comments": 94,
+        "original_comments_surviving": 22,
+        "state_size_bytes": 2768,
+        "n_files": 26,
+        "grand_total_metadata": 94
+      },
+      {
+        "k": 19,
+        "total_comments": 98,
+        "original_comments_surviving": 22,
+        "state_size_bytes": 2796,
+        "n_files": 27,
+        "grand_total_metadata": 98
+      },
+      {
+        "k": 20,
+        "total_comments": 102,
+        "original_comments_surviving": 22,
+        "state_size_bytes": 2874,
+        "n_files": 28,
+        "grand_total_metadata": 102
+      }
+    ],
+    "small_cdxf": [
+      {
+        "k": 0,
+        "total_comments": 13,
+        "original_comments_surviving": 13,
+        "state_size_bytes": 1725,
+        "n_files": 3,
+        "grand_total_metadata": 13
+      },
+      {
+        "k": 1,
+        "total_comments": 19,
+        "original_comments_surviving": 15,
+        "state_size_bytes": 2335,
+        "n_files": 4,
+        "grand_total_metadata": 19
+      },
+      {
+        "k": 2,
+        "total_comments": 29,
+        "original_comments_surviving": 20,
+        "state_size_bytes": 3016,
+        "n_files": 5,
+        "grand_total_metadata": 29
+      },
+      {
+        "k": 3,
+        "total_comments": 41,
+        "original_comments_surviving": 26,
+        "state_size_bytes": 3896,
+        "n_files": 6,
+        "grand_total_metadata": 41
+      },
+      {
+        "k": 4,
+        "total_comments": 57,
+        "original_comments_surviving": 34,
+        "state_size_bytes": 4912,
+        "n_files": 7,
+        "grand_total_metadata": 57
+      },
+      {
+        "k": 5,
+        "total_comments": 76,
+        "original_comments_surviving": 43,
+        "state_size_bytes": 6069,
+        "n_files": 8,
+        "grand_total_metadata": 76
+      },
+      {
+        "k": 6,
+        "total_comments": 98,
+        "original_comments_surviving": 53,
+        "state_size_bytes": 7417,
+        "n_files": 9,
+        "grand_total_metadata": 98
+      },
+      {
+        "k": 7,
+        "total_comments": 124,
+        "original_comments_surviving": 65,
+        "state_size_bytes": 9003,
+        "n_files": 10,
+        "grand_total_metadata": 124
+      },
+      {
+        "k": 8,
+        "total_comments": 155,
+        "original_comments_surviving": 80,
+        "state_size_bytes": 10828,
+        "n_files": 11,
+        "grand_total_metadata": 155
+      },
+      {
+        "k": 9,
+        "total_comments": 191,
+        "original_comments_surviving": 98,
+        "state_size_bytes": 12958,
+        "n_files": 12,
+        "grand_total_metadata": 191
+      },
+      {
+        "k": 10,
+        "total_comments": 233,
+        "original_comments_surviving": 120,
+        "state_size_bytes": 15498,
+        "n_files": 13,
+        "grand_total_metadata": 233
+      }
+    ],
+    "small_json_mega": [
+      {
+        "k": 0,
+        "total_comments": 13,
+        "original_comments_surviving": 13,
+        "state_size_bytes": 1720,
+        "n_files": 3,
+        "grand_total_metadata": 13
+      },
+      {
+        "k": 1,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 1951,
+        "n_files": 4,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 2,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 2152,
+        "n_files": 5,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 3,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 2383,
+        "n_files": 6,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 4,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 2613,
+        "n_files": 7,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 5,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 2844,
+        "n_files": 8,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 6,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 3074,
+        "n_files": 9,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 7,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 3305,
+        "n_files": 10,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 8,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 3535,
+        "n_files": 11,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 9,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 3766,
+        "n_files": 12,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 10,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 3997,
+        "n_files": 13,
+        "grand_total_metadata": 4
+      }
+    ],
+    "small_pickle": [
+      {
+        "k": 0,
+        "total_comments": 13,
+        "original_comments_surviving": 13,
+        "state_size_bytes": 1065,
+        "n_files": 3,
+        "grand_total_metadata": 13
+      },
+      {
+        "k": 1,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 1217,
+        "n_files": 4,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 2,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 1347,
+        "n_files": 5,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 3,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 1498,
+        "n_files": 6,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 4,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 1649,
+        "n_files": 7,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 5,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 1800,
+        "n_files": 8,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 6,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 1951,
+        "n_files": 9,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 7,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 2102,
+        "n_files": 10,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 8,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 2253,
+        "n_files": 11,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 9,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 2404,
+        "n_files": 12,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 10,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 2556,
+        "n_files": 13,
+        "grand_total_metadata": 4
+      }
+    ],
+    "small_tar_gz": [
+      {
+        "k": 0,
+        "total_comments": 13,
+        "original_comments_surviving": 13,
+        "state_size_bytes": 1035,
+        "n_files": 3,
+        "grand_total_metadata": 13
+      },
+      {
+        "k": 1,
+        "total_comments": 17,
+        "original_comments_surviving": 13,
+        "state_size_bytes": 1188,
+        "n_files": 4,
+        "grand_total_metadata": 17
+      },
+      {
+        "k": 2,
+        "total_comments": 21,
+        "original_comments_surviving": 13,
+        "state_size_bytes": 1221,
+        "n_files": 5,
+        "grand_total_metadata": 21
+      },
+      {
+        "k": 3,
+        "total_comments": 25,
+        "original_comments_surviving": 13,
+        "state_size_bytes": 1262,
+        "n_files": 6,
+        "grand_total_metadata": 25
+      },
+      {
+        "k": 4,
+        "total_comments": 29,
+        "original_comments_surviving": 13,
+        "state_size_bytes": 1295,
+        "n_files": 7,
+        "grand_total_metadata": 29
+      },
+      {
+        "k": 5,
+        "total_comments": 33,
+        "original_comments_surviving": 13,
+        "state_size_bytes": 1325,
+        "n_files": 8,
+        "grand_total_metadata": 33
+      },
+      {
+        "k": 6,
+        "total_comments": 37,
+        "original_comments_surviving": 13,
+        "state_size_bytes": 1400,
+        "n_files": 9,
+        "grand_total_metadata": 37
+      },
+      {
+        "k": 7,
+        "total_comments": 41,
+        "original_comments_surviving": 13,
+        "state_size_bytes": 1433,
+        "n_files": 10,
+        "grand_total_metadata": 41
+      },
+      {
+        "k": 8,
+        "total_comments": 45,
+        "original_comments_surviving": 13,
+        "state_size_bytes": 1464,
+        "n_files": 11,
+        "grand_total_metadata": 45
+      },
+      {
+        "k": 9,
+        "total_comments": 49,
+        "original_comments_surviving": 13,
+        "state_size_bytes": 1492,
+        "n_files": 12,
+        "grand_total_metadata": 49
+      },
+      {
+        "k": 10,
+        "total_comments": 53,
+        "original_comments_surviving": 13,
+        "state_size_bytes": 1538,
+        "n_files": 13,
+        "grand_total_metadata": 53
+      }
+    ],
+    "large_cdxf": [
+      {
+        "k": 0,
+        "total_comments": 46,
+        "original_comments_surviving": 46,
+        "state_size_bytes": 6255,
+        "n_files": 15,
+        "grand_total_metadata": 49
+      },
+      {
+        "k": 1,
+        "total_comments": 54,
+        "original_comments_surviving": 50,
+        "state_size_bytes": 6934,
+        "n_files": 16,
+        "grand_total_metadata": 54
+      },
+      {
+        "k": 2,
+        "total_comments": 67,
+        "original_comments_surviving": 58,
+        "state_size_bytes": 7728,
+        "n_files": 17,
+        "grand_total_metadata": 67
+      },
+      {
+        "k": 3,
+        "total_comments": 83,
+        "original_comments_surviving": 68,
+        "state_size_bytes": 8724,
+        "n_files": 18,
+        "grand_total_metadata": 83
+      },
+      {
+        "k": 4,
+        "total_comments": 104,
+        "original_comments_surviving": 81,
+        "state_size_bytes": 9899,
+        "n_files": 19,
+        "grand_total_metadata": 104
+      },
+      {
+        "k": 5,
+        "total_comments": 129,
+        "original_comments_surviving": 96,
+        "state_size_bytes": 11221,
+        "n_files": 20,
+        "grand_total_metadata": 129
+      },
+      {
+        "k": 6,
+        "total_comments": 157,
+        "original_comments_surviving": 112,
+        "state_size_bytes": 12777,
+        "n_files": 21,
+        "grand_total_metadata": 157
+      },
+      {
+        "k": 7,
+        "total_comments": 190,
+        "original_comments_surviving": 131,
+        "state_size_bytes": 14690,
+        "n_files": 22,
+        "grand_total_metadata": 190
+      },
+      {
+        "k": 8,
+        "total_comments": 231,
+        "original_comments_surviving": 156,
+        "state_size_bytes": 17018,
+        "n_files": 23,
+        "grand_total_metadata": 231
+      },
+      {
+        "k": 9,
+        "total_comments": 281,
+        "original_comments_surviving": 188,
+        "state_size_bytes": 19946,
+        "n_files": 24,
+        "grand_total_metadata": 281
+      },
+      {
+        "k": 10,
+        "total_comments": 344,
+        "original_comments_surviving": 231,
+        "state_size_bytes": 23801,
+        "n_files": 25,
+        "grand_total_metadata": 344
+      }
+    ],
+    "large_json_mega": [
+      {
+        "k": 0,
+        "total_comments": 46,
+        "original_comments_surviving": 46,
+        "state_size_bytes": 6735,
+        "n_files": 15,
+        "grand_total_metadata": 49
+      },
+      {
+        "k": 1,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 6966,
+        "n_files": 16,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 2,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 7167,
+        "n_files": 17,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 3,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 7369,
+        "n_files": 18,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 4,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 7570,
+        "n_files": 19,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 5,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 7801,
+        "n_files": 20,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 6,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 8002,
+        "n_files": 21,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 7,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 8233,
+        "n_files": 22,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 8,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 8463,
+        "n_files": 23,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 9,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 8694,
+        "n_files": 24,
+        "grand_total_metadata": 4
+      },
+      {
+        "k": 10,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 8925,
+        "n_files": 25,
+        "grand_total_metadata": 4
+      }
+    ],
+    "large_pickle": [
+      {
+        "k": 0,
+        "total_comments": 46,
+        "original_comments_surviving": 46,
+        "state_size_bytes": 4077,
+        "n_files": 15,
+        "grand_total_metadata": 49
+      },
+      {
+        "k": 1,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 4229,
+        "n_files": 16,
+        "grand_total_metadata": 7
+      },
+      {
+        "k": 2,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 4359,
+        "n_files": 17,
+        "grand_total_metadata": 7
+      },
+      {
+        "k": 3,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 4489,
+        "n_files": 18,
+        "grand_total_metadata": 7
+      },
+      {
+        "k": 4,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 4619,
+        "n_files": 19,
+        "grand_total_metadata": 7
+      },
+      {
+        "k": 5,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 4771,
+        "n_files": 20,
+        "grand_total_metadata": 7
+      },
+      {
+        "k": 6,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 4901,
+        "n_files": 21,
+        "grand_total_metadata": 7
+      },
+      {
+        "k": 7,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 5053,
+        "n_files": 22,
+        "grand_total_metadata": 7
+      },
+      {
+        "k": 8,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 5205,
+        "n_files": 23,
+        "grand_total_metadata": 7
+      },
+      {
+        "k": 9,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 5357,
+        "n_files": 24,
+        "grand_total_metadata": 7
+      },
+      {
+        "k": 10,
+        "total_comments": 4,
+        "original_comments_surviving": 0,
+        "state_size_bytes": 5509,
+        "n_files": 25,
+        "grand_total_metadata": 7
+      }
+    ],
+    "large_tar_gz": [
+      {
+        "k": 0,
+        "total_comments": 46,
+        "original_comments_surviving": 46,
+        "state_size_bytes": 3098,
+        "n_files": 15,
+        "grand_total_metadata": 49
+      },
+      {
+        "k": 1,
+        "total_comments": 50,
+        "original_comments_surviving": 46,
+        "state_size_bytes": 3228,
+        "n_files": 16,
+        "grand_total_metadata": 53
+      },
+      {
+        "k": 2,
+        "total_comments": 54,
+        "original_comments_surviving": 46,
+        "state_size_bytes": 3261,
+        "n_files": 17,
+        "grand_total_metadata": 57
+      },
+      {
+        "k": 3,
+        "total_comments": 58,
+        "original_comments_surviving": 46,
+        "state_size_bytes": 3342,
+        "n_files": 18,
+        "grand_total_metadata": 61
+      },
+      {
+        "k": 4,
+        "total_comments": 62,
+        "original_comments_surviving": 46,
+        "state_size_bytes": 3372,
+        "n_files": 19,
+        "grand_total_metadata": 65
+      },
+      {
+        "k": 5,
+        "total_comments": 66,
+        "original_comments_surviving": 46,
+        "state_size_bytes": 3404,
+        "n_files": 20,
+        "grand_total_metadata": 69
+      },
+      {
+        "k": 6,
+        "total_comments": 70,
+        "original_comments_surviving": 46,
+        "state_size_bytes": 3434,
+        "n_files": 21,
+        "grand_total_metadata": 73
+      },
+      {
+        "k": 7,
+        "total_comments": 74,
+        "original_comments_surviving": 46,
+        "state_size_bytes": 3469,
+        "n_files": 22,
+        "grand_total_metadata": 77
+      },
+      {
+        "k": 8,
+        "total_comments": 78,
+        "original_comments_surviving": 46,
+        "state_size_bytes": 3500,
+        "n_files": 23,
+        "grand_total_metadata": 81
+      },
+      {
+        "k": 9,
+        "total_comments": 82,
+        "original_comments_surviving": 46,
+        "state_size_bytes": 3530,
+        "n_files": 24,
+        "grand_total_metadata": 85
+      },
+      {
+        "k": 10,
+        "total_comments": 86,
+        "original_comments_surviving": 46,
+        "state_size_bytes": 3581,
+        "n_files": 25,
+        "grand_total_metadata": 89
+      }
+    ]
+  },
+  "summary": {
+    "medium_cdxf": {
+      "state_format": "cdxf",
+      "complexity": "medium",
+      "initial_comments": 22,
+      "final_comments": 9961,
+      "surviving_fraction": 452.7727,
+      "max_k": 20
+    },
+    "medium_json_mega": {
+      "state_format": "json_mega",
+      "complexity": "medium",
+      "initial_comments": 22,
+      "final_comments": 0,
+      "surviving_fraction": 0.0,
+      "max_k": 20
+    },
+    "medium_pickle": {
+      "state_format": "pickle",
+      "complexity": "medium",
+      "initial_comments": 22,
+      "final_comments": 0,
+      "surviving_fraction": 0.0,
+      "max_k": 20
+    },
+    "medium_tar_gz": {
+      "state_format": "tar_gz",
+      "complexity": "medium",
+      "initial_comments": 22,
+      "final_comments": 22,
+      "surviving_fraction": 1.0,
+      "max_k": 20
+    },
+    "small_cdxf": {
+      "state_format": "cdxf",
+      "complexity": "small",
+      "initial_comments": 13,
+      "final_comments": 120,
+      "surviving_fraction": 9.2308,
+      "max_k": 10
+    },
+    "small_json_mega": {
+      "state_format": "json_mega",
+      "complexity": "small",
+      "initial_comments": 13,
+      "final_comments": 0,
+      "surviving_fraction": 0.0,
+      "max_k": 10
+    },
+    "small_pickle": {
+      "state_format": "pickle",
+      "complexity": "small",
+      "initial_comments": 13,
+      "final_comments": 0,
+      "surviving_fraction": 0.0,
+      "max_k": 10
+    },
+    "small_tar_gz": {
+      "state_format": "tar_gz",
+      "complexity": "small",
+      "initial_comments": 13,
+      "final_comments": 13,
+      "surviving_fraction": 1.0,
+      "max_k": 10
+    },
+    "large_cdxf": {
+      "state_format": "cdxf",
+      "complexity": "large",
+      "initial_comments": 46,
+      "final_comments": 231,
+      "surviving_fraction": 5.0217,
+      "max_k": 10
+    },
+    "large_json_mega": {
+      "state_format": "json_mega",
+      "complexity": "large",
+      "initial_comments": 46,
+      "final_comments": 0,
+      "surviving_fraction": 0.0,
+      "max_k": 10
+    },
+    "large_pickle": {
+      "state_format": "pickle",
+      "complexity": "large",
+      "initial_comments": 46,
+      "final_comments": 0,
+      "surviving_fraction": 0.0,
+      "max_k": 10
+    },
+    "large_tar_gz": {
+      "state_format": "tar_gz",
+      "complexity": "large",
+      "initial_comments": 46,
+      "final_comments": 46,
+      "surviving_fraction": 1.0,
+      "max_k": 10
+    }
+  }
+}
