@@ -76,6 +76,18 @@ The full pipeline (text parsing + CDXF encoding) achieves 53K ops/s, with text
 parsing (bridge) being the bottleneck, not CBOR encoding. A future C extension
 for the CDXF codec would close the gap to cbor2. (EXP-002)
 
+### F7: CDXF enables lossless cross-format interchange for the shared data model
+
+All 6 conversion pairs between JSON, YAML, and TOML through CDXF (66 tests)
+achieve perfect data-level equivalence for the shared data model (maps,
+sequences, typed scalars). This includes 10 document types ranging from flat
+maps to deeply nested structures, arrays of tables, string escapes, and empty
+collections. Format-specific limitations are handled gracefully: JSON null is
+dropped when targeting TOML (which has no null), TOML datetime objects become
+ISO strings in JSON, and YAML comments/anchors are silently dropped when
+targeting JSON or TOML. No existing binary format enables this kind of
+cross-format interchange — they all target a single format family. (EXP-003)
+
 ---
 
 ## Raw Findings Log
