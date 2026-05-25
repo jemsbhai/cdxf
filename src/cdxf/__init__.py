@@ -4,7 +4,7 @@ A universal binary interchange format whose information model is a provable
 superset of JSON, YAML, XML, and TOML.
 """
 
-__version__ = "0.1.1"
+__version__ = "0.1.2"
 
 from cdxf.model import (
     Stream,
