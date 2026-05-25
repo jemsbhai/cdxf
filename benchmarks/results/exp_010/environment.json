@@ -1,0 +1,15 @@
+{
+  "timestamp": "2026-05-25T20:01:29.881019+00:00",
+  "python_version": "3.12.2",
+  "os": "Windows 11",
+  "machine": "AMD64",
+  "warmup": 10,
+  "iterations": 1000,
+  "pkg_cbor2": "5.8.0",
+  "pkg_msgpack": "1.1.2",
+  "pkg_ruamel.yaml": "0.18.14",
+  "pkg_tomlkit": "0.14.0",
+  "pkg_pymongo": "4.16.0",
+  "pkg_amazon.ion": "0.13.0",
+  "pkg_cdxf": "0.1.1"
+}
