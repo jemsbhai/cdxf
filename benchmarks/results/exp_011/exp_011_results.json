@@ -1,0 +1,1157 @@
+{
+  "experiment": "EXP-011",
+  "timestamp": "2026-05-25T20:46:38.500279+00:00",
+  "corpus_size": 43,
+  "results": [
+    {
+      "total_tokens": 11,
+      "syntax_tokens": 7.0,
+      "semantic_tokens": 4.0,
+      "syntax_tax_rate": 0.636364,
+      "tokens_per_byte": 0.52381,
+      "name": "json/tier1_schemastore/circleciblank.json",
+      "format": "json",
+      "size_bytes": 21,
+      "tokenizer": "cl100k_base"
+    },
+    {
+      "total_tokens": 11,
+      "syntax_tokens": 7.0,
+      "semantic_tokens": 4.0,
+      "syntax_tax_rate": 0.636364,
+      "tokens_per_byte": 0.52381,
+      "name": "json/tier1_schemastore/circleciblank.json",
+      "format": "json",
+      "size_bytes": 21,
+      "tokenizer": "o200k_base"
+    },
+    {
+      "total_tokens": 72,
+      "syntax_tokens": 56.0,
+      "semantic_tokens": 16.0,
+      "syntax_tax_rate": 0.777778,
+      "tokens_per_byte": 0.285714,
+      "name": "json/tier1_schemastore/circlecimatrix.json",
+      "format": "json",
+      "size_bytes": 252,
+      "tokenizer": "cl100k_base"
+    },
+    {
+      "total_tokens": 72,
+      "syntax_tokens": 56.0,
+      "semantic_tokens": 16.0,
+      "syntax_tax_rate": 0.777778,
+      "tokens_per_byte": 0.285714,
+      "name": "json/tier1_schemastore/circlecimatrix.json",
+      "format": "json",
+      "size_bytes": 252,
+      "tokenizer": "o200k_base"
+    },
+    {
+      "total_tokens": 39,
+      "syntax_tokens": 26.0,
+      "semantic_tokens": 13.0,
+      "syntax_tax_rate": 0.666667,
+      "tokens_per_byte": 0.325,
+      "name": "json/tier1_schemastore/commitlint.json",
+      "format": "json",
+      "size_bytes": 120,
+      "tokenizer": "cl100k_base"
+    },
+    {
+      "total_tokens": 40,
+      "syntax_tokens": 27.0,
+      "semantic_tokens": 13.0,
+      "syntax_tax_rate": 0.675,
+      "tokens_per_byte": 0.333333,
+      "name": "json/tier1_schemastore/commitlint.json",
+      "format": "json",
+      "size_bytes": 120,
+      "tokenizer": "o200k_base"
+    },
+    {
+      "total_tokens": 12,
+      "syntax_tokens": 6.1667,
+      "semantic_tokens": 5.8333,
+      "syntax_tax_rate": 0.513889,
+      "tokens_per_byte": 0.4,
+      "name": "json/tier1_schemastore/commitlintbasic.json",
+      "format": "json",
+      "size_bytes": 30,
+      "tokenizer": "cl100k_base"
+    },
+    {
+      "total_tokens": 11,
+      "syntax_tokens": 6.1667,
+      "semantic_tokens": 4.8333,
+      "syntax_tax_rate": 0.560606,
+      "tokens_per_byte": 0.366667,
+      "name": "json/tier1_schemastore/commitlintbasic.json",
+      "format": "json",
+      "size_bytes": 30,
+      "tokenizer": "o200k_base"
+    },
+    {
+      "total_tokens": 196,
+      "syntax_tokens": 110.1167,
+      "semantic_tokens": 85.8833,
+      "syntax_tax_rate": 0.56182,
+      "tokens_per_byte": 0.326123,
+      "name": "json/tier1_schemastore/epr.json",
+      "format": "json",
+      "size_bytes": 601,
+      "tokenizer": "cl100k_base"
+    },
+    {
+      "total_tokens": 196,
+      "syntax_tokens": 110.1167,
+      "semantic_tokens": 85.8833,
+      "syntax_tax_rate": 0.56182,
+      "tokens_per_byte": 0.326123,
+      "name": "json/tier1_schemastore/epr.json",
+      "format": "json",
+      "size_bytes": 601,
+      "tokenizer": "o200k_base"
+    },
+    {
+      "total_tokens": 563,
+      "syntax_tokens": 305.9667,
+      "semantic_tokens": 257.0333,
+      "syntax_tax_rate": 0.543458,
+      "tokens_per_byte": 0.414275,
+      "name": "json/tier1_schemastore/eslintrc.json",
+      "format": "json",
+      "size_bytes": 1359,
+      "tokenizer": "cl100k_base"
+    },
+    {
+      "total_tokens": 566,
+      "syntax_tokens": 305.9667,
+      "semantic_tokens": 260.0333,
+      "syntax_tax_rate": 0.540577,
+      "tokens_per_byte": 0.416483,
+      "name": "json/tier1_schemastore/eslintrc.json",
+      "format": "json",
+      "size_bytes": 1359,
+      "tokenizer": "o200k_base"
+    },
+    {
+      "total_tokens": 51,
+      "syntax_tokens": 35.7333,
+      "semantic_tokens": 15.2667,
+      "syntax_tax_rate": 0.700654,
+      "tokens_per_byte": 0.364286,
+      "name": "json/tier1_schemastore/esmrc.json",
+      "format": "json",
+      "size_bytes": 140,
+      "tokenizer": "cl100k_base"
+    },
+    {
+      "total_tokens": 51,
+      "syntax_tokens": 35.7333,
+      "semantic_tokens": 15.2667,
+      "syntax_tax_rate": 0.700654,
+      "tokens_per_byte": 0.364286,
+      "name": "json/tier1_schemastore/esmrc.json",
+      "format": "json",
+      "size_bytes": 140,
+      "tokenizer": "o200k_base"
+    },
+    {
+      "total_tokens": 202,
+      "syntax_tokens": 108.0,
+      "semantic_tokens": 94.0,
+      "syntax_tax_rate": 0.534653,
+      "tokens_per_byte": 0.444934,
+      "name": "json/tier1_schemastore/geojson.json",
+      "format": "json",
+      "size_bytes": 454,
+      "tokenizer": "cl100k_base"
+    },
+    {
+      "total_tokens": 202,
+      "syntax_tokens": 108.0,
+      "semantic_tokens": 94.0,
+      "syntax_tax_rate": 0.534653,
+      "tokens_per_byte": 0.444934,
+      "name": "json/tier1_schemastore/geojson.json",
+      "format": "json",
+      "size_bytes": 454,
+      "tokenizer": "o200k_base"
+    },
+    {
+      "total_tokens": 78,
+      "syntax_tokens": 44.8,
+      "semantic_tokens": 33.2,
+      "syntax_tax_rate": 0.574359,
+      "tokens_per_byte": 0.348214,
+      "name": "json/tier1_schemastore/githubfundingblank.json",
+      "format": "json",
+      "size_bytes": 224,
+      "tokenizer": "cl100k_base"
+    },
+    {
+      "total_tokens": 76,
+      "syntax_tokens": 44.8,
+      "semantic_tokens": 31.2,
+      "syntax_tax_rate": 0.589474,
+      "tokens_per_byte": 0.339286,
+      "name": "json/tier1_schemastore/githubfundingblank.json",
+      "format": "json",
+      "size_bytes": 224,
+      "tokenizer": "o200k_base"
+    },
+    {
+      "total_tokens": 168,
+      "syntax_tokens": 110.5,
+      "semantic_tokens": 57.5,
+      "syntax_tax_rate": 0.657738,
+      "tokens_per_byte": 0.265823,
+      "name": "json/tier1_schemastore/githubworkflow.json",
+      "format": "json",
+      "size_bytes": 632,
+      "tokenizer": "cl100k_base"
+    },
+    {
+      "total_tokens": 169,
+      "syntax_tokens": 111.0,
+      "semantic_tokens": 58.0,
+      "syntax_tax_rate": 0.656805,
+      "tokens_per_byte": 0.267405,
+      "name": "json/tier1_schemastore/githubworkflow.json",
+      "format": "json",
+      "size_bytes": 632,
+      "tokenizer": "o200k_base"
+    },
+    {
+      "total_tokens": 57,
+      "syntax_tokens": 45.4,
+      "semantic_tokens": 11.6,
+      "syntax_tax_rate": 0.796491,
+      "tokens_per_byte": 0.445312,
+      "name": "json/tier1_schemastore/gruntcontribclean.json",
+      "format": "json",
+      "size_bytes": 128,
+      "tokenizer": "cl100k_base"
+    },
+    {
+      "total_tokens": 57,
+      "syntax_tokens": 45.4,
+      "semantic_tokens": 11.6,
+      "syntax_tax_rate": 0.796491,
+      "tokens_per_byte": 0.445312,
+      "name": "json/tier1_schemastore/gruntcontribclean.json",
+      "format": "json",
+      "size_bytes": 128,
+      "tokenizer": "o200k_base"
+    },
+    {
+      "total_tokens": 41,
+      "syntax_tokens": 30.2,
+      "semantic_tokens": 10.8,
+      "syntax_tax_rate": 0.736585,
+      "tokens_per_byte": 0.320312,
+      "name": "json/tier1_schemastore/imageoptimizerwebjob.json",
+      "format": "json",
+      "size_bytes": 128,
+      "tokenizer": "cl100k_base"
+    },
+    {
+      "total_tokens": 41,
+      "syntax_tokens": 30.2,
+      "semantic_tokens": 10.8,
+      "syntax_tax_rate": 0.736585,
+      "tokens_per_byte": 0.320312,
+      "name": "json/tier1_schemastore/imageoptimizerwebjob.json",
+      "format": "json",
+      "size_bytes": 128,
+      "tokenizer": "o200k_base"
+    },
+    {
+      "total_tokens": 58,
+      "syntax_tokens": 41.3333,
+      "semantic_tokens": 16.6667,
+      "syntax_tax_rate": 0.712644,
+      "tokens_per_byte": 0.423358,
+      "name": "json/tier1_schemastore/jsonereversesort.json",
+      "format": "json",
+      "size_bytes": 137,
+      "tokenizer": "cl100k_base"
+    },
+    {
+      "total_tokens": 58,
+      "syntax_tokens": 41.3333,
+      "semantic_tokens": 16.6667,
+      "syntax_tax_rate": 0.712644,
+      "tokens_per_byte": 0.423358,
+      "name": "json/tier1_schemastore/jsonereversesort.json",
+      "format": "json",
+      "size_bytes": 137,
+      "tokenizer": "o200k_base"
+    },
+    {
+      "total_tokens": 25,
+      "syntax_tokens": 15.3333,
+      "semantic_tokens": 9.6667,
+      "syntax_tax_rate": 0.613333,
+      "tokens_per_byte": 0.581395,
+      "name": "json/tier1_schemastore/jsonesort.json",
+      "format": "json",
+      "size_bytes": 43,
+      "tokenizer": "cl100k_base"
+    },
+    {
+      "total_tokens": 25,
+      "syntax_tokens": 15.3333,
+      "semantic_tokens": 9.6667,
+      "syntax_tax_rate": 0.613333,
+      "tokens_per_byte": 0.581395,
+      "name": "json/tier1_schemastore/jsonesort.json",
+      "format": "json",
+      "size_bytes": 43,
+      "tokenizer": "o200k_base"
+    },
+    {
+      "total_tokens": 202,
+      "syntax_tokens": 78.5,
+      "semantic_tokens": 123.5,
+      "syntax_tax_rate": 0.388614,
+      "tokens_per_byte": 0.302395,
+      "name": "json/tier1_schemastore/jsonfeed.json",
+      "format": "json",
+      "size_bytes": 668,
+      "tokenizer": "cl100k_base"
+    },
+    {
+      "total_tokens": 202,
+      "syntax_tokens": 78.5,
+      "semantic_tokens": 123.5,
+      "syntax_tax_rate": 0.388614,
+      "tokens_per_byte": 0.302395,
+      "name": "json/tier1_schemastore/jsonfeed.json",
+      "format": "json",
+      "size_bytes": 668,
+      "tokenizer": "o200k_base"
+    },
+    {
+      "total_tokens": 1012,
+      "syntax_tokens": 465.0833,
+      "semantic_tokens": 546.9167,
+      "syntax_tax_rate": 0.459569,
+      "tokens_per_byte": 0.258427,
+      "name": "json/tier1_schemastore/jsonresume.json",
+      "format": "json",
+      "size_bytes": 3916,
+      "tokenizer": "cl100k_base"
+    },
+    {
+      "total_tokens": 1013,
+      "syntax_tokens": 465.0833,
+      "semantic_tokens": 547.9167,
+      "syntax_tax_rate": 0.459115,
+      "tokens_per_byte": 0.258682,
+      "name": "json/tier1_schemastore/jsonresume.json",
+      "format": "json",
+      "size_bytes": 3916,
+      "tokenizer": "o200k_base"
+    },
+    {
+      "total_tokens": 452,
+      "syntax_tokens": 208.95,
+      "semantic_tokens": 243.05,
+      "syntax_tax_rate": 0.462279,
+      "tokens_per_byte": 0.364222,
+      "name": "json/tier1_schemastore/netcoreproject.json",
+      "format": "json",
+      "size_bytes": 1241,
+      "tokenizer": "cl100k_base"
+    },
+    {
+      "total_tokens": 457,
+      "syntax_tokens": 208.95,
+      "semantic_tokens": 248.05,
+      "syntax_tax_rate": 0.457221,
+      "tokens_per_byte": 0.368251,
+      "name": "json/tier1_schemastore/netcoreproject.json",
+      "format": "json",
+      "size_bytes": 1241,
+      "tokenizer": "o200k_base"
+    },
+    {
+      "total_tokens": 516,
+      "syntax_tokens": 293.8667,
+      "semantic_tokens": 222.1333,
+      "syntax_tax_rate": 0.569509,
+      "tokens_per_byte": 0.281352,
+      "name": "json/tier1_schemastore/nightwatch.json",
+      "format": "json",
+      "size_bytes": 1834,
+      "tokenizer": "cl100k_base"
+    },
+    {
+      "total_tokens": 520,
+      "syntax_tokens": 293.8667,
+      "semantic_tokens": 226.1333,
+      "syntax_tax_rate": 0.565128,
+      "tokens_per_byte": 0.283533,
+      "name": "json/tier1_schemastore/nightwatch.json",
+      "format": "json",
+      "size_bytes": 1834,
+      "tokenizer": "o200k_base"
+    },
+    {
+      "total_tokens": 286,
+      "syntax_tokens": 181.0,
+      "semantic_tokens": 105.0,
+      "syntax_tax_rate": 0.632867,
+      "tokens_per_byte": 0.403385,
+      "name": "json/tier1_schemastore/openweathermap.json",
+      "format": "json",
+      "size_bytes": 709,
+      "tokenizer": "cl100k_base"
+    },
+    {
+      "total_tokens": 286,
+      "syntax_tokens": 181.0,
+      "semantic_tokens": 105.0,
+      "syntax_tax_rate": 0.632867,
+      "tokens_per_byte": 0.403385,
+      "name": "json/tier1_schemastore/openweathermap.json",
+      "format": "json",
+      "size_bytes": 709,
+      "tokenizer": "o200k_base"
+    },
+    {
+      "total_tokens": 219,
+      "syntax_tokens": 132.0,
+      "semantic_tokens": 87.0,
+      "syntax_tax_rate": 0.60274,
+      "tokens_per_byte": 0.358429,
+      "name": "json/tier1_schemastore/openweatherroadrisk.json",
+      "format": "json",
+      "size_bytes": 611,
+      "tokenizer": "cl100k_base"
+    },
+    {
+      "total_tokens": 218,
+      "syntax_tokens": 132.0,
+      "semantic_tokens": 86.0,
+      "syntax_tax_rate": 0.605505,
+      "tokens_per_byte": 0.356792,
+      "name": "json/tier1_schemastore/openweatherroadrisk.json",
+      "format": "json",
+      "size_bytes": 611,
+      "tokenizer": "o200k_base"
+    },
+    {
+      "total_tokens": 941,
+      "syntax_tokens": 336.0833,
+      "semantic_tokens": 604.9167,
+      "syntax_tax_rate": 0.357156,
+      "tokens_per_byte": 0.319416,
+      "name": "json/tier1_schemastore/packagejson.json",
+      "format": "json",
+      "size_bytes": 2946,
+      "tokenizer": "cl100k_base"
+    },
+    {
+      "total_tokens": 947,
+      "syntax_tokens": 336.0833,
+      "semantic_tokens": 610.9167,
+      "syntax_tax_rate": 0.354893,
+      "tokens_per_byte": 0.321453,
+      "name": "json/tier1_schemastore/packagejson.json",
+      "format": "json",
+      "size_bytes": 2946,
+      "tokenizer": "o200k_base"
+    },
+    {
+      "total_tokens": 404,
+      "syntax_tokens": 229.1667,
+      "semantic_tokens": 174.8333,
+      "syntax_tax_rate": 0.567244,
+      "tokens_per_byte": 0.276523,
+      "name": "json/tier1_schemastore/packagejsonlintrc.json",
+      "format": "json",
+      "size_bytes": 1461,
+      "tokenizer": "cl100k_base"
+    },
+    {
+      "total_tokens": 400,
+      "syntax_tokens": 229.1667,
+      "semantic_tokens": 170.8333,
+      "syntax_tax_rate": 0.572917,
+      "tokens_per_byte": 0.273785,
+      "name": "json/tier1_schemastore/packagejsonlintrc.json",
+      "format": "json",
+      "size_bytes": 1461,
+      "tokenizer": "o200k_base"
+    },
+    {
+      "total_tokens": 21,
+      "syntax_tokens": 14.6,
+      "semantic_tokens": 6.4,
+      "syntax_tax_rate": 0.695238,
+      "tokens_per_byte": 0.368421,
+      "name": "json/tier1_schemastore/sapcloudsdkpipeline.json",
+      "format": "json",
+      "size_bytes": 57,
+      "tokenizer": "cl100k_base"
+    },
+    {
+      "total_tokens": 21,
+      "syntax_tokens": 14.6,
+      "semantic_tokens": 6.4,
+      "syntax_tax_rate": 0.695238,
+      "tokens_per_byte": 0.368421,
+      "name": "json/tier1_schemastore/sapcloudsdkpipeline.json",
+      "format": "json",
+      "size_bytes": 57,
+      "tokenizer": "o200k_base"
+    },
+    {
+      "total_tokens": 335,
+      "syntax_tokens": 82.6667,
+      "semantic_tokens": 252.3333,
+      "syntax_tax_rate": 0.246766,
+      "tokens_per_byte": 0.411548,
+      "name": "json/tier1_schemastore/travisnotifications.json",
+      "format": "json",
+      "size_bytes": 814,
+      "tokenizer": "cl100k_base"
+    },
+    {
+      "total_tokens": 329,
+      "syntax_tokens": 82.6667,
+      "semantic_tokens": 246.3333,
+      "syntax_tax_rate": 0.251266,
+      "tokens_per_byte": 0.404177,
+      "name": "json/tier1_schemastore/travisnotifications.json",
+      "format": "json",
+      "size_bytes": 814,
+      "tokenizer": "o200k_base"
+    },
+    {
+      "total_tokens": 34,
+      "syntax_tokens": 24.2,
+      "semantic_tokens": 9.8,
+      "syntax_tax_rate": 0.711765,
+      "tokens_per_byte": 0.306306,
+      "name": "json/tier1_schemastore/tslintbasic.json",
+      "format": "json",
+      "size_bytes": 111,
+      "tokenizer": "cl100k_base"
+    },
+    {
+      "total_tokens": 34,
+      "syntax_tokens": 24.2,
+      "semantic_tokens": 9.8,
+      "syntax_tax_rate": 0.711765,
+      "tokens_per_byte": 0.306306,
+      "name": "json/tier1_schemastore/tslintbasic.json",
+      "format": "json",
+      "size_bytes": 111,
+      "tokenizer": "o200k_base"
+    },
+    {
+      "total_tokens": 19,
+      "syntax_tokens": 9.0,
+      "semantic_tokens": 10.0,
+      "syntax_tax_rate": 0.473684,
+      "tokens_per_byte": 0.275362,
+      "name": "json/tier1_schemastore/tslintextend.json",
+      "format": "json",
+      "size_bytes": 69,
+      "tokenizer": "cl100k_base"
+    },
+    {
+      "total_tokens": 19,
+      "syntax_tokens": 9.0,
+      "semantic_tokens": 10.0,
+      "syntax_tax_rate": 0.473684,
+      "tokens_per_byte": 0.275362,
+      "name": "json/tier1_schemastore/tslintextend.json",
+      "format": "json",
+      "size_bytes": 69,
+      "tokenizer": "o200k_base"
+    },
+    {
+      "total_tokens": 50,
+      "syntax_tokens": 34.2,
+      "semantic_tokens": 15.8,
+      "syntax_tax_rate": 0.684,
+      "tokens_per_byte": 0.324675,
+      "name": "json/tier1_schemastore/tslintmulti.json",
+      "format": "json",
+      "size_bytes": 154,
+      "tokenizer": "cl100k_base"
+    },
+    {
+      "total_tokens": 50,
+      "syntax_tokens": 34.2,
+      "semantic_tokens": 15.8,
+      "syntax_tax_rate": 0.684,
+      "tokens_per_byte": 0.324675,
+      "name": "json/tier1_schemastore/tslintmulti.json",
+      "format": "json",
+      "size_bytes": 154,
+      "tokenizer": "o200k_base"
+    },
+    {
+      "total_tokens": 39000,
+      "syntax_tokens": 20000.0,
+      "semantic_tokens": 19000.0,
+      "syntax_tax_rate": 0.512821,
+      "tokens_per_byte": 0.662252,
+      "name": "synthetic/json_flat_10k_array.json",
+      "format": "json",
+      "size_bytes": 58890,
+      "tokenizer": "cl100k_base"
+    },
+    {
+      "total_tokens": 39000,
+      "syntax_tokens": 20000.0,
+      "semantic_tokens": 19000.0,
+      "syntax_tax_rate": 0.512821,
+      "tokens_per_byte": 0.662252,
+      "name": "synthetic/json_flat_10k_array.json",
+      "format": "json",
+      "size_bytes": 58890,
+      "tokenizer": "o200k_base"
+    },
+    {
+      "total_tokens": 1220,
+      "syntax_tokens": 834.2,
+      "semantic_tokens": 385.8,
+      "syntax_tax_rate": 0.68377,
+      "tokens_per_byte": 0.392788,
+      "name": "synthetic/json_nested_128.json",
+      "format": "json",
+      "size_bytes": 3106,
+      "tokenizer": "cl100k_base"
+    },
+    {
+      "total_tokens": 1221,
+      "syntax_tokens": 835.2,
+      "semantic_tokens": 385.8,
+      "syntax_tax_rate": 0.684029,
+      "tokens_per_byte": 0.39311,
+      "name": "synthetic/json_nested_128.json",
+      "format": "json",
+      "size_bytes": 3106,
+      "tokenizer": "o200k_base"
+    },
+    {
+      "total_tokens": 11000,
+      "syntax_tokens": 4000.0,
+      "semantic_tokens": 7000.0,
+      "syntax_tax_rate": 0.363636,
+      "tokens_per_byte": 0.441945,
+      "name": "synthetic/json_wide_object_1k.json",
+      "format": "json",
+      "size_bytes": 24890,
+      "tokenizer": "cl100k_base"
+    },
+    {
+      "total_tokens": 11000,
+      "syntax_tokens": 4000.0,
+      "semantic_tokens": 7000.0,
+      "syntax_tax_rate": 0.363636,
+      "tokens_per_byte": 0.441945,
+      "name": "synthetic/json_wide_object_1k.json",
+      "format": "json",
+      "size_bytes": 24890,
+      "tokenizer": "o200k_base"
+    },
+    {
+      "total_tokens": 3522,
+      "syntax_tokens": 870.5429,
+      "semantic_tokens": 2651.4571,
+      "syntax_tax_rate": 0.247173,
+      "tokens_per_byte": 0.471549,
+      "name": "synthetic/toml_temporal_types.toml",
+      "format": "toml",
+      "size_bytes": 7469,
+      "tokenizer": "cl100k_base"
+    },
+    {
+      "total_tokens": 3573,
+      "syntax_tokens": 870.5429,
+      "semantic_tokens": 2702.4571,
+      "syntax_tax_rate": 0.243645,
+      "tokens_per_byte": 0.478377,
+      "name": "synthetic/toml_temporal_types.toml",
+      "format": "toml",
+      "size_bytes": 7469,
+      "tokenizer": "o200k_base"
+    },
+    {
+      "total_tokens": 2111,
+      "syntax_tokens": 1192.9619,
+      "semantic_tokens": 918.0381,
+      "syntax_tax_rate": 0.565117,
+      "tokens_per_byte": 0.305234,
+      "name": "synthetic/xml_comment_heavy.xml",
+      "format": "xml",
+      "size_bytes": 6916,
+      "tokenizer": "cl100k_base"
+    },
+    {
+      "total_tokens": 2111,
+      "syntax_tokens": 1192.9619,
+      "semantic_tokens": 918.0381,
+      "syntax_tax_rate": 0.565117,
+      "tokens_per_byte": 0.305234,
+      "name": "synthetic/xml_comment_heavy.xml",
+      "format": "xml",
+      "size_bytes": 6916,
+      "tokenizer": "o200k_base"
+    },
+    {
+      "total_tokens": 1455,
+      "syntax_tokens": 915.4345,
+      "semantic_tokens": 539.5655,
+      "syntax_tax_rate": 0.629165,
+      "tokens_per_byte": 0.373077,
+      "name": "synthetic/xml_mixed_content.xml",
+      "format": "xml",
+      "size_bytes": 3900,
+      "tokenizer": "cl100k_base"
+    },
+    {
+      "total_tokens": 1506,
+      "syntax_tokens": 916.3095,
+      "semantic_tokens": 589.6905,
+      "syntax_tax_rate": 0.608439,
+      "tokens_per_byte": 0.386154,
+      "name": "synthetic/xml_mixed_content.xml",
+      "format": "xml",
+      "size_bytes": 3900,
+      "tokenizer": "o200k_base"
+    },
+    {
+      "total_tokens": 2025,
+      "syntax_tokens": 959.0,
+      "semantic_tokens": 1066.0,
+      "syntax_tax_rate": 0.47358,
+      "tokens_per_byte": 0.409587,
+      "name": "synthetic/xml_namespace_heavy.xml",
+      "format": "xml",
+      "size_bytes": 4944,
+      "tokenizer": "cl100k_base"
+    },
+    {
+      "total_tokens": 2025,
+      "syntax_tokens": 959.0,
+      "semantic_tokens": 1066.0,
+      "syntax_tax_rate": 0.47358,
+      "tokens_per_byte": 0.409587,
+      "name": "synthetic/xml_namespace_heavy.xml",
+      "format": "xml",
+      "size_bytes": 4944,
+      "tokenizer": "o200k_base"
+    },
+    {
+      "total_tokens": 867,
+      "syntax_tokens": 418.6667,
+      "semantic_tokens": 448.3333,
+      "syntax_tax_rate": 0.482891,
+      "tokens_per_byte": 0.363065,
+      "name": "synthetic/yaml_anchor_heavy.yaml",
+      "format": "yaml",
+      "size_bytes": 2388,
+      "tokenizer": "cl100k_base"
+    },
+    {
+      "total_tokens": 867,
+      "syntax_tokens": 418.6667,
+      "semantic_tokens": 448.3333,
+      "syntax_tax_rate": 0.482891,
+      "tokens_per_byte": 0.363065,
+      "name": "synthetic/yaml_anchor_heavy.yaml",
+      "format": "yaml",
+      "size_bytes": 2388,
+      "tokenizer": "o200k_base"
+    },
+    {
+      "total_tokens": 3800,
+      "syntax_tokens": 858.3333,
+      "semantic_tokens": 2941.6667,
+      "syntax_tax_rate": 0.225877,
+      "tokens_per_byte": 0.29734,
+      "name": "synthetic/yaml_comment_dense.yaml",
+      "format": "yaml",
+      "size_bytes": 12780,
+      "tokenizer": "cl100k_base"
+    },
+    {
+      "total_tokens": 3800,
+      "syntax_tokens": 858.3333,
+      "semantic_tokens": 2941.6667,
+      "syntax_tax_rate": 0.225877,
+      "tokens_per_byte": 0.29734,
+      "name": "synthetic/yaml_comment_dense.yaml",
+      "format": "yaml",
+      "size_bytes": 12780,
+      "tokenizer": "o200k_base"
+    },
+    {
+      "total_tokens": 480,
+      "syntax_tokens": 302.2222,
+      "semantic_tokens": 177.7778,
+      "syntax_tax_rate": 0.62963,
+      "tokens_per_byte": 0.490798,
+      "name": "synthetic/yaml_multi_document.yaml",
+      "format": "yaml",
+      "size_bytes": 978,
+      "tokenizer": "cl100k_base"
+    },
+    {
+      "total_tokens": 480,
+      "syntax_tokens": 302.2222,
+      "semantic_tokens": 177.7778,
+      "syntax_tax_rate": 0.62963,
+      "tokens_per_byte": 0.490798,
+      "name": "synthetic/yaml_multi_document.yaml",
+      "format": "yaml",
+      "size_bytes": 978,
+      "tokenizer": "o200k_base"
+    },
+    {
+      "total_tokens": 1191,
+      "syntax_tokens": 329.9834,
+      "semantic_tokens": 861.0166,
+      "syntax_tax_rate": 0.277064,
+      "tokens_per_byte": 0.279119,
+      "name": "toml/tier2_canonical/ruff-pyproject.toml",
+      "format": "toml",
+      "size_bytes": 4267,
+      "tokenizer": "cl100k_base"
+    },
+    {
+      "total_tokens": 1193,
+      "syntax_tokens": 329.1834,
+      "semantic_tokens": 863.8166,
+      "syntax_tax_rate": 0.275929,
+      "tokens_per_byte": 0.279588,
+      "name": "toml/tier2_canonical/ruff-pyproject.toml",
+      "format": "toml",
+      "size_bytes": 4267,
+      "tokenizer": "o200k_base"
+    },
+    {
+      "total_tokens": 140,
+      "syntax_tokens": 57.0167,
+      "semantic_tokens": 82.9833,
+      "syntax_tax_rate": 0.407262,
+      "tokens_per_byte": 0.301075,
+      "name": "toml/tier2_canonical/serde-cargo.toml",
+      "format": "toml",
+      "size_bytes": 465,
+      "tokenizer": "cl100k_base"
+    },
+    {
+      "total_tokens": 141,
+      "syntax_tokens": 57.0167,
+      "semantic_tokens": 83.9833,
+      "syntax_tax_rate": 0.404374,
+      "tokens_per_byte": 0.303226,
+      "name": "toml/tier2_canonical/serde-cargo.toml",
+      "format": "toml",
+      "size_bytes": 465,
+      "tokenizer": "o200k_base"
+    },
+    {
+      "total_tokens": 268,
+      "syntax_tokens": 89.2778,
+      "semantic_tokens": 178.7222,
+      "syntax_tax_rate": 0.333126,
+      "tokens_per_byte": 0.320958,
+      "name": "toml/tier2_canonical/tokio-cargo.toml",
+      "format": "toml",
+      "size_bytes": 835,
+      "tokenizer": "cl100k_base"
+    },
+    {
+      "total_tokens": 272,
+      "syntax_tokens": 89.2778,
+      "semantic_tokens": 182.7222,
+      "syntax_tax_rate": 0.328227,
+      "tokens_per_byte": 0.325749,
+      "name": "toml/tier2_canonical/tokio-cargo.toml",
+      "format": "toml",
+      "size_bytes": 835,
+      "tokenizer": "o200k_base"
+    },
+    {
+      "total_tokens": 728,
+      "syntax_tokens": 278.6029,
+      "semantic_tokens": 449.3971,
+      "syntax_tax_rate": 0.382696,
+      "tokens_per_byte": 0.312984,
+      "name": "xml/tier2_canonical/atom-namespace.xml",
+      "format": "xml",
+      "size_bytes": 2326,
+      "tokenizer": "cl100k_base"
+    },
+    {
+      "total_tokens": 733,
+      "syntax_tokens": 279.8696,
+      "semantic_tokens": 453.1304,
+      "syntax_tax_rate": 0.381814,
+      "tokens_per_byte": 0.315133,
+      "name": "xml/tier2_canonical/atom-namespace.xml",
+      "format": "xml",
+      "size_bytes": 2326,
+      "tokenizer": "o200k_base"
+    },
+    {
+      "total_tokens": 124,
+      "syntax_tokens": 56.4953,
+      "semantic_tokens": 67.5047,
+      "syntax_tax_rate": 0.455607,
+      "tokens_per_byte": 0.262712,
+      "name": "yaml/tier2_kubernetes/load-balancer-service.yaml",
+      "format": "yaml",
+      "size_bytes": 472,
+      "tokenizer": "cl100k_base"
+    },
+    {
+      "total_tokens": 124,
+      "syntax_tokens": 56.4953,
+      "semantic_tokens": 67.5047,
+      "syntax_tax_rate": 0.455607,
+      "tokens_per_byte": 0.262712,
+      "name": "yaml/tier2_kubernetes/load-balancer-service.yaml",
+      "format": "yaml",
+      "size_bytes": 472,
+      "tokenizer": "o200k_base"
+    },
+    {
+      "total_tokens": 96,
+      "syntax_tokens": 56.062,
+      "semantic_tokens": 39.938,
+      "syntax_tax_rate": 0.583979,
+      "tokens_per_byte": 0.281525,
+      "name": "yaml/tier2_kubernetes/nginx-deployment.yaml",
+      "format": "yaml",
+      "size_bytes": 341,
+      "tokenizer": "cl100k_base"
+    },
+    {
+      "total_tokens": 96,
+      "syntax_tokens": 56.062,
+      "semantic_tokens": 39.938,
+      "syntax_tax_rate": 0.583979,
+      "tokens_per_byte": 0.281525,
+      "name": "yaml/tier2_kubernetes/nginx-deployment.yaml",
+      "format": "yaml",
+      "size_bytes": 341,
+      "tokenizer": "o200k_base"
+    }
+  ],
+  "aggregate": {
+    "json": {
+      "cl100k_base": {
+        "n_files": 30,
+        "median_syntax_tax": 0.5885,
+        "mean_syntax_tax": 0.5813,
+        "std_syntax_tax": 0.133,
+        "min_syntax_tax": 0.2468,
+        "max_syntax_tax": 0.7965,
+        "median_tokens_per_byte": 0.3613
+      },
+      "o200k_base": {
+        "n_files": 30,
+        "median_syntax_tax": 0.5975,
+        "mean_syntax_tax": 0.5835,
+        "std_syntax_tax": 0.1326,
+        "min_syntax_tax": 0.2513,
+        "max_syntax_tax": 0.7965,
+        "median_tokens_per_byte": 0.3605
+      }
+    },
+    "yaml": {
+      "cl100k_base": {
+        "n_files": 5,
+        "median_syntax_tax": 0.4829,
+        "mean_syntax_tax": 0.4756,
+        "std_syntax_tax": 0.1568,
+        "min_syntax_tax": 0.2259,
+        "max_syntax_tax": 0.6296,
+        "median_tokens_per_byte": 0.2973
+      },
+      "o200k_base": {
+        "n_files": 5,
+        "median_syntax_tax": 0.4829,
+        "mean_syntax_tax": 0.4756,
+        "std_syntax_tax": 0.1568,
+        "min_syntax_tax": 0.2259,
+        "max_syntax_tax": 0.6296,
+        "median_tokens_per_byte": 0.2973
+      }
+    },
+    "xml": {
+      "cl100k_base": {
+        "n_files": 4,
+        "median_syntax_tax": 0.5193,
+        "mean_syntax_tax": 0.5126,
+        "std_syntax_tax": 0.1076,
+        "min_syntax_tax": 0.3827,
+        "max_syntax_tax": 0.6292,
+        "median_tokens_per_byte": 0.343
+      },
+      "o200k_base": {
+        "n_files": 4,
+        "median_syntax_tax": 0.5193,
+        "mean_syntax_tax": 0.5072,
+        "std_syntax_tax": 0.1008,
+        "min_syntax_tax": 0.3818,
+        "max_syntax_tax": 0.6084,
+        "median_tokens_per_byte": 0.3506
+      }
+    },
+    "toml": {
+      "cl100k_base": {
+        "n_files": 4,
+        "median_syntax_tax": 0.3051,
+        "mean_syntax_tax": 0.3162,
+        "std_syntax_tax": 0.0704,
+        "min_syntax_tax": 0.2472,
+        "max_syntax_tax": 0.4073,
+        "median_tokens_per_byte": 0.311
+      },
+      "o200k_base": {
+        "n_files": 4,
+        "median_syntax_tax": 0.3021,
+        "mean_syntax_tax": 0.313,
+        "std_syntax_tax": 0.0702,
+        "min_syntax_tax": 0.2436,
+        "max_syntax_tax": 0.4044,
+        "median_tokens_per_byte": 0.3145
+      }
+    }
+  },
+  "context_projections": {
+    "json": [
+      {
+        "n_files": 10,
+        "total_tokens_used": 1820.0,
+        "syntax_tokens_wasted": 1071.07,
+        "context_waste_fraction": 0.008367734375,
+        "effective_context_gain_files": 14.301336573511541
+      },
+      {
+        "n_files": 25,
+        "total_tokens_used": 4550.0,
+        "syntax_tokens_wasted": 2677.675,
+        "context_waste_fraction": 0.020919335937500002,
+        "effective_context_gain_files": 35.75334143377886
+      },
+      {
+        "n_files": 50,
+        "total_tokens_used": 9100.0,
+        "syntax_tokens_wasted": 5355.35,
+        "context_waste_fraction": 0.041838671875000004,
+        "effective_context_gain_files": 71.50668286755771
+      },
+      {
+        "n_files": 100,
+        "total_tokens_used": 18200.0,
+        "syntax_tokens_wasted": 10710.7,
+        "context_waste_fraction": 0.08367734375000001,
+        "effective_context_gain_files": 143.01336573511543
+      }
+    ],
+    "yaml": [
+      {
+        "n_files": 10,
+        "total_tokens_used": 4800,
+        "syntax_tokens_wasted": 2317.92,
+        "context_waste_fraction": 0.01810875,
+        "effective_context_gain_files": 9.338619222587507
+      },
+      {
+        "n_files": 25,
+        "total_tokens_used": 12000,
+        "syntax_tokens_wasted": 5794.8,
+        "context_waste_fraction": 0.045271875,
+        "effective_context_gain_files": 23.34654805646877
+      },
+      {
+        "n_files": 50,
+        "total_tokens_used": 24000,
+        "syntax_tokens_wasted": 11589.6,
+        "context_waste_fraction": 0.09054375,
+        "effective_context_gain_files": 46.69309611293754
+      },
+      {
+        "n_files": 100,
+        "total_tokens_used": 48000,
+        "syntax_tokens_wasted": 23179.2,
+        "context_waste_fraction": 0.1810875,
+        "effective_context_gain_files": 93.38619222587508
+      }
+    ],
+    "xml": [
+      {
+        "n_files": 10,
+        "total_tokens_used": 17400.0,
+        "syntax_tokens_wasted": 9035.82,
+        "context_waste_fraction": 0.07059234375,
+        "effective_context_gain_files": 10.802995631370917
+      },
+      {
+        "n_files": 25,
+        "total_tokens_used": 43500.0,
+        "syntax_tokens_wasted": 22589.55,
+        "context_waste_fraction": 0.176480859375,
+        "effective_context_gain_files": 27.00748907842729
+      },
+      {
+        "n_files": 50,
+        "total_tokens_used": 87000.0,
+        "syntax_tokens_wasted": 45179.1,
+        "context_waste_fraction": 0.35296171875,
+        "effective_context_gain_files": 54.01497815685458
+      },
+      {
+        "n_files": 100,
+        "total_tokens_used": 174000.0,
+        "syntax_tokens_wasted": 90358.2,
+        "context_waste_fraction": 0.7059234375,
+        "effective_context_gain_files": 108.02995631370916
+      }
+    ],
+    "toml": [
+      {
+        "n_files": 10,
+        "total_tokens_used": 7295.0,
+        "syntax_tokens_wasted": 2225.7045,
+        "context_waste_fraction": 0.01738831640625,
+        "effective_context_gain_files": 4.390559792775938
+      },
+      {
+        "n_files": 25,
+        "total_tokens_used": 18237.5,
+        "syntax_tokens_wasted": 5564.26125,
+        "context_waste_fraction": 0.043470791015624996,
+        "effective_context_gain_files": 10.976399481939845
+      },
+      {
+        "n_files": 50,
+        "total_tokens_used": 36475.0,
+        "syntax_tokens_wasted": 11128.5225,
+        "context_waste_fraction": 0.08694158203124999,
+        "effective_context_gain_files": 21.95279896387969
+      },
+      {
+        "n_files": 100,
+        "total_tokens_used": 72950.0,
+        "syntax_tokens_wasted": 22257.045,
+        "context_waste_fraction": 0.17388316406249998,
+        "effective_context_gain_files": 43.90559792775938
+      }
+    ]
+  }
+}

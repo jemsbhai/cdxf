@@ -186,6 +186,20 @@ distribution (68% under 10KB) is validated by the EXP-005 census: median
 HuggingFace YAML config is 653B, median TOML is 313B (n=14,913 files).
 (EXP-010)
 
+### F17: Format syntax consumes 30–59% of LLM tokens — a measurable agentic context tax
+
+Across 43 files and two tokenizers (cl100k_base, o200k_base), median syntax
+tax rates are: JSON 58.9%, XML 51.9%, YAML 48.3%, TOML 30.5%. Contrary to
+initial hypothesis, JSON has the highest per-file syntax tax (mandatory
+quoting of every key and value), not XML. However, XML dominates absolute
+context waste at scale: 100 XML files consume 70.6% of a 128K context window
+on syntax alone vs 8.4% for JSON. YAML comment-dense files have the lowest
+tax (22.6%) because comments are semantic content — precisely the metadata
+that all baselines except CDXF destroy. Both tokenizers agree within ±0.5
+percentage points, validating measurement robustness. For agentic systems
+managing N=100 config files, eliminating syntax frees 44–143 equivalent
+files of context budget. (EXP-011)
+
 ---
 
 ## Raw Findings Log
@@ -297,3 +311,24 @@ census: median HuggingFace YAML config is 653B, median TOML is 313B
 
 Variability: some entries show high CV% at sub-30µs timescales (OS scheduler
 jitter). Median is robust. Protocol followed: no outlier removal.
+
+### 2026-05-25 — EXP-011: Token Cost of Format Syntax
+
+**Key result:** Median syntax tax: JSON 58.9%, XML 51.9%, YAML 48.3%,
+TOML 30.5%. JSON > XML (hypothesis partially refuted).
+
+43 files × 2 tokenizers. Character-level classification with proportional
+token attribution. JSON's mandatory quoting drives its tax above XML's
+closing-tag redundancy for typical configs. YAML comment-dense files achieve
+the lowest tax (22.6%) because comments are semantic — this directly supports
+CDXF's preservation of comments.
+
+Context projections at N=100: XML wastes 70.6% of 128K on syntax, JSON 8.4%.
+The absolute waste difference is driven by per-file token counts (XML files
+are much larger), not per-file tax rates.
+
+Both tokenizers (cl100k_base, o200k_base) agree within ±0.5pp, confirming
+the measurement is tokenizer-independent.
+
+The JSON > XML ranking should be presented honestly in the paper as a finding
+that challenges assumptions about XML verbosity.

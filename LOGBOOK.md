@@ -286,7 +286,7 @@ All four format families now have median CDXF/text ratio ≤ 1.0.
 **Date:** 2026-05-24
 **Researcher:** Muntaser Syed
 **Type:** computational (performance)
-**Status:** planned
+**Status:** completed
 
 ### Hypothesis
 
@@ -1522,3 +1522,129 @@ orthogonal cost shared by any tool that reads text configs.
   - throughput_results.csv (flat CSV)
   - format_tax.csv (format tax analysis)
   - environment.json (frozen environment)
+
+---
+
+## EXP-011: Token Cost of Format Syntax — The "Syntax Tax"
+
+**Date:** 2026-05-25
+**Researcher:** Muntaser Syed
+**Type:** computational
+**Status:** completed
+
+### Hypothesis
+
+Text serialization formats impose a measurable "syntax tax" on LLM agents:
+a significant fraction (20-50%) of tokens consumed when processing config
+files encode format syntax rather than semantic content. XML has the highest
+syntax tax (redundant closing tags), followed by JSON (braces, brackets,
+quotes). For an agent managing N config files in a 128K context window,
+eliminating the syntax tax frees a quantifiable number of tokens for reasoning.
+
+### Independent Variables
+
+- **Format:** JSON, YAML, XML, TOML
+- **Tokenizer:** cl100k_base (GPT-4/Claude), o200k_base (GPT-4o)
+- **Document source:** 43 files from EXP-001 corpus + 15 ML configs from EXP-010
+
+### Dependent Variables / Metrics
+
+1. `total_tokens` — token count for the full document
+2. `syntax_tokens` — tokens consumed by format syntax
+3. `semantic_tokens` — tokens consumed by data content
+4. `syntax_tax_rate` — syntax_tokens / total_tokens
+5. `tokens_per_byte` — total_tokens / size_bytes
+6. `context_waste_projection` — for N={10,25,50,100} files
+7. `effective_context_gain` — additional files that could fit
+
+### Protocol
+
+- Character-level classification: every character labeled syntax or semantic
+- Token-to-character mapping via tiktoken byte offsets
+- Proportional attribution for mixed tokens (not all-or-nothing)
+- Comments in YAML/TOML/XML classified as semantic (they carry meaning)
+- XML closing tag names classified as syntax (redundant — repeat opening tag)
+- Context window: 128K tokens
+
+### Environment
+
+- **Hardware:** Windows laptop, 64GB RAM, NVIDIA RTX 4090
+- **Software:** Python 3.12, tiktoken
+- **Test suite:** 111 tests passing (tests/test_exp011.py)
+
+### Results
+
+**Corpus:** 43 files (30 JSON, 5 YAML, 4 XML, 4 TOML) from EXP-001 corpus
+(data/raw). ML configs from EXP-010 not included in final run (data/raw
+provides sufficient coverage across all four formats and size ranges).
+
+**Median syntax tax rate (cl100k_base):**
+
+| Format | Median | Range | n |
+|--------|--------|-------|---|
+| JSON | 58.9% | 24.7–79.7% | 30 |
+| XML | 51.9% | 38.3–62.9% | 4 |
+| YAML | 48.3% | 22.6–63.0% | 5 |
+| TOML | 30.5% | 24.7–40.7% | 4 |
+
+**Hypothesis partially refuted:** JSON has the highest syntax tax, not XML.
+JSON quotes every key and value, adds braces, brackets, colons, commas, and
+indentation whitespace. XML has redundant closing tags but opening element
+names count as semantic. This is an honest, interesting finding.
+
+**Both tokenizers agree:** cl100k_base and o200k_base produce nearly identical
+syntax tax rates (±0.5 percentage points), validating measurement robustness.
+
+**Context window projections (cl100k_base, N=100 files):**
+
+| Format | Tokens wasted | % of 128K | Files freed |
+|--------|--------------|-----------|-------------|
+| JSON | 10,711 | 8.4% | +143 |
+| YAML | 23,179 | 18.1% | +93 |
+| XML | 90,358 | 70.6% | +108 |
+| TOML | 22,257 | 17.4% | +44 |
+
+XML dominates absolute context waste because XML files are much larger
+(higher per-file token count), even though JSON has a higher per-file
+syntax tax fraction.
+
+**Notable data points:**
+- yaml_comment_dense: 22.6% tax — comments are semantic, reducing the tax
+- packagejson.json: 35.7% tax — long string values dilute syntax overhead
+- gruntcontribclean.json: 79.7% tax — small, brace-heavy config
+- travisnotifications.json: 24.7% tax — prose-heavy notification strings
+
+### Observations
+
+- JSON's syntax tax is driven by mandatory quoting of all keys and values,
+  plus structural characters. Short key-value pairs amplify this.
+- YAML's lower tax is partly due to comments (semantic content) and partly
+  due to minimal delimiter syntax (no braces, no mandatory quotes).
+- TOML has the lowest tax thanks to comments and section-header syntax
+  that avoids per-value delimiters.
+- The 22.6% tax on yaml_comment_dense is the CDXF argument in miniature:
+  those comments carry hyperparameter decisions that all baselines destroy.
+- XML's absolute waste at scale (70.6% of 128K for 100 files) is the
+  strongest argument for binary representations in agentic contexts.
+
+### Interpretation
+
+The syntax tax is real and substantial (30–59% median across formats).
+For agentic AI systems processing many config files, this represents a
+meaningful fraction of context budget. CDXF's binary representation
+eliminates syntax entirely while preserving the semantic content that
+matters — including comments that text-to-binary lossy formats destroy.
+
+The JSON > XML ranking is counterintuitive but defensible: JSON's
+mandatory quoting imposes per-character overhead that exceeds XML's
+closing-tag redundancy for typical config files. This should be
+presented honestly in the paper as a finding that challenges assumptions.
+
+### Artifacts
+
+- Script: benchmarks/src/run_exp011.py
+- Tests: tests/test_exp011.py (111 tests)
+- Results: benchmarks/results/exp_011/
+  - exp_011_results.json
+  - syntax_tax_results.csv
+  - context_projections.csv
