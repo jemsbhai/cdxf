@@ -350,3 +350,76 @@ Same as EXP-001. Python 3.12.2, Windows 11, 64GB RAM.
 - Script: benchmarks/src/run_exp002.py
 - Config: benchmarks/configs/exp_002_throughput.yaml
 - Results: benchmarks/results/exp_002/
+
+---
+
+## EXP-003: Cross-Format Interchange Fidelity
+
+**Date:** 2026-05-24
+**Researcher:** Muntaser Syed
+**Type:** computational
+**Status:** planned
+
+### Hypothesis
+
+CDXF enables lossless data-level interchange between JSON, YAML, and TOML
+for their shared data model (maps, sequences, typed scalars). XML is
+excluded from cross-conversion targets because its element/attribute model
+has no natural mapping to key-value formats. Within the shared data model,
+all 6 conversion pairs (JSON↔YAML, JSON↔TOML, YAML↔TOML) preserve
+semantic equivalence.
+
+### Independent Variables
+
+- **Source format:** JSON, YAML, TOML
+- **Target format:** JSON, YAML, TOML (all pairs where source ≠ target)
+- **Document complexity:** simple (flat map), nested (multi-level), typed
+  (integers, floats, booleans, strings, arrays, nested tables)
+
+### Dependent Variables
+
+1. `data_equivalent` — binary pass/fail: does the converted document
+   contain the same data when parsed back to native Python types?
+2. `type_preserved` — per-scalar: are integer/float/boolean/string types
+   preserved (not collapsed to strings)?
+
+### Conversion Pairs
+
+| # | Source | Target | Key challenge |
+|---|--------|--------|---------------|
+| 1 | JSON   | YAML   | Straightforward |
+| 2 | JSON   | TOML   | Top-level must be table |
+| 3 | YAML   | JSON   | YAML anchors/comments lost |
+| 4 | YAML   | TOML   | YAML types → TOML types |
+| 5 | TOML   | JSON   | Dates → strings |
+| 6 | TOML   | YAML   | Dates → strings or tagged |
+
+Additionally, XML→XML round-trip is tested but XML is not a valid target
+for key-value source formats, and key-value formats are not valid targets
+for XML (lossy by design — no elements/attributes in JSON/YAML/TOML).
+
+### Protocol
+
+1. Build a set of test documents in each source format that exercise the
+   shared data model: flat maps, nested maps, arrays, mixed-type arrays,
+   all scalar types representable in both source and target.
+2. For each (source, target) pair:
+   a. Parse source text with source bridge → CDXF Stream
+   b. Emit target text with target bridge
+   c. Parse target text with target’s native parser (json.loads,
+      ruamel.yaml safe load, tomlkit parse)
+   d. Parse source text with source’s native parser
+   e. Compare native Python data structures for equality
+   f. Record pass/fail and any type differences
+3. Separately test that format-specific constructs (YAML comments/anchors,
+   TOML dates) are gracefully handled when converting to formats that
+   cannot represent them.
+
+### Results
+
+*To be filled after experiment completes.*
+
+### Artifacts
+
+- Script: benchmarks/src/run_exp003.py
+- Results: benchmarks/results/exp_003/
