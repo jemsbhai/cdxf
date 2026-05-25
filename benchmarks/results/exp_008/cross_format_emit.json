@@ -1,0 +1,30 @@
+[
+  {
+    "filename": "adapter_config.json",
+    "original": "json",
+    "target": "yaml",
+    "success": true,
+    "error": null
+  },
+  {
+    "filename": "adapter_config.json",
+    "original": "json",
+    "target": "toml",
+    "success": true,
+    "error": null
+  },
+  {
+    "filename": "training_args.yaml",
+    "original": "yaml",
+    "target": "json",
+    "success": true,
+    "error": null
+  },
+  {
+    "filename": "training_args.yaml",
+    "original": "yaml",
+    "target": "toml",
+    "success": true,
+    "error": null
+  }
+]

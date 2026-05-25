@@ -1,0 +1,28 @@
+{
+  "n_adapters": 10,
+  "bundle_methods": [
+    "mega_json",
+    "cdxf",
+    "pickle",
+    "tar_gz"
+  ],
+  "size_ratios": {
+    "mega_json": {
+      "median": 1.119860242881171
+    },
+    "cdxf": {
+      "median": 1.1011558406113537
+    },
+    "pickle": {
+      "median": 1.018732454772302
+    },
+    "tar_gz": {
+      "median": 0.6556353321896444
+    }
+  },
+  "cdxf_fidelity": 1.0,
+  "cdxf_metadata_preserved": 90,
+  "source_metadata_total": 80,
+  "cross_format_success": 4,
+  "cross_format_total": 4
+}
