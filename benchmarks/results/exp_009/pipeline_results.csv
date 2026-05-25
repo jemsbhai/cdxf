@@ -1,0 +1,3 @@
+complexity,n_components,total_input_size,source_metadata,cdxf_size,cdxf_ratio,cdxf_fidelity,cdxf_metadata,tar_gz_size,tar_gz_ratio,mega_json_size,mega_json_ratio,pickle_size,pickle_ratio,diff_detected
+minimal,3,1750,9,1675,0.9571,1.0,11,1064,0.6080,1963,1.1217,1585,0.9057,True
+full,8,4459,23,4065,0.9116,1.0,25,2379,0.5335,4955,1.1112,4311,0.9668,True

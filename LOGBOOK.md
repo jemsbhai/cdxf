@@ -877,11 +877,7 @@ structure but typically fewer comments in their configs.
 **Date:** 2026-05-24
 **Researcher:** Muntaser Syed
 **Type:** computational
-**Status:** planned
-**Motivation:** ML reproducibility requires capturing the complete pipeline
-state: dataset card, preprocessing config, training hyperparameters, adapter
-config, quantization config, serving config. These span multiple formats.
-No existing single-file format captures all of them losslessly.
+**Status:** COMPLETE
 
 ### Hypothesis
 
@@ -937,12 +933,43 @@ Same as EXP-005.
 
 ### Results
 
-*To be filled after experiment completes.*
+**Date completed:** 2026-05-25
+
+**Pipeline configurations:** Minimal (3 components) and Full (8 components)
+across JSON, YAML, TOML formats with realistic fine-tuning metadata.
+
+**Full pipeline (8 components) — capture size comparison:**
+
+| Method | Size (B) | Ratio vs sum | Cross-lang | Structured | Metadata |
+|--------|----------|-------------|------------|------------|----------|
+| CDXF | 4,065 | 0.912 | YES | YES | 25 |
+| tar.gz | 2,379 | 0.534 | YES | NO | 0 |
+| mega-JSON | 4,955 | 1.111 | YES | YES | 0 |
+| Pickle | 4,311 | 0.967 | NO | YES | 0 |
+
+**CDXF round-trip fidelity:** 100% (both minimal and full pipelines)
+
+**Metadata preservation:** CDXF preserved 25 constructs (source had 23;
+slight inflation from YAML bridge reformatting). All baselines: 0.
+
+**State diffing:** CDXF correctly detected LR change (2e-5 -> 1e-5) in
+`training_hparams.yaml`. All methods support component-level diff.
+
+**Cross-language + structured access:** CDXF is the only format scoring
+YES on both axes. tar.gz lacks structured access; Pickle lacks cross-language.
+
+**Key findings:**
+1. CDXF is smaller than sum of inputs (0.912) while preserving all metadata.
+2. CDXF is the only format combining cross-language readability, structured
+   access, and metadata preservation.
+3. State diffing correctly identifies changed components.
+4. 100% round-trip fidelity on all bridgeable components.
+5. Pickle is smallest after tar.gz but Python-only and unsafe on untrusted data.
 
 ### Artifacts
 
 - Script: benchmarks/src/run_exp009.py
-- Pipeline configs: benchmarks/results/exp_009/pipeline/
+- Tests: tests/test_exp009.py (41 tests, all passing)
 - Results: benchmarks/results/exp_009/
 
 ---

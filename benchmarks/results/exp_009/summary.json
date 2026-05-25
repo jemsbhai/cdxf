@@ -1,0 +1,90 @@
+{
+  "pipelines": [
+    {
+      "complexity": "minimal",
+      "n_components": 3,
+      "total_input_size": 1750,
+      "source_metadata": 9,
+      "sizes": {
+        "pickle": 1585,
+        "cdxf": 1675,
+        "tar_gz": 1064,
+        "mega_json": 1963
+      },
+      "ratios": {
+        "pickle": 0.9057,
+        "cdxf": 0.9571,
+        "tar_gz": 0.608,
+        "mega_json": 1.1217
+      },
+      "cdxf_fidelity": 1.0,
+      "cdxf_metadata": 11,
+      "diff_detected": true,
+      "diff_components": [
+        "training_hparams.yaml"
+      ]
+    },
+    {
+      "complexity": "full",
+      "n_components": 8,
+      "total_input_size": 4459,
+      "source_metadata": 23,
+      "sizes": {
+        "pickle": 4311,
+        "cdxf": 4065,
+        "tar_gz": 2379,
+        "mega_json": 4955
+      },
+      "ratios": {
+        "pickle": 0.9668,
+        "cdxf": 0.9116,
+        "tar_gz": 0.5335,
+        "mega_json": 1.1112
+      },
+      "cdxf_fidelity": 1.0,
+      "cdxf_metadata": 25,
+      "diff_detected": true,
+      "diff_components": [
+        "training_hparams.yaml"
+      ]
+    }
+  ],
+  "cross_language": {
+    "cdxf": {
+      "cross_language": true,
+      "reason": "CBOR substrate; libraries in 30+ languages",
+      "libraries": [
+        "cbor2 (Python)",
+        "cbor-x (JS)",
+        "cbor (Go)",
+        "cbor (Rust)",
+        "jackson-cbor (Java)"
+      ],
+      "structured_access": true
+    },
+    "tar_gz": {
+      "cross_language": true,
+      "reason": "Universal archive format",
+      "libraries": [
+        "stdlib in most languages"
+      ],
+      "structured_access": false
+    },
+    "mega_json": {
+      "cross_language": true,
+      "reason": "Universal text format",
+      "libraries": [
+        "stdlib in most languages"
+      ],
+      "structured_access": true
+    },
+    "pickle": {
+      "cross_language": false,
+      "reason": "Python-only binary format; security risk on untrusted",
+      "libraries": [
+        "pickle (Python only)"
+      ],
+      "structured_access": true
+    }
+  }
+}
