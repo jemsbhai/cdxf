@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "cdxf"
-version = "0.1.0"
+version = "0.1.1"
 description = "Compact Data Exchange Format -- universal binary interchange for JSON, YAML, XML, and TOML"
 readme = "README.md"
 license = {text = "MIT"}

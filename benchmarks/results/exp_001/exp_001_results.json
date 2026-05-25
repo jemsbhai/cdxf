@@ -1,8 +1,8 @@
 {
   "experiment": "EXP-001",
-  "timestamp": "2026-05-24T20:02:08.412370+00:00",
+  "timestamp": "2026-05-25T01:21:13.206519+00:00",
   "environment": {
-    "timestamp": "2026-05-24T20:02:08.046131+00:00",
+    "timestamp": "2026-05-25T01:21:12.836954+00:00",
     "python_version": "3.12.2",
     "os": "Windows 11",
     "machine": "AMD64",
@@ -1009,10 +1009,10 @@
       "format": "xml",
       "sizes": {
         "raw_text": 7118,
-        "cdxf_full": 6624,
+        "cdxf_full": 6421,
         "cdxf_shorthand": null,
-        "gzip_cdxf": 832,
-        "zstd_cdxf": 508,
+        "gzip_cdxf": 822,
+        "zstd_cdxf": 504,
         "gzip_text": 836,
         "zstd_text": 452,
         "cbor_naive": null,
@@ -1021,9 +1021,9 @@
         "ion_binary": null
       },
       "ratios": {
-        "ratio_cdxf_full": 0.9306,
-        "ratio_gzip_cdxf": 0.1169,
-        "ratio_zstd_cdxf": 0.0714,
+        "ratio_cdxf_full": 0.9021,
+        "ratio_gzip_cdxf": 0.1155,
+        "ratio_zstd_cdxf": 0.0708,
         "ratio_gzip_text": 0.1174,
         "ratio_zstd_text": 0.0635
       },
@@ -1035,10 +1035,10 @@
       "format": "xml",
       "sizes": {
         "raw_text": 3951,
-        "cdxf_full": 4360,
+        "cdxf_full": 3907,
         "cdxf_shorthand": null,
-        "gzip_cdxf": 384,
-        "zstd_cdxf": 319,
+        "gzip_cdxf": 378,
+        "zstd_cdxf": 307,
         "gzip_text": 351,
         "zstd_text": 250,
         "cbor_naive": null,
@@ -1047,9 +1047,9 @@
         "ion_binary": null
       },
       "ratios": {
-        "ratio_cdxf_full": 1.1035,
-        "ratio_gzip_cdxf": 0.0972,
-        "ratio_zstd_cdxf": 0.0807,
+        "ratio_cdxf_full": 0.9889,
+        "ratio_gzip_cdxf": 0.0957,
+        "ratio_zstd_cdxf": 0.0777,
         "ratio_gzip_text": 0.0888,
         "ratio_zstd_text": 0.0633
       },
@@ -1061,10 +1061,10 @@
       "format": "xml",
       "sizes": {
         "raw_text": 5045,
-        "cdxf_full": 9281,
+        "cdxf_full": 5113,
         "cdxf_shorthand": null,
-        "gzip_cdxf": 754,
-        "zstd_cdxf": 569,
+        "gzip_cdxf": 740,
+        "zstd_cdxf": 558,
         "gzip_text": 665,
         "zstd_text": 392,
         "cbor_naive": null,
@@ -1073,9 +1073,9 @@
         "ion_binary": null
       },
       "ratios": {
-        "ratio_cdxf_full": 1.8396,
-        "ratio_gzip_cdxf": 0.1495,
-        "ratio_zstd_cdxf": 0.1128,
+        "ratio_cdxf_full": 1.0135,
+        "ratio_gzip_cdxf": 0.1467,
+        "ratio_zstd_cdxf": 0.1106,
         "ratio_gzip_text": 0.1318,
         "ratio_zstd_text": 0.0777
       },
@@ -1272,10 +1272,10 @@
       "format": "xml",
       "sizes": {
         "raw_text": 2326,
-        "cdxf_full": 3304,
+        "cdxf_full": 2322,
         "cdxf_shorthand": null,
-        "gzip_cdxf": 1182,
-        "zstd_cdxf": 1238,
+        "gzip_cdxf": 1163,
+        "zstd_cdxf": 1214,
         "gzip_text": 1152,
         "zstd_text": 1192,
         "cbor_naive": null,
@@ -1284,9 +1284,9 @@
         "ion_binary": null
       },
       "ratios": {
-        "ratio_cdxf_full": 1.4205,
-        "ratio_gzip_cdxf": 0.5082,
-        "ratio_zstd_cdxf": 0.5322,
+        "ratio_cdxf_full": 0.9983,
+        "ratio_gzip_cdxf": 0.5,
+        "ratio_zstd_cdxf": 0.5219,
         "ratio_gzip_text": 0.4953,
         "ratio_zstd_text": 0.5125
       },
