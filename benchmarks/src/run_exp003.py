@@ -160,9 +160,14 @@ def test_conversion(doc_name: str, doc: dict, src: str, dst: str) -> dict:
     if src_text is None:
         return {"status": "skip", "reason": f"no {src} source text"}
 
-    # Expected data for comparison
-    expected_key = f"expected_{dst}" if f"expected_{dst}" in doc else "expected"
-    expected = doc.get(expected_key, doc["expected"])
+    # Expected data: use the most specific expected available.
+    # Source limitations (TOML has no null) and target limitations
+    # both constrain what data can survive the conversion.
+    expected = doc["expected"]
+    for key in [f"expected_{src}_{dst}", f"expected_{src}", f"expected_{dst}"]:
+        if key in doc:
+            expected = doc[key]
+            break
 
     try:
         # Convert src → dst via CDXF

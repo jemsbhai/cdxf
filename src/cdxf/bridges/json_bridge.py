@@ -96,9 +96,17 @@ def _from_native(value: Any) -> Scalar | Map | Sequence:
 
 
 def _to_native(node) -> Any:
-    """Convert a CDXF node to a Python native value for json.dumps."""
+    """Convert a CDXF node to a Python native value for json.dumps.
+
+    Types not representable in JSON (datetime, date, time) are
+    converted to ISO 8601 strings.
+    """
     if isinstance(node, Scalar):
-        return node.value
+        v = node.value
+        # Convert temporal types to ISO strings for JSON
+        if hasattr(v, "isoformat"):
+            return v.isoformat()
+        return v
     if isinstance(node, Map):
         result = {}
         for entry in node.entries:
@@ -118,5 +126,8 @@ def _to_native(node) -> Any:
         ]
     # Fallback for types JSON can't represent
     if hasattr(node, "value"):
-        return node.value
+        v = node.value
+        if hasattr(v, "isoformat"):
+            return v.isoformat()
+        return v
     return str(node)

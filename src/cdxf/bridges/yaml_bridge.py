@@ -333,13 +333,15 @@ class _ModelToYaml:
         if scalar.scalar_type == ScalarType.BOOLEAN:
             return scalar.value
         if scalar.scalar_type == ScalarType.INTEGER:
-            return ScalarInt(scalar.value)
+            return int(scalar.value)
         if scalar.scalar_type == ScalarType.FLOAT:
-            return ScalarFloat(scalar.value)
+            return float(scalar.value)
         if scalar.scalar_type == ScalarType.STRING:
             return scalar.value
         if scalar.scalar_type == ScalarType.BYTE_STRING:
             return scalar.value
+        # Temporal types — pass through as Python datetime objects
+        # (ruamel.yaml can serialize these natively)
         return scalar.value
 
     def _convert_map(self, map_node: Map) -> CommentedMap:

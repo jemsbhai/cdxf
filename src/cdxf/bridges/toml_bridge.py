@@ -261,8 +261,13 @@ class _ModelToToml:
             if isinstance(entry, Comment):
                 continue
             key, value = entry
+            # Skip null values — TOML has no null concept
+            if isinstance(value, Scalar) and value.scalar_type == ScalarType.NULL:
+                continue
             key_str = key.value if isinstance(key, Scalar) else str(key)
-            table.add(key_str, self._convert_value(value))
+            converted = self._convert_value(value)
+            if converted is not None:
+                table.add(key_str, converted)
 
     def _convert_value(self, node):
         if isinstance(node, Map):
@@ -304,4 +309,7 @@ class _ModelToToml:
 
     @staticmethod
     def _convert_scalar(scalar: Scalar):
+        # TOML has no null — return None to signal "skip this entry"
+        if scalar.scalar_type == ScalarType.NULL:
+            return None
         return scalar.value

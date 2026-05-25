@@ -1,0 +1,404 @@
+{
+  "experiment": "EXP-003",
+  "total": 66,
+  "passed": 66,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "results": [
+    {
+      "status": "pass",
+      "source": "json",
+      "target": "yaml",
+      "document": "flat_map"
+    },
+    {
+      "status": "pass",
+      "source": "json",
+      "target": "yaml",
+      "document": "nested_map"
+    },
+    {
+      "status": "pass",
+      "source": "json",
+      "target": "yaml",
+      "document": "arrays"
+    },
+    {
+      "status": "pass",
+      "source": "json",
+      "target": "yaml",
+      "document": "mixed_types"
+    },
+    {
+      "status": "pass",
+      "source": "json",
+      "target": "yaml",
+      "document": "nested_arrays"
+    },
+    {
+      "status": "pass",
+      "source": "json",
+      "target": "yaml",
+      "document": "array_of_tables"
+    },
+    {
+      "status": "pass",
+      "source": "json",
+      "target": "yaml",
+      "document": "string_escapes"
+    },
+    {
+      "status": "pass",
+      "source": "json",
+      "target": "yaml",
+      "document": "empty_structures"
+    },
+    {
+      "status": "pass",
+      "source": "json",
+      "target": "yaml",
+      "document": "deeply_nested"
+    },
+    {
+      "status": "pass",
+      "source": "json",
+      "target": "yaml",
+      "document": "large_array"
+    },
+    {
+      "status": "pass",
+      "source": "json",
+      "target": "toml",
+      "document": "flat_map"
+    },
+    {
+      "status": "pass",
+      "source": "json",
+      "target": "toml",
+      "document": "nested_map"
+    },
+    {
+      "status": "pass",
+      "source": "json",
+      "target": "toml",
+      "document": "arrays"
+    },
+    {
+      "status": "pass",
+      "source": "json",
+      "target": "toml",
+      "document": "mixed_types"
+    },
+    {
+      "status": "pass",
+      "source": "json",
+      "target": "toml",
+      "document": "nested_arrays"
+    },
+    {
+      "status": "pass",
+      "source": "json",
+      "target": "toml",
+      "document": "array_of_tables"
+    },
+    {
+      "status": "pass",
+      "source": "json",
+      "target": "toml",
+      "document": "string_escapes"
+    },
+    {
+      "status": "pass",
+      "source": "json",
+      "target": "toml",
+      "document": "empty_structures"
+    },
+    {
+      "status": "pass",
+      "source": "json",
+      "target": "toml",
+      "document": "deeply_nested"
+    },
+    {
+      "status": "pass",
+      "source": "json",
+      "target": "toml",
+      "document": "large_array"
+    },
+    {
+      "status": "pass",
+      "source": "yaml",
+      "target": "json",
+      "document": "flat_map"
+    },
+    {
+      "status": "pass",
+      "source": "yaml",
+      "target": "json",
+      "document": "nested_map"
+    },
+    {
+      "status": "pass",
+      "source": "yaml",
+      "target": "json",
+      "document": "arrays"
+    },
+    {
+      "status": "pass",
+      "source": "yaml",
+      "target": "json",
+      "document": "mixed_types"
+    },
+    {
+      "status": "pass",
+      "source": "yaml",
+      "target": "json",
+      "document": "nested_arrays"
+    },
+    {
+      "status": "pass",
+      "source": "yaml",
+      "target": "json",
+      "document": "array_of_tables"
+    },
+    {
+      "status": "pass",
+      "source": "yaml",
+      "target": "json",
+      "document": "string_escapes"
+    },
+    {
+      "status": "pass",
+      "source": "yaml",
+      "target": "json",
+      "document": "empty_structures"
+    },
+    {
+      "status": "pass",
+      "source": "yaml",
+      "target": "json",
+      "document": "deeply_nested"
+    },
+    {
+      "status": "pass",
+      "source": "yaml",
+      "target": "json",
+      "document": "large_array"
+    },
+    {
+      "status": "pass",
+      "source": "yaml",
+      "target": "toml",
+      "document": "flat_map"
+    },
+    {
+      "status": "pass",
+      "source": "yaml",
+      "target": "toml",
+      "document": "nested_map"
+    },
+    {
+      "status": "pass",
+      "source": "yaml",
+      "target": "toml",
+      "document": "arrays"
+    },
+    {
+      "status": "pass",
+      "source": "yaml",
+      "target": "toml",
+      "document": "mixed_types"
+    },
+    {
+      "status": "pass",
+      "source": "yaml",
+      "target": "toml",
+      "document": "nested_arrays"
+    },
+    {
+      "status": "pass",
+      "source": "yaml",
+      "target": "toml",
+      "document": "array_of_tables"
+    },
+    {
+      "status": "pass",
+      "source": "yaml",
+      "target": "toml",
+      "document": "string_escapes"
+    },
+    {
+      "status": "pass",
+      "source": "yaml",
+      "target": "toml",
+      "document": "empty_structures"
+    },
+    {
+      "status": "pass",
+      "source": "yaml",
+      "target": "toml",
+      "document": "deeply_nested"
+    },
+    {
+      "status": "pass",
+      "source": "yaml",
+      "target": "toml",
+      "document": "large_array"
+    },
+    {
+      "status": "pass",
+      "source": "toml",
+      "target": "json",
+      "document": "flat_map"
+    },
+    {
+      "status": "pass",
+      "source": "toml",
+      "target": "json",
+      "document": "nested_map"
+    },
+    {
+      "status": "pass",
+      "source": "toml",
+      "target": "json",
+      "document": "arrays"
+    },
+    {
+      "status": "pass",
+      "source": "toml",
+      "target": "json",
+      "document": "mixed_types"
+    },
+    {
+      "status": "pass",
+      "source": "toml",
+      "target": "json",
+      "document": "nested_arrays"
+    },
+    {
+      "status": "pass",
+      "source": "toml",
+      "target": "json",
+      "document": "array_of_tables"
+    },
+    {
+      "status": "pass",
+      "source": "toml",
+      "target": "json",
+      "document": "string_escapes"
+    },
+    {
+      "status": "pass",
+      "source": "toml",
+      "target": "json",
+      "document": "empty_structures"
+    },
+    {
+      "status": "pass",
+      "source": "toml",
+      "target": "json",
+      "document": "deeply_nested"
+    },
+    {
+      "status": "pass",
+      "source": "toml",
+      "target": "json",
+      "document": "large_array"
+    },
+    {
+      "status": "pass",
+      "source": "toml",
+      "target": "yaml",
+      "document": "flat_map"
+    },
+    {
+      "status": "pass",
+      "source": "toml",
+      "target": "yaml",
+      "document": "nested_map"
+    },
+    {
+      "status": "pass",
+      "source": "toml",
+      "target": "yaml",
+      "document": "arrays"
+    },
+    {
+      "status": "pass",
+      "source": "toml",
+      "target": "yaml",
+      "document": "mixed_types"
+    },
+    {
+      "status": "pass",
+      "source": "toml",
+      "target": "yaml",
+      "document": "nested_arrays"
+    },
+    {
+      "status": "pass",
+      "source": "toml",
+      "target": "yaml",
+      "document": "array_of_tables"
+    },
+    {
+      "status": "pass",
+      "source": "toml",
+      "target": "yaml",
+      "document": "string_escapes"
+    },
+    {
+      "status": "pass",
+      "source": "toml",
+      "target": "yaml",
+      "document": "empty_structures"
+    },
+    {
+      "status": "pass",
+      "source": "toml",
+      "target": "yaml",
+      "document": "deeply_nested"
+    },
+    {
+      "status": "pass",
+      "source": "toml",
+      "target": "yaml",
+      "document": "large_array"
+    },
+    {
+      "test": "yaml_comments_to_json",
+      "description": "YAML comments gracefully dropped in JSON output",
+      "status": "pass"
+    },
+    {
+      "test": "yaml_anchors_to_json",
+      "description": "YAML anchors/merge keys expanded in JSON output",
+      "status": "pass",
+      "detail": "restored={'defaults': {'x': 1}, 'override': {'<<': \"Alias(name='def')\", 'y': 2}}"
+    },
+    {
+      "test": "yaml_multidoc_to_json",
+      "description": "YAML multi-document stream produces valid JSON",
+      "status": "pass"
+    },
+    {
+      "test": "toml_dates_to_json",
+      "description": "TOML datetime/date become ISO strings in JSON",
+      "status": "pass",
+      "detail": "ts=1979-05-27T07:32:00+00:00, d=1979-05-27"
+    },
+    {
+      "test": "toml_dates_to_yaml",
+      "description": "TOML datetime preserved as YAML datetime",
+      "status": "pass",
+      "detail": "ts type=datetime"
+    },
+    {
+      "test": "json_null_to_toml",
+      "description": "JSON null handled gracefully in TOML conversion",
+      "status": "pass",
+      "detail": "nothing=None"
+    }
+  ]
+}
