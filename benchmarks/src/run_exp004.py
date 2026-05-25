@@ -126,10 +126,10 @@ def generate_large_toml(target_kb: int) -> str:
         lines.append(f'name = "item-{i:06d}"')
         lines.append(f'description = "Description for item number {i}"')
         lines.append(f"price = {round(i * 0.99, 2)}")
-        lines.append(f"in_stock = {'true' if i % 3 != 0 else 'false'}")
-        lines.append(f'tags = [{", ".join(f\'\"tag-{j}\"\' for j in range(i % 5 + 1))}]')
+        in_stock_val = 'true' if i % 3 != 0 else 'false'
+        lines.append(f"in_stock = {in_stock_val}")
+        tag_items = ', '.join('"tag-' + str(j) + '"' for j in range(i % 5 + 1))
         lines.append(f'category = "cat-{i % 20}"')
-        lines.append("")
         i += 1
         if i % 100 == 0:
             text = "\n".join(lines)
@@ -237,20 +237,31 @@ def run_scalability():
             print(f"  Compression: gzip(text)={gz_text:,} gzip(cdxf)={gz_cdxf:,} "
                   f"zstd(text)={zstd_text:,} zstd(cdxf)={zstd_cdxf:,}")
 
-            # Throughput: encode
-            print(f"  Benchmarking encode ({ITERATIONS} iters)...", end="", flush=True)
+            # Throughput: CODEC ONLY (pre-parsed stream -> binary -> stream)
+            # This isolates CDXF performance from text parser speed.
+            iters = ITERATIONS
+            wu = WARMUP
+            # Reduce iterations for slow parsers at large scale
+            if fmt in ("yaml", "toml") and target_kb >= 10240:
+                iters = 5
+                wu = 1
+            elif fmt in ("yaml", "toml"):
+                iters = 10
+                wu = 2
+
+            print(f"  Benchmarking codec encode ({iters} iters)...", end="", flush=True)
             gc.collect()
-            enc_times = bench(lambda: cdxf_encode(bridge_from(text)))
+            enc_times = bench(lambda: cdxf_encode(stream), iterations=iters, warmup=wu)
             enc_summary = summarize(enc_times)
             enc_mb_s = (len(text_bytes) / 1e6) / enc_summary["median_s"] if enc_summary["median_s"] > 0 else 0
             print(f" {enc_summary['median_s']*1000:.1f}ms ({enc_mb_s:.1f} MB/s)")
 
-            # Throughput: decode
-            print(f"  Benchmarking decode ({ITERATIONS} iters)...", end="", flush=True)
+            # Throughput: decode (codec only: binary -> stream)
+            print(f"  Benchmarking codec decode ({iters} iters)...", end="", flush=True)
             gc.collect()
-            dec_times = bench(lambda: bridges_to[fmt](cdxf_decode(cdxf_bytes)))
+            dec_times = bench(lambda: cdxf_decode(cdxf_bytes), iterations=iters, warmup=wu)
             dec_summary = summarize(dec_times)
-            dec_mb_s = (len(text_bytes) / 1e6) / dec_summary["median_s"] if dec_summary["median_s"] > 0 else 0
+            dec_mb_s = (cdxf_size / 1e6) / dec_summary["median_s"] if dec_summary["median_s"] > 0 else 0
             print(f" {dec_summary['median_s']*1000:.1f}ms ({dec_mb_s:.1f} MB/s)")
 
             # Round-trip fidelity
