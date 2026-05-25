@@ -200,6 +200,37 @@ percentage points, validating measurement robustness. For agentic systems
 managing N=100 config files, eliminating syntax frees 44–143 equivalent
 files of context budget. (EXP-011)
 
+### F18: Comments represent up to 65% of semantic tokens in ML configs — all baselines except CDXF destroy them
+
+In realistic ML training configs (e.g., Hydra YAML with hyperparameter
+decisions), comments constitute up to 65% of semantic tokens. Median comment
+fraction across commented YAML files is 13%, across TOML files 13.7%. When
+comments are stripped (simulating what every baseline except CDXF does), syntax
+tax increases by a median of +2.4pp for YAML (up to +15.7pp for comment-heavy
+configs). This is a double penalty: semantic information is destroyed AND the
+remaining content has a higher syntax-to-content ratio. Total comment tokens
+lost across the YAML corpus: 2,832. (EXP-011 ablation)
+
+### F19: JSON's syntax tax is dominated by whitespace (48.5%), not quotes or braces
+
+A character-level breakdown of syntax across formats reveals: JSON's largest
+syntax cost is indentation whitespace (48.5%), followed by colons/commas
+(32.7%), then quotes (16.8%), with braces/brackets at only 1.9%. XML's largest
+cost is redundant closing tags (37.2%). YAML's is indentation (41.0%). TOML's
+is whitespace (64.3%). These breakdowns inform optimization strategies: for
+JSON, compact formatting (no indent) would halve the syntax tax; for XML,
+eliminating closing tags (which CDXF does) removes the single largest cost.
+(EXP-011 breakdown)
+
+### F20: Same data in TOML uses 28% fewer tokens than JSON
+
+A controlled cross-format comparison expressing identical ML configs in JSON,
+YAML, and TOML shows: for a nested model/training/data config, JSON consumes
+170 tokens (58.4% tax), YAML 132 tokens (50.6% tax), TOML 122 tokens (42.3%
+tax). TOML saves 28% of tokens vs JSON for equivalent semantic content. This
+quantifies the format choice impact on agentic context budgets. (EXP-011
+cross-format)
+
 ---
 
 ## Raw Findings Log
@@ -332,3 +363,22 @@ the measurement is tokenizer-independent.
 
 The JSON > XML ranking should be presented honestly in the paper as a finding
 that challenges assumptions about XML verbosity.
+
+**Expanded analysis (comment contribution, ablation, breakdown, cross-format):**
+
+Comment contribution: In YAML files with comments, median 13% of semantic
+tokens are comment text. hydra_train_bert peaks at 65% — most of the semantic
+content IS hyperparameter decision comments. All baselines except CDXF destroy
+100% of these.
+
+Comment ablation: Stripping comments from hydra_train_bert increases tax from
+33.1% to 48.8% (+15.7pp). Total YAML comment tokens destroyed: 2,832. This is
+the double-penalty argument: lose information AND get worse token efficiency.
+
+Syntax breakdown: JSON = 48.5% whitespace + 32.7% colons/commas + 16.8%
+quotes + 1.9% braces. XML = 37.2% closing tags + 33.5% whitespace + 10.5%
+angle brackets. YAML = 41.0% indentation + 27.0% whitespace + 20.9% colons.
+TOML = 64.3% whitespace + 13.2% delimiters.
+
+Cross-format: Same nested ML config — JSON 170 tokens (58.4% tax), YAML 132
+tokens (50.6%), TOML 122 tokens (42.3%). TOML saves 28% vs JSON.

@@ -937,3 +937,344 @@ class TestDeterminism:
         assert abs(r1["syntax_tax_rate"] - r2["syntax_tax_rate"]) < 0.15, (
             f"Tax rates diverge too much: {r1['syntax_tax_rate']} vs {r2['syntax_tax_rate']}"
         )
+
+
+# ===========================================================================
+# Comment contribution analysis
+# ===========================================================================
+
+
+class TestIdentifyCommentSpans:
+    """Verify that comment character spans are correctly identified."""
+
+    def test_yaml_full_line_comment(self):
+        from benchmarks.src.run_exp011 import identify_comment_chars
+        text = "# this is a comment\nkey: val\n"
+        comment_mask = identify_comment_chars(text, "yaml")
+        assert len(comment_mask) == len(text)
+        # Characters in 'this is a comment' should be True
+        assert comment_mask[2]  # 't'
+        assert comment_mask[18]  # 't' in 'comment'
+        # Characters in 'key: val' should be False
+        k_idx = text.index("k", 2)
+        assert not comment_mask[k_idx]
+
+    def test_yaml_inline_comment(self):
+        from benchmarks.src.run_exp011 import identify_comment_chars
+        text = "key: val  # inline note\n"
+        comment_mask = identify_comment_chars(text, "yaml")
+        # 'inline note' should be True
+        i_idx = text.index("inline")
+        assert comment_mask[i_idx]
+        # 'key' and 'val' should be False
+        assert not comment_mask[0]  # k
+
+    def test_toml_comment(self):
+        from benchmarks.src.run_exp011 import identify_comment_chars
+        text = "# config comment\nkey = 1\n"
+        comment_mask = identify_comment_chars(text, "toml")
+        assert comment_mask[2]  # 'c' in config
+        k_idx = text.index("key")
+        assert not comment_mask[k_idx]
+
+    def test_xml_comment(self):
+        from benchmarks.src.run_exp011 import identify_comment_chars
+        text = "<root><!-- decision note --></root>"
+        comment_mask = identify_comment_chars(text, "xml")
+        d_idx = text.index("decision")
+        assert comment_mask[d_idx]
+        r_idx = text.index("root")
+        assert not comment_mask[r_idx]
+
+    def test_json_has_no_comments(self):
+        from benchmarks.src.run_exp011 import identify_comment_chars
+        text = '{"key": "value"}'
+        comment_mask = identify_comment_chars(text, "json")
+        assert not any(comment_mask)
+
+
+class TestAnalyzeCommentContribution:
+    """Quantify comment tokens as fraction of semantic tokens."""
+
+    def test_returns_dict(self):
+        from benchmarks.src.run_exp011 import analyze_comment_contribution
+        result = analyze_comment_contribution(
+            "# comment\nkey: val\n", "yaml", "cl100k_base"
+        )
+        assert isinstance(result, dict)
+
+    def test_required_fields(self):
+        from benchmarks.src.run_exp011 import analyze_comment_contribution
+        result = analyze_comment_contribution(
+            "# comment\nkey: val\n", "yaml", "cl100k_base"
+        )
+        required = {"comment_tokens", "semantic_tokens", "comment_fraction_of_semantic"}
+        assert required.issubset(set(result.keys()))
+
+    def test_yaml_with_comments_has_nonzero_fraction(self):
+        from benchmarks.src.run_exp011 import analyze_comment_contribution
+        text = "# Training decision\n# lr=1e-4 after sweep\nmodel: bert\nlr: 0.0001\n"
+        result = analyze_comment_contribution(text, "yaml", "cl100k_base")
+        assert result["comment_tokens"] > 0
+        assert result["comment_fraction_of_semantic"] > 0
+
+    def test_json_has_zero_comment_fraction(self):
+        from benchmarks.src.run_exp011 import analyze_comment_contribution
+        result = analyze_comment_contribution(
+            '{"key": "value"}', "json", "cl100k_base"
+        )
+        assert result["comment_tokens"] == 0
+        assert result["comment_fraction_of_semantic"] == 0
+
+    def test_comment_fraction_between_0_and_1(self):
+        from benchmarks.src.run_exp011 import analyze_comment_contribution
+        text = "# note\nkey: val\n"
+        result = analyze_comment_contribution(text, "yaml", "cl100k_base")
+        assert 0 <= result["comment_fraction_of_semantic"] <= 1
+
+
+# ===========================================================================
+# Comment ablation
+# ===========================================================================
+
+
+class TestAblateComments:
+    """Strip comments from files for with/without comparison."""
+
+    def test_returns_string(self):
+        from benchmarks.src.run_exp011 import ablate_comments
+        result = ablate_comments("# comment\nkey: val\n", "yaml")
+        assert isinstance(result, str)
+
+    def test_yaml_strips_full_line_comments(self):
+        from benchmarks.src.run_exp011 import ablate_comments
+        text = "# comment\nkey: val\n"
+        result = ablate_comments(text, "yaml")
+        assert "# comment" not in result
+        assert "key: val" in result
+
+    def test_yaml_strips_inline_comments(self):
+        from benchmarks.src.run_exp011 import ablate_comments
+        text = "key: val  # inline\n"
+        result = ablate_comments(text, "yaml")
+        assert "# inline" not in result
+        assert "key: val" in result
+
+    def test_toml_strips_comments(self):
+        from benchmarks.src.run_exp011 import ablate_comments
+        text = "# config\nkey = 1  # note\n"
+        result = ablate_comments(text, "toml")
+        assert "# config" not in result
+        assert "# note" not in result
+        assert "key = 1" in result
+
+    def test_xml_strips_comments(self):
+        from benchmarks.src.run_exp011 import ablate_comments
+        text = "<root><!-- note --><a>text</a></root>"
+        result = ablate_comments(text, "xml")
+        assert "<!-- note -->" not in result
+        assert "<a>text</a>" in result
+
+    def test_json_unchanged(self):
+        from benchmarks.src.run_exp011 import ablate_comments
+        text = '{"key": "value"}'
+        result = ablate_comments(text, "json")
+        assert result == text
+
+    def test_preserves_data_content(self):
+        from benchmarks.src.run_exp011 import ablate_comments
+        text = "# HP decision\nlearning_rate: 0.0001\nbatch_size: 32\n"
+        result = ablate_comments(text, "yaml")
+        assert "learning_rate: 0.0001" in result
+        assert "batch_size: 32" in result
+
+
+class TestSyntaxTaxAblation:
+    """Compare syntax tax with vs without comments."""
+
+    def test_returns_dict(self):
+        from benchmarks.src.run_exp011 import syntax_tax_ablation
+        text = "# comment\nkey: val\n"
+        result = syntax_tax_ablation(text, "yaml", "cl100k_base")
+        assert isinstance(result, dict)
+
+    def test_required_fields(self):
+        from benchmarks.src.run_exp011 import syntax_tax_ablation
+        text = "# comment\nkey: val\n"
+        result = syntax_tax_ablation(text, "yaml", "cl100k_base")
+        required = {
+            "with_comments_tax", "without_comments_tax",
+            "tax_increase_without_comments",
+            "semantic_tokens_lost",
+        }
+        assert required.issubset(set(result.keys()))
+
+    def test_stripping_comments_increases_tax(self):
+        """Removing comments (semantic) should increase syntax tax rate."""
+        from benchmarks.src.run_exp011 import syntax_tax_ablation
+        text = "# Important HP decision\n# lr=1e-4 selected after grid search\nmodel: bert\nlr: 0.0001\nepochs: 3\n"
+        result = syntax_tax_ablation(text, "yaml", "cl100k_base")
+        assert result["without_comments_tax"] >= result["with_comments_tax"], (
+            f"Stripping comments should increase tax: "
+            f"{result['with_comments_tax']} -> {result['without_comments_tax']}"
+        )
+
+    def test_semantic_tokens_lost_is_positive(self):
+        from benchmarks.src.run_exp011 import syntax_tax_ablation
+        text = "# decision note\nkey: val\n"
+        result = syntax_tax_ablation(text, "yaml", "cl100k_base")
+        assert result["semantic_tokens_lost"] > 0
+
+    def test_json_no_change(self):
+        """JSON has no comments — ablation should show no change."""
+        from benchmarks.src.run_exp011 import syntax_tax_ablation
+        text = '{"key": "value"}'
+        result = syntax_tax_ablation(text, "json", "cl100k_base")
+        assert result["tax_increase_without_comments"] == pytest.approx(0, abs=0.001)
+        assert result["semantic_tokens_lost"] == pytest.approx(0, abs=0.5)
+
+
+# ===========================================================================
+# Syntax breakdown by construct type
+# ===========================================================================
+
+
+class TestClassifySyntaxBreakdown:
+    """Break syntax into sub-categories for detailed analysis."""
+
+    def test_returns_dict(self):
+        from benchmarks.src.run_exp011 import classify_syntax_breakdown
+        result = classify_syntax_breakdown('{"a": 1}', "json")
+        assert isinstance(result, dict)
+
+    def test_json_categories(self):
+        from benchmarks.src.run_exp011 import classify_syntax_breakdown
+        result = classify_syntax_breakdown('{"key": "value", "n": 42}', "json")
+        assert "quotes" in result
+        assert "braces_brackets" in result
+        assert "colons_commas" in result
+        assert "whitespace" in result
+
+    def test_json_quotes_nonzero(self):
+        from benchmarks.src.run_exp011 import classify_syntax_breakdown
+        result = classify_syntax_breakdown('{"key": "value"}', "json")
+        assert result["quotes"] > 0
+
+    def test_json_breakdown_sums_to_total_syntax(self):
+        from benchmarks.src.run_exp011 import classify_syntax_breakdown
+        text = '{"key": "value", "num": 42}'
+        breakdown = classify_syntax_breakdown(text, "json")
+        roles = identify_char_roles(text, "json")
+        total_syntax_chars = sum(1 for r in roles if r == "syntax")
+        breakdown_sum = sum(breakdown.values())
+        assert breakdown_sum == total_syntax_chars, (
+            f"Breakdown sum {breakdown_sum} != total syntax {total_syntax_chars}"
+        )
+
+    def test_xml_has_closing_tags_category(self):
+        from benchmarks.src.run_exp011 import classify_syntax_breakdown
+        result = classify_syntax_breakdown("<root><a>text</a></root>", "xml")
+        assert "closing_tags" in result
+        assert result["closing_tags"] > 0
+
+    def test_xml_closing_tags_are_largest_category(self):
+        """For tag-heavy XML, closing tags should be the dominant syntax cost."""
+        from benchmarks.src.run_exp011 import classify_syntax_breakdown
+        text = "<configuration><parameter>value</parameter><setting>data</setting></configuration>"
+        result = classify_syntax_breakdown(text, "xml")
+        assert result["closing_tags"] >= result.get("angle_brackets", 0)
+
+    def test_yaml_has_indentation_category(self):
+        from benchmarks.src.run_exp011 import classify_syntax_breakdown
+        result = classify_syntax_breakdown("parent:\n  child: val\n", "yaml")
+        assert "indentation" in result
+        assert result["indentation"] > 0
+
+    def test_toml_has_quotes_and_delimiters(self):
+        from benchmarks.src.run_exp011 import classify_syntax_breakdown
+        result = classify_syntax_breakdown('[section]\nkey = "value"\n', "toml")
+        assert "quotes" in result
+        assert "delimiters" in result
+
+
+# ===========================================================================
+# Cross-format equivalent comparison
+# ===========================================================================
+
+
+class TestCrossFormatComparison:
+    """Express identical data in multiple formats, compare syntax tax."""
+
+    def test_returns_dict(self):
+        from benchmarks.src.run_exp011 import cross_format_comparison
+        data = {"model": "bert", "lr": 0.001, "epochs": 10}
+        result = cross_format_comparison(data, "cl100k_base")
+        assert isinstance(result, dict)
+
+    def test_has_all_formats(self):
+        from benchmarks.src.run_exp011 import cross_format_comparison
+        data = {"model": "bert", "lr": 0.001}
+        result = cross_format_comparison(data, "cl100k_base")
+        for fmt in ["json", "yaml", "toml"]:
+            assert fmt in result, f"Missing format: {fmt}"
+
+    def test_each_format_has_tax_rate(self):
+        from benchmarks.src.run_exp011 import cross_format_comparison
+        data = {"model": "bert", "lr": 0.001}
+        result = cross_format_comparison(data, "cl100k_base")
+        for fmt in ["json", "yaml", "toml"]:
+            assert "syntax_tax_rate" in result[fmt]
+            assert 0 < result[fmt]["syntax_tax_rate"] < 1
+
+    def test_yaml_lower_tax_than_json(self):
+        """For equivalent data, YAML (no mandatory quotes) should have
+        lower syntax tax than JSON (quotes everything)."""
+        from benchmarks.src.run_exp011 import cross_format_comparison
+        data = {"learning_rate": 0.0001, "weight_decay": 0.01,
+                "batch_size": 32, "max_epochs": 10, "seed": 42}
+        result = cross_format_comparison(data, "cl100k_base")
+        assert result["yaml"]["syntax_tax_rate"] < result["json"]["syntax_tax_rate"]
+
+    def test_each_format_has_text(self):
+        """Must include the actual text for reproducibility."""
+        from benchmarks.src.run_exp011 import cross_format_comparison
+        data = {"key": "value"}
+        result = cross_format_comparison(data, "cl100k_base")
+        for fmt in ["json", "yaml", "toml"]:
+            assert "text" in result[fmt]
+            assert len(result[fmt]["text"]) > 0
+
+    def test_larger_config_comparison(self):
+        """Realistic ML config comparison."""
+        from benchmarks.src.run_exp011 import cross_format_comparison
+        data = {
+            "model": {"name": "llama-3.1-8b", "hidden_size": 4096,
+                      "num_layers": 32, "num_heads": 32},
+            "training": {"lr": 0.0001, "batch_size": 4, "epochs": 3,
+                         "warmup_ratio": 0.1, "weight_decay": 0.01},
+            "data": {"dataset": "alpaca", "max_length": 2048,
+                     "split_ratio": 0.9},
+        }
+        result = cross_format_comparison(data, "cl100k_base")
+        # All formats should produce reasonable taxes
+        for fmt in ["json", "yaml", "toml"]:
+            assert 0.1 < result[fmt]["syntax_tax_rate"] < 0.9
+
+
+# ===========================================================================
+# Per-size-category analysis
+# ===========================================================================
+
+
+class TestPerSizeAnalysis:
+    """Verify syntax tax analysis stratified by file size."""
+
+    def test_small_files_higher_tax(self):
+        """Small files should tend to have higher syntax tax
+        (more structural overhead relative to content)."""
+        small_json = json.dumps({"a": 1})
+        large_json = json.dumps({f"param_{i}": f"value_that_is_reasonably_long_{i}" for i in range(50)}, indent=2)
+        r_small = classify_tokens(small_json, "json", "cl100k_base")
+        r_large = classify_tokens(large_json, "json", "cl100k_base")
+        # Small files have proportionally more syntax
+        assert r_small["syntax_tax_rate"] > r_large["syntax_tax_rate"]
