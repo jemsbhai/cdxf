@@ -1,0 +1,72 @@
+{
+  "cdxf": {
+    "baseline": "cdxf",
+    "label": "CDXF (ours)",
+    "n_files": 16,
+    "n_success": 16,
+    "median_loss_rate": 0.0,
+    "mean_loss_rate": -0.0014705882352941124,
+    "data_fidelity_rate": 1.0,
+    "median_size_ratio": 0.9262899262899262
+  },
+  "cbor": {
+    "baseline": "cbor",
+    "label": "CBOR (cbor2)",
+    "n_files": 16,
+    "n_success": 15,
+    "median_loss_rate": 1.0,
+    "mean_loss_rate": 0.9814814814814815,
+    "data_fidelity_rate": 0.8125,
+    "median_size_ratio": 0.600896860986547
+  },
+  "msgpack": {
+    "baseline": "msgpack",
+    "label": "MsgPack",
+    "n_files": 16,
+    "n_success": 14,
+    "median_loss_rate": 1.0,
+    "mean_loss_rate": 1.0,
+    "data_fidelity_rate": 0.75,
+    "median_size_ratio": 0.6055152824011665
+  },
+  "bson": {
+    "baseline": "bson",
+    "label": "BSON (pymongo)",
+    "n_files": 16,
+    "n_success": 15,
+    "median_loss_rate": 1.0,
+    "mean_loss_rate": 0.9916666666666667,
+    "data_fidelity_rate": 0.75,
+    "median_size_ratio": 0.7535714285714286
+  },
+  "ion": {
+    "baseline": "ion",
+    "label": "Amazon Ion",
+    "n_files": 16,
+    "n_success": 4,
+    "median_loss_rate": 1.0,
+    "mean_loss_rate": 1.0,
+    "data_fidelity_rate": 0.1875,
+    "median_size_ratio": 0.7646716009834627
+  },
+  "json_stdlib": {
+    "baseline": "json_stdlib",
+    "label": "JSON (stdlib)",
+    "n_files": 16,
+    "n_success": 16,
+    "median_loss_rate": 1.0,
+    "mean_loss_rate": 0.9731481481481481,
+    "data_fidelity_rate": 0.875,
+    "median_size_ratio": 0.7540435025097602
+  },
+  "pickle": {
+    "baseline": "pickle",
+    "label": "Pickle (stdlib)",
+    "n_files": 16,
+    "n_success": 16,
+    "median_loss_rate": 1.0,
+    "mean_loss_rate": 0.9731481481481481,
+    "data_fidelity_rate": 0.875,
+    "median_size_ratio": 0.7418628313378879
+  }
+}

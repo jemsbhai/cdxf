@@ -1,0 +1,72 @@
+{
+  "cdxf": {
+    "HP comments": true,
+    "Config anchors/aliases": true,
+    "Training timestamps": true,
+    "Multi-doc streams": true,
+    "XML namespaces": true,
+    "XML comments & PIs": true,
+    "Round-trip fidelity": true,
+    "Cross-language safe": true
+  },
+  "cbor": {
+    "HP comments": false,
+    "Config anchors/aliases": false,
+    "Training timestamps": false,
+    "Multi-doc streams": false,
+    "XML namespaces": false,
+    "XML comments & PIs": false,
+    "Round-trip fidelity": true,
+    "Cross-language safe": true
+  },
+  "msgpack": {
+    "HP comments": false,
+    "Config anchors/aliases": false,
+    "Training timestamps": false,
+    "Multi-doc streams": false,
+    "XML namespaces": false,
+    "XML comments & PIs": false,
+    "Round-trip fidelity": true,
+    "Cross-language safe": true
+  },
+  "bson": {
+    "HP comments": false,
+    "Config anchors/aliases": false,
+    "Training timestamps": true,
+    "Multi-doc streams": false,
+    "XML namespaces": false,
+    "XML comments & PIs": false,
+    "Round-trip fidelity": true,
+    "Cross-language safe": true
+  },
+  "ion": {
+    "HP comments": false,
+    "Config anchors/aliases": false,
+    "Training timestamps": false,
+    "Multi-doc streams": false,
+    "XML namespaces": false,
+    "XML comments & PIs": false,
+    "Round-trip fidelity": true,
+    "Cross-language safe": true
+  },
+  "json_stdlib": {
+    "HP comments": false,
+    "Config anchors/aliases": false,
+    "Training timestamps": true,
+    "Multi-doc streams": false,
+    "XML namespaces": false,
+    "XML comments & PIs": false,
+    "Round-trip fidelity": true,
+    "Cross-language safe": true
+  },
+  "pickle": {
+    "HP comments": false,
+    "Config anchors/aliases": false,
+    "Training timestamps": true,
+    "Multi-doc streams": false,
+    "XML namespaces": false,
+    "XML comments & PIs": false,
+    "Round-trip fidelity": true,
+    "Cross-language safe": false
+  }
+}

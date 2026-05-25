@@ -1,0 +1,98 @@
+{
+  "total_repos_analyzed": 892,
+  "total_repos_with_errors": 0,
+  "formats_per_repo": {
+    "n": 892,
+    "median": 3.0,
+    "mean": 2.5785,
+    "std": 0.9086,
+    "min": 0,
+    "max": 6,
+    "q1": 2.0,
+    "q3": 3.0
+  },
+  "format_diversity_index": {
+    "n": 892,
+    "median": 1.0613,
+    "mean": 1.0514,
+    "std": 0.4515,
+    "min": 0.0,
+    "max": 2.0,
+    "q1": 1.0,
+    "q3": 1.371
+  },
+  "total_config_bytes": {
+    "n": 892,
+    "median": 16924.0,
+    "mean": 1215103.9114,
+    "std": 10926311.0619,
+    "min": 0,
+    "max": 202053309,
+    "q1": 4278.75,
+    "q3": 119492.5
+  },
+  "total_constructs": {
+    "n": 892,
+    "median": 0.0,
+    "mean": 0.8935,
+    "std": 13.0483,
+    "min": 0,
+    "max": 333,
+    "q1": 0.0,
+    "q3": 0.0
+  },
+  "comment_prevalence": {
+    "n": 892,
+    "median": 0.0,
+    "mean": 0.0216,
+    "std": 0.2609,
+    "min": 0.0,
+    "max": 7.0,
+    "q1": 0.0,
+    "q3": 0.0
+  },
+  "frontmatter_prevalence": 0.8587,
+  "global_format_distribution": {
+    "json": 13841,
+    "jsonl": 2886,
+    "markdown": 825,
+    "yaml_frontmatter": 766,
+    "xml": 727,
+    "yaml": 222,
+    "toml": 140,
+    "other": 76,
+    "ini": 3
+  },
+  "formats_per_repo_by_type": {
+    "model": {
+      "n": 500,
+      "median": 3.0,
+      "mean": 3.006,
+      "std": 0.4964,
+      "min": 1,
+      "max": 5,
+      "q1": 3.0,
+      "q3": 3.0
+    },
+    "adapter": {
+      "n": 50,
+      "median": 3.0,
+      "mean": 3.14,
+      "std": 0.5349,
+      "min": 2,
+      "max": 5,
+      "q1": 3.0,
+      "q3": 3.0
+    },
+    "dataset": {
+      "n": 342,
+      "median": 2.0,
+      "mean": 1.8713,
+      "std": 0.9692,
+      "min": 0,
+      "max": 6,
+      "q1": 2.0,
+      "q3": 2.0
+    }
+  }
+}

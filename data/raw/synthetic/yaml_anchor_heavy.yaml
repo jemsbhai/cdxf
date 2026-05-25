@@ -1,0 +1,154 @@
+defaults: &defaults
+  timeout: 30
+  retries: 3
+
+service_00:
+  <<: *defaults
+  name: service-0
+service_01:
+  <<: *defaults
+  name: service-1
+service_02:
+  <<: *defaults
+  name: service-2
+service_03:
+  <<: *defaults
+  name: service-3
+service_04:
+  <<: *defaults
+  name: service-4
+service_05:
+  <<: *defaults
+  name: service-5
+service_06:
+  <<: *defaults
+  name: service-6
+service_07:
+  <<: *defaults
+  name: service-7
+service_08:
+  <<: *defaults
+  name: service-8
+service_09:
+  <<: *defaults
+  name: service-9
+service_10:
+  <<: *defaults
+  name: service-10
+service_11:
+  <<: *defaults
+  name: service-11
+service_12:
+  <<: *defaults
+  name: service-12
+service_13:
+  <<: *defaults
+  name: service-13
+service_14:
+  <<: *defaults
+  name: service-14
+service_15:
+  <<: *defaults
+  name: service-15
+service_16:
+  <<: *defaults
+  name: service-16
+service_17:
+  <<: *defaults
+  name: service-17
+service_18:
+  <<: *defaults
+  name: service-18
+service_19:
+  <<: *defaults
+  name: service-19
+service_20:
+  <<: *defaults
+  name: service-20
+service_21:
+  <<: *defaults
+  name: service-21
+service_22:
+  <<: *defaults
+  name: service-22
+service_23:
+  <<: *defaults
+  name: service-23
+service_24:
+  <<: *defaults
+  name: service-24
+service_25:
+  <<: *defaults
+  name: service-25
+service_26:
+  <<: *defaults
+  name: service-26
+service_27:
+  <<: *defaults
+  name: service-27
+service_28:
+  <<: *defaults
+  name: service-28
+service_29:
+  <<: *defaults
+  name: service-29
+service_30:
+  <<: *defaults
+  name: service-30
+service_31:
+  <<: *defaults
+  name: service-31
+service_32:
+  <<: *defaults
+  name: service-32
+service_33:
+  <<: *defaults
+  name: service-33
+service_34:
+  <<: *defaults
+  name: service-34
+service_35:
+  <<: *defaults
+  name: service-35
+service_36:
+  <<: *defaults
+  name: service-36
+service_37:
+  <<: *defaults
+  name: service-37
+service_38:
+  <<: *defaults
+  name: service-38
+service_39:
+  <<: *defaults
+  name: service-39
+service_40:
+  <<: *defaults
+  name: service-40
+service_41:
+  <<: *defaults
+  name: service-41
+service_42:
+  <<: *defaults
+  name: service-42
+service_43:
+  <<: *defaults
+  name: service-43
+service_44:
+  <<: *defaults
+  name: service-44
+service_45:
+  <<: *defaults
+  name: service-45
+service_46:
+  <<: *defaults
+  name: service-46
+service_47:
+  <<: *defaults
+  name: service-47
+service_48:
+  <<: *defaults
+  name: service-48
+service_49:
+  <<: *defaults
+  name: service-49

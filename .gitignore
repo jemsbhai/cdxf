@@ -42,3 +42,9 @@ docs/_build/
 # Distribution
 *.whl
 *.tar.gz
+
+# Profiling artifacts
+encode_profile
+
+# Paper (private until publication)
+paper/

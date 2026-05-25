@@ -1,0 +1,113 @@
+file,format,category,baseline,baseline_label,success,serialized_size,original_size,error,comments_original,comments_preserved,anchors_original,anchors_preserved,aliases_original,aliases_preserved,merge_keys_original,merge_keys_preserved,multi_doc_markers_original,multi_doc_markers_preserved,temporal_values_original,temporal_values_preserved,processing_instructions_original,processing_instructions_preserved,namespaces_original,namespaces_preserved,total_metadata_original,total_metadata_preserved,metadata_loss_rate,data_fidelity
+hydra_training_config,yaml,training,cdxf,CDXF (ours),True,1278,1188,,17,19,0,0,0,0,0,0,0,0,0,0,0,0,0,0,17,19,-0.11764705882352944,True
+hydra_training_config,yaml,training,cbor,CBOR (cbor2),True,421,1188,,17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,17,0,1.0,True
+hydra_training_config,yaml,training,msgpack,MsgPack,True,418,1188,,17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,17,0,1.0,True
+hydra_training_config,yaml,training,bson,BSON (pymongo),True,505,1188,,17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,17,0,1.0,True
+hydra_training_config,yaml,training,ion,Amazon Ion,False,0,1188,"RepresenterError: cannot represent an object: {'model': {'name': 'bert-base-uncased', 'hidden_dropout_prob': 0.1}, 'training': {'learning_rate': 0.0001, 'weight_decay': 0.01, 'warmup_steps': 500, 'max_epochs': 3, 'batc",17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,17,0,1.0,False
+hydra_training_config,yaml,training,json_stdlib,JSON (stdlib),True,527,1188,,17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,17,0,1.0,True
+hydra_training_config,yaml,training,pickle,Pickle (stdlib),True,853,1188,,17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,17,0,1.0,True
+lightning_config_with_anchors,yaml,training,cdxf,CDXF (ours),True,896,892,,8,8,2,2,2,2,2,2,0,0,0,0,0,0,0,0,14,14,0.0,True
+lightning_config_with_anchors,yaml,training,cbor,CBOR (cbor2),True,536,892,,8,0,2,0,2,0,2,0,0,0,0,0,0,0,0,0,14,0,1.0,True
+lightning_config_with_anchors,yaml,training,msgpack,MsgPack,True,533,892,,8,0,2,0,2,0,2,0,0,0,0,0,0,0,0,0,14,0,1.0,True
+lightning_config_with_anchors,yaml,training,bson,BSON (pymongo),True,666,892,,8,0,2,0,2,0,2,0,0,0,0,0,0,0,0,0,14,0,1.0,True
+lightning_config_with_anchors,yaml,training,ion,Amazon Ion,False,0,892,"RepresenterError: cannot represent an object: {'defaults': {'precision': 16, 'accelerator': 'gpu', 'devices': 1, 'max_epochs': 10, 'gradient_clip_val': 1.0, 'accumulate_grad_batches': 4, 'log_every_n_steps': 50}, 'expe",8,0,2,0,2,0,2,0,0,0,0,0,0,0,0,0,14,0,1.0,False
+lightning_config_with_anchors,yaml,training,json_stdlib,JSON (stdlib),True,690,892,,8,0,2,0,2,0,2,0,0,0,0,0,0,0,0,0,14,0,1.0,True
+lightning_config_with_anchors,yaml,training,pickle,Pickle (stdlib),True,657,892,,8,0,2,0,2,0,2,0,0,0,0,0,0,0,0,0,14,0,1.0,True
+multi_doc_experiment_variants,yaml,training,cdxf,CDXF (ours),True,502,505,,5,4,0,0,0,0,0,0,4,2,0,0,0,0,0,0,9,6,0.33333333333333337,True
+multi_doc_experiment_variants,yaml,training,cbor,CBOR (cbor2),True,292,505,,5,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,9,0,1.0,True
+multi_doc_experiment_variants,yaml,training,msgpack,MsgPack,True,289,505,,5,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,9,0,1.0,True
+multi_doc_experiment_variants,yaml,training,bson,BSON (pymongo),True,368,505,,5,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,9,0,1.0,False
+multi_doc_experiment_variants,yaml,training,ion,Amazon Ion,False,0,505,"RepresenterError: cannot represent an object: [{'name': 'baseline_bert', 'model': 'bert-base-uncased', 'learning_rate': 3e-05, 'batch_size': 32, 'dropout': 0.1}, {'name': 'high_lr_bert', 'model': 'bert-base-uncased', '",5,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,9,0,1.0,False
+multi_doc_experiment_variants,yaml,training,json_stdlib,JSON (stdlib),True,346,505,,5,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,9,0,1.0,True
+multi_doc_experiment_variants,yaml,training,pickle,Pickle (stdlib),True,690,505,,5,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,9,0,1.0,True
+dataset_card_frontmatter,yaml,dataset,cdxf,CDXF (ours),True,466,489,,3,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,3,0.0,True
+dataset_card_frontmatter,yaml,dataset,cbor,CBOR (cbor2),True,301,489,,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,1.0,True
+dataset_card_frontmatter,yaml,dataset,msgpack,MsgPack,True,300,489,,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,1.0,True
+dataset_card_frontmatter,yaml,dataset,bson,BSON (pymongo),True,414,489,,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,1.0,True
+dataset_card_frontmatter,yaml,dataset,ion,Amazon Ion,False,0,489,"RepresenterError: cannot represent an object: {'annotations_creators': ['machine-generated', 'expert-generated'], 'language': ['en', 'zh', 'es'], 'license': 'apache-2.0', 'multilinguality': 'multilingual', 'size_catego",3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,1.0,False
+dataset_card_frontmatter,yaml,dataset,json_stdlib,JSON (stdlib),True,367,489,,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,1.0,True
+dataset_card_frontmatter,yaml,dataset,pickle,Pickle (stdlib),True,371,489,,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,1.0,True
+k8s_deployment_ml_serving,yaml,deployment,cdxf,CDXF (ours),True,944,1306,,8,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,8,0.0,True
+k8s_deployment_ml_serving,yaml,deployment,cbor,CBOR (cbor2),True,562,1306,,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,0,1.0,True
+k8s_deployment_ml_serving,yaml,deployment,msgpack,MsgPack,True,560,1306,,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,0,1.0,True
+k8s_deployment_ml_serving,yaml,deployment,bson,BSON (pymongo),True,789,1306,,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,0,1.0,True
+k8s_deployment_ml_serving,yaml,deployment,ion,Amazon Ion,False,0,1306,"RepresenterError: cannot represent an object: {'apiVersion': 'apps/v1', 'kind': 'Deployment', 'metadata': {'name': 'llm-serving', 'namespace': 'ml-inference', 'labels': {'app': 'llm-serving', 'version': 'llama-3.1-8b-v",8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,0,1.0,False
+k8s_deployment_ml_serving,yaml,deployment,json_stdlib,JSON (stdlib),True,759,1306,,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,0,1.0,True
+k8s_deployment_ml_serving,yaml,deployment,pickle,Pickle (stdlib),True,736,1306,,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,0,1.0,True
+hf_config_json,json,model,cdxf,CDXF (ours),True,553,737,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.0,True
+hf_config_json,json,model,cbor,CBOR (cbor2),True,542,737,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.0,True
+hf_config_json,json,model,msgpack,MsgPack,True,542,737,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.0,True
+hf_config_json,json,model,bson,BSON (pymongo),True,605,737,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.0,True
+hf_config_json,json,model,ion,Amazon Ion,True,591,737,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.0,True
+hf_config_json,json,model,json_stdlib,JSON (stdlib),True,661,737,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.0,True
+hf_config_json,json,model,pickle,Pickle (stdlib),True,625,737,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.0,True
+adapter_config_json,json,adapter,cdxf,CDXF (ours),True,354,532,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.0,True
+adapter_config_json,json,adapter,cbor,CBOR (cbor2),True,343,532,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.0,True
+adapter_config_json,json,adapter,msgpack,MsgPack,True,344,532,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.0,True
+adapter_config_json,json,adapter,bson,BSON (pymongo),True,430,532,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.0,True
+adapter_config_json,json,adapter,ion,Amazon Ion,True,387,532,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.0,False
+adapter_config_json,json,adapter,json_stdlib,JSON (stdlib),True,466,532,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.0,True
+adapter_config_json,json,adapter,pickle,Pickle (stdlib),True,415,532,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.0,True
+eval_results_json,json,evaluation,cdxf,CDXF (ours),True,553,840,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.0,True
+eval_results_json,json,evaluation,cbor,CBOR (cbor2),True,542,840,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.0,True
+eval_results_json,json,evaluation,msgpack,MsgPack,True,542,840,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.0,True
+eval_results_json,json,evaluation,bson,BSON (pymongo),True,633,840,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.0,True
+eval_results_json,json,evaluation,ion,Amazon Ion,True,550,840,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.0,True
+eval_results_json,json,evaluation,json_stdlib,JSON (stdlib),True,652,840,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.0,True
+eval_results_json,json,evaluation,pickle,Pickle (stdlib),True,604,840,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.0,True
+training_args_json,json,training,cdxf,CDXF (ours),True,434,560,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.0,True
+training_args_json,json,training,cbor,CBOR (cbor2),True,423,560,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.0,True
+training_args_json,json,training,msgpack,MsgPack,True,420,560,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.0,True
+training_args_json,json,training,bson,BSON (pymongo),True,488,560,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.0,True
+training_args_json,json,training,ion,Amazon Ion,True,471,560,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.0,True
+training_args_json,json,training,json_stdlib,JSON (stdlib),True,510,560,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.0,True
+training_args_json,json,training,pickle,Pickle (stdlib),True,492,560,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.0,True
+pyproject_ml_package,toml,packaging,cdxf,CDXF (ours),True,990,1089,,7,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,7,0.0,True
+pyproject_ml_package,toml,packaging,cbor,CBOR (cbor2),True,646,1089,,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,0,1.0,True
+pyproject_ml_package,toml,packaging,msgpack,MsgPack,True,642,1089,,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,0,1.0,True
+pyproject_ml_package,toml,packaging,bson,BSON (pymongo),True,878,1089,,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,0,1.0,True
+pyproject_ml_package,toml,packaging,ion,Amazon Ion,False,0,1089,ConvertError: Unable to convert an object of <class 'amazon.ion.simple_types.IonPyDict'> to a TOML item,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,0,1.0,False
+pyproject_ml_package,toml,packaging,json_stdlib,JSON (stdlib),True,825,1089,,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,0,1.0,True
+pyproject_ml_package,toml,packaging,pickle,Pickle (stdlib),True,811,1089,,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,0,1.0,True
+serving_config_toml,toml,deployment,cdxf,CDXF (ours),True,747,737,,9,9,0,0,0,0,0,0,0,0,1,1,0,0,0,0,10,10,0.0,True
+serving_config_toml,toml,deployment,cbor,CBOR (cbor2),False,0,737,"CBOREncodeValueError: naive datetime datetime.datetime(2024, 11, 20, 14, 30) encountered and no default timezone has been set",9,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,10,0,1.0,False
+serving_config_toml,toml,deployment,msgpack,MsgPack,False,0,737,TypeError: can not serialize 'datetime.datetime' object,9,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,10,0,1.0,False
+serving_config_toml,toml,deployment,bson,BSON (pymongo),True,364,737,,9,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,10,1,0.9,True
+serving_config_toml,toml,deployment,ion,Amazon Ion,False,0,737,ConvertError: Unable to convert an object of <class 'amazon.ion.simple_types.IonPyDict'> to a TOML item,9,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,10,0,1.0,False
+serving_config_toml,toml,deployment,json_stdlib,JSON (stdlib),True,389,737,,9,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,10,1,0.9,True
+serving_config_toml,toml,deployment,pickle,Pickle (stdlib),True,410,737,,9,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,10,1,0.9,True
+experiment_tracker_toml,toml,experiment,cdxf,CDXF (ours),True,729,745,,7,7,0,0,0,0,0,0,0,0,2,2,0,0,0,0,9,9,0.0,True
+experiment_tracker_toml,toml,experiment,cbor,CBOR (cbor2),True,407,745,,7,0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,9,2,0.7777777777777778,True
+experiment_tracker_toml,toml,experiment,msgpack,MsgPack,False,0,745,TypeError: can not serialize 'datetime.date' object,7,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,9,0,1.0,False
+experiment_tracker_toml,toml,experiment,bson,BSON (pymongo),False,0,745,"InvalidDocument: Invalid document: cannot encode object: datetime.date(2024, 10, 1), of type: <class 'datetime.date'>",7,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,9,0,1.0,False
+experiment_tracker_toml,toml,experiment,ion,Amazon Ion,False,0,745,TypeError: Cannot dump arbitrary object types.,7,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,9,0,1.0,False
+experiment_tracker_toml,toml,experiment,json_stdlib,JSON (stdlib),True,499,745,,7,0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,9,2,0.7777777777777778,True
+experiment_tracker_toml,toml,experiment,pickle,Pickle (stdlib),True,516,745,,7,0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,9,2,0.7777777777777778,True
+pmml_model_metadata,xml,model,cdxf,CDXF (ours),True,1536,1628,,4,4,0,0,0,0,0,0,0,0,0,0,1,1,2,2,7,7,0.0,True
+pmml_model_metadata,xml,model,cbor,CBOR (cbor2),True,1805,1628,,4,0,0,0,0,0,0,0,0,0,0,0,1,0,2,0,7,0,1.0,False
+pmml_model_metadata,xml,model,msgpack,MsgPack,True,1805,1628,,4,0,0,0,0,0,0,0,0,0,0,0,1,0,2,0,7,0,1.0,False
+pmml_model_metadata,xml,model,bson,BSON (pymongo),True,2322,1628,,4,0,0,0,0,0,0,0,0,0,0,0,1,0,2,0,7,0,1.0,False
+pmml_model_metadata,xml,model,ion,Amazon Ion,False,0,1628,"TypeError: Element() argument 2 must be dict, not IonPyDict",4,0,0,0,0,0,0,0,0,0,0,0,1,0,2,0,7,0,1.0,False
+pmml_model_metadata,xml,model,json_stdlib,JSON (stdlib),True,2235,1628,,4,0,0,0,0,0,0,0,0,0,0,0,1,0,2,0,7,0,1.0,False
+pmml_model_metadata,xml,model,pickle,Pickle (stdlib),True,1367,1628,,4,0,0,0,0,0,0,0,0,0,0,0,1,0,2,0,7,0,1.0,False
+onnx_metadata_xml,xml,model,cdxf,CDXF (ours),True,933,1046,,3,3,0,0,0,0,0,0,0,0,0,0,0,0,2,2,5,5,0.0,True
+onnx_metadata_xml,xml,model,cbor,CBOR (cbor2),True,959,1046,,3,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,5,0,1.0,False
+onnx_metadata_xml,xml,model,msgpack,MsgPack,True,957,1046,,3,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,5,0,1.0,False
+onnx_metadata_xml,xml,model,bson,BSON (pymongo),True,1237,1046,,3,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,5,0,1.0,False
+onnx_metadata_xml,xml,model,ion,Amazon Ion,False,0,1046,"TypeError: Element() argument 2 must be dict, not IonPyDict",3,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,5,0,1.0,False
+onnx_metadata_xml,xml,model,json_stdlib,JSON (stdlib),True,1190,1046,,3,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,5,0,1.0,False
+onnx_metadata_xml,xml,model,pickle,Pickle (stdlib),True,773,1046,,3,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,5,0,1.0,False
+docker_compose_ml,yaml,deployment,cdxf,CDXF (ours),True,761,1019,,6,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,5,0.16666666666666663,True
+docker_compose_ml,yaml,deployment,cbor,CBOR (cbor2),True,548,1019,,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,0,1.0,True
+docker_compose_ml,yaml,deployment,msgpack,MsgPack,True,544,1019,,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,0,1.0,True
+docker_compose_ml,yaml,deployment,bson,BSON (pymongo),True,757,1019,,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,0,1.0,True
+docker_compose_ml,yaml,deployment,ion,Amazon Ion,False,0,1019,"RepresenterError: cannot represent an object: {'version': '3.8', 'services': {'trainer': {'image': 'nvcr.io/nvidia/pytorch:24.01-py3', 'volumes': ['./data:/data:ro', './outputs:/outputs', './configs:/configs:ro'], 'env",6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,0,1.0,False
+docker_compose_ml,yaml,deployment,json_stdlib,JSON (stdlib),True,689,1019,,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,0,1.0,True
+docker_compose_ml,yaml,deployment,pickle,Pickle (stdlib),True,683,1019,,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,0,1.0,True
+wandb_sweep_config,yaml,experiment,cdxf,CDXF (ours),True,895,827,,9,13,1,1,0,0,0,0,0,0,0,0,0,0,0,0,10,14,-0.3999999999999999,True
+wandb_sweep_config,yaml,experiment,cbor,CBOR (cbor2),True,423,827,,9,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,10,0,1.0,True
+wandb_sweep_config,yaml,experiment,msgpack,MsgPack,True,418,827,,9,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,10,0,1.0,True
+wandb_sweep_config,yaml,experiment,bson,BSON (pymongo),True,600,827,,9,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,10,0,1.0,True
+wandb_sweep_config,yaml,experiment,ion,Amazon Ion,False,0,827,"RepresenterError: cannot represent an object: {'program': 'train.py', 'method': 'bayes', 'metric': {'name': 'eval/loss', 'goal': 'minimize'}, 'parameters': {'learning_rate': {'distribution': 'log_uniform_values', 'min'",9,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,10,0,1.0,False
+wandb_sweep_config,yaml,experiment,json_stdlib,JSON (stdlib),True,526,827,,9,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,10,0,1.0,True
+wandb_sweep_config,yaml,experiment,pickle,Pickle (stdlib),True,1065,827,,9,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,10,0,1.0,True
