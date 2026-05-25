@@ -62,6 +62,20 @@ plain-data documents (no comments, no anchors), overhead approaches 1.0x. This
 is not waste — it is the cost of preserving information that all other formats
 destroy. (EXP-001)
 
+### F6: CDXF encode throughput matches Amazon Ion while preserving 12x more constructs
+
+CDXF codec-only encoding achieves median 108K ops/s on JSON documents, matching
+Amazon Ion binary (115K ops/s) — both are pure Python implementations. The gap
+to cbor2 (260K), msgpack (769K), BSON (972K), and json.dumps (436K) is a
+language boundary: these libraries use C extensions for serialization, while
+CDXF is pure Python. Within the pure-Python tier, CDXF is competitive with the
+closest expressiveness competitor while preserving 12/12 constructs vs Ion's
+0/12. (EXP-002)
+
+The full pipeline (text parsing + CDXF encoding) achieves 53K ops/s, with text
+parsing (bridge) being the bottleneck, not CBOR encoding. A future C extension
+for the CDXF codec would close the gap to cbor2. (EXP-002)
+
 ---
 
 ## Raw Findings Log
