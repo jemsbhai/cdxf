@@ -259,6 +259,7 @@ class _ModelToToml:
     def _populate_table(self, table, map_node: Map) -> None:
         for entry in map_node.entries:
             if isinstance(entry, Comment):
+                table.add(tomlkit.comment(entry.text))
                 continue
             key, value = entry
             # Skip null values — TOML has no null concept

@@ -63,6 +63,24 @@ def to_yaml(stream: Stream) -> str:
     yaml = YAML()
     yaml.default_flow_style = False
 
+    # Register a clean float representer so plain Python floats
+    # don't hit ruamel's buggy ScalarFloat path.
+    def _represent_plain_float(representer, data):
+        if data != data:
+            return representer.represent_scalar('tag:yaml.org,2002:float', '.nan')
+        if data == float('inf'):
+            return representer.represent_scalar('tag:yaml.org,2002:float', '.inf')
+        if data == float('-inf'):
+            return representer.represent_scalar('tag:yaml.org,2002:float', '-.inf')
+        # Use str() for clean output (e.g. 0.0001 not 1e-04)
+        s = str(data)
+        if '.' not in s and 'e' not in s and 'E' not in s:
+            s += '.0'
+        return representer.represent_scalar('tag:yaml.org,2002:float', s)
+
+    yaml.representer.add_representer(float, _represent_plain_float)
+    yaml.representer.add_representer(ScalarFloat, _represent_plain_float)
+
     buf = io.StringIO()
 
     if len(stream.documents) > 1:
@@ -333,9 +351,9 @@ class _ModelToYaml:
         if scalar.scalar_type == ScalarType.BOOLEAN:
             return scalar.value
         if scalar.scalar_type == ScalarType.INTEGER:
-            return int(scalar.value)
+            return ScalarInt(int(scalar.value))
         if scalar.scalar_type == ScalarType.FLOAT:
-            return float(scalar.value)
+            return ScalarFloat(float(scalar.value))
         if scalar.scalar_type == ScalarType.STRING:
             return scalar.value
         if scalar.scalar_type == ScalarType.BYTE_STRING:
@@ -347,8 +365,11 @@ class _ModelToYaml:
     def _convert_map(self, map_node: Map) -> CommentedMap:
         result = CommentedMap()
         merge_pairs = []
+        pending_comments = []  # Buffer comments to attach to the next key
+
         for entry in map_node.entries:
             if isinstance(entry, Comment):
+                pending_comments.append(entry.text)
                 continue
             key, value = entry
             key_native = key.value if isinstance(key, Scalar) else key
@@ -373,6 +394,24 @@ class _ModelToYaml:
                     merge_pairs.append((0, value_native))
             else:
                 result[key_native] = value_native
+                # Attach any buffered comments to this key
+                if pending_comments:
+                    for comment_text in pending_comments:
+                        result.yaml_set_comment_before_after_key(
+                            key_native,
+                            before=comment_text,
+                        )
+                    pending_comments = []
+
+        # If there are trailing comments with no following key,
+        # attach them as end-of-map comments
+        if pending_comments and result:
+            last_key = list(result.keys())[-1]
+            for comment_text in pending_comments:
+                result.yaml_set_comment_before_after_key(
+                    last_key,
+                    after=comment_text,
+                )
 
         # Apply merge keys via ruamel.yaml's merge API so that
         # the dumper emits proper <<: *alias syntax
@@ -383,8 +422,18 @@ class _ModelToYaml:
 
     def _convert_sequence(self, seq: Sequence) -> CommentedSeq:
         result = CommentedSeq()
+        pending_comments = []
         for item in seq.items:
             if isinstance(item, Comment):
+                pending_comments.append(item.text)
                 continue
             result.append(self.convert(item))
+            if pending_comments:
+                idx = len(result) - 1
+                for comment_text in pending_comments:
+                    result.yaml_set_comment_before_after_key(
+                        idx,
+                        before=comment_text,
+                    )
+                pending_comments = []
         return result

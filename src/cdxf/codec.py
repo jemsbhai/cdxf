@@ -384,7 +384,10 @@ class Encoder:
     def _encode_element(self, elem: Element) -> cbor2.CBORTag:
         """Encode Element with compact forms."""
         attributes = elem.attributes
-        has_ns = elem.namespace_uri is not None or elem.prefix is not None or elem.namespace_declarations
+        has_ns = (elem.namespace_uri is not None
+                  or elem.prefix is not None
+                  or elem.namespace_declarations
+                  or any(a.namespace_uri for a in attributes))
 
         if not has_ns:
             if not attributes:
