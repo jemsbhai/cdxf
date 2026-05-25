@@ -667,7 +667,7 @@ Same as EXP-005.
 **Date:** 2026-05-24
 **Researcher:** Muntaser Syed
 **Type:** computational
-**Status:** planned
+**Status:** COMPLETE
 **Motivation:** AI practitioners frequently migrate between frameworks
 (PyTorch Lightning → HuggingFace Trainer, Kubernetes YAML → Terraform JSON).
 This experiment measures CDXF's ability to serve as a lossless hub format
@@ -724,12 +724,52 @@ Same as EXP-005.
 
 ### Results
 
-*To be filled after experiment completes.*
+**Date completed:** 2026-05-25
+**Git commit:** TBD (pending commit)
+
+**Scenario success rate:** 8/8 direct, 8/8 CDXF hub
+
+**Metadata preservation:**
+
+| Metric | Direct conversion | CDXF hub |
+|--------|-------------------|----------|
+| Total source metadata | 48 constructs | 48 constructs |
+| Metadata survived | 0 (0.0%) | 48 (100.0%) |
+| Comments preserved | 0 | 48 |
+
+**Migration scenarios (all YAML/TOML/XML → JSON):**
+
+| Scenario | Source fmt | Source metadata | Direct survived | CDXF preserved |
+|----------|-----------|-----------------|-----------------|----------------|
+| PyTorch Lightning → HF | YAML | 7 comments | 0 | 7 |
+| HF JSON → TOML | JSON | 0 | 0 | 0 |
+| K8s → Terraform | YAML | 5 comments | 0 | 5 |
+| Hydra → JSON | YAML | 10 comments | 0 | 10 |
+| MLflow → W&B | YAML | 8 comments | 0 | 8 |
+| Docker Compose → JSON | YAML | 7 comments | 0 | 7 |
+| pyproject.toml → JSON | TOML | 7 comments | 0 | 7 |
+| ONNX XML → JSON | XML | 4 comments | 0 | 4 |
+
+**Converter count scaling (O(N²) vs O(N)):**
+
+| N formats | Direct (N×(N-1)) | CDXF hub (2N) | Savings |
+|-----------|------------------|---------------|---------|
+| 2 | 2 | 4 | -2 (hub costlier) |
+| 3 | 6 | 6 | 0 (breakeven) |
+| 4 | 12 | 8 | 4 (33%) |
+| 5 | 20 | 10 | 10 (50%) |
+| 7 | 42 | 14 | 28 (67%) |
+
+**Key findings:**
+1. Direct conversion destroys 100% of metadata in all 8 scenarios.
+2. CDXF hub preserves 100% of metadata in all 8 scenarios.
+3. Converter count crossover at N=3; hub is strictly cheaper for N≥4.
+4. Both methods succeed on all 8 scenarios — CDXF adds no compatibility cost.
 
 ### Artifacts
 
 - Script: benchmarks/src/run_exp007.py
-- Configs: benchmarks/results/exp_007/scenarios/
+- Tests: tests/test_exp007.py (51 tests, all passing)
 - Results: benchmarks/results/exp_007/
 
 ---

@@ -1,0 +1,9 @@
+name,source_format,target_format,motivation,source_size_bytes,source_comments,source_anchors,source_total_metadata,direct_success,direct_metadata_survived,direct_time_ns,cdxf_success,cdxf_metadata_preserved,cdxf_size_bytes,cdxf_time_ns,metadata_advantage
+pytorch_lightning_to_hf,yaml,json,Framework migration,757,7,0,7,True,0,2870300,True,8,787,2274500,8
+hf_json_to_toml,json,toml,Language migration,603,0,0,0,True,0,820700,True,0,463,1305800,0
+k8s_to_terraform,yaml,json,Infrastructure migration,1037,5,0,5,True,0,8613500,True,5,752,3458700,5
+hydra_to_json,yaml,json,Deployment,802,10,0,10,True,0,3584200,True,9,772,7662700,9
+mlflow_to_wandb,yaml,json,Experiment tracker migration,739,8,2,10,True,0,2102300,True,9,726,4134900,9
+docker_compose_to_json,yaml,json,DevOps pipeline,813,6,0,6,True,0,2389200,True,7,745,2362900,7
+pyproject_to_json,toml,json,Python packaging,873,5,0,5,True,0,2292000,True,5,739,2151500,5
+onnx_xml_to_json,xml,json,Model deployment,1128,5,0,5,True,0,341800,True,5,1108,413300,5

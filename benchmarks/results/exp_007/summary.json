@@ -1,0 +1,138 @@
+{
+  "n_scenarios": 8,
+  "direct_success": 8,
+  "hub_success": 8,
+  "total_source_metadata": 48,
+  "total_direct_survived": 0,
+  "total_hub_preserved": 48,
+  "converter_scaling": {
+    "2": {
+      "n_formats": 2,
+      "direct": 2,
+      "cdxf_hub": 4
+    },
+    "3": {
+      "n_formats": 3,
+      "direct": 6,
+      "cdxf_hub": 6
+    },
+    "4": {
+      "n_formats": 4,
+      "direct": 12,
+      "cdxf_hub": 8
+    },
+    "5": {
+      "n_formats": 5,
+      "direct": 20,
+      "cdxf_hub": 10
+    },
+    "6": {
+      "n_formats": 6,
+      "direct": 30,
+      "cdxf_hub": 12
+    },
+    "7": {
+      "n_formats": 7,
+      "direct": 42,
+      "cdxf_hub": 14
+    }
+  },
+  "scenarios": [
+    {
+      "name": "pytorch_lightning_to_hf",
+      "source_format": "yaml",
+      "target_format": "json",
+      "motivation": "Framework migration",
+      "source_metadata_total": 7,
+      "direct_success": true,
+      "direct_survived": 0,
+      "hub_success": true,
+      "hub_preserved": 8,
+      "cdxf_size_bytes": 787
+    },
+    {
+      "name": "hf_json_to_toml",
+      "source_format": "json",
+      "target_format": "toml",
+      "motivation": "Language migration",
+      "source_metadata_total": 0,
+      "direct_success": true,
+      "direct_survived": 0,
+      "hub_success": true,
+      "hub_preserved": 0,
+      "cdxf_size_bytes": 463
+    },
+    {
+      "name": "k8s_to_terraform",
+      "source_format": "yaml",
+      "target_format": "json",
+      "motivation": "Infrastructure migration",
+      "source_metadata_total": 5,
+      "direct_success": true,
+      "direct_survived": 0,
+      "hub_success": true,
+      "hub_preserved": 5,
+      "cdxf_size_bytes": 752
+    },
+    {
+      "name": "hydra_to_json",
+      "source_format": "yaml",
+      "target_format": "json",
+      "motivation": "Deployment",
+      "source_metadata_total": 10,
+      "direct_success": true,
+      "direct_survived": 0,
+      "hub_success": true,
+      "hub_preserved": 9,
+      "cdxf_size_bytes": 772
+    },
+    {
+      "name": "mlflow_to_wandb",
+      "source_format": "yaml",
+      "target_format": "json",
+      "motivation": "Experiment tracker migration",
+      "source_metadata_total": 10,
+      "direct_success": true,
+      "direct_survived": 0,
+      "hub_success": true,
+      "hub_preserved": 9,
+      "cdxf_size_bytes": 726
+    },
+    {
+      "name": "docker_compose_to_json",
+      "source_format": "yaml",
+      "target_format": "json",
+      "motivation": "DevOps pipeline",
+      "source_metadata_total": 6,
+      "direct_success": true,
+      "direct_survived": 0,
+      "hub_success": true,
+      "hub_preserved": 7,
+      "cdxf_size_bytes": 745
+    },
+    {
+      "name": "pyproject_to_json",
+      "source_format": "toml",
+      "target_format": "json",
+      "motivation": "Python packaging",
+      "source_metadata_total": 5,
+      "direct_success": true,
+      "direct_survived": 0,
+      "hub_success": true,
+      "hub_preserved": 5,
+      "cdxf_size_bytes": 739
+    },
+    {
+      "name": "onnx_xml_to_json",
+      "source_format": "xml",
+      "target_format": "json",
+      "motivation": "Model deployment",
+      "source_metadata_total": 5,
+      "direct_success": true,
+      "direct_survived": 0,
+      "hub_success": true,
+      "hub_preserved": 5,
+      "cdxf_size_bytes": 1108
+    }
+  ]
+}
