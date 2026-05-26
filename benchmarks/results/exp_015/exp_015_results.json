@@ -1,0 +1,328 @@
+{
+  "experiment": "EXP-015",
+  "timestamp": "2026-05-26T03:11:36.680926+00:00",
+  "framework": "langgraph",
+  "framework_version": "1.2.1",
+  "results": {
+    "linear_4node_json_default": {
+      "mode": "json_default",
+      "graph_config": "linear_4node",
+      "initial_comments": 22,
+      "final_comments": 0,
+      "surviving_fraction": 0.0,
+      "node_trace": [
+        {
+          "node_name": "data_curator",
+          "comments_before": 0,
+          "comments_after": 0,
+          "modification": "data_curator modified config"
+        },
+        {
+          "node_name": "trainer",
+          "comments_before": 0,
+          "comments_after": 0,
+          "modification": "trainer modified config"
+        },
+        {
+          "node_name": "evaluator",
+          "comments_before": 0,
+          "comments_after": 0,
+          "modification": "evaluator modified config"
+        },
+        {
+          "node_name": "deployer",
+          "comments_before": 0,
+          "comments_after": 0,
+          "modification": "deployer modified config"
+        }
+      ],
+      "n_nodes": 4,
+      "modifications": [
+        "data_curator: applied changes",
+        "trainer: applied changes",
+        "evaluator: applied changes",
+        "deployer: applied changes"
+      ]
+    },
+    "linear_4node_cdxf_enhanced": {
+      "mode": "cdxf_enhanced",
+      "graph_config": "linear_4node",
+      "initial_comments": 22,
+      "final_comments": 58,
+      "surviving_fraction": 2.6363636363636362,
+      "node_trace": [
+        {
+          "node_name": "data_curator",
+          "comments_before": 26,
+          "comments_after": 26,
+          "modification": "data_curator modified config"
+        },
+        {
+          "node_name": "trainer",
+          "comments_before": 31,
+          "comments_after": 31,
+          "modification": "trainer modified config"
+        },
+        {
+          "node_name": "evaluator",
+          "comments_before": 37,
+          "comments_after": 37,
+          "modification": "evaluator modified config"
+        },
+        {
+          "node_name": "deployer",
+          "comments_before": 46,
+          "comments_after": 46,
+          "modification": "deployer modified config"
+        }
+      ],
+      "n_nodes": 4,
+      "modifications": [
+        "data_curator: applied changes",
+        "trainer: applied changes",
+        "evaluator: applied changes",
+        "deployer: applied changes"
+      ]
+    },
+    "linear_6node_json_default": {
+      "mode": "json_default",
+      "graph_config": "linear_6node",
+      "initial_comments": 22,
+      "final_comments": 0,
+      "surviving_fraction": 0.0,
+      "node_trace": [
+        {
+          "node_name": "data_curator",
+          "comments_before": 0,
+          "comments_after": 0,
+          "modification": "data_curator modified config"
+        },
+        {
+          "node_name": "trainer",
+          "comments_before": 0,
+          "comments_after": 0,
+          "modification": "trainer modified config"
+        },
+        {
+          "node_name": "evaluator",
+          "comments_before": 0,
+          "comments_after": 0,
+          "modification": "evaluator modified config"
+        },
+        {
+          "node_name": "deployer",
+          "comments_before": 0,
+          "comments_after": 0,
+          "modification": "deployer modified config"
+        },
+        {
+          "node_name": "monitor",
+          "comments_before": 0,
+          "comments_after": 0,
+          "modification": "monitor modified config"
+        },
+        {
+          "node_name": "reviewer",
+          "comments_before": 0,
+          "comments_after": 0,
+          "modification": "reviewer modified config"
+        }
+      ],
+      "n_nodes": 6,
+      "modifications": [
+        "data_curator: applied changes",
+        "trainer: applied changes",
+        "evaluator: applied changes",
+        "deployer: applied changes",
+        "monitor: applied changes",
+        "reviewer: applied changes"
+      ]
+    },
+    "linear_6node_cdxf_enhanced": {
+      "mode": "cdxf_enhanced",
+      "graph_config": "linear_6node",
+      "initial_comments": 22,
+      "final_comments": 94,
+      "surviving_fraction": 4.2727272727272725,
+      "node_trace": [
+        {
+          "node_name": "data_curator",
+          "comments_before": 26,
+          "comments_after": 26,
+          "modification": "data_curator modified config"
+        },
+        {
+          "node_name": "trainer",
+          "comments_before": 31,
+          "comments_after": 31,
+          "modification": "trainer modified config"
+        },
+        {
+          "node_name": "evaluator",
+          "comments_before": 37,
+          "comments_after": 37,
+          "modification": "evaluator modified config"
+        },
+        {
+          "node_name": "deployer",
+          "comments_before": 46,
+          "comments_after": 46,
+          "modification": "deployer modified config"
+        },
+        {
+          "node_name": "monitor",
+          "comments_before": 58,
+          "comments_after": 58,
+          "modification": "monitor modified config"
+        },
+        {
+          "node_name": "reviewer",
+          "comments_before": 74,
+          "comments_after": 74,
+          "modification": "reviewer modified config"
+        }
+      ],
+      "n_nodes": 6,
+      "modifications": [
+        "data_curator: applied changes",
+        "trainer: applied changes",
+        "evaluator: applied changes",
+        "deployer: applied changes",
+        "monitor: applied changes",
+        "reviewer: applied changes"
+      ]
+    }
+  },
+  "checkpoint_results": {
+    "linear_4node_json_default": {
+      "mode": "json_default",
+      "initial_comments": 22,
+      "comments_after_restore": 0,
+      "surviving_fraction": 0.0,
+      "checkpoints": [
+        {
+          "checkpoint_id": "1f158b09-b1f0-61ef-8004-811f61418ac5",
+          "node": "loop"
+        },
+        {
+          "checkpoint_id": "1f158b09-b1e8-6d71-8003-8c415ec54522",
+          "node": "loop"
+        },
+        {
+          "checkpoint_id": "1f158b09-b1e5-6d19-8002-b44a5d7bf9ea",
+          "node": "loop"
+        },
+        {
+          "checkpoint_id": "1f158b09-b1e1-6647-8001-0410720b2a52",
+          "node": "loop"
+        },
+        {
+          "checkpoint_id": "1f158b09-b1de-6f0a-8000-fd3a2e3b062c",
+          "node": "loop"
+        }
+      ],
+      "n_checkpoints": 6
+    },
+    "linear_4node_cdxf_enhanced": {
+      "mode": "cdxf_enhanced",
+      "initial_comments": 22,
+      "comments_after_restore": 58,
+      "surviving_fraction": 2.6363636363636362,
+      "checkpoints": [
+        {
+          "checkpoint_id": "1f158b09-b270-6624-8004-4af0c71db5d1",
+          "node": "loop"
+        },
+        {
+          "checkpoint_id": "1f158b09-b265-6a7f-8003-9cc09f620cc3",
+          "node": "loop"
+        },
+        {
+          "checkpoint_id": "1f158b09-b258-691f-8002-fbf4a5886df1",
+          "node": "loop"
+        },
+        {
+          "checkpoint_id": "1f158b09-b24f-696c-8001-39b5fddab84a",
+          "node": "loop"
+        },
+        {
+          "checkpoint_id": "1f158b09-b242-6015-8000-efea9fc96f63",
+          "node": "loop"
+        }
+      ],
+      "n_checkpoints": 6
+    },
+    "linear_6node_json_default": {
+      "mode": "json_default",
+      "initial_comments": 22,
+      "comments_after_restore": 0,
+      "surviving_fraction": 0.0,
+      "checkpoints": [
+        {
+          "checkpoint_id": "1f158b09-b2be-6aa7-8006-8ec33f4a870d",
+          "node": "loop"
+        },
+        {
+          "checkpoint_id": "1f158b09-b2bb-6870-8005-361971c34324",
+          "node": "loop"
+        },
+        {
+          "checkpoint_id": "1f158b09-b2b6-68a8-8004-edd42bd5e5c5",
+          "node": "loop"
+        },
+        {
+          "checkpoint_id": "1f158b09-b2b2-66c9-8003-9e8224540227",
+          "node": "loop"
+        },
+        {
+          "checkpoint_id": "1f158b09-b2b0-6438-8002-3b658fcab4c2",
+          "node": "loop"
+        }
+      ],
+      "n_checkpoints": 8
+    },
+    "linear_6node_cdxf_enhanced": {
+      "mode": "cdxf_enhanced",
+      "initial_comments": 22,
+      "comments_after_restore": 94,
+      "surviving_fraction": 4.2727272727272725,
+      "checkpoints": [
+        {
+          "checkpoint_id": "1f158b09-b376-6f04-8006-13ccd150ae47",
+          "node": "loop"
+        },
+        {
+          "checkpoint_id": "1f158b09-b368-67e7-8005-0c2078286e88",
+          "node": "loop"
+        },
+        {
+          "checkpoint_id": "1f158b09-b35e-63ed-8004-02050035a95f",
+          "node": "loop"
+        },
+        {
+          "checkpoint_id": "1f158b09-b353-693c-8003-7d61e82cf33e",
+          "node": "loop"
+        },
+        {
+          "checkpoint_id": "1f158b09-b346-66b7-8002-301b081dceac",
+          "node": "loop"
+        }
+      ],
+      "n_checkpoints": 8
+    }
+  },
+  "summary": {
+    "json_default": {
+      "pipeline_surviving": 0.0,
+      "checkpoint_surviving": 0.0,
+      "initial_comments": 22,
+      "final_comments": 0
+    },
+    "cdxf_enhanced": {
+      "pipeline_surviving": 2.6363636363636362,
+      "checkpoint_surviving": 2.6363636363636362,
+      "initial_comments": 22,
+      "final_comments": 58
+    }
+  }
+}

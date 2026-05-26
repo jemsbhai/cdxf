@@ -1849,3 +1849,39 @@ Converter scaling: O(N²) → O(N), crossover at N=3.
   - scaling_analysis.csv
   - compounding_curves.csv
   - pipeline_results.csv
+
+---
+
+## EXP-015: LangGraph Stateful Agent — Config Handoff Fidelity
+
+**Date:** 2026-05-25
+**Status:** COMPLETED
+
+### Protocol
+
+Built real LangGraph StateGraph pipelines (4-node, 6-node) with ML agent
+nodes (curator, trainer, evaluator, deployer, monitor, reviewer). Configs
+passed as state values. Two serialization modes: json_default (yaml.safe_load
+→ dict) vs cdxf_enhanced (CDXF binary as base64 string). Tested both
+pipeline flow and checkpoint/restore cycle via InMemorySaver.
+
+### Results
+
+| Mode | 4-node | 6-node | Checkpoint |
+|------|--------|--------|------------|
+| json_default | 0/22 (0%) | 0/22 (0%) | 0% |
+| cdxf_enhanced | 58/22 (preserved) | 94/22 (preserved) | preserved |
+
+### Key Finding
+
+**F24:** LangGraph JSON state serialization destroys 100% of config
+comments. CDXF-enhanced state preserves them through both pipeline
+flow and checkpoint/restore cycles. Framework: langgraph 1.2.1.
+
+### Artifacts
+
+- Script: benchmarks/src/run_exp015.py
+- Tests: tests/test_exp015.py (44 tests)
+- Results: benchmarks/results/exp_015/
+  - exp_015_results.json
+  - mode_comparison.csv

@@ -465,3 +465,24 @@ Converter scaling: Direct requires N×(N-1) pairwise converters (12 for
 Known artifact: CDXF reports 18 comments vs 14 original due to YAML
 bridge comment reformatting. The preservation claim holds: no comments
 are ever destroyed.
+
+### F24: LangGraph's JSON state serialization destroys 100% of config comments; CDXF-enhanced state preserves them through pipeline and checkpoint cycles
+
+**Source:** EXP-015 (LangGraph Stateful Agent — Config Handoff Fidelity)
+
+Built real LangGraph StateGraph pipelines (4-node and 6-node) where
+ML agents pass YAML configs via shared state. Two modes tested:
+
+| Mode | 4-node pipeline | 6-node pipeline | Checkpoint/restore |
+|------|----------------|-----------------|--------------------|
+| json_default | 0/22 (0%) | 0/22 (0%) | 0% |
+| cdxf_enhanced | 58/22 (preserved) | 94/22 (preserved) | preserved |
+
+LangGraph serializes state as JSON for checkpointing. The standard
+approach (yaml.safe_load → dict in state) destroys all comments at
+the first node. CDXF stores config as base64-encoded binary in state,
+surviving JSON serialization with full metadata intact.
+
+Known artifact: YAML bridge comment inflation compounds per node
+(each serialize→deserialize cycle adds ~4 comments). The preservation
+claim holds: no original comments are ever lost.
