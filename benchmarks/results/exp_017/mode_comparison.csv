@@ -1,0 +1,5 @@
+crew_config,mode,n_agents,initial_comments,final_comments,surviving_fraction
+linear_4agent,json_default,4,22,0,0.0
+linear_4agent,cdxf_enhanced,4,22,22,1.0
+linear_6agent,json_default,6,22,0,0.0
+linear_6agent,cdxf_enhanced,6,22,22,1.0

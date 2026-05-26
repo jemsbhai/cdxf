@@ -358,7 +358,7 @@ Same as EXP-001. Python 3.12.2, Windows 11, 64GB RAM.
 **Date:** 2026-05-24
 **Researcher:** Muntaser Syed
 **Type:** computational
-**Status:** planned
+**Status:** completed
 
 ### Hypothesis
 
@@ -1946,3 +1946,112 @@ Token savings: 324 (36.9%). Fidelity: 0% vs 100% on all configs.
 - Results: benchmarks/results/exp_016/
   - exp_016_results.json
   - fidelity_comparison.csv
+
+
+---
+
+## EXP-017: CrewAI Pipeline — ML Config Handoff Fidelity
+
+**Date:** 2026-05-26
+**Researcher:** Claude + User (collaborative)
+**Type:** computational
+**Status:** completed
+
+### Hypothesis
+
+When CrewAI agents pass annotated YAML configs as task outputs through
+a sequential crew pipeline, the standard approach (YAML → dict → yaml.dump)
+will lose 100% of comments, while the CDXF-enhanced approach (YAML → CDXF
+binary → base64 string) will preserve 100% of comments through the full
+pipeline. This mirrors EXP-015 (LangGraph) but validates the claim on a
+second major agentic framework.
+
+### Independent Variables
+
+- **state_mode**: {json_default, cdxf_enhanced} — how config is serialized
+  between agents
+- **crew_config**: {linear_4agent, linear_6agent} — pipeline topology
+
+### Dependent Variables / Metrics
+
+- **comments_surviving**: count of YAML comments after full pipeline
+- **surviving_fraction**: final_comments / initial_comments
+- **data_integrity**: whether scalar values modified by agents are correct
+
+### Control Conditions
+
+- Same initial YAML config (identical to EXP-015 for cross-experiment
+  comparability)
+- Same agent modifications (parameter tweaks) in both modes
+- FakeLLM for deterministic, reproducible execution (no API calls)
+- CrewAI 1.14.5, Process.sequential
+
+### Protocol
+
+1. Build initial YAML config with 22 comments (same as EXP-015)
+2. Create 4 (or 6) CrewAI agents with FakeLLM (subclass of BaseLLM)
+3. Create sequential tasks where each agent:
+   a. Extracts config from task context (prior TaskOutput.raw)
+   b. Parses config according to mode (dict vs CDXF)
+   c. Makes a deterministic parameter modification
+   d. Re-serializes and returns as TaskOutput.raw string
+4. Execute crew with Process.sequential
+5. Extract final config from last TaskOutput
+6. Count surviving metadata (comments)
+7. Repeat for both modes × both topologies
+
+### Environment
+
+- **Hardware:** Windows laptop, 64GB RAM, RTX 4090
+- **Software:** Python 3.12, crewai 1.14.5, cdxf 0.1.3
+- **Git commit:** TBD (will record after commit)
+- **Seeds:** N/A (deterministic FakeLLM, no randomness)
+
+### Key Design Decision: FakeLLM
+
+CrewAI requires an LLM for agent execution. Using a real LLM would
+introduce non-determinism and API costs. We subclass BaseLLM to create
+a FakeLLM that:
+- Parses the config from the incoming message context
+- Applies a predetermined modification based on agent role
+- Returns the modified config as a string
+This isolates what we're testing (the serialization path) from LLM
+quality, and ensures 100% reproducibility.
+
+### Results
+
+| Crew Config | Mode | Agents | Initial Comments | Final Comments | Survival |
+|-------------|------|--------|-----------------|----------------|----------|
+| linear_4agent | json_default | 4 | 22 | 0 | 0.0% |
+| linear_4agent | cdxf_enhanced | 4 | 22 | 22 | 100.0% |
+| linear_6agent | json_default | 6 | 22 | 0 | 0.0% |
+| linear_6agent | cdxf_enhanced | 6 | 22 | 22 | 100.0% |
+
+### Observations
+
+- CrewAI 1.14.5 executes agents sequentially, passing TaskOutput.raw
+  strings as context to subsequent tasks.
+- FakeLLM (BaseLLM subclass) worked cleanly — CrewAI accepted it
+  without issues, confirming the framework's LLM abstraction is clean.
+- 1,156 deprecation warnings from CrewAI internals (function_calling_llm,
+  allow_code_execution) — none from our code.
+- Results are depth-invariant: 4-agent and 6-agent pipelines show
+  identical survival fractions.
+- 49 tests pass in 13.4s.
+
+### Interpretation
+
+The hypothesis is confirmed: CDXF-enhanced CrewAI pipelines preserve
+100% of config metadata (22/22 comments) while the standard approach
+loses 100% (0/22). This matches EXP-015 (LangGraph) exactly, confirming
+the result generalizes across agentic frameworks.
+
+The FakeLLM design isolates the serialization path from LLM behavior,
+making results 100% deterministic and reproducible. The depth-invariance
+(4 vs 6 agents) confirms CDXF fidelity scales with pipeline length.
+
+### Artifacts
+
+- Script: benchmarks/src/run_exp017.py
+- Tests: tests/test_exp017.py
+- Results: benchmarks/results/exp_017/

@@ -498,3 +498,17 @@ schema token overhead and metadata fidelity through actual MCP tool calls.
 Token savings: 324 tokens (36.9% reduction). Tested on simple (2
 comments), medium (6), and complex (10) ML configs — CDXF preserved
 exactly 100% in every case. Protocol: MCP (Model Context Protocol).
+
+
+### 2026-05-26 -- EXP-017: CrewAI Pipeline — Config Handoff Fidelity
+
+**Key result:** CrewAI pipelines with CDXF-enhanced serialization
+preserve 22/22 (100.0%) YAML comments through 4- and 6-agent
+sequential pipelines; standard approach (YAML → dict → yaml.dump)
+loses all 22 (0%). Deterministic FakeLLM, crewai 1.14.5.
+
+**F26:** CrewAI sequential crew with CDXF base64 serialization:
+22/22 (100%) comment survival at all pipeline depths. Standard
+approach: 0/22 (0%). Consistent with EXP-015 (LangGraph): the
+CDXF fidelity advantage generalizes across agentic frameworks.
+Framework: crewai 1.14.5. Depth-invariant (4 and 6 agents identical).

@@ -1,0 +1,140 @@
+{
+  "experiment": "EXP-017",
+  "timestamp": "2026-05-26T12:51:58.783651+00:00",
+  "framework": "crewai",
+  "framework_version": "1.14.5",
+  "results": {
+    "linear_4agent_json_default": {
+      "mode": "json_default",
+      "crew_config": "linear_4agent",
+      "initial_comments": 22,
+      "final_comments": 0,
+      "surviving_fraction": 0.0,
+      "task_trace": [
+        {
+          "agent": "Data Curator",
+          "comments": 0
+        },
+        {
+          "agent": "ML Trainer",
+          "comments": 0
+        },
+        {
+          "agent": "Model Evaluator",
+          "comments": 0
+        },
+        {
+          "agent": "Deployment Engineer",
+          "comments": 0
+        }
+      ],
+      "n_agents": 4
+    },
+    "linear_4agent_cdxf_enhanced": {
+      "mode": "cdxf_enhanced",
+      "crew_config": "linear_4agent",
+      "initial_comments": 22,
+      "final_comments": 22,
+      "surviving_fraction": 1.0,
+      "task_trace": [
+        {
+          "agent": "Data Curator",
+          "comments": 22
+        },
+        {
+          "agent": "ML Trainer",
+          "comments": 22
+        },
+        {
+          "agent": "Model Evaluator",
+          "comments": 22
+        },
+        {
+          "agent": "Deployment Engineer",
+          "comments": 22
+        }
+      ],
+      "n_agents": 4
+    },
+    "linear_6agent_json_default": {
+      "mode": "json_default",
+      "crew_config": "linear_6agent",
+      "initial_comments": 22,
+      "final_comments": 0,
+      "surviving_fraction": 0.0,
+      "task_trace": [
+        {
+          "agent": "Data Curator",
+          "comments": 0
+        },
+        {
+          "agent": "ML Trainer",
+          "comments": 0
+        },
+        {
+          "agent": "Model Evaluator",
+          "comments": 0
+        },
+        {
+          "agent": "Deployment Engineer",
+          "comments": 0
+        },
+        {
+          "agent": "Production Monitor",
+          "comments": 0
+        },
+        {
+          "agent": "Config Reviewer",
+          "comments": 0
+        }
+      ],
+      "n_agents": 6
+    },
+    "linear_6agent_cdxf_enhanced": {
+      "mode": "cdxf_enhanced",
+      "crew_config": "linear_6agent",
+      "initial_comments": 22,
+      "final_comments": 22,
+      "surviving_fraction": 1.0,
+      "task_trace": [
+        {
+          "agent": "Data Curator",
+          "comments": 22
+        },
+        {
+          "agent": "ML Trainer",
+          "comments": 22
+        },
+        {
+          "agent": "Model Evaluator",
+          "comments": 22
+        },
+        {
+          "agent": "Deployment Engineer",
+          "comments": 22
+        },
+        {
+          "agent": "Production Monitor",
+          "comments": 22
+        },
+        {
+          "agent": "Config Reviewer",
+          "comments": 22
+        }
+      ],
+      "n_agents": 6
+    }
+  },
+  "summary": {
+    "json_default": {
+      "pipeline_surviving": 0.0,
+      "initial_comments": 22,
+      "final_comments": 0
+    },
+    "cdxf_enhanced": {
+      "pipeline_surviving": 1.0,
+      "initial_comments": 22,
+      "final_comments": 22
+    }
+  }
+}
