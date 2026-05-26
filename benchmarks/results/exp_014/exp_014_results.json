@@ -1,0 +1,1344 @@
+{
+  "experiment": "EXP-014",
+  "timestamp": "2026-05-26T01:51:07.574725+00:00",
+  "scaling_analysis": {
+    "2": {
+      "n_formats": 2,
+      "direct_converters": 2,
+      "cdxf_hub_converters": 4,
+      "converter_savings": -2,
+      "reduction_pct": -100.0
+    },
+    "3": {
+      "n_formats": 3,
+      "direct_converters": 6,
+      "cdxf_hub_converters": 6,
+      "converter_savings": 0,
+      "reduction_pct": 0.0
+    },
+    "4": {
+      "n_formats": 4,
+      "direct_converters": 12,
+      "cdxf_hub_converters": 8,
+      "converter_savings": 4,
+      "reduction_pct": 33.3
+    }
+  },
+  "metadata_compounding": {
+    "direct": {
+      "1": {
+        "depth": 1,
+        "initial_comments": 14,
+        "final_comments": 0,
+        "surviving_fraction": 0.0,
+        "hops": [
+          {
+            "hop": 1,
+            "from_agent": "DataCurator",
+            "to_agent": "ModelTrainer",
+            "from_format": "yaml",
+            "to_format": "json",
+            "comments_before": 14,
+            "comments_after": 0,
+            "comments_lost": 14,
+            "latency_us": 1139.1
+          }
+        ]
+      },
+      "2": {
+        "depth": 2,
+        "initial_comments": 14,
+        "final_comments": 0,
+        "surviving_fraction": 0.0,
+        "hops": [
+          {
+            "hop": 1,
+            "from_agent": "DataCurator",
+            "to_agent": "ModelTrainer",
+            "from_format": "yaml",
+            "to_format": "json",
+            "comments_before": 14,
+            "comments_after": 0,
+            "comments_lost": 14,
+            "latency_us": 894.3
+          },
+          {
+            "hop": 2,
+            "from_agent": "ModelTrainer",
+            "to_agent": "Evaluator",
+            "from_format": "json",
+            "to_format": "toml",
+            "comments_before": 0,
+            "comments_after": 0,
+            "comments_lost": 0,
+            "latency_us": 820.7
+          }
+        ]
+      },
+      "3": {
+        "depth": 3,
+        "initial_comments": 14,
+        "final_comments": 0,
+        "surviving_fraction": 0.0,
+        "hops": [
+          {
+            "hop": 1,
+            "from_agent": "DataCurator",
+            "to_agent": "ModelTrainer",
+            "from_format": "yaml",
+            "to_format": "json",
+            "comments_before": 14,
+            "comments_after": 0,
+            "comments_lost": 14,
+            "latency_us": 932.0
+          },
+          {
+            "hop": 2,
+            "from_agent": "ModelTrainer",
+            "to_agent": "Evaluator",
+            "from_format": "json",
+            "to_format": "toml",
+            "comments_before": 0,
+            "comments_after": 0,
+            "comments_lost": 0,
+            "latency_us": 591.4
+          },
+          {
+            "hop": 3,
+            "from_agent": "Evaluator",
+            "to_agent": "Deployer",
+            "from_format": "toml",
+            "to_format": "xml",
+            "comments_before": 0,
+            "comments_after": 0,
+            "comments_lost": 0,
+            "latency_us": 3424.6
+          }
+        ]
+      },
+      "5": {
+        "depth": 5,
+        "initial_comments": 14,
+        "final_comments": 0,
+        "surviving_fraction": 0.0,
+        "hops": [
+          {
+            "hop": 1,
+            "from_agent": "DataCurator",
+            "to_agent": "ModelTrainer",
+            "from_format": "yaml",
+            "to_format": "json",
+            "comments_before": 14,
+            "comments_after": 0,
+            "comments_lost": 14,
+            "latency_us": 909.1
+          },
+          {
+            "hop": 2,
+            "from_agent": "ModelTrainer",
+            "to_agent": "Evaluator",
+            "from_format": "json",
+            "to_format": "toml",
+            "comments_before": 0,
+            "comments_after": 0,
+            "comments_lost": 0,
+            "latency_us": 610.9
+          },
+          {
+            "hop": 3,
+            "from_agent": "Evaluator",
+            "to_agent": "Deployer",
+            "from_format": "toml",
+            "to_format": "xml",
+            "comments_before": 0,
+            "comments_after": 0,
+            "comments_lost": 0,
+            "latency_us": 165.2
+          },
+          {
+            "hop": 4,
+            "from_agent": "Deployer",
+            "to_agent": "Monitor",
+            "from_format": "xml",
+            "to_format": "yaml",
+            "comments_before": 0,
+            "comments_after": 0,
+            "comments_lost": 0,
+            "latency_us": 516.0
+          },
+          {
+            "hop": 5,
+            "from_agent": "Monitor",
+            "to_agent": "DataCurator",
+            "from_format": "yaml",
+            "to_format": "yaml",
+            "comments_before": 0,
+            "comments_after": 0,
+            "comments_lost": 0,
+            "latency_us": 1183.4
+          }
+        ]
+      }
+    },
+    "cdxf_hub": {
+      "1": {
+        "depth": 1,
+        "initial_comments": 14,
+        "final_comments": 18,
+        "surviving_fraction": 1.2857142857142858,
+        "hops": [
+          {
+            "hop": 1,
+            "from_agent": "DataCurator",
+            "to_agent": "ModelTrainer",
+            "from_format": "yaml",
+            "to_format": "json",
+            "comments_before": 14,
+            "comments_after": 0,
+            "comments_lost": 14,
+            "latency_us": 98.7
+          }
+        ]
+      },
+      "2": {
+        "depth": 2,
+        "initial_comments": 14,
+        "final_comments": 18,
+        "surviving_fraction": 1.2857142857142858,
+        "hops": [
+          {
+            "hop": 1,
+            "from_agent": "DataCurator",
+            "to_agent": "ModelTrainer",
+            "from_format": "yaml",
+            "to_format": "json",
+            "comments_before": 14,
+            "comments_after": 0,
+            "comments_lost": 14,
+            "latency_us": 81.8
+          },
+          {
+            "hop": 2,
+            "from_agent": "ModelTrainer",
+            "to_agent": "Evaluator",
+            "from_format": "json",
+            "to_format": "toml",
+            "comments_before": 14,
+            "comments_after": 17,
+            "comments_lost": 0,
+            "latency_us": 659.4
+          }
+        ]
+      },
+      "3": {
+        "depth": 3,
+        "initial_comments": 14,
+        "final_comments": 18,
+        "surviving_fraction": 1.2857142857142858,
+        "hops": [
+          {
+            "hop": 1,
+            "from_agent": "DataCurator",
+            "to_agent": "ModelTrainer",
+            "from_format": "yaml",
+            "to_format": "json",
+            "comments_before": 14,
+            "comments_after": 0,
+            "comments_lost": 14,
+            "latency_us": 75.8
+          },
+          {
+            "hop": 2,
+            "from_agent": "ModelTrainer",
+            "to_agent": "Evaluator",
+            "from_format": "json",
+            "to_format": "toml",
+            "comments_before": 14,
+            "comments_after": 17,
+            "comments_lost": 0,
+            "latency_us": 612.7
+          },
+          {
+            "hop": 3,
+            "from_agent": "Evaluator",
+            "to_agent": "Deployer",
+            "from_format": "toml",
+            "to_format": "xml",
+            "comments_before": 14,
+            "comments_after": 0,
+            "comments_lost": 14,
+            "latency_us": 41.0
+          }
+        ]
+      },
+      "5": {
+        "depth": 5,
+        "initial_comments": 14,
+        "final_comments": 18,
+        "surviving_fraction": 1.2857142857142858,
+        "hops": [
+          {
+            "hop": 1,
+            "from_agent": "DataCurator",
+            "to_agent": "ModelTrainer",
+            "from_format": "yaml",
+            "to_format": "json",
+            "comments_before": 14,
+            "comments_after": 0,
+            "comments_lost": 14,
+            "latency_us": 76.7
+          },
+          {
+            "hop": 2,
+            "from_agent": "ModelTrainer",
+            "to_agent": "Evaluator",
+            "from_format": "json",
+            "to_format": "toml",
+            "comments_before": 14,
+            "comments_after": 17,
+            "comments_lost": 0,
+            "latency_us": 594.6
+          },
+          {
+            "hop": 3,
+            "from_agent": "Evaluator",
+            "to_agent": "Deployer",
+            "from_format": "toml",
+            "to_format": "xml",
+            "comments_before": 14,
+            "comments_after": 0,
+            "comments_lost": 14,
+            "latency_us": 39.4
+          },
+          {
+            "hop": 4,
+            "from_agent": "Deployer",
+            "to_agent": "Monitor",
+            "from_format": "xml",
+            "to_format": "yaml",
+            "comments_before": 14,
+            "comments_after": 18,
+            "comments_lost": 0,
+            "latency_us": 1331.7
+          },
+          {
+            "hop": 5,
+            "from_agent": "Monitor",
+            "to_agent": "DataCurator",
+            "from_format": "yaml",
+            "to_format": "yaml",
+            "comments_before": 14,
+            "comments_after": 18,
+            "comments_lost": 0,
+            "latency_us": 1631.1
+          }
+        ]
+      }
+    }
+  },
+  "pipeline_results": {
+    "direct": {
+      "2": {
+        "1": {
+          "method": "direct",
+          "depth": 1,
+          "n_formats": 2,
+          "initial_comments": 14,
+          "final_comments": 0,
+          "surviving_fraction": 0.0,
+          "hops": [
+            {
+              "hop": 1,
+              "from_agent": "DataCurator",
+              "to_agent": "ModelTrainer",
+              "from_format": "yaml",
+              "to_format": "json",
+              "comments_before": 14,
+              "comments_after": 0,
+              "comments_lost": 14,
+              "latency_us": 924.1
+            }
+          ]
+        },
+        "2": {
+          "method": "direct",
+          "depth": 2,
+          "n_formats": 2,
+          "initial_comments": 14,
+          "final_comments": 0,
+          "surviving_fraction": 0.0,
+          "hops": [
+            {
+              "hop": 1,
+              "from_agent": "DataCurator",
+              "to_agent": "ModelTrainer",
+              "from_format": "yaml",
+              "to_format": "json",
+              "comments_before": 14,
+              "comments_after": 0,
+              "comments_lost": 14,
+              "latency_us": 933.3
+            },
+            {
+              "hop": 2,
+              "from_agent": "ModelTrainer",
+              "to_agent": "DataCurator",
+              "from_format": "json",
+              "to_format": "yaml",
+              "comments_before": 0,
+              "comments_after": 0,
+              "comments_lost": 0,
+              "latency_us": 448.1
+            }
+          ]
+        },
+        "3": {
+          "method": "direct",
+          "depth": 3,
+          "n_formats": 2,
+          "initial_comments": 14,
+          "final_comments": 0,
+          "surviving_fraction": 0.0,
+          "hops": [
+            {
+              "hop": 1,
+              "from_agent": "DataCurator",
+              "to_agent": "ModelTrainer",
+              "from_format": "yaml",
+              "to_format": "json",
+              "comments_before": 14,
+              "comments_after": 0,
+              "comments_lost": 14,
+              "latency_us": 870.8
+            },
+            {
+              "hop": 2,
+              "from_agent": "ModelTrainer",
+              "to_agent": "DataCurator",
+              "from_format": "json",
+              "to_format": "yaml",
+              "comments_before": 0,
+              "comments_after": 0,
+              "comments_lost": 0,
+              "latency_us": 434.0
+            },
+            {
+              "hop": 3,
+              "from_agent": "DataCurator",
+              "to_agent": "ModelTrainer",
+              "from_format": "yaml",
+              "to_format": "json",
+              "comments_before": 0,
+              "comments_after": 0,
+              "comments_lost": 0,
+              "latency_us": 728.0
+            }
+          ]
+        },
+        "5": {
+          "method": "direct",
+          "depth": 5,
+          "n_formats": 2,
+          "initial_comments": 14,
+          "final_comments": 0,
+          "surviving_fraction": 0.0,
+          "hops": [
+            {
+              "hop": 1,
+              "from_agent": "DataCurator",
+              "to_agent": "ModelTrainer",
+              "from_format": "yaml",
+              "to_format": "json",
+              "comments_before": 14,
+              "comments_after": 0,
+              "comments_lost": 14,
+              "latency_us": 870.1
+            },
+            {
+              "hop": 2,
+              "from_agent": "ModelTrainer",
+              "to_agent": "DataCurator",
+              "from_format": "json",
+              "to_format": "yaml",
+              "comments_before": 0,
+              "comments_after": 0,
+              "comments_lost": 0,
+              "latency_us": 424.0
+            },
+            {
+              "hop": 3,
+              "from_agent": "DataCurator",
+              "to_agent": "ModelTrainer",
+              "from_format": "yaml",
+              "to_format": "json",
+              "comments_before": 0,
+              "comments_after": 0,
+              "comments_lost": 0,
+              "latency_us": 713.7
+            },
+            {
+              "hop": 4,
+              "from_agent": "ModelTrainer",
+              "to_agent": "DataCurator",
+              "from_format": "json",
+              "to_format": "yaml",
+              "comments_before": 0,
+              "comments_after": 0,
+              "comments_lost": 0,
+              "latency_us": 437.2
+            },
+            {
+              "hop": 5,
+              "from_agent": "DataCurator",
+              "to_agent": "ModelTrainer",
+              "from_format": "yaml",
+              "to_format": "json",
+              "comments_before": 0,
+              "comments_after": 0,
+              "comments_lost": 0,
+              "latency_us": 723.8
+            }
+          ]
+        }
+      },
+      "3": {
+        "1": {
+          "method": "direct",
+          "depth": 1,
+          "n_formats": 3,
+          "initial_comments": 14,
+          "final_comments": 0,
+          "surviving_fraction": 0.0,
+          "hops": [
+            {
+              "hop": 1,
+              "from_agent": "DataCurator",
+              "to_agent": "ModelTrainer",
+              "from_format": "yaml",
+              "to_format": "json",
+              "comments_before": 14,
+              "comments_after": 0,
+              "comments_lost": 14,
+              "latency_us": 873.7
+            }
+          ]
+        },
+        "2": {
+          "method": "direct",
+          "depth": 2,
+          "n_formats": 3,
+          "initial_comments": 14,
+          "final_comments": 0,
+          "surviving_fraction": 0.0,
+          "hops": [
+            {
+              "hop": 1,
+              "from_agent": "DataCurator",
+              "to_agent": "ModelTrainer",
+              "from_format": "yaml",
+              "to_format": "json",
+              "comments_before": 14,
+              "comments_after": 0,
+              "comments_lost": 14,
+              "latency_us": 861.5
+            },
+            {
+              "hop": 2,
+              "from_agent": "ModelTrainer",
+              "to_agent": "Evaluator",
+              "from_format": "json",
+              "to_format": "toml",
+              "comments_before": 0,
+              "comments_after": 0,
+              "comments_lost": 0,
+              "latency_us": 600.3
+            }
+          ]
+        },
+        "3": {
+          "method": "direct",
+          "depth": 3,
+          "n_formats": 3,
+          "initial_comments": 14,
+          "final_comments": 0,
+          "surviving_fraction": 0.0,
+          "hops": [
+            {
+              "hop": 1,
+              "from_agent": "DataCurator",
+              "to_agent": "ModelTrainer",
+              "from_format": "yaml",
+              "to_format": "json",
+              "comments_before": 14,
+              "comments_after": 0,
+              "comments_lost": 14,
+              "latency_us": 896.1
+            },
+            {
+              "hop": 2,
+              "from_agent": "ModelTrainer",
+              "to_agent": "Evaluator",
+              "from_format": "json",
+              "to_format": "toml",
+              "comments_before": 0,
+              "comments_after": 0,
+              "comments_lost": 0,
+              "latency_us": 630.6
+            },
+            {
+              "hop": 3,
+              "from_agent": "Evaluator",
+              "to_agent": "DataCurator",
+              "from_format": "toml",
+              "to_format": "yaml",
+              "comments_before": 0,
+              "comments_after": 0,
+              "comments_lost": 0,
+              "latency_us": 522.6
+            }
+          ]
+        },
+        "5": {
+          "method": "direct",
+          "depth": 5,
+          "n_formats": 3,
+          "initial_comments": 14,
+          "final_comments": 0,
+          "surviving_fraction": 0.0,
+          "hops": [
+            {
+              "hop": 1,
+              "from_agent": "DataCurator",
+              "to_agent": "ModelTrainer",
+              "from_format": "yaml",
+              "to_format": "json",
+              "comments_before": 14,
+              "comments_after": 0,
+              "comments_lost": 14,
+              "latency_us": 884.2
+            },
+            {
+              "hop": 2,
+              "from_agent": "ModelTrainer",
+              "to_agent": "Evaluator",
+              "from_format": "json",
+              "to_format": "toml",
+              "comments_before": 0,
+              "comments_after": 0,
+              "comments_lost": 0,
+              "latency_us": 552.4
+            },
+            {
+              "hop": 3,
+              "from_agent": "Evaluator",
+              "to_agent": "DataCurator",
+              "from_format": "toml",
+              "to_format": "yaml",
+              "comments_before": 0,
+              "comments_after": 0,
+              "comments_lost": 0,
+              "latency_us": 522.9
+            },
+            {
+              "hop": 4,
+              "from_agent": "DataCurator",
+              "to_agent": "ModelTrainer",
+              "from_format": "yaml",
+              "to_format": "json",
+              "comments_before": 0,
+              "comments_after": 0,
+              "comments_lost": 0,
+              "latency_us": 752.1
+            },
+            {
+              "hop": 5,
+              "from_agent": "ModelTrainer",
+              "to_agent": "Evaluator",
+              "from_format": "json",
+              "to_format": "toml",
+              "comments_before": 0,
+              "comments_after": 0,
+              "comments_lost": 0,
+              "latency_us": 553.5
+            }
+          ]
+        }
+      },
+      "4": {
+        "1": {
+          "method": "direct",
+          "depth": 1,
+          "n_formats": 4,
+          "initial_comments": 14,
+          "final_comments": 0,
+          "surviving_fraction": 0.0,
+          "hops": [
+            {
+              "hop": 1,
+              "from_agent": "DataCurator",
+              "to_agent": "ModelTrainer",
+              "from_format": "yaml",
+              "to_format": "json",
+              "comments_before": 14,
+              "comments_after": 0,
+              "comments_lost": 14,
+              "latency_us": 1029.0
+            }
+          ]
+        },
+        "2": {
+          "method": "direct",
+          "depth": 2,
+          "n_formats": 4,
+          "initial_comments": 14,
+          "final_comments": 0,
+          "surviving_fraction": 0.0,
+          "hops": [
+            {
+              "hop": 1,
+              "from_agent": "DataCurator",
+              "to_agent": "ModelTrainer",
+              "from_format": "yaml",
+              "to_format": "json",
+              "comments_before": 14,
+              "comments_after": 0,
+              "comments_lost": 14,
+              "latency_us": 1180.2
+            },
+            {
+              "hop": 2,
+              "from_agent": "ModelTrainer",
+              "to_agent": "Evaluator",
+              "from_format": "json",
+              "to_format": "toml",
+              "comments_before": 0,
+              "comments_after": 0,
+              "comments_lost": 0,
+              "latency_us": 684.8
+            }
+          ]
+        },
+        "3": {
+          "method": "direct",
+          "depth": 3,
+          "n_formats": 4,
+          "initial_comments": 14,
+          "final_comments": 0,
+          "surviving_fraction": 0.0,
+          "hops": [
+            {
+              "hop": 1,
+              "from_agent": "DataCurator",
+              "to_agent": "ModelTrainer",
+              "from_format": "yaml",
+              "to_format": "json",
+              "comments_before": 14,
+              "comments_after": 0,
+              "comments_lost": 14,
+              "latency_us": 882.2
+            },
+            {
+              "hop": 2,
+              "from_agent": "ModelTrainer",
+              "to_agent": "Evaluator",
+              "from_format": "json",
+              "to_format": "toml",
+              "comments_before": 0,
+              "comments_after": 0,
+              "comments_lost": 0,
+              "latency_us": 571.4
+            },
+            {
+              "hop": 3,
+              "from_agent": "Evaluator",
+              "to_agent": "Deployer",
+              "from_format": "toml",
+              "to_format": "xml",
+              "comments_before": 0,
+              "comments_after": 0,
+              "comments_lost": 0,
+              "latency_us": 164.8
+            }
+          ]
+        },
+        "5": {
+          "method": "direct",
+          "depth": 5,
+          "n_formats": 4,
+          "initial_comments": 14,
+          "final_comments": 0,
+          "surviving_fraction": 0.0,
+          "hops": [
+            {
+              "hop": 1,
+              "from_agent": "DataCurator",
+              "to_agent": "ModelTrainer",
+              "from_format": "yaml",
+              "to_format": "json",
+              "comments_before": 14,
+              "comments_after": 0,
+              "comments_lost": 14,
+              "latency_us": 900.8
+            },
+            {
+              "hop": 2,
+              "from_agent": "ModelTrainer",
+              "to_agent": "Evaluator",
+              "from_format": "json",
+              "to_format": "toml",
+              "comments_before": 0,
+              "comments_after": 0,
+              "comments_lost": 0,
+              "latency_us": 578.7
+            },
+            {
+              "hop": 3,
+              "from_agent": "Evaluator",
+              "to_agent": "Deployer",
+              "from_format": "toml",
+              "to_format": "xml",
+              "comments_before": 0,
+              "comments_after": 0,
+              "comments_lost": 0,
+              "latency_us": 158.6
+            },
+            {
+              "hop": 4,
+              "from_agent": "Deployer",
+              "to_agent": "Monitor",
+              "from_format": "xml",
+              "to_format": "yaml",
+              "comments_before": 0,
+              "comments_after": 0,
+              "comments_lost": 0,
+              "latency_us": 530.2
+            },
+            {
+              "hop": 5,
+              "from_agent": "Monitor",
+              "to_agent": "DataCurator",
+              "from_format": "yaml",
+              "to_format": "yaml",
+              "comments_before": 0,
+              "comments_after": 0,
+              "comments_lost": 0,
+              "latency_us": 1185.7
+            }
+          ]
+        }
+      }
+    },
+    "cdxf_hub": {
+      "2": {
+        "1": {
+          "method": "cdxf_hub",
+          "depth": 1,
+          "n_formats": 2,
+          "initial_comments": 14,
+          "final_comments": 18,
+          "surviving_fraction": 1.2857142857142858,
+          "hops": [
+            {
+              "hop": 1,
+              "from_agent": "DataCurator",
+              "to_agent": "ModelTrainer",
+              "from_format": "yaml",
+              "to_format": "json",
+              "comments_before": 14,
+              "comments_after": 0,
+              "comments_lost": 14,
+              "latency_us": 81.8
+            }
+          ]
+        },
+        "2": {
+          "method": "cdxf_hub",
+          "depth": 2,
+          "n_formats": 2,
+          "initial_comments": 14,
+          "final_comments": 18,
+          "surviving_fraction": 1.2857142857142858,
+          "hops": [
+            {
+              "hop": 1,
+              "from_agent": "DataCurator",
+              "to_agent": "ModelTrainer",
+              "from_format": "yaml",
+              "to_format": "json",
+              "comments_before": 14,
+              "comments_after": 0,
+              "comments_lost": 14,
+              "latency_us": 76.2
+            },
+            {
+              "hop": 2,
+              "from_agent": "ModelTrainer",
+              "to_agent": "DataCurator",
+              "from_format": "json",
+              "to_format": "yaml",
+              "comments_before": 14,
+              "comments_after": 18,
+              "comments_lost": 0,
+              "latency_us": 1328.3
+            }
+          ]
+        },
+        "3": {
+          "method": "cdxf_hub",
+          "depth": 3,
+          "n_formats": 2,
+          "initial_comments": 14,
+          "final_comments": 18,
+          "surviving_fraction": 1.2857142857142858,
+          "hops": [
+            {
+              "hop": 1,
+              "from_agent": "DataCurator",
+              "to_agent": "ModelTrainer",
+              "from_format": "yaml",
+              "to_format": "json",
+              "comments_before": 14,
+              "comments_after": 0,
+              "comments_lost": 14,
+              "latency_us": 75.4
+            },
+            {
+              "hop": 2,
+              "from_agent": "ModelTrainer",
+              "to_agent": "DataCurator",
+              "from_format": "json",
+              "to_format": "yaml",
+              "comments_before": 14,
+              "comments_after": 18,
+              "comments_lost": 0,
+              "latency_us": 1485.0
+            },
+            {
+              "hop": 3,
+              "from_agent": "DataCurator",
+              "to_agent": "ModelTrainer",
+              "from_format": "yaml",
+              "to_format": "json",
+              "comments_before": 14,
+              "comments_after": 0,
+              "comments_lost": 14,
+              "latency_us": 81.3
+            }
+          ]
+        },
+        "5": {
+          "method": "cdxf_hub",
+          "depth": 5,
+          "n_formats": 2,
+          "initial_comments": 14,
+          "final_comments": 18,
+          "surviving_fraction": 1.2857142857142858,
+          "hops": [
+            {
+              "hop": 1,
+              "from_agent": "DataCurator",
+              "to_agent": "ModelTrainer",
+              "from_format": "yaml",
+              "to_format": "json",
+              "comments_before": 14,
+              "comments_after": 0,
+              "comments_lost": 14,
+              "latency_us": 74.4
+            },
+            {
+              "hop": 2,
+              "from_agent": "ModelTrainer",
+              "to_agent": "DataCurator",
+              "from_format": "json",
+              "to_format": "yaml",
+              "comments_before": 14,
+              "comments_after": 18,
+              "comments_lost": 0,
+              "latency_us": 1392.0
+            },
+            {
+              "hop": 3,
+              "from_agent": "DataCurator",
+              "to_agent": "ModelTrainer",
+              "from_format": "yaml",
+              "to_format": "json",
+              "comments_before": 14,
+              "comments_after": 0,
+              "comments_lost": 14,
+              "latency_us": 81.2
+            },
+            {
+              "hop": 4,
+              "from_agent": "ModelTrainer",
+              "to_agent": "DataCurator",
+              "from_format": "json",
+              "to_format": "yaml",
+              "comments_before": 14,
+              "comments_after": 18,
+              "comments_lost": 0,
+              "latency_us": 1298.4
+            },
+            {
+              "hop": 5,
+              "from_agent": "DataCurator",
+              "to_agent": "ModelTrainer",
+              "from_format": "yaml",
+              "to_format": "json",
+              "comments_before": 14,
+              "comments_after": 0,
+              "comments_lost": 14,
+              "latency_us": 79.6
+            }
+          ]
+        }
+      },
+      "3": {
+        "1": {
+          "method": "cdxf_hub",
+          "depth": 1,
+          "n_formats": 3,
+          "initial_comments": 14,
+          "final_comments": 18,
+          "surviving_fraction": 1.2857142857142858,
+          "hops": [
+            {
+              "hop": 1,
+              "from_agent": "DataCurator",
+              "to_agent": "ModelTrainer",
+              "from_format": "yaml",
+              "to_format": "json",
+              "comments_before": 14,
+              "comments_after": 0,
+              "comments_lost": 14,
+              "latency_us": 74.7
+            }
+          ]
+        },
+        "2": {
+          "method": "cdxf_hub",
+          "depth": 2,
+          "n_formats": 3,
+          "initial_comments": 14,
+          "final_comments": 18,
+          "surviving_fraction": 1.2857142857142858,
+          "hops": [
+            {
+              "hop": 1,
+              "from_agent": "DataCurator",
+              "to_agent": "ModelTrainer",
+              "from_format": "yaml",
+              "to_format": "json",
+              "comments_before": 14,
+              "comments_after": 0,
+              "comments_lost": 14,
+              "latency_us": 74.1
+            },
+            {
+              "hop": 2,
+              "from_agent": "ModelTrainer",
+              "to_agent": "Evaluator",
+              "from_format": "json",
+              "to_format": "toml",
+              "comments_before": 14,
+              "comments_after": 17,
+              "comments_lost": 0,
+              "latency_us": 639.2
+            }
+          ]
+        },
+        "3": {
+          "method": "cdxf_hub",
+          "depth": 3,
+          "n_formats": 3,
+          "initial_comments": 14,
+          "final_comments": 18,
+          "surviving_fraction": 1.2857142857142858,
+          "hops": [
+            {
+              "hop": 1,
+              "from_agent": "DataCurator",
+              "to_agent": "ModelTrainer",
+              "from_format": "yaml",
+              "to_format": "json",
+              "comments_before": 14,
+              "comments_after": 0,
+              "comments_lost": 14,
+              "latency_us": 74.1
+            },
+            {
+              "hop": 2,
+              "from_agent": "ModelTrainer",
+              "to_agent": "Evaluator",
+              "from_format": "json",
+              "to_format": "toml",
+              "comments_before": 14,
+              "comments_after": 17,
+              "comments_lost": 0,
+              "latency_us": 615.3
+            },
+            {
+              "hop": 3,
+              "from_agent": "Evaluator",
+              "to_agent": "DataCurator",
+              "from_format": "toml",
+              "to_format": "yaml",
+              "comments_before": 14,
+              "comments_after": 18,
+              "comments_lost": 0,
+              "latency_us": 1513.9
+            }
+          ]
+        },
+        "5": {
+          "method": "cdxf_hub",
+          "depth": 5,
+          "n_formats": 3,
+          "initial_comments": 14,
+          "final_comments": 18,
+          "surviving_fraction": 1.2857142857142858,
+          "hops": [
+            {
+              "hop": 1,
+              "from_agent": "DataCurator",
+              "to_agent": "ModelTrainer",
+              "from_format": "yaml",
+              "to_format": "json",
+              "comments_before": 14,
+              "comments_after": 0,
+              "comments_lost": 14,
+              "latency_us": 84.2
+            },
+            {
+              "hop": 2,
+              "from_agent": "ModelTrainer",
+              "to_agent": "Evaluator",
+              "from_format": "json",
+              "to_format": "toml",
+              "comments_before": 14,
+              "comments_after": 17,
+              "comments_lost": 0,
+              "latency_us": 646.9
+            },
+            {
+              "hop": 3,
+              "from_agent": "Evaluator",
+              "to_agent": "DataCurator",
+              "from_format": "toml",
+              "to_format": "yaml",
+              "comments_before": 14,
+              "comments_after": 18,
+              "comments_lost": 0,
+              "latency_us": 1352.8
+            },
+            {
+              "hop": 4,
+              "from_agent": "DataCurator",
+              "to_agent": "ModelTrainer",
+              "from_format": "yaml",
+              "to_format": "json",
+              "comments_before": 14,
+              "comments_after": 0,
+              "comments_lost": 14,
+              "latency_us": 81.0
+            },
+            {
+              "hop": 5,
+              "from_agent": "ModelTrainer",
+              "to_agent": "Evaluator",
+              "from_format": "json",
+              "to_format": "toml",
+              "comments_before": 14,
+              "comments_after": 17,
+              "comments_lost": 0,
+              "latency_us": 597.7
+            }
+          ]
+        }
+      },
+      "4": {
+        "1": {
+          "method": "cdxf_hub",
+          "depth": 1,
+          "n_formats": 4,
+          "initial_comments": 14,
+          "final_comments": 18,
+          "surviving_fraction": 1.2857142857142858,
+          "hops": [
+            {
+              "hop": 1,
+              "from_agent": "DataCurator",
+              "to_agent": "ModelTrainer",
+              "from_format": "yaml",
+              "to_format": "json",
+              "comments_before": 14,
+              "comments_after": 0,
+              "comments_lost": 14,
+              "latency_us": 75.0
+            }
+          ]
+        },
+        "2": {
+          "method": "cdxf_hub",
+          "depth": 2,
+          "n_formats": 4,
+          "initial_comments": 14,
+          "final_comments": 18,
+          "surviving_fraction": 1.2857142857142858,
+          "hops": [
+            {
+              "hop": 1,
+              "from_agent": "DataCurator",
+              "to_agent": "ModelTrainer",
+              "from_format": "yaml",
+              "to_format": "json",
+              "comments_before": 14,
+              "comments_after": 0,
+              "comments_lost": 14,
+              "latency_us": 78.8
+            },
+            {
+              "hop": 2,
+              "from_agent": "ModelTrainer",
+              "to_agent": "Evaluator",
+              "from_format": "json",
+              "to_format": "toml",
+              "comments_before": 14,
+              "comments_after": 17,
+              "comments_lost": 0,
+              "latency_us": 620.5
+            }
+          ]
+        },
+        "3": {
+          "method": "cdxf_hub",
+          "depth": 3,
+          "n_formats": 4,
+          "initial_comments": 14,
+          "final_comments": 18,
+          "surviving_fraction": 1.2857142857142858,
+          "hops": [
+            {
+              "hop": 1,
+              "from_agent": "DataCurator",
+              "to_agent": "ModelTrainer",
+              "from_format": "yaml",
+              "to_format": "json",
+              "comments_before": 14,
+              "comments_after": 0,
+              "comments_lost": 14,
+              "latency_us": 77.5
+            },
+            {
+              "hop": 2,
+              "from_agent": "ModelTrainer",
+              "to_agent": "Evaluator",
+              "from_format": "json",
+              "to_format": "toml",
+              "comments_before": 14,
+              "comments_after": 17,
+              "comments_lost": 0,
+              "latency_us": 597.7
+            },
+            {
+              "hop": 3,
+              "from_agent": "Evaluator",
+              "to_agent": "Deployer",
+              "from_format": "toml",
+              "to_format": "xml",
+              "comments_before": 14,
+              "comments_after": 0,
+              "comments_lost": 14,
+              "latency_us": 39.5
+            }
+          ]
+        },
+        "5": {
+          "method": "cdxf_hub",
+          "depth": 5,
+          "n_formats": 4,
+          "initial_comments": 14,
+          "final_comments": 18,
+          "surviving_fraction": 1.2857142857142858,
+          "hops": [
+            {
+              "hop": 1,
+              "from_agent": "DataCurator",
+              "to_agent": "ModelTrainer",
+              "from_format": "yaml",
+              "to_format": "json",
+              "comments_before": 14,
+              "comments_after": 0,
+              "comments_lost": 14,
+              "latency_us": 76.1
+            },
+            {
+              "hop": 2,
+              "from_agent": "ModelTrainer",
+              "to_agent": "Evaluator",
+              "from_format": "json",
+              "to_format": "toml",
+              "comments_before": 14,
+              "comments_after": 17,
+              "comments_lost": 0,
+              "latency_us": 586.2
+            },
+            {
+              "hop": 3,
+              "from_agent": "Evaluator",
+              "to_agent": "Deployer",
+              "from_format": "toml",
+              "to_format": "xml",
+              "comments_before": 14,
+              "comments_after": 0,
+              "comments_lost": 14,
+              "latency_us": 38.5
+            },
+            {
+              "hop": 4,
+              "from_agent": "Deployer",
+              "to_agent": "Monitor",
+              "from_format": "xml",
+              "to_format": "yaml",
+              "comments_before": 14,
+              "comments_after": 18,
+              "comments_lost": 0,
+              "latency_us": 1338.9
+            },
+            {
+              "hop": 5,
+              "from_agent": "Monitor",
+              "to_agent": "DataCurator",
+              "from_format": "yaml",
+              "to_format": "yaml",
+              "comments_before": 14,
+              "comments_after": 18,
+              "comments_lost": 0,
+              "latency_us": 1366.2
+            }
+          ]
+        }
+      }
+    }
+  },
+  "summary": {
+    "scaling": {
+      "direct_at_n4": 12,
+      "hub_at_n4": 8,
+      "crossover_n": 3
+    },
+    "compounding": {
+      "direct": {
+        "max_depth": 5,
+        "surviving_fraction": 0.0,
+        "initial_comments": 14,
+        "final_comments": 0
+      },
+      "cdxf_hub": {
+        "max_depth": 5,
+        "surviving_fraction": 1.2857142857142858,
+        "initial_comments": 14,
+        "final_comments": 18
+      }
+    }
+  }
+}

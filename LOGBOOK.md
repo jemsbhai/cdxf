@@ -1787,3 +1787,65 @@ CDXF is unique in being both preserving AND a queryable single-file format.
   - exp_013_results.json
   - degradation_curves.csv
   - summary.csv
+
+---
+
+## EXP-014: Multi-Agent Format Interchange — Hub vs Direct
+
+**Date:** 2026-05-25
+**Status:** COMPLETED
+**Commit:** TBD
+
+### Protocol
+
+Simulate 5 ML agents with distinct format preferences (YAML, JSON, TOML,
+XML) passing an annotated config through H sequential handoffs.
+
+Direct conversion: each hop uses standard parsers (lossy).
+CDXF hub: CDXF binary is canonical interchange; agents get format views.
+
+Measures: converter count scaling (O(N²) vs O(N)), metadata survival
+over pipeline depths H = {1, 2, 3, 5}, format counts N = {2, 3, 4}.
+
+### Results
+
+**Converter scaling:**
+
+| N | Direct | Hub | Savings |
+|---|--------|-----|---------|
+| 2 | 2 | 4 | -2 (hub larger) |
+| 3 | 6 | 6 | 0 (crossover) |
+| 4 | 12 | 8 | 4 (33%) |
+
+**Metadata compounding (N=4, 14 initial comments):**
+
+| Method | H=1 | H=2 | H=3 | H=5 |
+|--------|-----|-----|-----|-----|
+| Direct | 0 (0%) | 0 (0%) | 0 (0%) | 0 (0%) |
+| CDXF hub | 18 (129%) | 18 (129%) | 18 (129%) | 18 (129%) |
+
+### Key Finding
+
+**F23:** Direct conversion destroys 100% of metadata at the first hop.
+CDXF hub preserves metadata regardless of pipeline depth (depth-invariant).
+Converter scaling: O(N²) → O(N), crossover at N=3.
+
+### Honest Caveats
+
+- The CDXF hub model treats CDXF binary as canonical and passes it
+  through unchanged. Agent modifications are not simulated.
+- Direct conversion is catastrophically lossy because yaml.safe_load
+  destroys all comments at the first hop. The "compounding" curve is
+  flat at 0 because there's nothing left to lose after hop 1.
+- CDXF comment inflation (14→18) is the known YAML bridge artifact.
+- At N<3, the hub requires more converters than direct (2N > N(N-1)).
+
+### Artifacts
+
+- Script: benchmarks/src/run_exp014.py
+- Tests: tests/test_exp014.py (57 tests)
+- Results: benchmarks/results/exp_014/
+  - exp_014_results.json
+  - scaling_analysis.csv
+  - compounding_curves.csv
+  - pipeline_results.csv
