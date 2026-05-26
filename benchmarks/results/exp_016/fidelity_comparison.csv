@@ -1,0 +1,4 @@
+config,original_comments,format_specific_comments,cdxf_comments,fs_surviving,cdxf_surviving
+simple,2,0,2,0.0,1.0
+medium,6,0,6,0.0,1.0
+complex,10,0,10,0.0,1.0

@@ -481,3 +481,20 @@ surviving JSON serialization with full metadata intact.
 
 CDXF achieves exact 100% preservation through both pipeline flow
 and checkpoint/restore cycles.
+
+### F25: CDXF MCP server reduces tool count from 8 to 3 (36.9% token savings) while achieving 100% metadata fidelity vs 0% for format-specific tools
+
+**Source:** EXP-016 (MCP Tool Server — CDXF Universal Config Tools)
+
+Built two real MCP servers: format-specific (8 tools: parse/emit × 4
+formats) vs CDXF universal (3 tools: encode, decode, convert). Measured
+schema token overhead and metadata fidelity through actual MCP tool calls.
+
+| Server | Tools | Tokens (cl100k) | Comment survival |
+|--------|-------|-----------------|------------------|
+| Format-specific | 8 | 878 | 0% (all configs) |
+| CDXF universal | 3 | 554 | 100% (all configs) |
+
+Token savings: 324 tokens (36.9% reduction). Tested on simple (2
+comments), medium (6), and complex (10) ML configs — CDXF preserved
+exactly 100% in every case. Protocol: MCP (Model Context Protocol).

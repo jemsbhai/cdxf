@@ -1,0 +1,54 @@
+{
+  "experiment": "EXP-016",
+  "timestamp": "2026-05-26T10:52:21.573713+00:00",
+  "protocol": "MCP (Model Context Protocol)",
+  "schema_comparison": {
+    "format_specific": {
+      "n_tools": 8,
+      "tokens": 878
+    },
+    "cdxf_universal": {
+      "n_tools": 3,
+      "tokens": 554
+    },
+    "tokens_saved": 324,
+    "reduction_pct": 36.9
+  },
+  "fidelity_results": [
+    {
+      "config": "simple",
+      "original_comments": 2,
+      "format_specific_comments": 0,
+      "cdxf_comments": 2,
+      "fs_surviving": 0.0,
+      "cdxf_surviving": 1.0
+    },
+    {
+      "config": "medium",
+      "original_comments": 6,
+      "format_specific_comments": 0,
+      "cdxf_comments": 6,
+      "fs_surviving": 0.0,
+      "cdxf_surviving": 1.0
+    },
+    {
+      "config": "complex",
+      "original_comments": 10,
+      "format_specific_comments": 0,
+      "cdxf_comments": 10,
+      "fs_surviving": 0.0,
+      "cdxf_surviving": 1.0
+    }
+  ],
+  "summary": {
+    "schema_reduction_pct": 36.9,
+    "tool_count": {
+      "format_specific": 8,
+      "cdxf_universal": 3
+    },
+    "fidelity": {
+      "format_specific": "0% comment survival (all configs)",
+      "cdxf_universal": "100% comment survival (all configs)"
+    }
+  }
+}

@@ -1908,3 +1908,41 @@ skipped. Result: exact comment preservation on unlimited round-trips.
 
 5 comments → 5 round-trips → 5 comments at every step.
 All 1155 tests pass. All experiments re-run with clean 100% results.
+
+---
+
+## EXP-016: MCP Tool Server — CDXF Universal Config Tools
+
+**Date:** 2026-05-25
+**Status:** COMPLETED
+
+### Protocol
+
+Built two real MCP servers using the `mcp` Python SDK:
+- Format-specific: 8 tools (parse/emit × JSON, YAML, XML, TOML)
+- CDXF universal: 3 tools (cdxf_encode, cdxf_decode, cdxf_convert)
+
+Measured schema token overhead (cl100k_base) and metadata fidelity
+through actual MCP tool call invocations on 3 ML config files.
+
+### Results
+
+| Server | Tools | Tokens | Comment survival |
+|--------|-------|--------|------------------|
+| Format-specific | 8 | 878 | 0% |
+| CDXF universal | 3 | 554 | 100% |
+
+Token savings: 324 (36.9%). Fidelity: 0% vs 100% on all configs.
+
+### Key Finding
+
+**F25:** Real MCP server with CDXF tools: 36.9% fewer schema tokens,
+100% metadata fidelity. Protocol: MCP 1.26.0.
+
+### Artifacts
+
+- Script: benchmarks/src/run_exp016.py
+- Tests: tests/test_exp016.py (32 tests)
+- Results: benchmarks/results/exp_016/
+  - exp_016_results.json
+  - fidelity_comparison.csv
