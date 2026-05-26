@@ -1753,25 +1753,18 @@ K = 1..20 for medium, 1..10 for small/large.
 
 | Format | K=1 | K=5 | K=10 | K=20 | Behavior |
 |--------|-----|-----|------|------|----------|
-| CDXF | 24 (109%) | 57 (259%) | 169 (768%) | 9961 | Preserved (bridge inflation artifact) |
-| tar.gz | 22 (100%) | 22 (100%) | 22 (100%) | 22 (100%) | Raw text preserved |
+| CDXF | 22/22 (100%) | 22/22 (100%) | 22/22 (100%) | 22/22 (100%) | Flat at 100% |
+| tar.gz | 22 (100%) | 22 (100%) | 22 (100%) | 22 (100%) | Flat at 100% |
 | JSON mega | 0 (0%) | 0 (0%) | 0 (0%) | 0 (0%) | Total loss at K=1 |
 | Pickle | 0 (0%) | 0 (0%) | 0 (0%) | 0 (0%) | Total loss at K=1 |
 
 ### Key Finding
 
 **F22:** JSON and Pickle destroy 100% of metadata comments at the first
-session boundary. Loss is immediate and permanent: yaml.safe_load and
-tomllib.loads strip all comments. CDXF and tar.gz preserve comments.
-CDXF is unique in being both preserving AND a queryable single-file format.
+session boundary. CDXF preserves exactly 100% at every K (22 in, 22 out).
 
 ### Honest Caveats
 
-- CDXF comment count inflation is a known YAML bridge artifact. The
-  bridge reformats comments during round-trip, adding ~2 comment lines
-  per YAML file per cycle. This compounds exponentially over 20 sessions.
-  The bridge should be fixed, but the preservation claim holds: CDXF
-  never drops below the initial comment count.
 - tar.gz also preserves comments perfectly (raw text). The difference:
   tar.gz requires extraction to query individual files; CDXF is a
   single queryable binary format with cross-format emission.
@@ -1822,12 +1815,12 @@ over pipeline depths H = {1, 2, 3, 5}, format counts N = {2, 3, 4}.
 | Method | H=1 | H=2 | H=3 | H=5 |
 |--------|-----|-----|-----|-----|
 | Direct | 0 (0%) | 0 (0%) | 0 (0%) | 0 (0%) |
-| CDXF hub | 18 (129%) | 18 (129%) | 18 (129%) | 18 (129%) |
+| CDXF hub | 14 (100%) | 14 (100%) | 14 (100%) | 14 (100%) |
 
 ### Key Finding
 
 **F23:** Direct conversion destroys 100% of metadata at the first hop.
-CDXF hub preserves metadata regardless of pipeline depth (depth-invariant).
+CDXF hub preserves exactly 100% regardless of pipeline depth.
 Converter scaling: O(N²) → O(N), crossover at N=3.
 
 ### Honest Caveats
@@ -1835,9 +1828,7 @@ Converter scaling: O(N²) → O(N), crossover at N=3.
 - The CDXF hub model treats CDXF binary as canonical and passes it
   through unchanged. Agent modifications are not simulated.
 - Direct conversion is catastrophically lossy because yaml.safe_load
-  destroys all comments at the first hop. The "compounding" curve is
-  flat at 0 because there's nothing left to lose after hop 1.
-- CDXF comment inflation (14→18) is the known YAML bridge artifact.
+  destroys all comments at the first hop.
 - At N<3, the hub requires more converters than direct (2N > N(N-1)).
 
 ### Artifacts
@@ -1870,13 +1861,13 @@ pipeline flow and checkpoint/restore cycle via InMemorySaver.
 | Mode | 4-node | 6-node | Checkpoint |
 |------|--------|--------|------------|
 | json_default | 0/22 (0%) | 0/22 (0%) | 0% |
-| cdxf_enhanced | 58/22 (preserved) | 94/22 (preserved) | preserved |
+| cdxf_enhanced | 22/22 (100%) | 22/22 (100%) | 100% |
 
 ### Key Finding
 
 **F24:** LangGraph JSON state serialization destroys 100% of config
-comments. CDXF-enhanced state preserves them through both pipeline
-flow and checkpoint/restore cycles. Framework: langgraph 1.2.1.
+comments. CDXF-enhanced state preserves exactly 100% through both
+pipeline flow and checkpoint/restore cycles. Framework: langgraph 1.2.1.
 
 ### Artifacts
 
@@ -1885,3 +1876,35 @@ flow and checkpoint/restore cycles. Framework: langgraph 1.2.1.
 - Results: benchmarks/results/exp_015/
   - exp_015_results.json
   - mode_comparison.csv
+
+---
+
+## Bug Fix: YAML Bridge Comment Deduplication
+
+**Date:** 2026-05-25
+**Status:** FIXED
+**Affected:** v0.1.2 and earlier
+**Fixed in:** v0.1.3
+
+### Root Cause
+
+ruamel.yaml stores the same CommentToken object in two locations:
+- `parent.ca.items[key][3]` (end-of-block comments for a key)
+- `child.ca.comment[1]` (top-of-map comments for the child value)
+
+These are the SAME Python object (`id()` confirmed identical). The
+CDXF YAML bridge's `_extract_ca_comments` extracted from both locations,
+creating duplicate Comment nodes in the CDXF model. On each round-trip,
+duplicates compounded — 5 comments became 7, then 10, then 13.
+
+### Fix
+
+Added `seen_ids: set[int]` parameter to `_extract_ca_comments` and
+shared it via `_YamlToModel._seen_comment_ids` across the entire
+document conversion. CommentTokens already extracted (by `id()`) are
+skipped. Result: exact comment preservation on unlimited round-trips.
+
+### Verification
+
+5 comments → 5 round-trips → 5 comments at every step.
+All 1155 tests pass. All experiments re-run with clean 100% results.

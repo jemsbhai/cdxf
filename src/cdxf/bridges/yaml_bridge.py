@@ -110,13 +110,42 @@ def _get_anchor_name(value: Any) -> str | None:
     return None
 
 
-def _extract_ca_comments(ca, key=None) -> list[str]:
+def _extract_ca_comments(ca, key=None, seen_ids: set | None = None) -> list[str]:
     """Extract comment texts from a ruamel.yaml Comment attribute.
 
     If key is given, extract comments associated with that key in
     ca.items. Otherwise extract top-level comments from ca.comment.
+
+    Uses seen_ids to skip CommentToken objects that have already been
+    extracted (ruamel.yaml shares the same token object between a
+    parent map's ca.items[key][3] and the child map's ca.comment).
     """
     results = []
+    if seen_ids is None:
+        seen_ids = set()
+
+    def _collect_token(token):
+        """Collect text from a single CommentToken, deduplicating by id."""
+        if token is None:
+            return
+        tid = id(token)
+        if tid in seen_ids:
+            return
+        if hasattr(token, "value"):
+            text = token.value.strip().lstrip("#").strip()
+            if text:
+                seen_ids.add(tid)
+                results.append(text)
+
+    def _collect_item(item):
+        """Collect from a single item (may be token, list, or None)."""
+        if item is None:
+            return
+        if isinstance(item, list):
+            for sub in item:
+                _collect_token(sub)
+        else:
+            _collect_token(item)
 
     if key is not None:
         # Per-key comments from ca.items
@@ -126,18 +155,7 @@ def _extract_ca_comments(ca, key=None) -> list[str]:
                 comment_list = items_dict[key]
                 if comment_list:
                     for item in comment_list:
-                        if item is None:
-                            continue
-                        if isinstance(item, list):
-                            for sub in item:
-                                if sub is not None and hasattr(sub, "value"):
-                                    text = sub.value.strip().lstrip("#").strip()
-                                    if text:
-                                        results.append(text)
-                        elif hasattr(item, "value"):
-                            text = item.value.strip().lstrip("#").strip()
-                            if text:
-                                results.append(text)
+                        _collect_item(item)
         except (AttributeError, TypeError, KeyError):
             pass
     else:
@@ -145,18 +163,7 @@ def _extract_ca_comments(ca, key=None) -> list[str]:
         try:
             if ca.comment:
                 for item in ca.comment:
-                    if item is None:
-                        continue
-                    if isinstance(item, list):
-                        for sub in item:
-                            if sub is not None and hasattr(sub, "value"):
-                                text = sub.value.strip().lstrip("#").strip()
-                                if text:
-                                    results.append(text)
-                    elif hasattr(item, "value"):
-                        text = item.value.strip().lstrip("#").strip()
-                        if text:
-                            results.append(text)
+                    _collect_item(item)
         except (AttributeError, TypeError):
             pass
 
@@ -172,6 +179,7 @@ class _YamlToModel:
 
     def __init__(self):
         self._seen: dict[int, str] = {}  # id -> anchor_name
+        self._seen_comment_ids: set[int] = set()  # dedup CommentTokens
 
     def convert(self, value: Any) -> Any:
         if value is None:
@@ -224,7 +232,8 @@ class _YamlToModel:
 
         # --- Extract top-level comments ---
         if hasattr(mapping, "ca") and mapping.ca:
-            for text in _extract_ca_comments(mapping.ca):
+            for text in _extract_ca_comments(mapping.ca,
+                                             seen_ids=self._seen_comment_ids):
                 entries.append(Comment(text))
 
         # --- Handle merge keys (ruamel.yaml stores them in .merge) ---
@@ -273,7 +282,8 @@ class _YamlToModel:
 
             # Per-key comments
             if hasattr(mapping, "ca") and mapping.ca:
-                for text in _extract_ca_comments(mapping.ca, key=key):
+                for text in _extract_ca_comments(mapping.ca, key=key,
+                                                 seen_ids=self._seen_comment_ids):
                     entries.append(Comment(text))
 
             key_node = self._convert_key(key)
@@ -288,7 +298,8 @@ class _YamlToModel:
         for idx, value in enumerate(seq):
             # Per-item comments
             if hasattr(seq, "ca") and seq.ca:
-                for text in _extract_ca_comments(seq.ca, key=idx):
+                for text in _extract_ca_comments(seq.ca, key=idx,
+                                                 seen_ids=self._seen_comment_ids):
                     items.append(Comment(text))
 
             items.append(self.convert(value))

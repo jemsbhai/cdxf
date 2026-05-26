@@ -1,6 +1,6 @@
 {
   "experiment": "EXP-015",
-  "timestamp": "2026-05-26T03:11:36.680926+00:00",
+  "timestamp": "2026-05-26T03:24:23.854024+00:00",
   "framework": "langgraph",
   "framework_version": "1.2.1",
   "results": {
@@ -48,31 +48,31 @@
       "mode": "cdxf_enhanced",
       "graph_config": "linear_4node",
       "initial_comments": 22,
-      "final_comments": 58,
-      "surviving_fraction": 2.6363636363636362,
+      "final_comments": 22,
+      "surviving_fraction": 1.0,
       "node_trace": [
         {
           "node_name": "data_curator",
-          "comments_before": 26,
-          "comments_after": 26,
+          "comments_before": 22,
+          "comments_after": 22,
           "modification": "data_curator modified config"
         },
         {
           "node_name": "trainer",
-          "comments_before": 31,
-          "comments_after": 31,
+          "comments_before": 22,
+          "comments_after": 22,
           "modification": "trainer modified config"
         },
         {
           "node_name": "evaluator",
-          "comments_before": 37,
-          "comments_after": 37,
+          "comments_before": 22,
+          "comments_after": 22,
           "modification": "evaluator modified config"
         },
         {
           "node_name": "deployer",
-          "comments_before": 46,
-          "comments_after": 46,
+          "comments_before": 22,
+          "comments_after": 22,
           "modification": "deployer modified config"
         }
       ],
@@ -142,43 +142,43 @@
       "mode": "cdxf_enhanced",
       "graph_config": "linear_6node",
       "initial_comments": 22,
-      "final_comments": 94,
-      "surviving_fraction": 4.2727272727272725,
+      "final_comments": 22,
+      "surviving_fraction": 1.0,
       "node_trace": [
         {
           "node_name": "data_curator",
-          "comments_before": 26,
-          "comments_after": 26,
+          "comments_before": 22,
+          "comments_after": 22,
           "modification": "data_curator modified config"
         },
         {
           "node_name": "trainer",
-          "comments_before": 31,
-          "comments_after": 31,
+          "comments_before": 22,
+          "comments_after": 22,
           "modification": "trainer modified config"
         },
         {
           "node_name": "evaluator",
-          "comments_before": 37,
-          "comments_after": 37,
+          "comments_before": 22,
+          "comments_after": 22,
           "modification": "evaluator modified config"
         },
         {
           "node_name": "deployer",
-          "comments_before": 46,
-          "comments_after": 46,
+          "comments_before": 22,
+          "comments_after": 22,
           "modification": "deployer modified config"
         },
         {
           "node_name": "monitor",
-          "comments_before": 58,
-          "comments_after": 58,
+          "comments_before": 22,
+          "comments_after": 22,
           "modification": "monitor modified config"
         },
         {
           "node_name": "reviewer",
-          "comments_before": 74,
-          "comments_after": 74,
+          "comments_before": 22,
+          "comments_after": 22,
           "modification": "reviewer modified config"
         }
       ],
@@ -201,23 +201,23 @@
       "surviving_fraction": 0.0,
       "checkpoints": [
         {
-          "checkpoint_id": "1f158b09-b1f0-61ef-8004-811f61418ac5",
+          "checkpoint_id": "1f158b26-45e7-6871-8004-6d81abbbd982",
           "node": "loop"
         },
         {
-          "checkpoint_id": "1f158b09-b1e8-6d71-8003-8c415ec54522",
+          "checkpoint_id": "1f158b26-45e4-6ef8-8003-e901416465c3",
           "node": "loop"
         },
         {
-          "checkpoint_id": "1f158b09-b1e5-6d19-8002-b44a5d7bf9ea",
+          "checkpoint_id": "1f158b26-45d9-6ab9-8002-89443d1494bd",
           "node": "loop"
         },
         {
-          "checkpoint_id": "1f158b09-b1e1-6647-8001-0410720b2a52",
+          "checkpoint_id": "1f158b26-45cd-64bb-8001-d20bb8cfa421",
           "node": "loop"
         },
         {
-          "checkpoint_id": "1f158b09-b1de-6f0a-8000-fd3a2e3b062c",
+          "checkpoint_id": "1f158b26-45be-68c4-8000-5d0a400bfd5a",
           "node": "loop"
         }
       ],
@@ -226,27 +226,27 @@
     "linear_4node_cdxf_enhanced": {
       "mode": "cdxf_enhanced",
       "initial_comments": 22,
-      "comments_after_restore": 58,
-      "surviving_fraction": 2.6363636363636362,
+      "comments_after_restore": 22,
+      "surviving_fraction": 1.0,
       "checkpoints": [
         {
-          "checkpoint_id": "1f158b09-b270-6624-8004-4af0c71db5d1",
+          "checkpoint_id": "1f158b26-4682-69f3-8004-c3c1b2cc6ce9",
           "node": "loop"
         },
         {
-          "checkpoint_id": "1f158b09-b265-6a7f-8003-9cc09f620cc3",
+          "checkpoint_id": "1f158b26-4678-6096-8003-36abff8a7f90",
           "node": "loop"
         },
         {
-          "checkpoint_id": "1f158b09-b258-691f-8002-fbf4a5886df1",
+          "checkpoint_id": "1f158b26-4668-6ac0-8002-c951bb05ae79",
           "node": "loop"
         },
         {
-          "checkpoint_id": "1f158b09-b24f-696c-8001-39b5fddab84a",
+          "checkpoint_id": "1f158b26-4650-66f1-8001-13146258b55f",
           "node": "loop"
         },
         {
-          "checkpoint_id": "1f158b09-b242-6015-8000-efea9fc96f63",
+          "checkpoint_id": "1f158b26-4640-6ee8-8000-a4748c38e372",
           "node": "loop"
         }
       ],
@@ -259,23 +259,23 @@
       "surviving_fraction": 0.0,
       "checkpoints": [
         {
-          "checkpoint_id": "1f158b09-b2be-6aa7-8006-8ec33f4a870d",
+          "checkpoint_id": "1f158b26-46f6-6d5f-8006-6d14483e5955",
           "node": "loop"
         },
         {
-          "checkpoint_id": "1f158b09-b2bb-6870-8005-361971c34324",
+          "checkpoint_id": "1f158b26-46f3-6219-8005-e116bc2e0e74",
           "node": "loop"
         },
         {
-          "checkpoint_id": "1f158b09-b2b6-68a8-8004-edd42bd5e5c5",
+          "checkpoint_id": "1f158b26-46ef-66e0-8004-cc4ed07104a2",
           "node": "loop"
         },
         {
-          "checkpoint_id": "1f158b09-b2b2-66c9-8003-9e8224540227",
+          "checkpoint_id": "1f158b26-46e1-6971-8003-dff449c6b6f5",
           "node": "loop"
         },
         {
-          "checkpoint_id": "1f158b09-b2b0-6438-8002-3b658fcab4c2",
+          "checkpoint_id": "1f158b26-46d3-617a-8002-c81d1e57a42b",
           "node": "loop"
         }
       ],
@@ -284,27 +284,27 @@
     "linear_6node_cdxf_enhanced": {
       "mode": "cdxf_enhanced",
       "initial_comments": 22,
-      "comments_after_restore": 94,
-      "surviving_fraction": 4.2727272727272725,
+      "comments_after_restore": 22,
+      "surviving_fraction": 1.0,
       "checkpoints": [
         {
-          "checkpoint_id": "1f158b09-b376-6f04-8006-13ccd150ae47",
+          "checkpoint_id": "1f158b26-47c4-66b9-8006-554ffe65f5d5",
           "node": "loop"
         },
         {
-          "checkpoint_id": "1f158b09-b368-67e7-8005-0c2078286e88",
+          "checkpoint_id": "1f158b26-47b4-6e10-8005-15ae8c684090",
           "node": "loop"
         },
         {
-          "checkpoint_id": "1f158b09-b35e-63ed-8004-02050035a95f",
+          "checkpoint_id": "1f158b26-47a6-6b86-8004-eab15cd16c83",
           "node": "loop"
         },
         {
-          "checkpoint_id": "1f158b09-b353-693c-8003-7d61e82cf33e",
+          "checkpoint_id": "1f158b26-479e-64ce-8003-c1c0309aa062",
           "node": "loop"
         },
         {
-          "checkpoint_id": "1f158b09-b346-66b7-8002-301b081dceac",
+          "checkpoint_id": "1f158b26-4791-6481-8002-ea79bcb89c99",
           "node": "loop"
         }
       ],
@@ -319,10 +319,10 @@
       "final_comments": 0
     },
     "cdxf_enhanced": {
-      "pipeline_surviving": 2.6363636363636362,
-      "checkpoint_surviving": 2.6363636363636362,
+      "pipeline_surviving": 1.0,
+      "checkpoint_surviving": 1.0,
       "initial_comments": 22,
-      "final_comments": 58
+      "final_comments": 22
     }
   }
 }

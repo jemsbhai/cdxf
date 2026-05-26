@@ -1,6 +1,6 @@
 {
   "experiment": "EXP-014",
-  "timestamp": "2026-05-26T01:51:07.574725+00:00",
+  "timestamp": "2026-05-26T03:24:23.037723+00:00",
   "scaling_analysis": {
     "2": {
       "n_formats": 2,
@@ -41,7 +41,7 @@
             "comments_before": 14,
             "comments_after": 0,
             "comments_lost": 14,
-            "latency_us": 1139.1
+            "latency_us": 960.8
           }
         ]
       },
@@ -60,7 +60,7 @@
             "comments_before": 14,
             "comments_after": 0,
             "comments_lost": 14,
-            "latency_us": 894.3
+            "latency_us": 975.0
           },
           {
             "hop": 2,
@@ -71,7 +71,7 @@
             "comments_before": 0,
             "comments_after": 0,
             "comments_lost": 0,
-            "latency_us": 820.7
+            "latency_us": 626.2
           }
         ]
       },
@@ -90,7 +90,7 @@
             "comments_before": 14,
             "comments_after": 0,
             "comments_lost": 14,
-            "latency_us": 932.0
+            "latency_us": 916.6
           },
           {
             "hop": 2,
@@ -101,7 +101,7 @@
             "comments_before": 0,
             "comments_after": 0,
             "comments_lost": 0,
-            "latency_us": 591.4
+            "latency_us": 625.8
           },
           {
             "hop": 3,
@@ -112,7 +112,7 @@
             "comments_before": 0,
             "comments_after": 0,
             "comments_lost": 0,
-            "latency_us": 3424.6
+            "latency_us": 185.7
           }
         ]
       },
@@ -131,7 +131,7 @@
             "comments_before": 14,
             "comments_after": 0,
             "comments_lost": 14,
-            "latency_us": 909.1
+            "latency_us": 1016.8
           },
           {
             "hop": 2,
@@ -142,7 +142,7 @@
             "comments_before": 0,
             "comments_after": 0,
             "comments_lost": 0,
-            "latency_us": 610.9
+            "latency_us": 577.5
           },
           {
             "hop": 3,
@@ -153,7 +153,7 @@
             "comments_before": 0,
             "comments_after": 0,
             "comments_lost": 0,
-            "latency_us": 165.2
+            "latency_us": 163.1
           },
           {
             "hop": 4,
@@ -164,7 +164,7 @@
             "comments_before": 0,
             "comments_after": 0,
             "comments_lost": 0,
-            "latency_us": 516.0
+            "latency_us": 512.7
           },
           {
             "hop": 5,
@@ -175,7 +175,7 @@
             "comments_before": 0,
             "comments_after": 0,
             "comments_lost": 0,
-            "latency_us": 1183.4
+            "latency_us": 1201.7
           }
         ]
       }
@@ -184,8 +184,8 @@
       "1": {
         "depth": 1,
         "initial_comments": 14,
-        "final_comments": 18,
-        "surviving_fraction": 1.2857142857142858,
+        "final_comments": 14,
+        "surviving_fraction": 1.0,
         "hops": [
           {
             "hop": 1,
@@ -196,15 +196,15 @@
             "comments_before": 14,
             "comments_after": 0,
             "comments_lost": 14,
-            "latency_us": 98.7
+            "latency_us": 88.5
           }
         ]
       },
       "2": {
         "depth": 2,
         "initial_comments": 14,
-        "final_comments": 18,
-        "surviving_fraction": 1.2857142857142858,
+        "final_comments": 14,
+        "surviving_fraction": 1.0,
         "hops": [
           {
             "hop": 1,
@@ -215,7 +215,7 @@
             "comments_before": 14,
             "comments_after": 0,
             "comments_lost": 14,
-            "latency_us": 81.8
+            "latency_us": 83.6
           },
           {
             "hop": 2,
@@ -224,17 +224,17 @@
             "from_format": "json",
             "to_format": "toml",
             "comments_before": 14,
-            "comments_after": 17,
-            "comments_lost": 0,
-            "latency_us": 659.4
+            "comments_after": 13,
+            "comments_lost": 1,
+            "latency_us": 621.0
           }
         ]
       },
       "3": {
         "depth": 3,
         "initial_comments": 14,
-        "final_comments": 18,
-        "surviving_fraction": 1.2857142857142858,
+        "final_comments": 14,
+        "surviving_fraction": 1.0,
         "hops": [
           {
             "hop": 1,
@@ -245,7 +245,7 @@
             "comments_before": 14,
             "comments_after": 0,
             "comments_lost": 14,
-            "latency_us": 75.8
+            "latency_us": 84.9
           },
           {
             "hop": 2,
@@ -254,9 +254,9 @@
             "from_format": "json",
             "to_format": "toml",
             "comments_before": 14,
-            "comments_after": 17,
-            "comments_lost": 0,
-            "latency_us": 612.7
+            "comments_after": 13,
+            "comments_lost": 1,
+            "latency_us": 658.4
           },
           {
             "hop": 3,
@@ -267,15 +267,15 @@
             "comments_before": 14,
             "comments_after": 0,
             "comments_lost": 14,
-            "latency_us": 41.0
+            "latency_us": 42.2
           }
         ]
       },
       "5": {
         "depth": 5,
         "initial_comments": 14,
-        "final_comments": 18,
-        "surviving_fraction": 1.2857142857142858,
+        "final_comments": 14,
+        "surviving_fraction": 1.0,
         "hops": [
           {
             "hop": 1,
@@ -286,7 +286,7 @@
             "comments_before": 14,
             "comments_after": 0,
             "comments_lost": 14,
-            "latency_us": 76.7
+            "latency_us": 82.5
           },
           {
             "hop": 2,
@@ -295,9 +295,9 @@
             "from_format": "json",
             "to_format": "toml",
             "comments_before": 14,
-            "comments_after": 17,
-            "comments_lost": 0,
-            "latency_us": 594.6
+            "comments_after": 13,
+            "comments_lost": 1,
+            "latency_us": 1202.0
           },
           {
             "hop": 3,
@@ -308,7 +308,7 @@
             "comments_before": 14,
             "comments_after": 0,
             "comments_lost": 14,
-            "latency_us": 39.4
+            "latency_us": 69.6
           },
           {
             "hop": 4,
@@ -317,9 +317,9 @@
             "from_format": "xml",
             "to_format": "yaml",
             "comments_before": 14,
-            "comments_after": 18,
+            "comments_after": 14,
             "comments_lost": 0,
-            "latency_us": 1331.7
+            "latency_us": 2525.9
           },
           {
             "hop": 5,
@@ -328,9 +328,9 @@
             "from_format": "yaml",
             "to_format": "yaml",
             "comments_before": 14,
-            "comments_after": 18,
+            "comments_after": 14,
             "comments_lost": 0,
-            "latency_us": 1631.1
+            "latency_us": 2392.7
           }
         ]
       }
@@ -356,7 +356,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 924.1
+              "latency_us": 968.8
             }
           ]
         },
@@ -377,7 +377,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 933.3
+              "latency_us": 876.9
             },
             {
               "hop": 2,
@@ -388,7 +388,7 @@
               "comments_before": 0,
               "comments_after": 0,
               "comments_lost": 0,
-              "latency_us": 448.1
+              "latency_us": 439.3
             }
           ]
         },
@@ -409,7 +409,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 870.8
+              "latency_us": 891.3
             },
             {
               "hop": 2,
@@ -420,7 +420,7 @@
               "comments_before": 0,
               "comments_after": 0,
               "comments_lost": 0,
-              "latency_us": 434.0
+              "latency_us": 444.3
             },
             {
               "hop": 3,
@@ -431,7 +431,7 @@
               "comments_before": 0,
               "comments_after": 0,
               "comments_lost": 0,
-              "latency_us": 728.0
+              "latency_us": 744.9
             }
           ]
         },
@@ -452,7 +452,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 870.1
+              "latency_us": 1713.6
             },
             {
               "hop": 2,
@@ -463,7 +463,7 @@
               "comments_before": 0,
               "comments_after": 0,
               "comments_lost": 0,
-              "latency_us": 424.0
+              "latency_us": 792.9
             },
             {
               "hop": 3,
@@ -474,7 +474,7 @@
               "comments_before": 0,
               "comments_after": 0,
               "comments_lost": 0,
-              "latency_us": 713.7
+              "latency_us": 792.5
             },
             {
               "hop": 4,
@@ -485,7 +485,7 @@
               "comments_before": 0,
               "comments_after": 0,
               "comments_lost": 0,
-              "latency_us": 437.2
+              "latency_us": 442.7
             },
             {
               "hop": 5,
@@ -496,7 +496,7 @@
               "comments_before": 0,
               "comments_after": 0,
               "comments_lost": 0,
-              "latency_us": 723.8
+              "latency_us": 884.4
             }
           ]
         }
@@ -519,7 +519,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 873.7
+              "latency_us": 982.4
             }
           ]
         },
@@ -540,7 +540,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 861.5
+              "latency_us": 861.9
             },
             {
               "hop": 2,
@@ -551,7 +551,7 @@
               "comments_before": 0,
               "comments_after": 0,
               "comments_lost": 0,
-              "latency_us": 600.3
+              "latency_us": 742.8
             }
           ]
         },
@@ -572,7 +572,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 896.1
+              "latency_us": 903.6
             },
             {
               "hop": 2,
@@ -583,7 +583,7 @@
               "comments_before": 0,
               "comments_after": 0,
               "comments_lost": 0,
-              "latency_us": 630.6
+              "latency_us": 748.5
             },
             {
               "hop": 3,
@@ -594,7 +594,7 @@
               "comments_before": 0,
               "comments_after": 0,
               "comments_lost": 0,
-              "latency_us": 522.6
+              "latency_us": 550.7
             }
           ]
         },
@@ -615,7 +615,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 884.2
+              "latency_us": 919.6
             },
             {
               "hop": 2,
@@ -626,7 +626,7 @@
               "comments_before": 0,
               "comments_after": 0,
               "comments_lost": 0,
-              "latency_us": 552.4
+              "latency_us": 576.8
             },
             {
               "hop": 3,
@@ -637,7 +637,7 @@
               "comments_before": 0,
               "comments_after": 0,
               "comments_lost": 0,
-              "latency_us": 522.9
+              "latency_us": 525.0
             },
             {
               "hop": 4,
@@ -648,7 +648,7 @@
               "comments_before": 0,
               "comments_after": 0,
               "comments_lost": 0,
-              "latency_us": 752.1
+              "latency_us": 754.5
             },
             {
               "hop": 5,
@@ -659,7 +659,7 @@
               "comments_before": 0,
               "comments_after": 0,
               "comments_lost": 0,
-              "latency_us": 553.5
+              "latency_us": 562.5
             }
           ]
         }
@@ -682,7 +682,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 1029.0
+              "latency_us": 918.3
             }
           ]
         },
@@ -703,7 +703,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 1180.2
+              "latency_us": 885.8
             },
             {
               "hop": 2,
@@ -714,7 +714,7 @@
               "comments_before": 0,
               "comments_after": 0,
               "comments_lost": 0,
-              "latency_us": 684.8
+              "latency_us": 651.6
             }
           ]
         },
@@ -735,7 +735,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 882.2
+              "latency_us": 2354.5
             },
             {
               "hop": 2,
@@ -746,7 +746,7 @@
               "comments_before": 0,
               "comments_after": 0,
               "comments_lost": 0,
-              "latency_us": 571.4
+              "latency_us": 1561.4
             },
             {
               "hop": 3,
@@ -757,7 +757,7 @@
               "comments_before": 0,
               "comments_after": 0,
               "comments_lost": 0,
-              "latency_us": 164.8
+              "latency_us": 989.3
             }
           ]
         },
@@ -778,7 +778,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 900.8
+              "latency_us": 1117.0
             },
             {
               "hop": 2,
@@ -789,7 +789,7 @@
               "comments_before": 0,
               "comments_after": 0,
               "comments_lost": 0,
-              "latency_us": 578.7
+              "latency_us": 1106.0
             },
             {
               "hop": 3,
@@ -800,7 +800,7 @@
               "comments_before": 0,
               "comments_after": 0,
               "comments_lost": 0,
-              "latency_us": 158.6
+              "latency_us": 310.4
             },
             {
               "hop": 4,
@@ -811,7 +811,7 @@
               "comments_before": 0,
               "comments_after": 0,
               "comments_lost": 0,
-              "latency_us": 530.2
+              "latency_us": 1025.1
             },
             {
               "hop": 5,
@@ -822,7 +822,7 @@
               "comments_before": 0,
               "comments_after": 0,
               "comments_lost": 0,
-              "latency_us": 1185.7
+              "latency_us": 2205.9
             }
           ]
         }
@@ -835,8 +835,8 @@
           "depth": 1,
           "n_formats": 2,
           "initial_comments": 14,
-          "final_comments": 18,
-          "surviving_fraction": 1.2857142857142858,
+          "final_comments": 14,
+          "surviving_fraction": 1.0,
           "hops": [
             {
               "hop": 1,
@@ -847,7 +847,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 81.8
+              "latency_us": 137.5
             }
           ]
         },
@@ -856,8 +856,8 @@
           "depth": 2,
           "n_formats": 2,
           "initial_comments": 14,
-          "final_comments": 18,
-          "surviving_fraction": 1.2857142857142858,
+          "final_comments": 14,
+          "surviving_fraction": 1.0,
           "hops": [
             {
               "hop": 1,
@@ -868,7 +868,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 76.2
+              "latency_us": 118.5
             },
             {
               "hop": 2,
@@ -877,9 +877,9 @@
               "from_format": "json",
               "to_format": "yaml",
               "comments_before": 14,
-              "comments_after": 18,
+              "comments_after": 14,
               "comments_lost": 0,
-              "latency_us": 1328.3
+              "latency_us": 2496.4
             }
           ]
         },
@@ -888,8 +888,8 @@
           "depth": 3,
           "n_formats": 2,
           "initial_comments": 14,
-          "final_comments": 18,
-          "surviving_fraction": 1.2857142857142858,
+          "final_comments": 14,
+          "surviving_fraction": 1.0,
           "hops": [
             {
               "hop": 1,
@@ -900,7 +900,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 75.4
+              "latency_us": 142.6
             },
             {
               "hop": 2,
@@ -909,9 +909,9 @@
               "from_format": "json",
               "to_format": "yaml",
               "comments_before": 14,
-              "comments_after": 18,
+              "comments_after": 14,
               "comments_lost": 0,
-              "latency_us": 1485.0
+              "latency_us": 2583.8
             },
             {
               "hop": 3,
@@ -922,7 +922,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 81.3
+              "latency_us": 120.5
             }
           ]
         },
@@ -931,8 +931,8 @@
           "depth": 5,
           "n_formats": 2,
           "initial_comments": 14,
-          "final_comments": 18,
-          "surviving_fraction": 1.2857142857142858,
+          "final_comments": 14,
+          "surviving_fraction": 1.0,
           "hops": [
             {
               "hop": 1,
@@ -943,7 +943,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 74.4
+              "latency_us": 145.7
             },
             {
               "hop": 2,
@@ -952,9 +952,9 @@
               "from_format": "json",
               "to_format": "yaml",
               "comments_before": 14,
-              "comments_after": 18,
+              "comments_after": 14,
               "comments_lost": 0,
-              "latency_us": 1392.0
+              "latency_us": 2530.5
             },
             {
               "hop": 3,
@@ -965,7 +965,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 81.2
+              "latency_us": 151.8
             },
             {
               "hop": 4,
@@ -974,9 +974,9 @@
               "from_format": "json",
               "to_format": "yaml",
               "comments_before": 14,
-              "comments_after": 18,
+              "comments_after": 14,
               "comments_lost": 0,
-              "latency_us": 1298.4
+              "latency_us": 2439.1
             },
             {
               "hop": 5,
@@ -987,7 +987,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 79.6
+              "latency_us": 120.5
             }
           ]
         }
@@ -998,8 +998,8 @@
           "depth": 1,
           "n_formats": 3,
           "initial_comments": 14,
-          "final_comments": 18,
-          "surviving_fraction": 1.2857142857142858,
+          "final_comments": 14,
+          "surviving_fraction": 1.0,
           "hops": [
             {
               "hop": 1,
@@ -1010,7 +1010,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 74.7
+              "latency_us": 77.7
             }
           ]
         },
@@ -1019,8 +1019,8 @@
           "depth": 2,
           "n_formats": 3,
           "initial_comments": 14,
-          "final_comments": 18,
-          "surviving_fraction": 1.2857142857142858,
+          "final_comments": 14,
+          "surviving_fraction": 1.0,
           "hops": [
             {
               "hop": 1,
@@ -1031,7 +1031,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 74.1
+              "latency_us": 77.0
             },
             {
               "hop": 2,
@@ -1040,9 +1040,9 @@
               "from_format": "json",
               "to_format": "toml",
               "comments_before": 14,
-              "comments_after": 17,
-              "comments_lost": 0,
-              "latency_us": 639.2
+              "comments_after": 13,
+              "comments_lost": 1,
+              "latency_us": 617.8
             }
           ]
         },
@@ -1051,8 +1051,8 @@
           "depth": 3,
           "n_formats": 3,
           "initial_comments": 14,
-          "final_comments": 18,
-          "surviving_fraction": 1.2857142857142858,
+          "final_comments": 14,
+          "surviving_fraction": 1.0,
           "hops": [
             {
               "hop": 1,
@@ -1063,7 +1063,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 74.1
+              "latency_us": 131.8
             },
             {
               "hop": 2,
@@ -1072,9 +1072,9 @@
               "from_format": "json",
               "to_format": "toml",
               "comments_before": 14,
-              "comments_after": 17,
-              "comments_lost": 0,
-              "latency_us": 615.3
+              "comments_after": 13,
+              "comments_lost": 1,
+              "latency_us": 1167.7
             },
             {
               "hop": 3,
@@ -1083,9 +1083,9 @@
               "from_format": "toml",
               "to_format": "yaml",
               "comments_before": 14,
-              "comments_after": 18,
+              "comments_after": 14,
               "comments_lost": 0,
-              "latency_us": 1513.9
+              "latency_us": 1568.1
             }
           ]
         },
@@ -1094,8 +1094,8 @@
           "depth": 5,
           "n_formats": 3,
           "initial_comments": 14,
-          "final_comments": 18,
-          "surviving_fraction": 1.2857142857142858,
+          "final_comments": 14,
+          "surviving_fraction": 1.0,
           "hops": [
             {
               "hop": 1,
@@ -1106,7 +1106,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 84.2
+              "latency_us": 78.5
             },
             {
               "hop": 2,
@@ -1115,9 +1115,9 @@
               "from_format": "json",
               "to_format": "toml",
               "comments_before": 14,
-              "comments_after": 17,
-              "comments_lost": 0,
-              "latency_us": 646.9
+              "comments_after": 13,
+              "comments_lost": 1,
+              "latency_us": 618.4
             },
             {
               "hop": 3,
@@ -1126,9 +1126,9 @@
               "from_format": "toml",
               "to_format": "yaml",
               "comments_before": 14,
-              "comments_after": 18,
+              "comments_after": 14,
               "comments_lost": 0,
-              "latency_us": 1352.8
+              "latency_us": 1428.3
             },
             {
               "hop": 4,
@@ -1139,7 +1139,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 81.0
+              "latency_us": 83.9
             },
             {
               "hop": 5,
@@ -1148,9 +1148,9 @@
               "from_format": "json",
               "to_format": "toml",
               "comments_before": 14,
-              "comments_after": 17,
-              "comments_lost": 0,
-              "latency_us": 597.7
+              "comments_after": 13,
+              "comments_lost": 1,
+              "latency_us": 587.1
             }
           ]
         }
@@ -1161,8 +1161,8 @@
           "depth": 1,
           "n_formats": 4,
           "initial_comments": 14,
-          "final_comments": 18,
-          "surviving_fraction": 1.2857142857142858,
+          "final_comments": 14,
+          "surviving_fraction": 1.0,
           "hops": [
             {
               "hop": 1,
@@ -1173,7 +1173,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 75.0
+              "latency_us": 80.4
             }
           ]
         },
@@ -1182,8 +1182,8 @@
           "depth": 2,
           "n_formats": 4,
           "initial_comments": 14,
-          "final_comments": 18,
-          "surviving_fraction": 1.2857142857142858,
+          "final_comments": 14,
+          "surviving_fraction": 1.0,
           "hops": [
             {
               "hop": 1,
@@ -1194,7 +1194,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 78.8
+              "latency_us": 192.3
             },
             {
               "hop": 2,
@@ -1203,9 +1203,9 @@
               "from_format": "json",
               "to_format": "toml",
               "comments_before": 14,
-              "comments_after": 17,
-              "comments_lost": 0,
-              "latency_us": 620.5
+              "comments_after": 13,
+              "comments_lost": 1,
+              "latency_us": 1205.3
             }
           ]
         },
@@ -1214,8 +1214,8 @@
           "depth": 3,
           "n_formats": 4,
           "initial_comments": 14,
-          "final_comments": 18,
-          "surviving_fraction": 1.2857142857142858,
+          "final_comments": 14,
+          "surviving_fraction": 1.0,
           "hops": [
             {
               "hop": 1,
@@ -1226,7 +1226,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 77.5
+              "latency_us": 85.6
             },
             {
               "hop": 2,
@@ -1235,9 +1235,9 @@
               "from_format": "json",
               "to_format": "toml",
               "comments_before": 14,
-              "comments_after": 17,
-              "comments_lost": 0,
-              "latency_us": 597.7
+              "comments_after": 13,
+              "comments_lost": 1,
+              "latency_us": 621.2
             },
             {
               "hop": 3,
@@ -1248,7 +1248,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 39.5
+              "latency_us": 39.1
             }
           ]
         },
@@ -1257,8 +1257,8 @@
           "depth": 5,
           "n_formats": 4,
           "initial_comments": 14,
-          "final_comments": 18,
-          "surviving_fraction": 1.2857142857142858,
+          "final_comments": 14,
+          "surviving_fraction": 1.0,
           "hops": [
             {
               "hop": 1,
@@ -1269,7 +1269,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 76.1
+              "latency_us": 82.7
             },
             {
               "hop": 2,
@@ -1278,9 +1278,9 @@
               "from_format": "json",
               "to_format": "toml",
               "comments_before": 14,
-              "comments_after": 17,
-              "comments_lost": 0,
-              "latency_us": 586.2
+              "comments_after": 13,
+              "comments_lost": 1,
+              "latency_us": 599.8
             },
             {
               "hop": 3,
@@ -1291,7 +1291,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 38.5
+              "latency_us": 39.2
             },
             {
               "hop": 4,
@@ -1300,9 +1300,9 @@
               "from_format": "xml",
               "to_format": "yaml",
               "comments_before": 14,
-              "comments_after": 18,
+              "comments_after": 14,
               "comments_lost": 0,
-              "latency_us": 1338.9
+              "latency_us": 2853.3
             },
             {
               "hop": 5,
@@ -1311,9 +1311,9 @@
               "from_format": "yaml",
               "to_format": "yaml",
               "comments_before": 14,
-              "comments_after": 18,
+              "comments_after": 14,
               "comments_lost": 0,
-              "latency_us": 1366.2
+              "latency_us": 3511.9
             }
           ]
         }
@@ -1335,9 +1335,9 @@
       },
       "cdxf_hub": {
         "max_depth": 5,
-        "surviving_fraction": 1.2857142857142858,
+        "surviving_fraction": 1.0,
         "initial_comments": 14,
-        "final_comments": 18
+        "final_comments": 14
       }
     }
   }

@@ -1,5 +1,5 @@
 graph_config,mode,n_nodes,initial_comments,final_comments_pipeline,surviving_fraction_pipeline,final_comments_checkpoint,surviving_fraction_checkpoint,n_checkpoints
 linear_4node,json_default,4,22,0,0.0,0,0.0,6
-linear_4node,cdxf_enhanced,4,22,58,2.6364,58,2.6364,6
+linear_4node,cdxf_enhanced,4,22,22,1.0,22,1.0,6
 linear_6node,json_default,6,22,0,0.0,0,0.0,8
-linear_6node,cdxf_enhanced,6,22,94,4.2727,94,4.2727,8
+linear_6node,cdxf_enhanced,6,22,22,1.0,22,1.0,8

@@ -1,175 +1,175 @@
 {
   "experiment": "EXP-013",
-  "timestamp": "2026-05-25T22:25:41.015622+00:00",
+  "timestamp": "2026-05-26T03:24:22.451187+00:00",
   "degradation": {
     "medium_cdxf": [
       {
         "k": 0,
         "total_comments": 22,
         "original_comments_surviving": 22,
-        "state_size_bytes": 3582,
+        "state_size_bytes": 3486,
         "n_files": 8,
         "grand_total_metadata": 22
       },
       {
         "k": 1,
-        "total_comments": 28,
-        "original_comments_surviving": 24,
-        "state_size_bytes": 4224,
+        "total_comments": 26,
+        "original_comments_surviving": 22,
+        "state_size_bytes": 3810,
         "n_files": 9,
-        "grand_total_metadata": 28
+        "grand_total_metadata": 26
       },
       {
         "k": 2,
-        "total_comments": 39,
-        "original_comments_surviving": 30,
-        "state_size_bytes": 4934,
+        "total_comments": 30,
+        "original_comments_surviving": 22,
+        "state_size_bytes": 4119,
         "n_files": 10,
-        "grand_total_metadata": 39
+        "grand_total_metadata": 30
       },
       {
         "k": 3,
-        "total_comments": 52,
-        "original_comments_surviving": 37,
-        "state_size_bytes": 5831,
+        "total_comments": 34,
+        "original_comments_surviving": 22,
+        "state_size_bytes": 4428,
         "n_files": 11,
-        "grand_total_metadata": 52
+        "grand_total_metadata": 34
       },
       {
         "k": 4,
-        "total_comments": 69,
-        "original_comments_surviving": 46,
-        "state_size_bytes": 6907,
+        "total_comments": 38,
+        "original_comments_surviving": 22,
+        "state_size_bytes": 4734,
         "n_files": 12,
-        "grand_total_metadata": 69
+        "grand_total_metadata": 38
       },
       {
         "k": 5,
-        "total_comments": 90,
-        "original_comments_surviving": 57,
-        "state_size_bytes": 8142,
+        "total_comments": 42,
+        "original_comments_surviving": 22,
+        "state_size_bytes": 5061,
         "n_files": 13,
-        "grand_total_metadata": 90
+        "grand_total_metadata": 42
       },
       {
         "k": 6,
-        "total_comments": 114,
-        "original_comments_surviving": 69,
-        "state_size_bytes": 9611,
+        "total_comments": 46,
+        "original_comments_surviving": 22,
+        "state_size_bytes": 5391,
         "n_files": 14,
-        "grand_total_metadata": 114
+        "grand_total_metadata": 46
       },
       {
         "k": 7,
-        "total_comments": 143,
-        "original_comments_surviving": 84,
-        "state_size_bytes": 11401,
+        "total_comments": 50,
+        "original_comments_surviving": 22,
+        "state_size_bytes": 5718,
         "n_files": 15,
-        "grand_total_metadata": 143
+        "grand_total_metadata": 50
       },
       {
         "k": 8,
-        "total_comments": 179,
-        "original_comments_surviving": 104,
-        "state_size_bytes": 13605,
+        "total_comments": 54,
+        "original_comments_surviving": 22,
+        "state_size_bytes": 6042,
         "n_files": 16,
-        "grand_total_metadata": 179
+        "grand_total_metadata": 54
       },
       {
         "k": 9,
-        "total_comments": 224,
-        "original_comments_surviving": 131,
-        "state_size_bytes": 16415,
+        "total_comments": 58,
+        "original_comments_surviving": 22,
+        "state_size_bytes": 6372,
         "n_files": 17,
-        "grand_total_metadata": 224
+        "grand_total_metadata": 58
       },
       {
         "k": 10,
-        "total_comments": 282,
-        "original_comments_surviving": 169,
-        "state_size_bytes": 20146,
+        "total_comments": 62,
+        "original_comments_surviving": 22,
+        "state_size_bytes": 6698,
         "n_files": 18,
-        "grand_total_metadata": 282
+        "grand_total_metadata": 62
       },
       {
         "k": 11,
-        "total_comments": 360,
-        "original_comments_surviving": 225,
-        "state_size_bytes": 25299,
+        "total_comments": 66,
+        "original_comments_surviving": 22,
+        "state_size_bytes": 7024,
         "n_files": 19,
-        "grand_total_metadata": 360
+        "grand_total_metadata": 66
       },
       {
         "k": 12,
-        "total_comments": 469,
-        "original_comments_surviving": 310,
-        "state_size_bytes": 32699,
+        "total_comments": 70,
+        "original_comments_surviving": 22,
+        "state_size_bytes": 7356,
         "n_files": 20,
-        "grand_total_metadata": 469
+        "grand_total_metadata": 70
       },
       {
         "k": 13,
-        "total_comments": 627,
-        "original_comments_surviving": 442,
-        "state_size_bytes": 43755,
+        "total_comments": 74,
+        "original_comments_surviving": 22,
+        "state_size_bytes": 7682,
         "n_files": 21,
-        "grand_total_metadata": 627
+        "grand_total_metadata": 74
       },
       {
         "k": 14,
-        "total_comments": 865,
-        "original_comments_surviving": 652,
-        "state_size_bytes": 60815,
+        "total_comments": 78,
+        "original_comments_surviving": 22,
+        "state_size_bytes": 8014,
         "n_files": 22,
-        "grand_total_metadata": 865
+        "grand_total_metadata": 78
       },
       {
         "k": 15,
-        "total_comments": 1234,
-        "original_comments_surviving": 991,
-        "state_size_bytes": 87670,
+        "total_comments": 82,
+        "original_comments_surviving": 22,
+        "state_size_bytes": 8343,
         "n_files": 23,
-        "grand_total_metadata": 1234
+        "grand_total_metadata": 82
       },
       {
         "k": 16,
-        "total_comments": 1817,
-        "original_comments_surviving": 1542,
-        "state_size_bytes": 130411,
+        "total_comments": 86,
+        "original_comments_surviving": 22,
+        "state_size_bytes": 8673,
         "n_files": 24,
-        "grand_total_metadata": 1817
+        "grand_total_metadata": 86
       },
       {
         "k": 17,
-        "total_comments": 2747,
-        "original_comments_surviving": 2438,
-        "state_size_bytes": 198754,
+        "total_comments": 90,
+        "original_comments_surviving": 22,
+        "state_size_bytes": 8999,
         "n_files": 25,
-        "grand_total_metadata": 2747
+        "grand_total_metadata": 90
       },
       {
         "k": 18,
-        "total_comments": 4235,
-        "original_comments_surviving": 3890,
-        "state_size_bytes": 307974,
+        "total_comments": 94,
+        "original_comments_surviving": 22,
+        "state_size_bytes": 9325,
         "n_files": 26,
-        "grand_total_metadata": 4235
+        "grand_total_metadata": 94
       },
       {
         "k": 19,
-        "total_comments": 6610,
-        "original_comments_surviving": 6227,
-        "state_size_bytes": 482107,
+        "total_comments": 98,
+        "original_comments_surviving": 22,
+        "state_size_bytes": 9651,
         "n_files": 27,
-        "grand_total_metadata": 6610
+        "grand_total_metadata": 98
       },
       {
         "k": 20,
-        "total_comments": 10384,
-        "original_comments_surviving": 9961,
-        "state_size_bytes": 758772,
+        "total_comments": 102,
+        "original_comments_surviving": 22,
+        "state_size_bytes": 9980,
         "n_files": 28,
-        "grand_total_metadata": 10384
+        "grand_total_metadata": 102
       }
     ],
     "medium_json_mega": [
@@ -687,89 +687,89 @@
         "k": 0,
         "total_comments": 13,
         "original_comments_surviving": 13,
-        "state_size_bytes": 1725,
+        "state_size_bytes": 1629,
         "n_files": 3,
         "grand_total_metadata": 13
       },
       {
         "k": 1,
-        "total_comments": 19,
-        "original_comments_surviving": 15,
-        "state_size_bytes": 2335,
+        "total_comments": 17,
+        "original_comments_surviving": 13,
+        "state_size_bytes": 1956,
         "n_files": 4,
-        "grand_total_metadata": 19
+        "grand_total_metadata": 17
       },
       {
         "k": 2,
-        "total_comments": 29,
-        "original_comments_surviving": 20,
-        "state_size_bytes": 3016,
+        "total_comments": 21,
+        "original_comments_surviving": 13,
+        "state_size_bytes": 2268,
         "n_files": 5,
-        "grand_total_metadata": 29
+        "grand_total_metadata": 21
       },
       {
         "k": 3,
-        "total_comments": 41,
-        "original_comments_surviving": 26,
-        "state_size_bytes": 3896,
+        "total_comments": 25,
+        "original_comments_surviving": 13,
+        "state_size_bytes": 2592,
         "n_files": 6,
-        "grand_total_metadata": 41
+        "grand_total_metadata": 25
       },
       {
         "k": 4,
-        "total_comments": 57,
-        "original_comments_surviving": 34,
-        "state_size_bytes": 4912,
+        "total_comments": 29,
+        "original_comments_surviving": 13,
+        "state_size_bytes": 2916,
         "n_files": 7,
-        "grand_total_metadata": 57
+        "grand_total_metadata": 29
       },
       {
         "k": 5,
-        "total_comments": 76,
-        "original_comments_surviving": 43,
-        "state_size_bytes": 6069,
+        "total_comments": 33,
+        "original_comments_surviving": 13,
+        "state_size_bytes": 3243,
         "n_files": 8,
-        "grand_total_metadata": 76
+        "grand_total_metadata": 33
       },
       {
         "k": 6,
-        "total_comments": 98,
-        "original_comments_surviving": 53,
-        "state_size_bytes": 7417,
+        "total_comments": 37,
+        "original_comments_surviving": 13,
+        "state_size_bytes": 3573,
         "n_files": 9,
-        "grand_total_metadata": 98
+        "grand_total_metadata": 37
       },
       {
         "k": 7,
-        "total_comments": 124,
-        "original_comments_surviving": 65,
-        "state_size_bytes": 9003,
+        "total_comments": 41,
+        "original_comments_surviving": 13,
+        "state_size_bytes": 3900,
         "n_files": 10,
-        "grand_total_metadata": 124
+        "grand_total_metadata": 41
       },
       {
         "k": 8,
-        "total_comments": 155,
-        "original_comments_surviving": 80,
-        "state_size_bytes": 10828,
+        "total_comments": 45,
+        "original_comments_surviving": 13,
+        "state_size_bytes": 4224,
         "n_files": 11,
-        "grand_total_metadata": 155
+        "grand_total_metadata": 45
       },
       {
         "k": 9,
-        "total_comments": 191,
-        "original_comments_surviving": 98,
-        "state_size_bytes": 12958,
+        "total_comments": 49,
+        "original_comments_surviving": 13,
+        "state_size_bytes": 4554,
         "n_files": 12,
-        "grand_total_metadata": 191
+        "grand_total_metadata": 49
       },
       {
         "k": 10,
-        "total_comments": 233,
-        "original_comments_surviving": 120,
-        "state_size_bytes": 15498,
+        "total_comments": 53,
+        "original_comments_surviving": 13,
+        "state_size_bytes": 4880,
         "n_files": 13,
-        "grand_total_metadata": 233
+        "grand_total_metadata": 53
       }
     ],
     "small_json_mega": [
@@ -1047,89 +1047,89 @@
         "k": 0,
         "total_comments": 46,
         "original_comments_surviving": 46,
-        "state_size_bytes": 6255,
+        "state_size_bytes": 6104,
         "n_files": 15,
         "grand_total_metadata": 49
       },
       {
         "k": 1,
-        "total_comments": 54,
-        "original_comments_surviving": 50,
-        "state_size_bytes": 6934,
+        "total_comments": 50,
+        "original_comments_surviving": 46,
+        "state_size_bytes": 6410,
         "n_files": 16,
-        "grand_total_metadata": 54
+        "grand_total_metadata": 50
       },
       {
         "k": 2,
-        "total_comments": 67,
-        "original_comments_surviving": 58,
-        "state_size_bytes": 7728,
+        "total_comments": 54,
+        "original_comments_surviving": 46,
+        "state_size_bytes": 6728,
         "n_files": 17,
-        "grand_total_metadata": 67
+        "grand_total_metadata": 54
       },
       {
         "k": 3,
-        "total_comments": 83,
-        "original_comments_surviving": 68,
-        "state_size_bytes": 8724,
+        "total_comments": 58,
+        "original_comments_surviving": 46,
+        "state_size_bytes": 7037,
         "n_files": 18,
-        "grand_total_metadata": 83
+        "grand_total_metadata": 58
       },
       {
         "k": 4,
-        "total_comments": 104,
-        "original_comments_surviving": 81,
-        "state_size_bytes": 9899,
+        "total_comments": 62,
+        "original_comments_surviving": 46,
+        "state_size_bytes": 7343,
         "n_files": 19,
-        "grand_total_metadata": 104
+        "grand_total_metadata": 62
       },
       {
         "k": 5,
-        "total_comments": 129,
-        "original_comments_surviving": 96,
-        "state_size_bytes": 11221,
+        "total_comments": 66,
+        "original_comments_surviving": 46,
+        "state_size_bytes": 7658,
         "n_files": 20,
-        "grand_total_metadata": 129
+        "grand_total_metadata": 66
       },
       {
         "k": 6,
-        "total_comments": 157,
-        "original_comments_surviving": 112,
-        "state_size_bytes": 12777,
+        "total_comments": 70,
+        "original_comments_surviving": 46,
+        "state_size_bytes": 7976,
         "n_files": 21,
-        "grand_total_metadata": 157
+        "grand_total_metadata": 70
       },
       {
         "k": 7,
-        "total_comments": 190,
-        "original_comments_surviving": 131,
-        "state_size_bytes": 14690,
+        "total_comments": 74,
+        "original_comments_surviving": 46,
+        "state_size_bytes": 8300,
         "n_files": 22,
-        "grand_total_metadata": 190
+        "grand_total_metadata": 74
       },
       {
         "k": 8,
-        "total_comments": 231,
-        "original_comments_surviving": 156,
-        "state_size_bytes": 17018,
+        "total_comments": 78,
+        "original_comments_surviving": 46,
+        "state_size_bytes": 8624,
         "n_files": 23,
-        "grand_total_metadata": 231
+        "grand_total_metadata": 78
       },
       {
         "k": 9,
-        "total_comments": 281,
-        "original_comments_surviving": 188,
-        "state_size_bytes": 19946,
+        "total_comments": 82,
+        "original_comments_surviving": 46,
+        "state_size_bytes": 8949,
         "n_files": 24,
-        "grand_total_metadata": 281
+        "grand_total_metadata": 82
       },
       {
         "k": 10,
-        "total_comments": 344,
-        "original_comments_surviving": 231,
-        "state_size_bytes": 23801,
+        "total_comments": 86,
+        "original_comments_surviving": 46,
+        "state_size_bytes": 9275,
         "n_files": 25,
-        "grand_total_metadata": 344
+        "grand_total_metadata": 86
       }
     ],
     "large_json_mega": [
@@ -1408,8 +1408,8 @@
       "state_format": "cdxf",
       "complexity": "medium",
       "initial_comments": 22,
-      "final_comments": 9961,
-      "surviving_fraction": 452.7727,
+      "final_comments": 22,
+      "surviving_fraction": 1.0,
       "max_k": 20
     },
     "medium_json_mega": {
@@ -1440,8 +1440,8 @@
       "state_format": "cdxf",
       "complexity": "small",
       "initial_comments": 13,
-      "final_comments": 120,
-      "surviving_fraction": 9.2308,
+      "final_comments": 13,
+      "surviving_fraction": 1.0,
       "max_k": 10
     },
     "small_json_mega": {
@@ -1472,8 +1472,8 @@
       "state_format": "cdxf",
       "complexity": "large",
       "initial_comments": 46,
-      "final_comments": 231,
-      "surviving_fraction": 5.0217,
+      "final_comments": 46,
+      "surviving_fraction": 1.0,
       "max_k": 10
     },
     "large_json_mega": {
