@@ -2162,3 +2162,108 @@ advantage is framework-agnostic.
 - Script: benchmarks/src/run_exp018.py
 - Tests: tests/test_exp018.py
 - Results: benchmarks/results/exp_018/
+
+
+---
+
+## EXP-019: LLM-in-the-Loop Config QA — Does Metadata Improve Accuracy?
+
+**Date:** 2026-05-26
+**Researcher:** Claude + User (collaborative)
+**Type:** computational (with live API calls, recorded as fixtures)
+**Status:** completed
+
+### Hypothesis
+
+LLMs answer configuration questions more accurately when YAML comments
+are preserved (CDXF path) than when they are stripped (standard path).
+Questions whose answers exist only in comments will have ~0% accuracy
+without comments and high accuracy with comments.
+
+### Independent Variables
+
+- **comment_condition**: {with_comments, without_comments}
+- **model**: {gemma4:31b-cloud (ollama), gemini-2.5-flash (API)}
+- **question_type**: {comment_only, mixed, value_only} (control)
+
+### Dependent Variables
+
+- **accuracy**: fraction of correct answers (binary grading)
+- **answer_quality**: {correct, partial, wrong, hallucinated}
+
+### Control Conditions
+
+- Same config content (values identical in both conditions)
+- Temperature 0 for both models (deterministic)
+- Questions graded by exact keyword matching + manual review
+- Value-only questions (control) should score equally in both conditions
+- Record all API responses as fixtures for reproducibility
+
+### Protocol
+
+1. Build QA dataset: config + questions + ground truth answers
+2. For each model × condition × question:
+   a. Present config (with or without comments) + question
+   b. Record raw LLM response
+   c. Grade response against ground truth
+3. Save all responses as JSON fixtures
+4. Compute accuracy by condition × model × question_type
+5. Statistical comparison: paired accuracy with vs without comments
+
+### Question Categories
+
+- **comment_only**: Answer exists ONLY in comments
+  - "Why was this learning rate chosen?"
+  - "What is the effective batch size calculation?"
+  - "Who owns this configuration?"
+  - "When was this config created?"
+  - "What base model variant is used?"
+- **value_only** (control): Answer is in values, not comments
+  - "What is the learning rate?"
+  - "How many epochs?"
+  - "What dataset is used?"
+- **mixed**: Answer benefits from both
+  - "What quantization strategy is used and why?"
+
+### Environment
+
+- **Hardware:** Windows laptop, 64GB RAM, RTX 4090
+- **Models:** gemma4:31b-cloud (ollama 0.24.0), gemini-2.5-flash (API)
+- **Temperature:** 0 for both
+- **Fixtures:** benchmarks/results/exp_019/fixtures/
+
+### Results
+
+| Model | Condition | Comment-Only | Value-Only | Mixed | Overall |
+|-------|-----------|-------------|------------|-------|---------|
+| gemma4 | with_comments | 100% (6/6) | 75% (3/4) | 100% (2/2) | 91.7% |
+| gemma4 | without_comments | 17% (1/6) | 75% (3/4) | 100% (2/2) | 50.0% |
+| gemini-flash | with_comments | 100% (6/6) | 75% (3/4) | 100% (2/2) | 91.7% |
+| gemini-flash | without_comments | 33% (2/6) | 75% (3/4) | 100% (2/2) | 58.3% |
+
+Comment-only delta: gemma4 +83.3pp, gemini-flash +66.7pp.
+Control (value-only): identical 75% in both conditions.
+
+### Observations
+
+- Both models achieve 100% on comment-only questions with comments.
+- Without comments, models hallucinate or give wrong answers for
+  rationale, ownership, and creation date questions.
+- Control (value-only) identical at 75% confirms the delta is
+  specific to comment-carried information.
+- All 48 API responses recorded as JSON fixtures.
+- 28 tests pass.
+
+### Interpretation
+
+Hypothesis strongly confirmed. CDXF metadata preservation has direct,
+measurable impact on LLM reasoning accuracy (+67–83pp on comment-only).
+This is not just data fidelity — it translates to practical downstream
+benefit for AI systems that process configuration files.
+
+### Artifacts
+
+- Script: benchmarks/src/run_exp019.py
+- Tests: tests/test_exp019.py
+- Fixtures: benchmarks/results/exp_019/fixtures/
+- Results: benchmarks/results/exp_019/

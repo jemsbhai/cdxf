@@ -1,0 +1,49 @@
+model,condition,question_id,category,grade,match_ratio,question
+gemma4,with_comments,q01,comment_only,correct,1.0,Why was this learning rate chosen? What alternatives were considered?
+gemma4,with_comments,q02,comment_only,correct,1.0,What is the effective batch size and how is it calculated?
+gemma4,with_comments,q03,comment_only,correct,1.0,Who owns this configuration?
+gemma4,with_comments,q04,comment_only,correct,1.0,When was this configuration created?
+gemma4,with_comments,q05,comment_only,correct,0.5,What determines the head architecture in this model?
+gemma4,with_comments,q06,comment_only,correct,1.0,Why is the seed parameter included?
+gemma4,with_comments,q07,value_only,partial,0.3333333333333333,What is the learning rate value?
+gemma4,with_comments,q08,value_only,correct,1.0,How many training epochs are configured?
+gemma4,with_comments,q09,value_only,correct,1.0,What dataset is being used for training?
+gemma4,with_comments,q10,value_only,correct,1.0,What is the minimum acceptable accuracy?
+gemma4,with_comments,q11,mixed,correct,1.0,What serving engine is used and what is its configuration purpose?
+gemma4,with_comments,q12,mixed,correct,1.0,Describe the evaluation strategy including when evaluations run.
+gemma4,without_comments,q01,comment_only,hallucinated,0.0,Why was this learning rate chosen? What alternatives were considered?
+gemma4,without_comments,q02,comment_only,correct,0.6666666666666666,What is the effective batch size and how is it calculated?
+gemma4,without_comments,q03,comment_only,wrong,0.0,Who owns this configuration?
+gemma4,without_comments,q04,comment_only,wrong,0.0,When was this configuration created?
+gemma4,without_comments,q05,comment_only,wrong,0.0,What determines the head architecture in this model?
+gemma4,without_comments,q06,comment_only,wrong,0.0,Why is the seed parameter included?
+gemma4,without_comments,q07,value_only,partial,0.3333333333333333,What is the learning rate value?
+gemma4,without_comments,q08,value_only,correct,1.0,How many training epochs are configured?
+gemma4,without_comments,q09,value_only,correct,1.0,What dataset is being used for training?
+gemma4,without_comments,q10,value_only,correct,1.0,What is the minimum acceptable accuracy?
+gemma4,without_comments,q11,mixed,correct,1.0,What serving engine is used and what is its configuration purpose?
+gemma4,without_comments,q12,mixed,correct,0.6666666666666666,Describe the evaluation strategy including when evaluations run.
+gemini-flash,with_comments,q01,comment_only,correct,1.0,Why was this learning rate chosen? What alternatives were considered?
+gemini-flash,with_comments,q02,comment_only,correct,1.0,What is the effective batch size and how is it calculated?
+gemini-flash,with_comments,q03,comment_only,correct,1.0,Who owns this configuration?
+gemini-flash,with_comments,q04,comment_only,correct,1.0,When was this configuration created?
+gemini-flash,with_comments,q05,comment_only,correct,0.5,What determines the head architecture in this model?
+gemini-flash,with_comments,q06,comment_only,correct,1.0,Why is the seed parameter included?
+gemini-flash,with_comments,q07,value_only,partial,0.3333333333333333,What is the learning rate value?
+gemini-flash,with_comments,q08,value_only,correct,1.0,How many training epochs are configured?
+gemini-flash,with_comments,q09,value_only,correct,1.0,What dataset is being used for training?
+gemini-flash,with_comments,q10,value_only,correct,1.0,What is the minimum acceptable accuracy?
+gemini-flash,with_comments,q11,mixed,correct,1.0,What serving engine is used and what is its configuration purpose?
+gemini-flash,with_comments,q12,mixed,correct,1.0,Describe the evaluation strategy including when evaluations run.
+gemini-flash,without_comments,q01,comment_only,hallucinated,0.0,Why was this learning rate chosen? What alternatives were considered?
+gemini-flash,without_comments,q02,comment_only,correct,0.6666666666666666,What is the effective batch size and how is it calculated?
+gemini-flash,without_comments,q03,comment_only,wrong,0.0,Who owns this configuration?
+gemini-flash,without_comments,q04,comment_only,wrong,0.0,When was this configuration created?
+gemini-flash,without_comments,q05,comment_only,correct,0.5,What determines the head architecture in this model?
+gemini-flash,without_comments,q06,comment_only,wrong,0.0,Why is the seed parameter included?
+gemini-flash,without_comments,q07,value_only,partial,0.3333333333333333,What is the learning rate value?
+gemini-flash,without_comments,q08,value_only,correct,1.0,How many training epochs are configured?
+gemini-flash,without_comments,q09,value_only,correct,1.0,What dataset is being used for training?
+gemini-flash,without_comments,q10,value_only,correct,1.0,What is the minimum acceptable accuracy?
+gemini-flash,without_comments,q11,mixed,correct,1.0,What serving engine is used and what is its configuration purpose?
+gemini-flash,without_comments,q12,mixed,correct,0.6666666666666666,Describe the evaluation strategy including when evaluations run.

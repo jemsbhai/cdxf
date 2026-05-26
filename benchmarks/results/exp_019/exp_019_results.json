@@ -1,0 +1,738 @@
+{
+  "experiment": "EXP-019",
+  "timestamp": "2026-05-26T17:39:55.298282+00:00",
+  "models": [
+    "gemma4",
+    "gemini-flash"
+  ],
+  "n_questions": 12,
+  "results": [
+    {
+      "model": "gemma4",
+      "condition": "with_comments",
+      "question_id": "q01",
+      "question": "Why was this learning rate chosen? What alternatives were considered?",
+      "category": "comment_only",
+      "response": "The learning rate was chosen from a grid search. The alternatives considered were 1e-5, 5e-5, and 1e-4.",
+      "grade": "correct",
+      "matched_keywords": [
+        "grid search",
+        "1e-5",
+        "5e-5",
+        "1e-4"
+      ],
+      "match_ratio": 1.0
+    },
+    {
+      "model": "gemma4",
+      "condition": "with_comments",
+      "question_id": "q02",
+      "question": "What is the effective batch size and how is it calculated?",
+      "category": "comment_only",
+      "response": "The effective batch size is 128, calculated using gradient accumulation steps.",
+      "grade": "correct",
+      "matched_keywords": [
+        "128",
+        "effective batch",
+        "accumulation"
+      ],
+      "match_ratio": 1.0
+    },
+    {
+      "model": "gemma4",
+      "condition": "with_comments",
+      "question_id": "q03",
+      "question": "Who owns this configuration?",
+      "category": "comment_only",
+      "response": "ML Platform Team",
+      "grade": "correct",
+      "matched_keywords": [
+        "ML Platform Team"
+      ],
+      "match_ratio": 1.0
+    },
+    {
+      "model": "gemma4",
+      "condition": "with_comments",
+      "question_id": "q04",
+      "question": "When was this configuration created?",
+      "category": "comment_only",
+      "response": "2026-01-15",
+      "grade": "correct",
+      "matched_keywords": [
+        "2026-01-15"
+      ],
+      "match_ratio": 1.0
+    },
+    {
+      "model": "gemma4",
+      "condition": "with_comments",
+      "question_id": "q05",
+      "question": "What determines the head architecture in this model?",
+      "category": "comment_only",
+      "response": "The task_type determines the head architecture.",
+      "grade": "correct",
+      "matched_keywords": [
+        "task_type"
+      ],
+      "match_ratio": 0.5
+    },
+    {
+      "model": "gemma4",
+      "condition": "with_comments",
+      "question_id": "q06",
+      "question": "Why is the seed parameter included?",
+      "category": "comment_only",
+      "response": "The seed parameter is included for reproducibility across runs.",
+      "grade": "correct",
+      "matched_keywords": [
+        "reproducibility"
+      ],
+      "match_ratio": 1.0
+    },
+    {
+      "model": "gemma4",
+      "condition": "with_comments",
+      "question_id": "q07",
+      "question": "What is the learning rate value?",
+      "category": "value_only",
+      "response": "2.0e-5",
+      "grade": "partial",
+      "matched_keywords": [
+        "2.0e-5"
+      ],
+      "match_ratio": 0.3333333333333333
+    },
+    {
+      "model": "gemma4",
+      "condition": "with_comments",
+      "question_id": "q08",
+      "question": "How many training epochs are configured?",
+      "category": "value_only",
+      "response": "3",
+      "grade": "correct",
+      "matched_keywords": [
+        "3"
+      ],
+      "match_ratio": 1.0
+    },
+    {
+      "model": "gemma4",
+      "condition": "with_comments",
+      "question_id": "q09",
+      "question": "What dataset is being used for training?",
+      "category": "value_only",
+      "response": "tatsu-lab/alpaca",
+      "grade": "correct",
+      "matched_keywords": [
+        "tatsu-lab/alpaca",
+        "alpaca"
+      ],
+      "match_ratio": 1.0
+    },
+    {
+      "model": "gemma4",
+      "condition": "with_comments",
+      "question_id": "q10",
+      "question": "What is the minimum acceptable accuracy?",
+      "category": "value_only",
+      "response": "0.45",
+      "grade": "correct",
+      "matched_keywords": [
+        "0.45"
+      ],
+      "match_ratio": 1.0
+    },
+    {
+      "model": "gemma4",
+      "condition": "with_comments",
+      "question_id": "q11",
+      "question": "What serving engine is used and what is its configuration purpose?",
+      "category": "mixed",
+      "response": "The serving engine is vllm, and its configuration purpose is for deployment.",
+      "grade": "correct",
+      "matched_keywords": [
+        "vllm",
+        "serving"
+      ],
+      "match_ratio": 1.0
+    },
+    {
+      "model": "gemma4",
+      "condition": "with_comments",
+      "question_id": "q12",
+      "question": "Describe the evaluation strategy including when evaluations run.",
+      "category": "mixed",
+      "response": "The evaluation strategy consists of running the mmlu, hellaswag, and arc_challenge benchmarks after each epoch, with a minimum acceptable accuracy of 0.45.",
+      "grade": "correct",
+      "matched_keywords": [
+        "epoch",
+        "mmlu",
+        "hellaswag"
+      ],
+      "match_ratio": 1.0
+    },
+    {
+      "model": "gemma4",
+      "condition": "without_comments",
+      "question_id": "q01",
+      "question": "Why was this learning rate chosen? What alternatives were considered?",
+      "category": "comment_only",
+      "response": "The provided configuration does not contain information regarding why the learning rate was chosen or what alternatives were considered.",
+      "grade": "hallucinated",
+      "matched_keywords": [],
+      "match_ratio": 0.0
+    },
+    {
+      "model": "gemma4",
+      "condition": "without_comments",
+      "question_id": "q02",
+      "question": "What is the effective batch size and how is it calculated?",
+      "category": "comment_only",
+      "response": "The effective batch size is 32, calculated by multiplying the `per_device_batch_size` (4) by the `gradient_accumulation_steps` (8).",
+      "grade": "correct",
+      "matched_keywords": [
+        "effective batch",
+        "accumulation"
+      ],
+      "match_ratio": 0.6666666666666666
+    },
+    {
+      "model": "gemma4",
+      "condition": "without_comments",
+      "question_id": "q03",
+      "question": "Who owns this configuration?",
+      "category": "comment_only",
+      "response": "The provided configuration does not contain information regarding who owns it.",
+      "grade": "wrong",
+      "matched_keywords": [],
+      "match_ratio": 0.0
+    },
+    {
+      "model": "gemma4",
+      "condition": "without_comments",
+      "question_id": "q04",
+      "question": "When was this configuration created?",
+      "category": "comment_only",
+      "response": "The provided configuration does not contain information regarding when it was created.",
+      "grade": "wrong",
+      "matched_keywords": [],
+      "match_ratio": 0.0
+    },
+    {
+      "model": "gemma4",
+      "condition": "without_comments",
+      "question_id": "q05",
+      "question": "What determines the head architecture in this model?",
+      "category": "comment_only",
+      "response": "The provided configuration does not contain information regarding the head architecture.",
+      "grade": "wrong",
+      "matched_keywords": [],
+      "match_ratio": 0.0
+    },
+    {
+      "model": "gemma4",
+      "condition": "without_comments",
+      "question_id": "q06",
+      "question": "Why is the seed parameter included?",
+      "category": "comment_only",
+      "response": "The provided configuration does not state why the seed parameter is included; it only specifies that the seed is 42.",
+      "grade": "wrong",
+      "matched_keywords": [],
+      "match_ratio": 0.0
+    },
+    {
+      "model": "gemma4",
+      "condition": "without_comments",
+      "question_id": "q07",
+      "question": "What is the learning rate value?",
+      "category": "value_only",
+      "response": "2.0e-5",
+      "grade": "partial",
+      "matched_keywords": [
+        "2.0e-5"
+      ],
+      "match_ratio": 0.3333333333333333
+    },
+    {
+      "model": "gemma4",
+      "condition": "without_comments",
+      "question_id": "q08",
+      "question": "How many training epochs are configured?",
+      "category": "value_only",
+      "response": "3",
+      "grade": "correct",
+      "matched_keywords": [
+        "3"
+      ],
+      "match_ratio": 1.0
+    },
+    {
+      "model": "gemma4",
+      "condition": "without_comments",
+      "question_id": "q09",
+      "question": "What dataset is being used for training?",
+      "category": "value_only",
+      "response": "tatsu-lab/alpaca",
+      "grade": "correct",
+      "matched_keywords": [
+        "tatsu-lab/alpaca",
+        "alpaca"
+      ],
+      "match_ratio": 1.0
+    },
+    {
+      "model": "gemma4",
+      "condition": "without_comments",
+      "question_id": "q10",
+      "question": "What is the minimum acceptable accuracy?",
+      "category": "value_only",
+      "response": "0.45",
+      "grade": "correct",
+      "matched_keywords": [
+        "0.45"
+      ],
+      "match_ratio": 1.0
+    },
+    {
+      "model": "gemma4",
+      "condition": "without_comments",
+      "question_id": "q11",
+      "question": "What serving engine is used and what is its configuration purpose?",
+      "category": "mixed",
+      "response": "The serving engine used is vllm, and its configuration purpose is for deployment.",
+      "grade": "correct",
+      "matched_keywords": [
+        "vllm",
+        "serving"
+      ],
+      "match_ratio": 1.0
+    },
+    {
+      "model": "gemma4",
+      "condition": "without_comments",
+      "question_id": "q12",
+      "question": "Describe the evaluation strategy including when evaluations run.",
+      "category": "mixed",
+      "response": "The evaluation strategy consists of using three benchmarks (mmlu, hellaswag, and arc_challenge) with a minimum accuracy requirement of 0.45. The configuration does not specify when evaluations run.",
+      "grade": "correct",
+      "matched_keywords": [
+        "mmlu",
+        "hellaswag"
+      ],
+      "match_ratio": 0.6666666666666666
+    },
+    {
+      "model": "gemini-flash",
+      "condition": "with_comments",
+      "question_id": "q01",
+      "question": "Why was this learning rate chosen? What alternatives were considered?",
+      "category": "comment_only",
+      "response": "This learning rate was chosen \"from grid search\". The alternatives considered were `1e-5`, `5e-5`, and `1e-4`.",
+      "grade": "correct",
+      "matched_keywords": [
+        "grid search",
+        "1e-5",
+        "5e-5",
+        "1e-4"
+      ],
+      "match_ratio": 1.0
+    },
+    {
+      "model": "gemini-flash",
+      "condition": "with_comments",
+      "question_id": "q02",
+      "question": "What is the effective batch size and how is it calculated?",
+      "category": "comment_only",
+      "response": "The effective batch size is 128. It is calculated by multiplying `per_device_batch_size` (4) by `gradient_accumulation_steps` (8), which results in an effective batch size of 32. The configuration comment explicitly states \"Gradient accumulation for effective batch 128\", implying a different calculation or an intended target. However, based on the provided numbers (4 * 8), the calculated effective batch size is 32. The comment indicates an intended effective batch size of 128.",
+      "grade": "correct",
+      "matched_keywords": [
+        "128",
+        "effective batch",
+        "accumulation"
+      ],
+      "match_ratio": 1.0
+    },
+    {
+      "model": "gemini-flash",
+      "condition": "with_comments",
+      "question_id": "q03",
+      "question": "Who owns this configuration?",
+      "category": "comment_only",
+      "response": "ML Platform Team",
+      "grade": "correct",
+      "matched_keywords": [
+        "ML Platform Team"
+      ],
+      "match_ratio": 1.0
+    },
+    {
+      "model": "gemini-flash",
+      "condition": "with_comments",
+      "question_id": "q04",
+      "question": "When was this configuration created?",
+      "category": "comment_only",
+      "response": "2026-01-15",
+      "grade": "correct",
+      "matched_keywords": [
+        "2026-01-15"
+      ],
+      "match_ratio": 1.0
+    },
+    {
+      "model": "gemini-flash",
+      "condition": "with_comments",
+      "question_id": "q05",
+      "question": "What determines the head architecture in this model?",
+      "category": "comment_only",
+      "response": "The `task_type` determines the head architecture.",
+      "grade": "correct",
+      "matched_keywords": [
+        "task_type"
+      ],
+      "match_ratio": 0.5
+    },
+    {
+      "model": "gemini-flash",
+      "condition": "with_comments",
+      "question_id": "q06",
+      "question": "Why is the seed parameter included?",
+      "category": "comment_only",
+      "response": "For reproducibility across runs.",
+      "grade": "correct",
+      "matched_keywords": [
+        "reproducibility"
+      ],
+      "match_ratio": 1.0
+    },
+    {
+      "model": "gemini-flash",
+      "condition": "with_comments",
+      "question_id": "q07",
+      "question": "What is the learning rate value?",
+      "category": "value_only",
+      "response": "2.0e-5",
+      "grade": "partial",
+      "matched_keywords": [
+        "2.0e-5"
+      ],
+      "match_ratio": 0.3333333333333333
+    },
+    {
+      "model": "gemini-flash",
+      "condition": "with_comments",
+      "question_id": "q08",
+      "question": "How many training epochs are configured?",
+      "category": "value_only",
+      "response": "3",
+      "grade": "correct",
+      "matched_keywords": [
+        "3"
+      ],
+      "match_ratio": 1.0
+    },
+    {
+      "model": "gemini-flash",
+      "condition": "with_comments",
+      "question_id": "q09",
+      "question": "What dataset is being used for training?",
+      "category": "value_only",
+      "response": "tatsu-lab/alpaca",
+      "grade": "correct",
+      "matched_keywords": [
+        "tatsu-lab/alpaca",
+        "alpaca"
+      ],
+      "match_ratio": 1.0
+    },
+    {
+      "model": "gemini-flash",
+      "condition": "with_comments",
+      "question_id": "q10",
+      "question": "What is the minimum acceptable accuracy?",
+      "category": "value_only",
+      "response": "0.45",
+      "grade": "correct",
+      "matched_keywords": [
+        "0.45"
+      ],
+      "match_ratio": 1.0
+    },
+    {
+      "model": "gemini-flash",
+      "condition": "with_comments",
+      "question_id": "q11",
+      "question": "What serving engine is used and what is its configuration purpose?",
+      "category": "mixed",
+      "response": "The serving engine used is `vllm`. Its configuration purpose is for vLLM serving.",
+      "grade": "correct",
+      "matched_keywords": [
+        "vllm",
+        "serving"
+      ],
+      "match_ratio": 1.0
+    },
+    {
+      "model": "gemini-flash",
+      "condition": "with_comments",
+      "question_id": "q12",
+      "question": "Describe the evaluation strategy including when evaluations run.",
+      "category": "mixed",
+      "response": "Evaluations run after each epoch. The strategy involves running benchmarks on `mmlu`, `hellaswag`, and `arc_challenge`, with a minimum acceptable accuracy of `0.45`.",
+      "grade": "correct",
+      "matched_keywords": [
+        "epoch",
+        "mmlu",
+        "hellaswag"
+      ],
+      "match_ratio": 1.0
+    },
+    {
+      "model": "gemini-flash",
+      "condition": "without_comments",
+      "question_id": "q01",
+      "question": "Why was this learning rate chosen? What alternatives were considered?",
+      "category": "comment_only",
+      "response": "The configuration specifies a learning rate of `2.0e-5`. The YAML file does not provide any information on why this specific learning rate was chosen or what alternatives were considered.",
+      "grade": "hallucinated",
+      "matched_keywords": [],
+      "match_ratio": 0.0
+    },
+    {
+      "model": "gemini-flash",
+      "condition": "without_comments",
+      "question_id": "q02",
+      "question": "What is the effective batch size and how is it calculated?",
+      "category": "comment_only",
+      "response": "The effective batch size is 32. It is calculated by multiplying `per_device_batch_size` (4) by `gradient_accumulation_steps` (8).",
+      "grade": "correct",
+      "matched_keywords": [
+        "effective batch",
+        "accumulation"
+      ],
+      "match_ratio": 0.6666666666666666
+    },
+    {
+      "model": "gemini-flash",
+      "condition": "without_comments",
+      "question_id": "q03",
+      "question": "Who owns this configuration?",
+      "category": "comment_only",
+      "response": "The configuration does not contain information about who owns it.",
+      "grade": "wrong",
+      "matched_keywords": [],
+      "match_ratio": 0.0
+    },
+    {
+      "model": "gemini-flash",
+      "condition": "without_comments",
+      "question_id": "q04",
+      "question": "When was this configuration created?",
+      "category": "comment_only",
+      "response": "The configuration does not contain information about when it was created.",
+      "grade": "wrong",
+      "matched_keywords": [],
+      "match_ratio": 0.0
+    },
+    {
+      "model": "gemini-flash",
+      "condition": "without_comments",
+      "question_id": "q05",
+      "question": "What determines the head architecture in this model?",
+      "category": "comment_only",
+      "response": "The `task_type` parameter, set to `causal_lm`.",
+      "grade": "correct",
+      "matched_keywords": [
+        "task_type"
+      ],
+      "match_ratio": 0.5
+    },
+    {
+      "model": "gemini-flash",
+      "condition": "without_comments",
+      "question_id": "q06",
+      "question": "Why is the seed parameter included?",
+      "category": "comment_only",
+      "response": "The configuration does not provide a reason for the inclusion of the seed parameter.",
+      "grade": "wrong",
+      "matched_keywords": [],
+      "match_ratio": 0.0
+    },
+    {
+      "model": "gemini-flash",
+      "condition": "without_comments",
+      "question_id": "q07",
+      "question": "What is the learning rate value?",
+      "category": "value_only",
+      "response": "2.0e-5",
+      "grade": "partial",
+      "matched_keywords": [
+        "2.0e-5"
+      ],
+      "match_ratio": 0.3333333333333333
+    },
+    {
+      "model": "gemini-flash",
+      "condition": "without_comments",
+      "question_id": "q08",
+      "question": "How many training epochs are configured?",
+      "category": "value_only",
+      "response": "3",
+      "grade": "correct",
+      "matched_keywords": [
+        "3"
+      ],
+      "match_ratio": 1.0
+    },
+    {
+      "model": "gemini-flash",
+      "condition": "without_comments",
+      "question_id": "q09",
+      "question": "What dataset is being used for training?",
+      "category": "value_only",
+      "response": "tatsu-lab/alpaca",
+      "grade": "correct",
+      "matched_keywords": [
+        "tatsu-lab/alpaca",
+        "alpaca"
+      ],
+      "match_ratio": 1.0
+    },
+    {
+      "model": "gemini-flash",
+      "condition": "without_comments",
+      "question_id": "q10",
+      "question": "What is the minimum acceptable accuracy?",
+      "category": "value_only",
+      "response": "0.45",
+      "grade": "correct",
+      "matched_keywords": [
+        "0.45"
+      ],
+      "match_ratio": 1.0
+    },
+    {
+      "model": "gemini-flash",
+      "condition": "without_comments",
+      "question_id": "q11",
+      "question": "What serving engine is used and what is its configuration purpose?",
+      "category": "mixed",
+      "response": "The serving engine used is `vllm`. Its configuration purpose is for deployment, specifically setting parameters like `max_num_seqs`, `gpu_memory_utilization`, and `port` for the serving engine.",
+      "grade": "correct",
+      "matched_keywords": [
+        "vllm",
+        "serving"
+      ],
+      "match_ratio": 1.0
+    },
+    {
+      "model": "gemini-flash",
+      "condition": "without_comments",
+      "question_id": "q12",
+      "question": "Describe the evaluation strategy including when evaluations run.",
+      "category": "mixed",
+      "response": "The evaluation strategy involves running evaluations against three benchmarks: `mmlu`, `hellaswag`, and `arc_challenge`. A minimum accuracy of `0.45` is expected.\n\nThe configuration does not specify when these evaluations run.",
+      "grade": "correct",
+      "matched_keywords": [
+        "mmlu",
+        "hellaswag"
+      ],
+      "match_ratio": 0.6666666666666666
+    }
+  ],
+  "summary": {
+    "gemma4": {
+      "with_comments": {
+        "by_category": {
+          "comment_only": {
+            "correct": 6,
+            "total": 6,
+            "accuracy": 1.0
+          },
+          "value_only": {
+            "correct": 3,
+            "total": 4,
+            "accuracy": 0.75
+          },
+          "mixed": {
+            "correct": 2,
+            "total": 2,
+            "accuracy": 1.0
+          }
+        },
+        "overall_accuracy": 0.9167,
+        "overall_correct": 11,
+        "overall_total": 12
+      },
+      "without_comments": {
+        "by_category": {
+          "comment_only": {
+            "correct": 1,
+            "total": 6,
+            "accuracy": 0.1667
+          },
+          "value_only": {
+            "correct": 3,
+            "total": 4,
+            "accuracy": 0.75
+          },
+          "mixed": {
+            "correct": 2,
+            "total": 2,
+            "accuracy": 1.0
+          }
+        },
+        "overall_accuracy": 0.5,
+        "overall_correct": 6,
+        "overall_total": 12
+      }
+    },
+    "gemini-flash": {
+      "with_comments": {
+        "by_category": {
+          "comment_only": {
+            "correct": 6,
+            "total": 6,
+            "accuracy": 1.0
+          },
+          "value_only": {
+            "correct": 3,
+            "total": 4,
+            "accuracy": 0.75
+          },
+          "mixed": {
+            "correct": 2,
+            "total": 2,
+            "accuracy": 1.0
+          }
+        },
+        "overall_accuracy": 0.9167,
+        "overall_correct": 11,
+        "overall_total": 12
+      },
+      "without_comments": {
+        "by_category": {
+          "comment_only": {
+            "correct": 2,
+            "total": 6,
+            "accuracy": 0.3333
+          },
+          "value_only": {
+            "correct": 3,
+            "total": 4,
+            "accuracy": 0.75
+          },
+          "mixed": {
+            "correct": 2,
+            "total": 2,
+            "accuracy": 1.0
+          }
+        },
+        "overall_accuracy": 0.5833,
+        "overall_correct": 7,
+        "overall_total": 12
+      }
+    }
+  },
+  "use_fixtures": true
+}

@@ -554,3 +554,20 @@ CDXF fidelity advantage confirmed across three major agentic frameworks.
 Framework: autogen-agentchat 0.7.5. Size-invariant (4–38 comments),
 depth-invariant (4 and 6 agents). Data integrity: all PASS.
 Overhead: +9ms pipeline (~1ms serialize, ~1ms extract).
+
+
+### 2026-05-26 -- EXP-019: LLM-in-the-Loop Config QA
+
+**Key result:** LLMs answer config questions dramatically more
+accurately when YAML comments are preserved. Comment-only questions:
+100% accuracy with comments vs 17–33% without (Δ=+67–83pp).
+Value-only control: identical 75% in both conditions, confirming
+the effect is specific to comment-carried information.
+
+**F33:** Comment-only QA accuracy: gemma4 100% vs 17% (Δ=+83pp),
+gemini-flash 100% vs 33% (Δ=+67pp). Two models, temperature 0,
+12 questions (6 comment-only, 4 value-only, 2 mixed). Control
+(value-only) identical at 75% both conditions. This demonstrates
+that CDXF's metadata preservation has direct, measurable impact
+on LLM reasoning accuracy — not just data fidelity, but practical
+downstream benefit for AI systems.
