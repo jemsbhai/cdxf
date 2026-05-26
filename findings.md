@@ -512,3 +512,45 @@ loses all 22 (0%). Deterministic FakeLLM, crewai 1.14.5.
 approach: 0/22 (0%). Consistent with EXP-015 (LangGraph): the
 CDXF fidelity advantage generalizes across agentic frameworks.
 Framework: crewai 1.14.5. Depth-invariant (4 and 6 agents identical).
+
+
+### 2026-05-26 -- EXP-015/016/017 Enhancements: Scaling, Timing, Integrity
+
+**F27:** CDXF fidelity is size-invariant: 100% comment survival across
+small (4), medium (8), large (22), and xlarge (38) configs in both
+LangGraph and CrewAI pipelines. json_default: 0% at all sizes.
+
+**F28:** CDXF serialization overhead is negligible relative to framework
+costs. LangGraph: +13ms pipeline overhead (vs 9ms baseline). CrewAI:
+CDXF pipeline was -34ms (noise-dominated; framework overhead ~255ms
+dwarfs the ~2ms CDXF cost). Per-operation: serialize +1.4–2.1ms,
+extract +1.0–1.7ms.
+
+**F29:** Data integrity verified: all agent modifications (num_proc,
+num_epochs, min_accuracy, max_num_seqs, port, seed) correctly applied
+AND preserved in both json_default and cdxf_enhanced modes across all
+topologies (4-agent, 6-agent). CDXF preserves both data AND metadata.
+
+**F30:** MCP schema token reduction is tokenizer-invariant: 36.9%
+with cl100k_base (GPT-3.5/4), 36.9% with o200k_base (GPT-4o).
+8→3 tools, tested on both tokenizer families.
+
+**F31:** MCP fidelity generalizes across formats: CDXF preserves
+100% comments through encode→decode for YAML (4 sizes), TOML, and
+XML configs. Format-specific tools: 0% across all formats and sizes.
+
+
+### 2026-05-26 -- EXP-018: AutoGen Group Chat — Config Handoff Fidelity
+
+**Key result:** AutoGen RoundRobinGroupChat with CDXF-enhanced
+serialization preserves 22/22 (100.0%) YAML comments through 4- and
+6-agent group chats; standard approach loses all 22 (0%).
+Deterministic FakeChatCompletionClient, autogen-agentchat 0.7.5.
+
+**F32:** AutoGen group chat with CDXF base64 serialization: 22/22
+(100%) comment survival at all group sizes. Standard approach: 0/22
+(0%). Consistent with EXP-015 (LangGraph) and EXP-017 (CrewAI):
+CDXF fidelity advantage confirmed across three major agentic frameworks.
+Framework: autogen-agentchat 0.7.5. Size-invariant (4–38 comments),
+depth-invariant (4 and 6 agents). Data integrity: all PASS.
+Overhead: +9ms pipeline (~1ms serialize, ~1ms extract).

@@ -1,0 +1,168 @@
+{
+  "experiment": "EXP-018",
+  "timestamp": "2026-05-26T17:12:06.840628+00:00",
+  "framework": "autogen-agentchat",
+  "framework_version": "0.7.5",
+  "results": {
+    "group_4agent_json_default": {
+      "mode": "json_default",
+      "group_config": "group_4agent",
+      "initial_comments": 22,
+      "final_comments": 0,
+      "surviving_fraction": 0.0,
+      "n_agents": 4,
+      "n_messages": 5
+    },
+    "group_4agent_cdxf_enhanced": {
+      "mode": "cdxf_enhanced",
+      "group_config": "group_4agent",
+      "initial_comments": 22,
+      "final_comments": 22,
+      "surviving_fraction": 1.0,
+      "n_agents": 4,
+      "n_messages": 5
+    },
+    "group_6agent_json_default": {
+      "mode": "json_default",
+      "group_config": "group_6agent",
+      "initial_comments": 22,
+      "final_comments": 0,
+      "surviving_fraction": 0.0,
+      "n_agents": 6,
+      "n_messages": 7
+    },
+    "group_6agent_cdxf_enhanced": {
+      "mode": "cdxf_enhanced",
+      "group_config": "group_6agent",
+      "initial_comments": 22,
+      "final_comments": 22,
+      "surviving_fraction": 1.0,
+      "n_agents": 6,
+      "n_messages": 7
+    }
+  },
+  "summary": {
+    "json_default": {
+      "pipeline_surviving": 0.0,
+      "initial_comments": 22,
+      "final_comments": 0
+    },
+    "cdxf_enhanced": {
+      "pipeline_surviving": 1.0,
+      "initial_comments": 22,
+      "final_comments": 22
+    }
+  },
+  "scaling": {
+    "scaling_results": [
+      {
+        "config_size": "small",
+        "mode": "json_default",
+        "initial_comments": 4,
+        "final_comments": 0,
+        "surviving_fraction": 0.0
+      },
+      {
+        "config_size": "small",
+        "mode": "cdxf_enhanced",
+        "initial_comments": 4,
+        "final_comments": 4,
+        "surviving_fraction": 1.0
+      },
+      {
+        "config_size": "medium",
+        "mode": "json_default",
+        "initial_comments": 8,
+        "final_comments": 0,
+        "surviving_fraction": 0.0
+      },
+      {
+        "config_size": "medium",
+        "mode": "cdxf_enhanced",
+        "initial_comments": 8,
+        "final_comments": 8,
+        "surviving_fraction": 1.0
+      },
+      {
+        "config_size": "large",
+        "mode": "json_default",
+        "initial_comments": 22,
+        "final_comments": 0,
+        "surviving_fraction": 0.0
+      },
+      {
+        "config_size": "large",
+        "mode": "cdxf_enhanced",
+        "initial_comments": 22,
+        "final_comments": 22,
+        "surviving_fraction": 1.0
+      },
+      {
+        "config_size": "xlarge",
+        "mode": "json_default",
+        "initial_comments": 38,
+        "final_comments": 0,
+        "surviving_fraction": 0.0
+      },
+      {
+        "config_size": "xlarge",
+        "mode": "cdxf_enhanced",
+        "initial_comments": 38,
+        "final_comments": 38,
+        "surviving_fraction": 1.0
+      }
+    ]
+  },
+  "timing": {
+    "timings_seconds": {
+      "json_default_serialize": 0.0014146499976050108,
+      "cdxf_enhanced_serialize": 0.0027782499964814633,
+      "json_default_extract": 1.700012944638729e-07,
+      "cdxf_enhanced_extract": 0.0013849199982360005,
+      "json_default_pipeline": 0.02087956999312155,
+      "cdxf_enhanced_pipeline": 0.03366142999730073
+    },
+    "overhead": {
+      "serialize_overhead_ms": 1.3635999988764524,
+      "extract_overhead_ms": 1.3847499969415364,
+      "pipeline_overhead_ms": 12.781860004179176
+    },
+    "n_iterations": 10
+  },
+  "integrity": {
+    "integrity_results": [
+      {
+        "group_config": "group_4agent",
+        "mode": "json_default",
+        "n_agents": 4,
+        "integrity_passed": true,
+        "checks": 4,
+        "failures": []
+      },
+      {
+        "group_config": "group_4agent",
+        "mode": "cdxf_enhanced",
+        "n_agents": 4,
+        "integrity_passed": true,
+        "checks": 4,
+        "failures": []
+      },
+      {
+        "group_config": "group_6agent",
+        "mode": "json_default",
+        "n_agents": 6,
+        "integrity_passed": true,
+        "checks": 6,
+        "failures": []
+      },
+      {
+        "group_config": "group_6agent",
+        "mode": "cdxf_enhanced",
+        "n_agents": 6,
+        "integrity_passed": true,
+        "checks": 6,
+        "failures": []
+      }
+    ]
+  }
+}

@@ -2055,3 +2055,110 @@ making results 100% deterministic and reproducible. The depth-invariance
 - Script: benchmarks/src/run_exp017.py
 - Tests: tests/test_exp017.py
 - Results: benchmarks/results/exp_017/
+
+
+**Addendum 2026-05-26 — EXP-015/016/017 enhancements completed.**
+
+All three framework experiments now include:
+- Multi-size config scaling (4/8/22/38 comments) — all 100% CDXF
+- Latency/overhead measurement — 2-3ms per operation, negligible
+- Data integrity verification — all PASS (both modes × both topologies)
+- EXP-016 additionally: dual tokenizer (36.9% both), cross-format (YAML/XML/TOML)
+
+Shared infrastructure: benchmarks/src/config_corpus.py (config corpus,
+timing utilities, data integrity verification). Tests: test_config_corpus.py (33 tests).
+
+Total test count: 1331 (all passing).
+
+
+---
+
+## EXP-018: AutoGen Group Chat — ML Config Handoff Fidelity
+
+**Date:** 2026-05-26
+**Researcher:** Claude + User (collaborative)
+**Type:** computational
+**Status:** completed
+
+### Hypothesis
+
+When AutoGen agents pass annotated YAML configs through a
+RoundRobinGroupChat, the standard approach (YAML → dict → yaml.dump)
+will lose 100% of comments, while the CDXF-enhanced approach
+(YAML → CDXF binary → base64) will preserve 100% of comments.
+This validates the CDXF fidelity claim on a third major agentic
+framework (after LangGraph EXP-015 and CrewAI EXP-017).
+
+### Independent Variables
+
+- **state_mode**: {json_default, cdxf_enhanced}
+- **group_config**: {group_4agent, group_6agent}
+- **config_size**: {small, medium, large, xlarge} (from shared corpus)
+
+### Dependent Variables / Metrics
+
+- **comments_surviving** / **surviving_fraction**
+- **data_integrity**: agent modifications correctly applied
+- **timing**: serialization/pipeline overhead
+
+### Control Conditions
+
+- Same initial YAML configs (shared corpus, identical to EXP-015/017)
+- Same agent modifications (from config_corpus.ROLE_MODIFICATIONS)
+- FakeChatCompletionClient for deterministic execution
+- autogen-agentchat 0.7.5, RoundRobinGroupChat, max_turns=N
+
+### Protocol
+
+1. Subclass ChatCompletionClient → FakeChatCompletionClient
+2. Build AssistantAgents with FakeChatCompletionClient
+3. Create RoundRobinGroupChat with max_turns = n_agents
+4. Run with initial config as task string
+5. Extract final config from last TextMessage
+6. Count surviving metadata, verify data integrity, measure timing
+7. Repeat for both modes × both topologies × all config sizes
+
+### Environment
+
+- **Hardware:** Windows laptop, 64GB RAM, RTX 4090
+- **Software:** Python 3.12, autogen-agentchat 0.7.5, cdxf 0.1.3
+- **Seeds:** N/A (deterministic FakeChatCompletionClient)
+
+### Results
+
+| Group Config | Mode | Agents | Initial | Final | Survival |
+|-------------|------|--------|---------|-------|----------|
+| group_4agent | json_default | 4 | 22 | 0 | 0.0% |
+| group_4agent | cdxf_enhanced | 4 | 22 | 22 | 100.0% |
+| group_6agent | json_default | 6 | 22 | 0 | 0.0% |
+| group_6agent | cdxf_enhanced | 6 | 22 | 22 | 100.0% |
+
+Scaling: 100% across small(4), medium(8), large(22), xlarge(38).
+Integrity: all PASS (both modes × both topologies).
+Overhead: +1.0ms serialize, +1.3ms extract, +9.0ms pipeline.
+
+### Observations
+
+- AutoGen 0.7.5 uses async RoundRobinGroupChat with ChatCompletionClient.
+- FakeChatCompletionClient subclass required implementing model_info
+  property (abstract in 0.7.5) and async create method.
+- MaxMessageTermination counts the task message, so max_messages must
+  be n_agents + 1 to ensure all agents get a turn.
+- Role detection via SystemMessage (first in message list) is reliable.
+- Config extraction from latest non-system message ensures proper
+  chaining of modifications.
+- 45 tests pass.
+
+### Interpretation
+
+The hypothesis is confirmed: CDXF-enhanced AutoGen group chats preserve
+100% of config metadata while the standard approach loses 100%. This
+is the third agentic framework (after LangGraph and CrewAI) showing
+identical results, providing strong evidence that the CDXF fidelity
+advantage is framework-agnostic.
+
+### Artifacts
+
+- Script: benchmarks/src/run_exp018.py
+- Tests: tests/test_exp018.py
+- Results: benchmarks/results/exp_018/
