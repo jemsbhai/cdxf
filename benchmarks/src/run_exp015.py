@@ -46,6 +46,18 @@ except ImportError:
     print("ERROR: cdxf not installed. Run: pip install -e .")
     sys.exit(1)
 
+# Shared corpus for enhanced experiments
+sys.path.insert(0, str(Path(__file__).parent.parent.parent))
+from benchmarks.src.config_corpus import (
+    YAML_CONFIGS,
+    ROLE_MODIFICATIONS,
+    EXPECTED_VALUES_AFTER_4AGENT,
+    EXPECTED_VALUES_AFTER_6AGENT,
+    count_config_metadata as corpus_count_metadata,
+    verify_data_integrity,
+    Timer,
+)
+
 
 # ===========================================================================
 # Protocol constants
@@ -483,6 +495,203 @@ def run_graph_with_checkpoints(
 
 
 # ===========================================================================
+# Enhanced experiments — scaling, timing, data integrity
+# ===========================================================================
+
+
+def run_scaling_experiment(
+    config_sizes: list[str] | None = None,
+) -> dict:
+    """Test metadata fidelity across different config sizes.
+
+    Uses the shared config corpus (small/medium/large/xlarge) to show
+    that CDXF fidelity is size-invariant.
+    """
+    if config_sizes is None:
+        config_sizes = ["small", "medium", "large", "xlarge"]
+
+    results = []
+    for size in config_sizes:
+        cfg = YAML_CONFIGS[size]
+        text = cfg["text"]
+        fmt = cfg["format"]
+
+        for mode in STATE_MODES:
+            initial_meta = count_config_metadata(text, fmt)
+            config_data = serialize_config_for_state(text, fmt, mode)
+
+            initial_state = {
+                "config_data": config_data,
+                "config_format": fmt,
+                "state_mode": mode,
+                "node_trace": [],
+                "modifications": [],
+            }
+
+            graph = build_langgraph_pipeline(mode, GRAPH_CONFIGS[0])
+            final_state = graph.invoke(initial_state)
+
+            final_text = extract_config_text(
+                final_state["config_data"], fmt, mode
+            )
+            final_meta = count_config_metadata(final_text, fmt)
+
+            surviving = (
+                final_meta["comments"] / initial_meta["comments"]
+                if initial_meta["comments"] > 0 else 1.0
+            )
+
+            results.append({
+                "config_size": size,
+                "mode": mode,
+                "initial_comments": initial_meta["comments"],
+                "final_comments": final_meta["comments"],
+                "surviving_fraction": surviving,
+            })
+
+    return {"scaling_results": results}
+
+
+def run_timing_experiment(
+    n_iterations: int = 20,
+) -> dict:
+    """Measure overhead of CDXF vs JSON serialization in LangGraph.
+
+    Times: initial serialization, per-node round-trip, full pipeline.
+    Reports mean times over n_iterations.
+    """
+    text, fmt = build_initial_config()
+    timer = Timer()
+
+    # Time initial serialization
+    timer.measure_n(
+        "json_default_serialize",
+        lambda: serialize_config_for_state(text, fmt, "json_default"),
+        n=n_iterations,
+    )
+    timer.measure_n(
+        "cdxf_enhanced_serialize",
+        lambda: serialize_config_for_state(text, fmt, "cdxf_enhanced"),
+        n=n_iterations,
+    )
+
+    # Time extract (deserialize)
+    json_val = serialize_config_for_state(text, fmt, "json_default")
+    cdxf_val = serialize_config_for_state(text, fmt, "cdxf_enhanced")
+
+    timer.measure_n(
+        "json_default_extract",
+        lambda: extract_config_text(json_val, fmt, "json_default"),
+        n=n_iterations,
+    )
+    timer.measure_n(
+        "cdxf_enhanced_extract",
+        lambda: extract_config_text(cdxf_val, fmt, "cdxf_enhanced"),
+        n=n_iterations,
+    )
+
+    # Time full pipeline
+    def run_pipeline(mode):
+        config_data = serialize_config_for_state(text, fmt, mode)
+        state = {
+            "config_data": config_data,
+            "config_format": fmt,
+            "state_mode": mode,
+            "node_trace": [],
+            "modifications": [],
+        }
+        graph = build_langgraph_pipeline(mode, GRAPH_CONFIGS[0])
+        graph.invoke(state)
+
+    timer.measure_n(
+        "json_default_pipeline",
+        lambda: run_pipeline("json_default"),
+        n=n_iterations,
+    )
+    timer.measure_n(
+        "cdxf_enhanced_pipeline",
+        lambda: run_pipeline("cdxf_enhanced"),
+        n=n_iterations,
+    )
+
+    timings = timer.summary()
+    overhead = {
+        "serialize_overhead_ms": (
+            (timings["cdxf_enhanced_serialize"] -
+             timings["json_default_serialize"]) * 1000
+        ),
+        "extract_overhead_ms": (
+            (timings["cdxf_enhanced_extract"] -
+             timings["json_default_extract"]) * 1000
+        ),
+        "pipeline_overhead_ms": (
+            (timings["cdxf_enhanced_pipeline"] -
+             timings["json_default_pipeline"]) * 1000
+        ),
+    }
+
+    return {
+        "timings_seconds": timings,
+        "overhead": overhead,
+        "n_iterations": n_iterations,
+    }
+
+
+def run_integrity_experiment() -> dict:
+    """Verify that agent modifications are correctly applied AND preserved.
+
+    For each mode × topology, check that the final config contains the
+    expected values after all agents have made their modifications.
+    """
+    results = []
+
+    for gc in GRAPH_CONFIGS:
+        n_agents = len(gc["nodes"])
+        expected = (
+            EXPECTED_VALUES_AFTER_6AGENT
+            if n_agents >= 6 else EXPECTED_VALUES_AFTER_4AGENT
+        )
+
+        for mode in STATE_MODES:
+            r = run_graph(mode, gc)
+            final_text = extract_config_text(
+                # Re-run to get final state
+                serialize_config_for_state(
+                    *build_initial_config(), mode
+                ),
+                "yaml", mode,
+            )
+            # Actually run the full pipeline to get the real final text
+            text, fmt = build_initial_config()
+            config_data = serialize_config_for_state(text, fmt, mode)
+            state = {
+                "config_data": config_data,
+                "config_format": fmt,
+                "state_mode": mode,
+                "node_trace": [],
+                "modifications": [],
+            }
+            graph = build_langgraph_pipeline(mode, gc)
+            final_state = graph.invoke(state)
+            final_text = extract_config_text(
+                final_state["config_data"], fmt, mode
+            )
+
+            integrity = verify_data_integrity(final_text, expected)
+
+            results.append({
+                "graph_config": gc["name"],
+                "mode": mode,
+                "n_agents": n_agents,
+                "integrity_passed": integrity["passed"],
+                "checks": integrity["checks"],
+                "failures": integrity["failures"],
+            })
+
+    return {"integrity_results": results}
+
+
+# ===========================================================================
 # Full experiment
 # ===========================================================================
 
@@ -523,6 +732,28 @@ def run_experiment(output_dir: Path | str | None = None) -> dict:
                   f"({cr['surviving_fraction']:.1%})  "
                   f"[{cr['n_checkpoints']} checkpoints]")
 
+    # --- Enhanced experiments ---
+    print("\n--- Scaling Experiment (multi-size configs) ---")
+    scaling = run_scaling_experiment()
+    for sr in scaling["scaling_results"]:
+        if sr["mode"] == "cdxf_enhanced":
+            print(f"  {sr['config_size']:8s}: {sr['initial_comments']} → "
+                  f"{sr['final_comments']} ({sr['surviving_fraction']:.1%})")
+
+    print("\n--- Timing Experiment ---")
+    timing = run_timing_experiment()
+    for k, v in timing["timings_seconds"].items():
+        print(f"  {k:30s}: {v*1000:.3f} ms")
+    for k, v in timing["overhead"].items():
+        print(f"  {k:30s}: {v:+.3f} ms")
+
+    print("\n--- Data Integrity Experiment ---")
+    integrity = run_integrity_experiment()
+    for ir in integrity["integrity_results"]:
+        status = "PASS" if ir["integrity_passed"] else "FAIL"
+        print(f"  {ir['graph_config']} / {ir['mode']}: "
+              f"{status} ({ir['checks']} checks)")
+
     # Summary
     print("\n--- Summary ---")
     summary = {}
@@ -549,6 +780,9 @@ def run_experiment(output_dir: Path | str | None = None) -> dict:
         "results": results,
         "checkpoint_results": checkpoint_results,
         "summary": summary,
+        "scaling": scaling,
+        "timing": timing,
+        "integrity": integrity,
     }
 
     json_path = output_dir / "exp_015_results.json"

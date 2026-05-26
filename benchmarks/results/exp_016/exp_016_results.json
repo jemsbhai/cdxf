@@ -1,6 +1,6 @@
 {
   "experiment": "EXP-016",
-  "timestamp": "2026-05-26T10:52:21.573713+00:00",
+  "timestamp": "2026-05-26T13:51:44.980484+00:00",
   "protocol": "MCP (Model Context Protocol)",
   "schema_comparison": {
     "format_specific": {
@@ -50,5 +50,91 @@
       "format_specific": "0% comment survival (all configs)",
       "cdxf_universal": "100% comment survival (all configs)"
     }
+  },
+  "expanded_fidelity": {
+    "expanded_fidelity": [
+      {
+        "config": "yaml_small",
+        "format": "yaml",
+        "original_comments": 4,
+        "fs_comments": 0,
+        "cdxf_comments": 4,
+        "fs_surviving": 0.0,
+        "cdxf_surviving": 1.0
+      },
+      {
+        "config": "yaml_medium",
+        "format": "yaml",
+        "original_comments": 8,
+        "fs_comments": 0,
+        "cdxf_comments": 8,
+        "fs_surviving": 0.0,
+        "cdxf_surviving": 1.0
+      },
+      {
+        "config": "yaml_large",
+        "format": "yaml",
+        "original_comments": 22,
+        "fs_comments": 0,
+        "cdxf_comments": 22,
+        "fs_surviving": 0.0,
+        "cdxf_surviving": 1.0
+      },
+      {
+        "config": "yaml_xlarge",
+        "format": "yaml",
+        "original_comments": 38,
+        "fs_comments": 0,
+        "cdxf_comments": 38,
+        "fs_surviving": 0.0,
+        "cdxf_surviving": 1.0
+      },
+      {
+        "config": "toml_medium",
+        "format": "toml",
+        "original_comments": 7,
+        "fs_comments": 0,
+        "cdxf_comments": 7,
+        "fs_surviving": 0.0,
+        "cdxf_surviving": 1.0
+      },
+      {
+        "config": "xml_medium",
+        "format": "xml",
+        "original_comments": 6,
+        "fs_comments": 0,
+        "cdxf_comments": 6,
+        "fs_surviving": 0.0,
+        "cdxf_surviving": 1.0
+      }
+    ]
+  },
+  "dual_tokenizer": {
+    "dual_tokenizer": {
+      "cl100k_base": {
+        "fs_tokens": 878,
+        "cdxf_tokens": 554,
+        "saved": 324,
+        "reduction_pct": 36.9
+      },
+      "o200k_base": {
+        "fs_tokens": 880,
+        "cdxf_tokens": 555,
+        "saved": 325,
+        "reduction_pct": 36.9
+      }
+    }
+  },
+  "latency": {
+    "latency_seconds": {
+      "fs_parse_yaml": 0.000954745001217816,
+      "fs_emit_yaml": 0.0004013550016679801,
+      "cdxf_encode_yaml": 0.00248367500025779,
+      "cdxf_decode_yaml": 0.0013735250002355314,
+      "fs_roundtrip": 0.0013595749987871386,
+      "cdxf_roundtrip": 0.0038182550022611396
+    },
+    "roundtrip_overhead_ms": 2.458680003474001,
+    "n_iterations": 20
   }
 }

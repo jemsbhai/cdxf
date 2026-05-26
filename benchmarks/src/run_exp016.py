@@ -49,6 +49,16 @@ except ImportError:
     print("ERROR: cdxf not installed. Run: pip install -e .")
     sys.exit(1)
 
+# Shared corpus for enhanced experiments
+sys.path.insert(0, str(Path(__file__).parent.parent.parent))
+from benchmarks.src.config_corpus import (
+    YAML_CONFIGS,
+    XML_CONFIG,
+    TOML_CONFIG,
+    count_config_metadata as corpus_count_metadata,
+    Timer,
+)
+
 
 # ===========================================================================
 # Constants
@@ -557,6 +567,205 @@ def _tool_to_dict(tool: Tool) -> dict:
 
 
 # ===========================================================================
+# Enhanced experiments — expanded corpus, dual tokenizer, latency
+# ===========================================================================
+
+
+async def run_expanded_corpus_fidelity() -> dict:
+    """Test fidelity on expanded corpus: 4 YAML sizes + XML + TOML.
+
+    Uses the shared config_corpus for broader generalization claims.
+    """
+    fs_server = build_format_specific_mcp_server()
+    cdxf_server = build_cdxf_mcp_server()
+
+    results = []
+
+    # YAML configs at different sizes
+    for size in ["small", "medium", "large", "xlarge"]:
+        cfg = YAML_CONFIGS[size]
+        text = cfg["text"]
+        original = count_comments(text, "yaml")
+
+        # Format-specific round-trip
+        parsed = await call_tool(fs_server, "parse_yaml",
+                                 {"content": text})
+        emitted = await call_tool(fs_server, "emit_yaml",
+                                  {"data": parsed["data"]})
+        fs_comments = count_comments(emitted["text"], "yaml")
+
+        # CDXF round-trip
+        encoded = await call_tool(cdxf_server, "cdxf_encode",
+                                  {"content": text,
+                                   "source_format": "yaml"})
+        decoded = await call_tool(cdxf_server, "cdxf_decode",
+                                  {"cdxf_data": encoded["cdxf_data"],
+                                   "target_format": "yaml"})
+        cdxf_comments = count_comments(decoded["text"], "yaml")
+
+        results.append({
+            "config": f"yaml_{size}",
+            "format": "yaml",
+            "original_comments": original,
+            "fs_comments": fs_comments,
+            "cdxf_comments": cdxf_comments,
+            "fs_surviving": round(fs_comments / original, 4) if original else 1.0,
+            "cdxf_surviving": round(cdxf_comments / original, 4) if original else 1.0,
+        })
+
+    # TOML config
+    toml_text = TOML_CONFIG["text"]
+    toml_original = corpus_count_metadata(toml_text, "toml")["comments"]
+
+    parsed = await call_tool(fs_server, "parse_toml",
+                             {"content": toml_text})
+    emitted = await call_tool(fs_server, "emit_toml",
+                              {"data": parsed["data"]})
+    fs_toml = corpus_count_metadata(emitted["text"], "toml")["comments"]
+
+    encoded = await call_tool(cdxf_server, "cdxf_encode",
+                              {"content": toml_text,
+                               "source_format": "toml"})
+    decoded = await call_tool(cdxf_server, "cdxf_decode",
+                              {"cdxf_data": encoded["cdxf_data"],
+                               "target_format": "toml"})
+    cdxf_toml = corpus_count_metadata(decoded["text"], "toml")["comments"]
+
+    results.append({
+        "config": "toml_medium",
+        "format": "toml",
+        "original_comments": toml_original,
+        "fs_comments": fs_toml,
+        "cdxf_comments": cdxf_toml,
+        "fs_surviving": round(fs_toml / toml_original, 4) if toml_original else 1.0,
+        "cdxf_surviving": round(cdxf_toml / toml_original, 4) if toml_original else 1.0,
+    })
+
+    # XML config (comments counted differently)
+    xml_text = XML_CONFIG["text"]
+    xml_original = corpus_count_metadata(xml_text, "xml")["comments"]
+
+    # XML format-specific loses comments through ElementTree
+    parsed_xml = await call_tool(fs_server, "parse_xml",
+                                 {"content": xml_text})
+    emitted_xml = await call_tool(fs_server, "emit_xml",
+                                  {"data": parsed_xml["data"]})
+    fs_xml = corpus_count_metadata(emitted_xml["text"], "xml")["comments"]
+
+    encoded_xml = await call_tool(cdxf_server, "cdxf_encode",
+                                  {"content": xml_text,
+                                   "source_format": "xml"})
+    decoded_xml = await call_tool(cdxf_server, "cdxf_decode",
+                                  {"cdxf_data": encoded_xml["cdxf_data"],
+                                   "target_format": "xml"})
+    cdxf_xml = corpus_count_metadata(decoded_xml["text"], "xml")["comments"]
+
+    results.append({
+        "config": "xml_medium",
+        "format": "xml",
+        "original_comments": xml_original,
+        "fs_comments": fs_xml,
+        "cdxf_comments": cdxf_xml,
+        "fs_surviving": round(fs_xml / xml_original, 4) if xml_original else 1.0,
+        "cdxf_surviving": round(cdxf_xml / xml_original, 4) if xml_original else 1.0,
+    })
+
+    return {"expanded_fidelity": results}
+
+
+async def run_dual_tokenizer_experiment() -> dict:
+    """Compare schema token counts with cl100k_base AND o200k_base.
+
+    Shows the token reduction holds across tokenizer families
+    (GPT-3.5/4 vs GPT-4o).
+    """
+    tokenizers = {
+        "cl100k_base": tiktoken.get_encoding("cl100k_base"),
+        "o200k_base": tiktoken.get_encoding("o200k_base"),
+    }
+
+    fs_server = build_format_specific_mcp_server()
+    cdxf_server = build_cdxf_mcp_server()
+
+    fs_tools = await get_tool_schemas(fs_server)
+    cdxf_tools = await get_tool_schemas(cdxf_server)
+
+    fs_json = json.dumps([_tool_to_dict(t) for t in fs_tools], indent=2)
+    cdxf_json = json.dumps([_tool_to_dict(t) for t in cdxf_tools], indent=2)
+
+    results = {}
+    for name, enc in tokenizers.items():
+        fs_tokens = len(enc.encode(fs_json))
+        cdxf_tokens = len(enc.encode(cdxf_json))
+        saved = fs_tokens - cdxf_tokens
+        results[name] = {
+            "fs_tokens": fs_tokens,
+            "cdxf_tokens": cdxf_tokens,
+            "saved": saved,
+            "reduction_pct": round(saved / fs_tokens * 100, 1),
+        }
+
+    return {"dual_tokenizer": results}
+
+
+def run_latency_experiment(n_iterations: int = 20) -> dict:
+    """Measure encode/decode latency for both server approaches.
+
+    Times format-specific parse+emit vs CDXF encode+decode on the
+    large config. Reports mean over n_iterations.
+    """
+    text = YAML_CONFIGS["large"]["text"]
+    timer = Timer()
+
+    # Format-specific: yaml.safe_load + yaml.dump
+    timer.measure_n(
+        "fs_parse_yaml",
+        lambda: yaml.safe_load(text),
+        n=n_iterations,
+    )
+    parsed = yaml.safe_load(text)
+    timer.measure_n(
+        "fs_emit_yaml",
+        lambda: yaml.dump(parsed, default_flow_style=False, sort_keys=False),
+        n=n_iterations,
+    )
+
+    # CDXF: from_yaml + encode, decode + to_yaml
+    timer.measure_n(
+        "cdxf_encode_yaml",
+        lambda: encode(from_yaml(text)),
+        n=n_iterations,
+    )
+    cdxf_bytes = encode(from_yaml(text))
+    timer.measure_n(
+        "cdxf_decode_yaml",
+        lambda: to_yaml(decode(cdxf_bytes)),
+        n=n_iterations,
+    )
+
+    # Full round-trip comparison
+    def fs_roundtrip():
+        d = yaml.safe_load(text)
+        yaml.dump(d, default_flow_style=False, sort_keys=False)
+
+    def cdxf_roundtrip():
+        b = encode(from_yaml(text))
+        to_yaml(decode(b))
+
+    timer.measure_n("fs_roundtrip", fs_roundtrip, n=n_iterations)
+    timer.measure_n("cdxf_roundtrip", cdxf_roundtrip, n=n_iterations)
+
+    timings = timer.summary()
+    return {
+        "latency_seconds": timings,
+        "roundtrip_overhead_ms": (
+            (timings["cdxf_roundtrip"] - timings["fs_roundtrip"]) * 1000
+        ),
+        "n_iterations": n_iterations,
+    }
+
+
+# ===========================================================================
 # Full experiment
 # ===========================================================================
 
@@ -668,6 +877,27 @@ async def run_experiment(
               f"fs={fs_comments} ({entry['fs_surviving']:.0%}), "
               f"cdxf={cdxf_comments} ({entry['cdxf_surviving']:.0%})")
 
+    # --- Enhanced experiments ---
+    print("\n--- Expanded Corpus Fidelity (4 YAML + XML + TOML) ---")
+    expanded = await run_expanded_corpus_fidelity()
+    for er in expanded["expanded_fidelity"]:
+        print(f"  {er['config']:12s} ({er['format']}): "
+              f"{er['original_comments']} → "
+              f"fs={er['fs_comments']}, cdxf={er['cdxf_comments']}")
+
+    print("\n--- Dual Tokenizer (cl100k_base + o200k_base) ---")
+    dual_tok = await run_dual_tokenizer_experiment()
+    for tok_name, tok_data in dual_tok["dual_tokenizer"].items():
+        print(f"  {tok_name}: fs={tok_data['fs_tokens']}, "
+              f"cdxf={tok_data['cdxf_tokens']} "
+              f"({tok_data['reduction_pct']}% reduction)")
+
+    print("\n--- Latency Experiment ---")
+    latency = run_latency_experiment()
+    for k, v in latency["latency_seconds"].items():
+        print(f"  {k:25s}: {v*1000:.3f} ms")
+    print(f"  roundtrip_overhead_ms:   {latency['roundtrip_overhead_ms']:+.3f} ms")
+
     # Summary
     summary = {
         "schema_reduction_pct": schema_comp["reduction_pct"],
@@ -695,6 +925,9 @@ async def run_experiment(
         "schema_comparison": schema_comp,
         "fidelity_results": fidelity_results,
         "summary": summary,
+        "expanded_fidelity": expanded,
+        "dual_tokenizer": dual_tok,
+        "latency": latency,
     }
 
     json_path = output_dir / "exp_016_results.json"

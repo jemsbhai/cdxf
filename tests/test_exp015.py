@@ -317,3 +317,143 @@ class TestRunExperiment:
 
     def test_has_summary(self, results):
         assert "summary" in results
+
+
+
+# ===========================================================================
+# Enhanced: Scaling experiment (multi-size configs)
+# ===========================================================================
+
+
+class TestScalingExperiment:
+    """Test metadata fidelity across different config sizes."""
+
+    @pytest.fixture(scope="class")
+    def scaling_results(self):
+        from benchmarks.src.run_exp015 import run_scaling_experiment
+        return run_scaling_experiment()
+
+    def test_returns_dict(self, scaling_results):
+        assert "scaling_results" in scaling_results
+
+    def test_all_sizes_present(self, scaling_results):
+        sizes = {r["config_size"] for r in scaling_results["scaling_results"]}
+        assert sizes == {"small", "medium", "large", "xlarge"}
+
+    def test_both_modes_per_size(self, scaling_results):
+        for size in ["small", "medium", "large", "xlarge"]:
+            modes = {
+                r["mode"] for r in scaling_results["scaling_results"]
+                if r["config_size"] == size
+            }
+            assert modes == {"json_default", "cdxf_enhanced"}
+
+    @pytest.mark.parametrize("size", ["small", "medium", "large", "xlarge"])
+    def test_json_default_loses_all(self, size, scaling_results):
+        rows = [
+            r for r in scaling_results["scaling_results"]
+            if r["config_size"] == size and r["mode"] == "json_default"
+        ]
+        assert len(rows) == 1
+        assert rows[0]["surviving_fraction"] == 0.0
+
+    @pytest.mark.parametrize("size", ["small", "medium", "large", "xlarge"])
+    def test_cdxf_preserves_all(self, size, scaling_results):
+        rows = [
+            r for r in scaling_results["scaling_results"]
+            if r["config_size"] == size and r["mode"] == "cdxf_enhanced"
+        ]
+        assert len(rows) == 1
+        assert rows[0]["surviving_fraction"] >= 0.9
+
+
+# ===========================================================================
+# Enhanced: Timing experiment
+# ===========================================================================
+
+
+class TestTimingExperiment:
+    """Test overhead measurement."""
+
+    @pytest.fixture(scope="class")
+    def timing_results(self):
+        from benchmarks.src.run_exp015 import run_timing_experiment
+        return run_timing_experiment(n_iterations=5)
+
+    def test_returns_dict(self, timing_results):
+        assert "timings_seconds" in timing_results
+        assert "overhead" in timing_results
+
+    def test_all_timings_positive(self, timing_results):
+        for k, v in timing_results["timings_seconds"].items():
+            assert v > 0, f"{k} timing is not positive"
+
+    def test_has_serialize_timings(self, timing_results):
+        t = timing_results["timings_seconds"]
+        assert "json_default_serialize" in t
+        assert "cdxf_enhanced_serialize" in t
+
+    def test_has_extract_timings(self, timing_results):
+        t = timing_results["timings_seconds"]
+        assert "json_default_extract" in t
+        assert "cdxf_enhanced_extract" in t
+
+    def test_has_pipeline_timings(self, timing_results):
+        t = timing_results["timings_seconds"]
+        assert "json_default_pipeline" in t
+        assert "cdxf_enhanced_pipeline" in t
+
+    def test_overhead_is_computed(self, timing_results):
+        o = timing_results["overhead"]
+        assert "serialize_overhead_ms" in o
+        assert "extract_overhead_ms" in o
+        assert "pipeline_overhead_ms" in o
+
+
+# ===========================================================================
+# Enhanced: Data integrity experiment
+# ===========================================================================
+
+
+class TestIntegrityExperiment:
+    """Test that agent modifications are correctly applied."""
+
+    @pytest.fixture(scope="class")
+    def integrity_results(self):
+        from benchmarks.src.run_exp015 import run_integrity_experiment
+        return run_integrity_experiment()
+
+    def test_returns_dict(self, integrity_results):
+        assert "integrity_results" in integrity_results
+
+    def test_all_configs_tested(self, integrity_results):
+        configs = {r["graph_config"]
+                   for r in integrity_results["integrity_results"]}
+        assert len(configs) >= 2
+
+    def test_both_modes_tested(self, integrity_results):
+        modes = {r["mode"]
+                 for r in integrity_results["integrity_results"]}
+        assert modes == {"json_default", "cdxf_enhanced"}
+
+    def test_cdxf_integrity_passes(self, integrity_results):
+        """CDXF must preserve both metadata AND data values."""
+        cdxf_rows = [
+            r for r in integrity_results["integrity_results"]
+            if r["mode"] == "cdxf_enhanced"
+        ]
+        for row in cdxf_rows:
+            assert row["integrity_passed"], (
+                f"{row['graph_config']}: {row['failures']}"
+            )
+
+    def test_json_default_integrity_passes(self, integrity_results):
+        """JSON default should also preserve data values (just not comments)."""
+        json_rows = [
+            r for r in integrity_results["integrity_results"]
+            if r["mode"] == "json_default"
+        ]
+        for row in json_rows:
+            assert row["integrity_passed"], (
+                f"{row['graph_config']}: {row['failures']}"
+            )

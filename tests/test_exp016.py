@@ -331,3 +331,123 @@ class TestRunExperiment:
 
     def test_has_summary(self, results):
         assert "summary" in results
+
+
+
+# ===========================================================================
+# Enhanced: Expanded corpus fidelity
+# ===========================================================================
+
+
+class TestExpandedCorpusFidelity:
+    """Test fidelity across expanded corpus."""
+
+    @pytest.fixture(scope="class")
+    def expanded_results(self):
+        from benchmarks.src.run_exp016 import run_expanded_corpus_fidelity
+        return asyncio.run(run_expanded_corpus_fidelity())
+
+    def test_returns_dict(self, expanded_results):
+        assert "expanded_fidelity" in expanded_results
+
+    def test_has_all_yaml_sizes(self, expanded_results):
+        configs = {r["config"] for r in expanded_results["expanded_fidelity"]}
+        assert "yaml_small" in configs
+        assert "yaml_medium" in configs
+        assert "yaml_large" in configs
+        assert "yaml_xlarge" in configs
+
+    def test_has_cross_format(self, expanded_results):
+        configs = {r["config"] for r in expanded_results["expanded_fidelity"]}
+        assert "toml_medium" in configs
+        assert "xml_medium" in configs
+
+    @pytest.mark.parametrize("fmt", ["yaml", "toml", "xml"])
+    def test_fs_loses_comments(self, fmt, expanded_results):
+        rows = [
+            r for r in expanded_results["expanded_fidelity"]
+            if r["format"] == fmt
+        ]
+        for row in rows:
+            assert row["fs_surviving"] == 0.0, (
+                f"{row['config']}: fs_surviving={row['fs_surviving']}"
+            )
+
+    @pytest.mark.parametrize("fmt", ["yaml", "toml", "xml"])
+    def test_cdxf_preserves_comments(self, fmt, expanded_results):
+        rows = [
+            r for r in expanded_results["expanded_fidelity"]
+            if r["format"] == fmt
+        ]
+        for row in rows:
+            assert row["cdxf_surviving"] >= 0.9, (
+                f"{row['config']}: cdxf_surviving={row['cdxf_surviving']}"
+            )
+
+
+# ===========================================================================
+# Enhanced: Dual tokenizer
+# ===========================================================================
+
+
+class TestDualTokenizer:
+    """Test schema tokens across two tokenizer families."""
+
+    @pytest.fixture(scope="class")
+    def dual_results(self):
+        from benchmarks.src.run_exp016 import run_dual_tokenizer_experiment
+        return asyncio.run(run_dual_tokenizer_experiment())
+
+    def test_returns_dict(self, dual_results):
+        assert "dual_tokenizer" in dual_results
+
+    def test_has_both_tokenizers(self, dual_results):
+        assert "cl100k_base" in dual_results["dual_tokenizer"]
+        assert "o200k_base" in dual_results["dual_tokenizer"]
+
+    @pytest.mark.parametrize("tokenizer", ["cl100k_base", "o200k_base"])
+    def test_reduction_positive(self, tokenizer, dual_results):
+        data = dual_results["dual_tokenizer"][tokenizer]
+        assert data["saved"] > 0
+        assert data["reduction_pct"] > 20  # At least 20% reduction
+
+    def test_both_show_similar_reduction(self, dual_results):
+        """Token reduction should be similar across tokenizer families."""
+        dt = dual_results["dual_tokenizer"]
+        cl_pct = dt["cl100k_base"]["reduction_pct"]
+        o2_pct = dt["o200k_base"]["reduction_pct"]
+        # Within 15pp of each other
+        assert abs(cl_pct - o2_pct) < 15
+
+
+# ===========================================================================
+# Enhanced: Latency
+# ===========================================================================
+
+
+class TestLatencyExperiment:
+    """Test latency measurement."""
+
+    @pytest.fixture(scope="class")
+    def latency_results(self):
+        from benchmarks.src.run_exp016 import run_latency_experiment
+        return run_latency_experiment(n_iterations=5)
+
+    def test_returns_dict(self, latency_results):
+        assert "latency_seconds" in latency_results
+        assert "roundtrip_overhead_ms" in latency_results
+
+    def test_all_timings_positive(self, latency_results):
+        for k, v in latency_results["latency_seconds"].items():
+            assert v > 0, f"{k} timing is not positive"
+
+    def test_has_roundtrip_timings(self, latency_results):
+        t = latency_results["latency_seconds"]
+        assert "fs_roundtrip" in t
+        assert "cdxf_roundtrip" in t
+
+    def test_has_component_timings(self, latency_results):
+        t = latency_results["latency_seconds"]
+        assert "fs_parse_yaml" in t
+        assert "cdxf_encode_yaml" in t
+        assert "cdxf_decode_yaml" in t

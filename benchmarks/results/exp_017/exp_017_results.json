@@ -1,6 +1,6 @@
 {
   "experiment": "EXP-017",
-  "timestamp": "2026-05-26T12:51:58.783651+00:00",
+  "timestamp": "2026-05-26T13:52:32.273668+00:00",
   "framework": "crewai",
   "framework_version": "1.14.5",
   "results": {
@@ -136,5 +136,117 @@
       "initial_comments": 22,
       "final_comments": 22
     }
+  },
+  "scaling": {
+    "scaling_results": [
+      {
+        "config_size": "small",
+        "mode": "json_default",
+        "initial_comments": 4,
+        "final_comments": 0,
+        "surviving_fraction": 0.0
+      },
+      {
+        "config_size": "small",
+        "mode": "cdxf_enhanced",
+        "initial_comments": 4,
+        "final_comments": 4,
+        "surviving_fraction": 1.0
+      },
+      {
+        "config_size": "medium",
+        "mode": "json_default",
+        "initial_comments": 8,
+        "final_comments": 0,
+        "surviving_fraction": 0.0
+      },
+      {
+        "config_size": "medium",
+        "mode": "cdxf_enhanced",
+        "initial_comments": 8,
+        "final_comments": 8,
+        "surviving_fraction": 1.0
+      },
+      {
+        "config_size": "large",
+        "mode": "json_default",
+        "initial_comments": 22,
+        "final_comments": 0,
+        "surviving_fraction": 0.0
+      },
+      {
+        "config_size": "large",
+        "mode": "cdxf_enhanced",
+        "initial_comments": 22,
+        "final_comments": 22,
+        "surviving_fraction": 1.0
+      },
+      {
+        "config_size": "xlarge",
+        "mode": "json_default",
+        "initial_comments": 38,
+        "final_comments": 0,
+        "surviving_fraction": 0.0
+      },
+      {
+        "config_size": "xlarge",
+        "mode": "cdxf_enhanced",
+        "initial_comments": 38,
+        "final_comments": 38,
+        "surviving_fraction": 1.0
+      }
+    ]
+  },
+  "timing": {
+    "timings_seconds": {
+      "json_default_serialize": 0.0018816899973899126,
+      "cdxf_enhanced_serialize": 0.00398620999767445,
+      "json_default_extract": 1.7999846022576093e-07,
+      "cdxf_enhanced_extract": 0.0016656599967973308,
+      "json_default_pipeline": 0.28894651000155136,
+      "cdxf_enhanced_pipeline": 0.2545056399976602
+    },
+    "overhead": {
+      "serialize_overhead_ms": 2.1045200002845377,
+      "extract_overhead_ms": 1.665479998337105,
+      "pipeline_overhead_ms": -34.44087000389118
+    },
+    "n_iterations": 10
+  },
+  "integrity": {
+    "integrity_results": [
+      {
+        "crew_config": "linear_4agent",
+        "mode": "json_default",
+        "n_agents": 4,
+        "integrity_passed": true,
+        "checks": 4,
+        "failures": []
+      },
+      {
+        "crew_config": "linear_4agent",
+        "mode": "cdxf_enhanced",
+        "n_agents": 4,
+        "integrity_passed": true,
+        "checks": 4,
+        "failures": []
+      },
+      {
+        "crew_config": "linear_6agent",
+        "mode": "json_default",
+        "n_agents": 6,
+        "integrity_passed": true,
+        "checks": 6,
+        "failures": []
+      },
+      {
+        "crew_config": "linear_6agent",
+        "mode": "cdxf_enhanced",
+        "n_agents": 6,
+        "integrity_passed": true,
+        "checks": 6,
+        "failures": []
+      }
+    ]
   }
 }

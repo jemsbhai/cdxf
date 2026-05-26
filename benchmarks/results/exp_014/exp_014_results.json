@@ -1,6 +1,6 @@
 {
   "experiment": "EXP-014",
-  "timestamp": "2026-05-26T03:24:23.037723+00:00",
+  "timestamp": "2026-05-26T13:37:33.087094+00:00",
   "scaling_analysis": {
     "2": {
       "n_formats": 2,
@@ -41,7 +41,7 @@
             "comments_before": 14,
             "comments_after": 0,
             "comments_lost": 14,
-            "latency_us": 960.8
+            "latency_us": 1801.1
           }
         ]
       },
@@ -60,7 +60,7 @@
             "comments_before": 14,
             "comments_after": 0,
             "comments_lost": 14,
-            "latency_us": 975.0
+            "latency_us": 1236.6
           },
           {
             "hop": 2,
@@ -71,7 +71,7 @@
             "comments_before": 0,
             "comments_after": 0,
             "comments_lost": 0,
-            "latency_us": 626.2
+            "latency_us": 569.4
           }
         ]
       },
@@ -90,7 +90,7 @@
             "comments_before": 14,
             "comments_after": 0,
             "comments_lost": 14,
-            "latency_us": 916.6
+            "latency_us": 1464.3
           },
           {
             "hop": 2,
@@ -101,7 +101,7 @@
             "comments_before": 0,
             "comments_after": 0,
             "comments_lost": 0,
-            "latency_us": 625.8
+            "latency_us": 2442.1
           },
           {
             "hop": 3,
@@ -112,7 +112,7 @@
             "comments_before": 0,
             "comments_after": 0,
             "comments_lost": 0,
-            "latency_us": 185.7
+            "latency_us": 677.2
           }
         ]
       },
@@ -131,7 +131,7 @@
             "comments_before": 14,
             "comments_after": 0,
             "comments_lost": 14,
-            "latency_us": 1016.8
+            "latency_us": 2747.8
           },
           {
             "hop": 2,
@@ -142,7 +142,7 @@
             "comments_before": 0,
             "comments_after": 0,
             "comments_lost": 0,
-            "latency_us": 577.5
+            "latency_us": 1312.4
           },
           {
             "hop": 3,
@@ -153,7 +153,7 @@
             "comments_before": 0,
             "comments_after": 0,
             "comments_lost": 0,
-            "latency_us": 163.1
+            "latency_us": 305.1
           },
           {
             "hop": 4,
@@ -164,7 +164,7 @@
             "comments_before": 0,
             "comments_after": 0,
             "comments_lost": 0,
-            "latency_us": 512.7
+            "latency_us": 511.2
           },
           {
             "hop": 5,
@@ -175,7 +175,7 @@
             "comments_before": 0,
             "comments_after": 0,
             "comments_lost": 0,
-            "latency_us": 1201.7
+            "latency_us": 1075.4
           }
         ]
       }
@@ -196,7 +196,7 @@
             "comments_before": 14,
             "comments_after": 0,
             "comments_lost": 14,
-            "latency_us": 88.5
+            "latency_us": 170.4
           }
         ]
       },
@@ -215,7 +215,7 @@
             "comments_before": 14,
             "comments_after": 0,
             "comments_lost": 14,
-            "latency_us": 83.6
+            "latency_us": 74.2
           },
           {
             "hop": 2,
@@ -226,7 +226,7 @@
             "comments_before": 14,
             "comments_after": 13,
             "comments_lost": 1,
-            "latency_us": 621.0
+            "latency_us": 558.7
           }
         ]
       },
@@ -245,7 +245,7 @@
             "comments_before": 14,
             "comments_after": 0,
             "comments_lost": 14,
-            "latency_us": 84.9
+            "latency_us": 69.5
           },
           {
             "hop": 2,
@@ -256,7 +256,7 @@
             "comments_before": 14,
             "comments_after": 13,
             "comments_lost": 1,
-            "latency_us": 658.4
+            "latency_us": 521.8
           },
           {
             "hop": 3,
@@ -267,7 +267,7 @@
             "comments_before": 14,
             "comments_after": 0,
             "comments_lost": 14,
-            "latency_us": 42.2
+            "latency_us": 35.8
           }
         ]
       },
@@ -286,7 +286,7 @@
             "comments_before": 14,
             "comments_after": 0,
             "comments_lost": 14,
-            "latency_us": 82.5
+            "latency_us": 76.4
           },
           {
             "hop": 2,
@@ -297,7 +297,7 @@
             "comments_before": 14,
             "comments_after": 13,
             "comments_lost": 1,
-            "latency_us": 1202.0
+            "latency_us": 663.2
           },
           {
             "hop": 3,
@@ -308,7 +308,7 @@
             "comments_before": 14,
             "comments_after": 0,
             "comments_lost": 14,
-            "latency_us": 69.6
+            "latency_us": 44.8
           },
           {
             "hop": 4,
@@ -319,7 +319,7 @@
             "comments_before": 14,
             "comments_after": 14,
             "comments_lost": 0,
-            "latency_us": 2525.9
+            "latency_us": 1278.8
           },
           {
             "hop": 5,
@@ -330,7 +330,7 @@
             "comments_before": 14,
             "comments_after": 14,
             "comments_lost": 0,
-            "latency_us": 2392.7
+            "latency_us": 1230.1
           }
         ]
       }
@@ -356,7 +356,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 968.8
+              "latency_us": 1132.3
             }
           ]
         },
@@ -377,7 +377,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 876.9
+              "latency_us": 794.6
             },
             {
               "hop": 2,
@@ -388,7 +388,7 @@
               "comments_before": 0,
               "comments_after": 0,
               "comments_lost": 0,
-              "latency_us": 439.3
+              "latency_us": 438.3
             }
           ]
         },
@@ -409,7 +409,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 891.3
+              "latency_us": 1099.8
             },
             {
               "hop": 2,
@@ -420,7 +420,7 @@
               "comments_before": 0,
               "comments_after": 0,
               "comments_lost": 0,
-              "latency_us": 444.3
+              "latency_us": 581.5
             },
             {
               "hop": 3,
@@ -431,7 +431,7 @@
               "comments_before": 0,
               "comments_after": 0,
               "comments_lost": 0,
-              "latency_us": 744.9
+              "latency_us": 716.4
             }
           ]
         },
@@ -452,7 +452,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 1713.6
+              "latency_us": 810.3
             },
             {
               "hop": 2,
@@ -463,7 +463,7 @@
               "comments_before": 0,
               "comments_after": 0,
               "comments_lost": 0,
-              "latency_us": 792.9
+              "latency_us": 465.1
             },
             {
               "hop": 3,
@@ -474,7 +474,7 @@
               "comments_before": 0,
               "comments_after": 0,
               "comments_lost": 0,
-              "latency_us": 792.5
+              "latency_us": 904.9
             },
             {
               "hop": 4,
@@ -485,7 +485,7 @@
               "comments_before": 0,
               "comments_after": 0,
               "comments_lost": 0,
-              "latency_us": 442.7
+              "latency_us": 440.8
             },
             {
               "hop": 5,
@@ -496,7 +496,7 @@
               "comments_before": 0,
               "comments_after": 0,
               "comments_lost": 0,
-              "latency_us": 884.4
+              "latency_us": 692.7
             }
           ]
         }
@@ -519,7 +519,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 982.4
+              "latency_us": 803.0
             }
           ]
         },
@@ -540,7 +540,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 861.9
+              "latency_us": 847.2
             },
             {
               "hop": 2,
@@ -551,7 +551,7 @@
               "comments_before": 0,
               "comments_after": 0,
               "comments_lost": 0,
-              "latency_us": 742.8
+              "latency_us": 677.4
             }
           ]
         },
@@ -559,6 +559,212 @@
           "method": "direct",
           "depth": 3,
           "n_formats": 3,
+          "initial_comments": 14,
+          "final_comments": 0,
+          "surviving_fraction": 0.0,
+          "hops": [
+            {
+              "hop": 1,
+              "from_agent": "DataCurator",
+              "to_agent": "ModelTrainer",
+              "from_format": "yaml",
+              "to_format": "json",
+              "comments_before": 14,
+              "comments_after": 0,
+              "comments_lost": 14,
+              "latency_us": 835.6
+            },
+            {
+              "hop": 2,
+              "from_agent": "ModelTrainer",
+              "to_agent": "Evaluator",
+              "from_format": "json",
+              "to_format": "toml",
+              "comments_before": 0,
+              "comments_after": 0,
+              "comments_lost": 0,
+              "latency_us": 620.5
+            },
+            {
+              "hop": 3,
+              "from_agent": "Evaluator",
+              "to_agent": "DataCurator",
+              "from_format": "toml",
+              "to_format": "yaml",
+              "comments_before": 0,
+              "comments_after": 0,
+              "comments_lost": 0,
+              "latency_us": 500.2
+            }
+          ]
+        },
+        "5": {
+          "method": "direct",
+          "depth": 5,
+          "n_formats": 3,
+          "initial_comments": 14,
+          "final_comments": 0,
+          "surviving_fraction": 0.0,
+          "hops": [
+            {
+              "hop": 1,
+              "from_agent": "DataCurator",
+              "to_agent": "ModelTrainer",
+              "from_format": "yaml",
+              "to_format": "json",
+              "comments_before": 14,
+              "comments_after": 0,
+              "comments_lost": 14,
+              "latency_us": 848.5
+            },
+            {
+              "hop": 2,
+              "from_agent": "ModelTrainer",
+              "to_agent": "Evaluator",
+              "from_format": "json",
+              "to_format": "toml",
+              "comments_before": 0,
+              "comments_after": 0,
+              "comments_lost": 0,
+              "latency_us": 562.6
+            },
+            {
+              "hop": 3,
+              "from_agent": "Evaluator",
+              "to_agent": "DataCurator",
+              "from_format": "toml",
+              "to_format": "yaml",
+              "comments_before": 0,
+              "comments_after": 0,
+              "comments_lost": 0,
+              "latency_us": 526.8
+            },
+            {
+              "hop": 4,
+              "from_agent": "DataCurator",
+              "to_agent": "ModelTrainer",
+              "from_format": "yaml",
+              "to_format": "json",
+              "comments_before": 0,
+              "comments_after": 0,
+              "comments_lost": 0,
+              "latency_us": 748.0
+            },
+            {
+              "hop": 5,
+              "from_agent": "ModelTrainer",
+              "to_agent": "Evaluator",
+              "from_format": "json",
+              "to_format": "toml",
+              "comments_before": 0,
+              "comments_after": 0,
+              "comments_lost": 0,
+              "latency_us": 535.0
+            }
+          ]
+        }
+      },
+      "4": {
+        "1": {
+          "method": "direct",
+          "depth": 1,
+          "n_formats": 4,
+          "initial_comments": 14,
+          "final_comments": 0,
+          "surviving_fraction": 0.0,
+          "hops": [
+            {
+              "hop": 1,
+              "from_agent": "DataCurator",
+              "to_agent": "ModelTrainer",
+              "from_format": "yaml",
+              "to_format": "json",
+              "comments_before": 14,
+              "comments_after": 0,
+              "comments_lost": 14,
+              "latency_us": 808.0
+            }
+          ]
+        },
+        "2": {
+          "method": "direct",
+          "depth": 2,
+          "n_formats": 4,
+          "initial_comments": 14,
+          "final_comments": 0,
+          "surviving_fraction": 0.0,
+          "hops": [
+            {
+              "hop": 1,
+              "from_agent": "DataCurator",
+              "to_agent": "ModelTrainer",
+              "from_format": "yaml",
+              "to_format": "json",
+              "comments_before": 14,
+              "comments_after": 0,
+              "comments_lost": 14,
+              "latency_us": 843.1
+            },
+            {
+              "hop": 2,
+              "from_agent": "ModelTrainer",
+              "to_agent": "Evaluator",
+              "from_format": "json",
+              "to_format": "toml",
+              "comments_before": 0,
+              "comments_after": 0,
+              "comments_lost": 0,
+              "latency_us": 601.3
+            }
+          ]
+        },
+        "3": {
+          "method": "direct",
+          "depth": 3,
+          "n_formats": 4,
+          "initial_comments": 14,
+          "final_comments": 0,
+          "surviving_fraction": 0.0,
+          "hops": [
+            {
+              "hop": 1,
+              "from_agent": "DataCurator",
+              "to_agent": "ModelTrainer",
+              "from_format": "yaml",
+              "to_format": "json",
+              "comments_before": 14,
+              "comments_after": 0,
+              "comments_lost": 14,
+              "latency_us": 835.1
+            },
+            {
+              "hop": 2,
+              "from_agent": "ModelTrainer",
+              "to_agent": "Evaluator",
+              "from_format": "json",
+              "to_format": "toml",
+              "comments_before": 0,
+              "comments_after": 0,
+              "comments_lost": 0,
+              "latency_us": 548.1
+            },
+            {
+              "hop": 3,
+              "from_agent": "Evaluator",
+              "to_agent": "Deployer",
+              "from_format": "toml",
+              "to_format": "xml",
+              "comments_before": 0,
+              "comments_after": 0,
+              "comments_lost": 0,
+              "latency_us": 156.7
+            }
+          ]
+        },
+        "5": {
+          "method": "direct",
+          "depth": 5,
+          "n_formats": 4,
           "initial_comments": 14,
           "final_comments": 0,
           "surviving_fraction": 0.0,
@@ -583,170 +789,7 @@
               "comments_before": 0,
               "comments_after": 0,
               "comments_lost": 0,
-              "latency_us": 748.5
-            },
-            {
-              "hop": 3,
-              "from_agent": "Evaluator",
-              "to_agent": "DataCurator",
-              "from_format": "toml",
-              "to_format": "yaml",
-              "comments_before": 0,
-              "comments_after": 0,
-              "comments_lost": 0,
-              "latency_us": 550.7
-            }
-          ]
-        },
-        "5": {
-          "method": "direct",
-          "depth": 5,
-          "n_formats": 3,
-          "initial_comments": 14,
-          "final_comments": 0,
-          "surviving_fraction": 0.0,
-          "hops": [
-            {
-              "hop": 1,
-              "from_agent": "DataCurator",
-              "to_agent": "ModelTrainer",
-              "from_format": "yaml",
-              "to_format": "json",
-              "comments_before": 14,
-              "comments_after": 0,
-              "comments_lost": 14,
-              "latency_us": 919.6
-            },
-            {
-              "hop": 2,
-              "from_agent": "ModelTrainer",
-              "to_agent": "Evaluator",
-              "from_format": "json",
-              "to_format": "toml",
-              "comments_before": 0,
-              "comments_after": 0,
-              "comments_lost": 0,
-              "latency_us": 576.8
-            },
-            {
-              "hop": 3,
-              "from_agent": "Evaluator",
-              "to_agent": "DataCurator",
-              "from_format": "toml",
-              "to_format": "yaml",
-              "comments_before": 0,
-              "comments_after": 0,
-              "comments_lost": 0,
-              "latency_us": 525.0
-            },
-            {
-              "hop": 4,
-              "from_agent": "DataCurator",
-              "to_agent": "ModelTrainer",
-              "from_format": "yaml",
-              "to_format": "json",
-              "comments_before": 0,
-              "comments_after": 0,
-              "comments_lost": 0,
-              "latency_us": 754.5
-            },
-            {
-              "hop": 5,
-              "from_agent": "ModelTrainer",
-              "to_agent": "Evaluator",
-              "from_format": "json",
-              "to_format": "toml",
-              "comments_before": 0,
-              "comments_after": 0,
-              "comments_lost": 0,
-              "latency_us": 562.5
-            }
-          ]
-        }
-      },
-      "4": {
-        "1": {
-          "method": "direct",
-          "depth": 1,
-          "n_formats": 4,
-          "initial_comments": 14,
-          "final_comments": 0,
-          "surviving_fraction": 0.0,
-          "hops": [
-            {
-              "hop": 1,
-              "from_agent": "DataCurator",
-              "to_agent": "ModelTrainer",
-              "from_format": "yaml",
-              "to_format": "json",
-              "comments_before": 14,
-              "comments_after": 0,
-              "comments_lost": 14,
-              "latency_us": 918.3
-            }
-          ]
-        },
-        "2": {
-          "method": "direct",
-          "depth": 2,
-          "n_formats": 4,
-          "initial_comments": 14,
-          "final_comments": 0,
-          "surviving_fraction": 0.0,
-          "hops": [
-            {
-              "hop": 1,
-              "from_agent": "DataCurator",
-              "to_agent": "ModelTrainer",
-              "from_format": "yaml",
-              "to_format": "json",
-              "comments_before": 14,
-              "comments_after": 0,
-              "comments_lost": 14,
-              "latency_us": 885.8
-            },
-            {
-              "hop": 2,
-              "from_agent": "ModelTrainer",
-              "to_agent": "Evaluator",
-              "from_format": "json",
-              "to_format": "toml",
-              "comments_before": 0,
-              "comments_after": 0,
-              "comments_lost": 0,
-              "latency_us": 651.6
-            }
-          ]
-        },
-        "3": {
-          "method": "direct",
-          "depth": 3,
-          "n_formats": 4,
-          "initial_comments": 14,
-          "final_comments": 0,
-          "surviving_fraction": 0.0,
-          "hops": [
-            {
-              "hop": 1,
-              "from_agent": "DataCurator",
-              "to_agent": "ModelTrainer",
-              "from_format": "yaml",
-              "to_format": "json",
-              "comments_before": 14,
-              "comments_after": 0,
-              "comments_lost": 14,
-              "latency_us": 2354.5
-            },
-            {
-              "hop": 2,
-              "from_agent": "ModelTrainer",
-              "to_agent": "Evaluator",
-              "from_format": "json",
-              "to_format": "toml",
-              "comments_before": 0,
-              "comments_after": 0,
-              "comments_lost": 0,
-              "latency_us": 1561.4
+              "latency_us": 695.5
             },
             {
               "hop": 3,
@@ -757,50 +800,7 @@
               "comments_before": 0,
               "comments_after": 0,
               "comments_lost": 0,
-              "latency_us": 989.3
-            }
-          ]
-        },
-        "5": {
-          "method": "direct",
-          "depth": 5,
-          "n_formats": 4,
-          "initial_comments": 14,
-          "final_comments": 0,
-          "surviving_fraction": 0.0,
-          "hops": [
-            {
-              "hop": 1,
-              "from_agent": "DataCurator",
-              "to_agent": "ModelTrainer",
-              "from_format": "yaml",
-              "to_format": "json",
-              "comments_before": 14,
-              "comments_after": 0,
-              "comments_lost": 14,
-              "latency_us": 1117.0
-            },
-            {
-              "hop": 2,
-              "from_agent": "ModelTrainer",
-              "to_agent": "Evaluator",
-              "from_format": "json",
-              "to_format": "toml",
-              "comments_before": 0,
-              "comments_after": 0,
-              "comments_lost": 0,
-              "latency_us": 1106.0
-            },
-            {
-              "hop": 3,
-              "from_agent": "Evaluator",
-              "to_agent": "Deployer",
-              "from_format": "toml",
-              "to_format": "xml",
-              "comments_before": 0,
-              "comments_after": 0,
-              "comments_lost": 0,
-              "latency_us": 310.4
+              "latency_us": 524.1
             },
             {
               "hop": 4,
@@ -811,7 +811,7 @@
               "comments_before": 0,
               "comments_after": 0,
               "comments_lost": 0,
-              "latency_us": 1025.1
+              "latency_us": 1409.4
             },
             {
               "hop": 5,
@@ -822,7 +822,7 @@
               "comments_before": 0,
               "comments_after": 0,
               "comments_lost": 0,
-              "latency_us": 2205.9
+              "latency_us": 2149.7
             }
           ]
         }
@@ -847,7 +847,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 137.5
+              "latency_us": 85.6
             }
           ]
         },
@@ -868,7 +868,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 118.5
+              "latency_us": 76.9
             },
             {
               "hop": 2,
@@ -879,7 +879,7 @@
               "comments_before": 14,
               "comments_after": 14,
               "comments_lost": 0,
-              "latency_us": 2496.4
+              "latency_us": 1394.2
             }
           ]
         },
@@ -900,7 +900,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 142.6
+              "latency_us": 70.2
             },
             {
               "hop": 2,
@@ -911,7 +911,7 @@
               "comments_before": 14,
               "comments_after": 14,
               "comments_lost": 0,
-              "latency_us": 2583.8
+              "latency_us": 2194.0
             },
             {
               "hop": 3,
@@ -922,7 +922,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 120.5
+              "latency_us": 126.0
             }
           ]
         },
@@ -943,7 +943,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 145.7
+              "latency_us": 74.3
             },
             {
               "hop": 2,
@@ -954,7 +954,7 @@
               "comments_before": 14,
               "comments_after": 14,
               "comments_lost": 0,
-              "latency_us": 2530.5
+              "latency_us": 1285.6
             },
             {
               "hop": 3,
@@ -965,7 +965,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 151.8
+              "latency_us": 74.2
             },
             {
               "hop": 4,
@@ -976,7 +976,7 @@
               "comments_before": 14,
               "comments_after": 14,
               "comments_lost": 0,
-              "latency_us": 2439.1
+              "latency_us": 1205.5
             },
             {
               "hop": 5,
@@ -987,7 +987,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 120.5
+              "latency_us": 72.7
             }
           ]
         }
@@ -1010,7 +1010,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 77.7
+              "latency_us": 75.2
             }
           ]
         },
@@ -1031,7 +1031,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 77.0
+              "latency_us": 102.4
             },
             {
               "hop": 2,
@@ -1042,7 +1042,7 @@
               "comments_before": 14,
               "comments_after": 13,
               "comments_lost": 1,
-              "latency_us": 617.8
+              "latency_us": 798.1
             }
           ]
         },
@@ -1063,7 +1063,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 131.8
+              "latency_us": 67.4
             },
             {
               "hop": 2,
@@ -1074,7 +1074,7 @@
               "comments_before": 14,
               "comments_after": 13,
               "comments_lost": 1,
-              "latency_us": 1167.7
+              "latency_us": 530.6
             },
             {
               "hop": 3,
@@ -1085,7 +1085,7 @@
               "comments_before": 14,
               "comments_after": 14,
               "comments_lost": 0,
-              "latency_us": 1568.1
+              "latency_us": 2560.4
             }
           ]
         },
@@ -1106,7 +1106,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 78.5
+              "latency_us": 72.9
             },
             {
               "hop": 2,
@@ -1117,7 +1117,7 @@
               "comments_before": 14,
               "comments_after": 13,
               "comments_lost": 1,
-              "latency_us": 618.4
+              "latency_us": 536.8
             },
             {
               "hop": 3,
@@ -1128,7 +1128,7 @@
               "comments_before": 14,
               "comments_after": 14,
               "comments_lost": 0,
-              "latency_us": 1428.3
+              "latency_us": 1520.2
             },
             {
               "hop": 4,
@@ -1139,7 +1139,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 83.9
+              "latency_us": 157.4
             },
             {
               "hop": 5,
@@ -1150,7 +1150,7 @@
               "comments_before": 14,
               "comments_after": 13,
               "comments_lost": 1,
-              "latency_us": 587.1
+              "latency_us": 1233.1
             }
           ]
         }
@@ -1173,7 +1173,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 80.4
+              "latency_us": 202.8
             }
           ]
         },
@@ -1194,7 +1194,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 192.3
+              "latency_us": 70.3
             },
             {
               "hop": 2,
@@ -1205,7 +1205,7 @@
               "comments_before": 14,
               "comments_after": 13,
               "comments_lost": 1,
-              "latency_us": 1205.3
+              "latency_us": 560.9
             }
           ]
         },
@@ -1226,7 +1226,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 85.6
+              "latency_us": 136.6
             },
             {
               "hop": 2,
@@ -1237,7 +1237,7 @@
               "comments_before": 14,
               "comments_after": 13,
               "comments_lost": 1,
-              "latency_us": 621.2
+              "latency_us": 872.8
             },
             {
               "hop": 3,
@@ -1248,7 +1248,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 39.1
+              "latency_us": 44.6
             }
           ]
         },
@@ -1269,7 +1269,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 82.7
+              "latency_us": 229.3
             },
             {
               "hop": 2,
@@ -1280,7 +1280,7 @@
               "comments_before": 14,
               "comments_after": 13,
               "comments_lost": 1,
-              "latency_us": 599.8
+              "latency_us": 2369.1
             },
             {
               "hop": 3,
@@ -1291,7 +1291,7 @@
               "comments_before": 14,
               "comments_after": 0,
               "comments_lost": 14,
-              "latency_us": 39.2
+              "latency_us": 139.2
             },
             {
               "hop": 4,
@@ -1302,7 +1302,7 @@
               "comments_before": 14,
               "comments_after": 14,
               "comments_lost": 0,
-              "latency_us": 2853.3
+              "latency_us": 3076.2
             },
             {
               "hop": 5,
@@ -1313,7 +1313,7 @@
               "comments_before": 14,
               "comments_after": 14,
               "comments_lost": 0,
-              "latency_us": 3511.9
+              "latency_us": 2081.9
             }
           ]
         }

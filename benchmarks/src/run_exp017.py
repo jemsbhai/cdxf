@@ -45,6 +45,16 @@ except ImportError:
     print("ERROR: cdxf not installed. Run: pip install -e .")
     sys.exit(1)
 
+# Shared corpus for enhanced experiments
+sys.path.insert(0, str(Path(__file__).parent.parent.parent))
+from benchmarks.src.config_corpus import (
+    YAML_CONFIGS,
+    EXPECTED_VALUES_AFTER_4AGENT,
+    EXPECTED_VALUES_AFTER_6AGENT,
+    verify_data_integrity,
+    Timer,
+)
+
 
 # ===========================================================================
 # Protocol constants
@@ -606,6 +616,201 @@ def run_crew(
 
 
 # ===========================================================================
+# Enhanced experiments — scaling, timing, data integrity
+# ===========================================================================
+
+
+def run_scaling_experiment(
+    config_sizes: list[str] | None = None,
+) -> dict:
+    """Test metadata fidelity across different config sizes in CrewAI.
+
+    Uses the shared config corpus (small/medium/large/xlarge) to show
+    that CDXF fidelity is size-invariant.
+    """
+    if config_sizes is None:
+        config_sizes = ["small", "medium", "large", "xlarge"]
+
+    results = []
+    for size in config_sizes:
+        cfg = YAML_CONFIGS[size]
+        text = cfg["text"]
+        fmt = cfg["format"]
+
+        for mode in STATE_MODES:
+            initial_meta = count_config_metadata(text, fmt)
+
+            # Build a minimal 2-agent crew for scaling test
+            # (full crew not needed — we're testing config size, not depth)
+            llm = FakeLLM(mode=mode)
+            initial_output = serialize_config_for_output(text, fmt, mode)
+
+            agent1 = Agent(
+                role="Data Curator", goal="Process config",
+                backstory="Config processor", llm=llm,
+                verbose=False, allow_delegation=False,
+            )
+            agent2 = Agent(
+                role="ML Trainer", goal="Update config",
+                backstory="Config updater", llm=llm,
+                verbose=False, allow_delegation=False,
+            )
+
+            task1 = Task(
+                description=f"Process config:\n{initial_output}",
+                expected_output="Modified config",
+                agent=agent1,
+            )
+            task2 = Task(
+                description="Update the config.",
+                expected_output="Modified config",
+                agent=agent2,
+                context=[task1],
+            )
+
+            crew = Crew(
+                agents=[agent1, agent2],
+                tasks=[task1, task2],
+                process=Process.sequential,
+                verbose=False,
+            )
+            crew_output = crew.kickoff()
+
+            final_text = extract_config_from_output(
+                crew_output.raw, fmt, mode
+            )
+            final_meta = count_config_metadata(final_text, fmt)
+
+            surviving = (
+                final_meta["comments"] / initial_meta["comments"]
+                if initial_meta["comments"] > 0 else 1.0
+            )
+
+            results.append({
+                "config_size": size,
+                "mode": mode,
+                "initial_comments": initial_meta["comments"],
+                "final_comments": final_meta["comments"],
+                "surviving_fraction": surviving,
+            })
+
+    return {"scaling_results": results}
+
+
+def run_timing_experiment(
+    n_iterations: int = 10,
+) -> dict:
+    """Measure overhead of CDXF vs JSON serialization in CrewAI.
+
+    Times: serialization, extraction, full crew pipeline.
+    Reports mean times over n_iterations.
+    """
+    text, fmt = build_initial_config()
+    timer = Timer()
+
+    # Time serialization
+    timer.measure_n(
+        "json_default_serialize",
+        lambda: serialize_config_for_output(text, fmt, "json_default"),
+        n=n_iterations,
+    )
+    timer.measure_n(
+        "cdxf_enhanced_serialize",
+        lambda: serialize_config_for_output(text, fmt, "cdxf_enhanced"),
+        n=n_iterations,
+    )
+
+    # Time extraction
+    json_val = serialize_config_for_output(text, fmt, "json_default")
+    cdxf_val = serialize_config_for_output(text, fmt, "cdxf_enhanced")
+
+    timer.measure_n(
+        "json_default_extract",
+        lambda: extract_config_from_output(json_val, fmt, "json_default"),
+        n=n_iterations,
+    )
+    timer.measure_n(
+        "cdxf_enhanced_extract",
+        lambda: extract_config_from_output(cdxf_val, fmt, "cdxf_enhanced"),
+        n=n_iterations,
+    )
+
+    # Time full crew pipeline (4-agent)
+    def run_pipeline(mode):
+        crew, _ = build_crew_pipeline(mode, CREW_CONFIGS[0])
+        crew.kickoff()
+
+    timer.measure_n(
+        "json_default_pipeline",
+        lambda: run_pipeline("json_default"),
+        n=n_iterations,
+    )
+    timer.measure_n(
+        "cdxf_enhanced_pipeline",
+        lambda: run_pipeline("cdxf_enhanced"),
+        n=n_iterations,
+    )
+
+    timings = timer.summary()
+    overhead = {
+        "serialize_overhead_ms": (
+            (timings["cdxf_enhanced_serialize"] -
+             timings["json_default_serialize"]) * 1000
+        ),
+        "extract_overhead_ms": (
+            (timings["cdxf_enhanced_extract"] -
+             timings["json_default_extract"]) * 1000
+        ),
+        "pipeline_overhead_ms": (
+            (timings["cdxf_enhanced_pipeline"] -
+             timings["json_default_pipeline"]) * 1000
+        ),
+    }
+
+    return {
+        "timings_seconds": timings,
+        "overhead": overhead,
+        "n_iterations": n_iterations,
+    }
+
+
+def run_integrity_experiment() -> dict:
+    """Verify that agent modifications are correctly applied AND preserved.
+
+    For each mode × topology, check that the final config contains the
+    expected values after all agents have made their modifications.
+    """
+    results = []
+
+    for cc in CREW_CONFIGS:
+        n_agents = len(cc["roles"])
+        expected = (
+            EXPECTED_VALUES_AFTER_6AGENT
+            if n_agents >= 6 else EXPECTED_VALUES_AFTER_4AGENT
+        )
+
+        for mode in STATE_MODES:
+            crew, tasks = build_crew_pipeline(mode, cc)
+            crew_output = crew.kickoff()
+
+            final_text = extract_config_from_output(
+                crew_output.raw, "yaml", mode
+            )
+            integrity = verify_data_integrity(final_text, expected)
+
+            results.append({
+                "crew_config": cc["name"],
+                "mode": mode,
+                "n_agents": n_agents,
+                "integrity_passed": integrity["passed"],
+                "checks": integrity["checks"],
+                "failures": integrity["failures"],
+            })
+
+    return {"integrity_results": results}
+
+
+# ===========================================================================
 # Full experiment
 # ===========================================================================
 
@@ -636,6 +841,28 @@ def run_experiment(output_dir: Path | str | None = None) -> dict:
                   f"{r['final_comments']} comments "
                   f"({r['surviving_fraction']:.1%})")
 
+    # --- Enhanced experiments ---
+    print("\n--- Scaling Experiment (multi-size configs) ---")
+    scaling = run_scaling_experiment()
+    for sr in scaling["scaling_results"]:
+        if sr["mode"] == "cdxf_enhanced":
+            print(f"  {sr['config_size']:8s}: {sr['initial_comments']} → "
+                  f"{sr['final_comments']} ({sr['surviving_fraction']:.1%})")
+
+    print("\n--- Timing Experiment ---")
+    timing = run_timing_experiment()
+    for k, v in timing["timings_seconds"].items():
+        print(f"  {k:30s}: {v*1000:.3f} ms")
+    for k, v in timing["overhead"].items():
+        print(f"  {k:30s}: {v:+.3f} ms")
+
+    print("\n--- Data Integrity Experiment ---")
+    integrity = run_integrity_experiment()
+    for ir in integrity["integrity_results"]:
+        status = "PASS" if ir["integrity_passed"] else "FAIL"
+        print(f"  {ir['crew_config']} / {ir['mode']}: "
+              f"{status} ({ir['checks']} checks)")
+
     # Summary
     print("\n--- Summary ---")
     summary = {}
@@ -658,6 +885,9 @@ def run_experiment(output_dir: Path | str | None = None) -> dict:
         "framework_version": _get_version("crewai"),
         "results": results,
         "summary": summary,
+        "scaling": scaling,
+        "timing": timing,
+        "integrity": integrity,
     }
 
     json_path = output_dir / "exp_017_results.json"
